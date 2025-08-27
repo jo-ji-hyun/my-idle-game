@@ -15,6 +15,10 @@ public class UIManager : Singleton<UIManager>
     private MoneyUi money;
     public MoneyUi Money { get { return money; } }
 
+    [SerializeField]
+    private EnemyHP enemyhp;
+    public EnemyHP EnemyHP { get { return enemyhp; } }
+
     protected override bool IsDestroy => false;
 
     protected override void Awake()
