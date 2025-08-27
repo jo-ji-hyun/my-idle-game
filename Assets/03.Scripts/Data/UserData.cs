@@ -7,5 +7,6 @@ using UnityEngine;
 public class UserData 
 {
     public int stage;    // === 진행 상황 ===
+    public int bossHp;   // === 보스 hp ===
     public int money;    // === 소지 금 ===
 }

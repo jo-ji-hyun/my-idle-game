@@ -14,6 +14,6 @@ public class UpgradeUi : MonoBehaviour
 
     public void ShowUpgade()
     {
-        UIManager.Instance.upgradeWindow.SetActive(true);
+        UIManager.Instance.Window.SetActive(true);
     }
 }

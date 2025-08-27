@@ -9,13 +9,11 @@ public class UIManager : Singleton<UIManager>
     private InventoryUi inventory;
     public InventoryUi Inventory { get { return inventory; } }
 
-    public GameObject inventoryWindow;
+    public GameObject Window;
 
     [SerializeField]
-    private UpgradeUi upgrade;
-    public UpgradeUi Upgrade { get { return upgrade; } }
-
-    public GameObject upgradeWindow;
+    private MoneyUi money;
+    public MoneyUi Money { get { return money; } }
 
     protected override bool IsDestroy => false;
 
