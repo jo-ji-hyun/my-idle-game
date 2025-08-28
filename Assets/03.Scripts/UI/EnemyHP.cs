@@ -12,9 +12,9 @@ public class EnemyHP : MonoBehaviour
 
     public void UpdateHpBar()
     {
-        hpbartext.text = GameManager.Instance.currentHp.ToString();
+        hpbartext.text = EnemyManager.Instance.currentHp.ToString();
         
-        float hp = (float)GameManager.Instance.currentHp / GameManager.Instance.maxEnemyHp; 
+        float hp = (float)EnemyManager.Instance.currentHp / EnemyManager.Instance.maxEnemyHp; 
 
         hpbar.fillAmount = hp; 
     }
