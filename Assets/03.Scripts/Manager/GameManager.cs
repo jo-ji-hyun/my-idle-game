@@ -17,5 +17,7 @@ public class GameManager : Singleton<GameManager>
         DataManager.Instance.userData.money += amount;
 
         UIManager.Instance.Money.UpdateUi();
+
+        Debug.Log("µ·¿À¸§");
     }
 }

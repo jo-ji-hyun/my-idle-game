@@ -19,11 +19,22 @@ public class Enemy : MonoBehaviour, IDamageable
         StageStart();
     }
 
+    // === 확인용 ===
+    private void Update()
+    {
+        if (Input.anyKey)
+        {
+            TakeDamage(500);
+        }
+    }
+
     public void StageStart()
     {
         maxEnemyHp = DataManager.Instance.userData.stage * 1000;
 
         currentHp = maxEnemyHp;
+
+        UIManager.Instance.EnemyHP.UpdateHpBar();
     }
 
     public void TakeDamage(int damage)
@@ -39,19 +50,30 @@ public class Enemy : MonoBehaviour, IDamageable
         UIManager.Instance.EnemyHP.UpdateHpBar();
     }
 
+    // === 스테이지 갱신후 다음 스테이지 준비 ===
     public void StageEnd() 
     {
         DataManager.Instance.userData.stage++;
 
-        StartCoroutine(IEnemySpawn());
+        UIManager.Instance.Stage.UpdateUi();
+
+        StartCoroutine(EnemySpawnCoroutine());
     }
 
-    private IEnumerator IEnemySpawn()
+    private IEnumerator EnemySpawnCoroutine()
     {
         Destroy(gameObject);
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
 
-        // === 몬스터 스폰 ===
+        // === 몬스터 스폰(준비) ===
+
+        GameManager.Instance.ChangeMoney(currentHp);
+
+        // === 아이템 추가(준비) ===
+
+        yield return new WaitForSeconds(2.0f);
+
+        StageStart();
     }
 }

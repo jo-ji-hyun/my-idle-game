@@ -11,6 +11,7 @@ public class UIManager : Singleton<UIManager>
 
     public GameObject Window;
 
+    // === UIµé ¿¬°á ===
     [SerializeField]
     private MoneyUi money;
     public MoneyUi Money { get { return money; } }
@@ -18,6 +19,11 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private EnemyHP enemyhp;
     public EnemyHP EnemyHP { get { return enemyhp; } }
+
+    [SerializeField]
+    private StageUi stage;
+    public StageUi Stage { get { return stage; } }
+
 
     protected override bool IsDestroy => false;
 
