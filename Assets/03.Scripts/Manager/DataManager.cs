@@ -53,4 +53,9 @@ public class DataManager : Singleton<DataManager>
 
         File.WriteAllText(_filePath, saveData);
     }
+
+    public void ClearJsonFile()
+    { 
+        File.WriteAllText(_filePath, "{}");
+    }
 }
