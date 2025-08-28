@@ -10,6 +10,13 @@ public class Enemy : MonoBehaviour
     {
         StageStart();
     }
+    private void Update()
+    {
+        if (GameManager.Instance.isBattle)
+        {
+            TakeDamage(DataManager.Instance.userData.Atk * 2);
+        }
+    }
 
     public void StageStart()
     {
@@ -18,10 +25,14 @@ public class Enemy : MonoBehaviour
         UIManager.Instance.EnemyHP.UpdateHpBar();
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
+        _currentHp -= damage;
+
         if (_currentHp <= 0)
         {
+            GameManager.Instance.isBattle = false;         // === 전투 종료 ===
+
             _currentHp = 0;
             
             EnemyManager.Instance.currentHp = _currentHp;
@@ -32,7 +43,7 @@ public class Enemy : MonoBehaviour
         }
         else // === Destroy가 있기 때문에 ===
         {
-            _currentHp = EnemyManager.Instance.currentHp;
+            EnemyManager.Instance.currentHp = _currentHp;
 
             UIManager.Instance.EnemyHP.UpdateHpBar();
         }
@@ -45,8 +56,8 @@ public class Enemy : MonoBehaviour
 
         UIManager.Instance.Stage.UpdateUi();
 
-        Destroy(this);
+        EnemyManager.Instance.NewEnemySpawn();
 
-        EnemyManager.Instance.EnemySpawnCoroutine();
+        Destroy(gameObject);
     }
 }

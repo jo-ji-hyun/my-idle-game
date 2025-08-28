@@ -667,8 +667,8 @@ Transform:
   m_GameObject: {fileID: 423890270}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 200, y: 1, z: 900}
+  m_LocalPosition: {x: 0, y: 30, z: 879}
+  m_LocalScale: {x: 200, y: 1, z: 2025}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1266,12 +1266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75438108e27433644a60f3a24b9f9e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 190019276702099332, guid: c5077dd456b7d3848b78d8151670a4f9, type: 3}
-  enemyObject: {fileID: 7104542804776523163, guid: c5077dd456b7d3848b78d8151670a4f9, type: 3}
+  enemyObject: {fileID: 6306821787230729820, guid: c0708c179d4704b43883236356b0d7b5, type: 3}
   enemyPosition: {fileID: 0}
   currentHp: 0
-  maxEnemyHp: 1000
-  spawposition: {x: 0, y: 0, z: 30}
+  maxEnemyHp: 0
+  spawposition: {x: 0, y: 60, z: 90}
 --- !u!4 &590840198
 Transform:
   m_ObjectHideFlags: 0
@@ -2318,7 +2317,7 @@ Transform:
   m_GameObject: {fileID: 1680695780}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 23, z: 5}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2339,8 +2338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04041de0f696c914fa000ae8b31f2ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 55
-  attackSpeed: 5
+  moveSpeed: 65
 --- !u!195 &1680695783
 NavMeshAgent:
   m_ObjectHideFlags: 0
