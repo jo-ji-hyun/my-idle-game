@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyManager : Singleton<EnemyManager>
 {
     [Header("Enemy")]
-    public GameObject enemy;
+    public GameObject enemyObject;
 
     [HideInInspector]
     public GameObject enemyPosition;       // === 추적을 위해 ===
@@ -42,12 +42,14 @@ public class EnemyManager : Singleton<EnemyManager>
 
         currentHp = maxEnemyHp;
 
+        DataManager.Instance.userData.bossHp = currentHp; // === 보스 체력을 저장 ===
+
         int stage = DataManager.Instance.userData.stage;
         float xoffset = Random.Range(-60f, 60f);
         float zoffset = stage * 10f;
 
         // === 한 적만 계속 소환하기 위해 ===
-        GameObject Clone = Instantiate(enemy, spawposition + _offset + new Vector3(xoffset, 0, zoffset), Quaternion.identity);
+        GameObject Clone = Instantiate(enemyObject, spawposition + _offset + new Vector3(xoffset, 0, zoffset), Quaternion.identity);
 
         enemyPosition = Clone;
     }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    // === РќХѕ Сп ===
+    public bool isBattle = false;
+
     protected override bool IsDestroy => false;
 
     protected override void Awake()

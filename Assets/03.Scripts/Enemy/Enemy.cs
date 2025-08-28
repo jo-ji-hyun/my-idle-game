@@ -2,27 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamageable
-{
-    void TakeDamage(int damage);
-}
-
-public class Enemy : MonoBehaviour, IDamageable
+public class Enemy : MonoBehaviour
 {
     private int _currentHp;
 
     private void Start()
     {
         StageStart();
-    }
-
-    // === 확인용 ===
-    private void Update()
-    {
-        if (_currentHp > 0) 
-        {
-            TakeDamage(10);
-        }
     }
 
     public void StageStart()
@@ -32,10 +18,8 @@ public class Enemy : MonoBehaviour, IDamageable
         UIManager.Instance.EnemyHP.UpdateHpBar();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
-        _currentHp -= damage;
-
         if (_currentHp <= 0)
         {
             _currentHp = 0;
@@ -48,7 +32,7 @@ public class Enemy : MonoBehaviour, IDamageable
         }
         else // === Destroy가 있기 때문에 ===
         {
-            EnemyManager.Instance.currentHp = _currentHp;
+            _currentHp = EnemyManager.Instance.currentHp;
 
             UIManager.Instance.EnemyHP.UpdateHpBar();
         }
@@ -61,8 +45,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
         UIManager.Instance.Stage.UpdateUi();
 
-        EnemyManager.Instance.EnemySpawnCoroutine();
+        Destroy(this);
 
-        Destroy(gameObject);
+        EnemyManager.Instance.EnemySpawnCoroutine();
     }
 }
