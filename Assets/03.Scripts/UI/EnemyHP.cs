@@ -6,17 +6,15 @@ using UnityEngine.UI;
 
 public class EnemyHP : MonoBehaviour
 {
-    public Enemy enemy;
-
     public Image hpbar;
 
     public TextMeshProUGUI hpbartext;
 
     public void UpdateHpBar()
     {
-        hpbartext.text = enemy.currentHp.ToString();
+        hpbartext.text = GameManager.Instance.currentHp.ToString();
         
-        float hp = (float)enemy.currentHp / enemy.maxEnemyHp; 
+        float hp = (float)GameManager.Instance.currentHp / GameManager.Instance.maxEnemyHp; 
 
         hpbar.fillAmount = hp; 
     }

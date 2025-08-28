@@ -18,8 +18,6 @@ public class MoneyUi : MonoBehaviour
 
     public void UpdateUi()
     {
-        _currentMoney = DataManager.Instance.userData.money;
-
-        moneyValue.text = string.Format("{0:N0}",_currentMoney);
+        moneyValue.text = string.Format("{0:N0}", DataManager.Instance.userData.money);
     }
 }
