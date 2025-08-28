@@ -7,6 +7,9 @@ public class EnemyManager : Singleton<EnemyManager>
     [Header("Enemy")]
     public GameObject enemy;
 
+    [HideInInspector]
+    public GameObject enemyPosition;       // === 추적을 위해 ===
+
     // === ui업데이트를 위해 ===
     [HideInInspector]
     public int currentHp;                // === 보스 현재 체력 ===
@@ -14,8 +17,8 @@ public class EnemyManager : Singleton<EnemyManager>
     public int maxEnemyHp = 1000;        // === 최대 체력 ===
 
     // === 적 생성 위치 ===
-    public Vector3 spawposition = new(0, 30, 150);
-    private Vector3 _offset = new(0, 0, 30);
+    public Vector3 spawposition = new(0, 0, 30);
+    private Vector3 _offset = new(0, 0, 80);
 
     protected override bool IsDestroy => false;
 
@@ -40,9 +43,12 @@ public class EnemyManager : Singleton<EnemyManager>
         currentHp = maxEnemyHp;
 
         int stage = DataManager.Instance.userData.stage;
+        float xoffset = Random.Range(-60f, 60f);
         float zoffset = stage * 10f;
 
         // === 한 적만 계속 소환하기 위해 ===
-        GameObject Clone = Instantiate(enemy, spawposition + _offset + new Vector3(0, 0, zoffset), Quaternion.identity);
+        GameObject Clone = Instantiate(enemy, spawposition + _offset + new Vector3(xoffset, 0, zoffset), Quaternion.identity);
+
+        enemyPosition = Clone;
     }
 }

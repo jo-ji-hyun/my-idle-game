@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float moveSpeed = 35.0f;
+
+    [Header("Ai")]
+    private NavMeshAgent _agent;
+
+    private void Awake()
     {
-        
+        _agent = GetComponent<NavMeshAgent>();
+
+        _agent.speed = moveSpeed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (EnemyManager.Instance.currentHp > 0)
+        {
+            TraceWalk();
+        }
+    }
+
+    void TraceWalk()
+    {
+        _agent.SetDestination(EnemyManager.Instance.enemyPosition.transform.position);
     }
 }

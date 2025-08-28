@@ -8,9 +8,6 @@ public class MoneyUi : MonoBehaviour
 {
     public TextMeshProUGUI moneyValue;
 
-    [SerializeField]
-    private int _currentMoney;
-
     void Start()
     {
         UpdateUi();
