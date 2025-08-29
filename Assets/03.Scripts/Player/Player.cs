@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
 
         _agent.speed = moveSpeed;
+
     }
 
     private void Update()

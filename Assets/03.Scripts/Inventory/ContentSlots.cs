@@ -9,40 +9,37 @@ public class ContentSlots : MonoBehaviour
 
     private int _slotCount = 20;
 
-    public List<GameObject> _slotList;
+    public List<Slot> slotList;
 
     private void Start()
     {
-        if (UIManager.Instance != null)
-        {
-            SetItem();
-        }
+        SlotsCreate();
     }
 
-    void SetItem()
+    // === 인벤토리 슬롯 배치 ===
+    private void SlotsCreate()
     {
-        _slotList = new List<GameObject>();
+        slotList = new List<Slot>();
 
         for (int i = 0; i < _slotCount; i++)
         {
             GameObject slotPrefabs = Instantiate(slot, transform);
-            _slotList.Add(slotPrefabs);
-        }
 
-        RefreshUI();
+            Slot slotComponent = slotPrefabs.GetComponent<Slot>();
+
+            slotList.Add(slotComponent);
+
+            slotComponent.number = i;
+        }
     }
 
-    void RefreshUI()
+    void OnEnable()
     {
-        for (int i = 0; i < _slotCount; i++)
-        {
-            // === id를 부여 ===
-            Slot slot = _slotList[i].GetComponent<Slot>();
+        if (GameManager.Instance.allitems.Count <= 0) return;
 
-            //if (i < GameManager.Instance.allitems.Count)
-            //{
-            //    slot.id = i;
-            //}
+        for (int i = 0; i < GameManager.Instance.allitems.Count; i++)
+        {
+            slotList[i].UpdateStatus();
         }
     }
 }

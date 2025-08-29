@@ -20,6 +20,8 @@ public class EnemyManager : Singleton<EnemyManager>
     public Vector3 spawposition = new(0, 60, 90);
     private Vector3 _offset = new(0, 0, 80);
 
+    public List<ItemData> drop;
+
     protected override bool IsDestroy => false;
 
     protected override void Awake()
@@ -31,7 +33,8 @@ public class EnemyManager : Singleton<EnemyManager>
     public void NewEnemySpawn()
     {
         GameManager.Instance.ChangeMoney(1000);
-        // === 아이템 추가(준비) ===
+
+        GameManager.Instance.GetItem();
 
         EnemySpawn();
     }

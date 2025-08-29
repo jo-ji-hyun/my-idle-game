@@ -24,11 +24,19 @@ public class UIManager : Singleton<UIManager>
     private StageUi stage;
     public StageUi Stage { get { return stage; } }
 
+    [Header("Windows")]
+    public GameObject descriptionPanel;
+
 
     protected override bool IsDestroy => false;
 
     protected override void Awake()
     {
         base.Awake();
+    }
+
+    public void DescriptionWindow(bool x)
+    {
+        descriptionPanel.SetActive(x);
     }
 }

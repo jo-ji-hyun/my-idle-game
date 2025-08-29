@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d132450e180c7248a175c4e78d6255e, type: 3}
   m_Name: 01.Claw
   m_EditorClassIdentifier: 
-  Type: 1
+  Type: 0
   atk: 5
   def: 0
   hp: 0

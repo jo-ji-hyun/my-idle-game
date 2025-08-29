@@ -12,6 +12,7 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector]
     public bool isBattle = false;
 
+    public List<ItemData> allitems;
 
     protected override bool IsDestroy => false;
 
@@ -23,6 +24,8 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         EnemyManager.Instance.EnemySpawn();
+
+        allitems = new List<ItemData>();
     }
 
     // === 돈 변동 ===
@@ -31,6 +34,22 @@ public class GameManager : Singleton<GameManager>
         DataManager.Instance.userData.money += amount;
 
         UIManager.Instance.Money.UpdateUi();
+    }
+
+    // === 랜덤으로 강화된 아이템 획득 ===
+    public void GetItem()
+    {
+        int ran = Random.Range(0, EnemyManager.Instance.drop.Count);
+
+        // === 복사본 만들기 ===
+        ItemData originalItem = EnemyManager.Instance.drop[ran];
+
+        ItemData cloneItem = Instantiate(originalItem);
+
+        cloneItem.enhanced = Random.Range(0, DataManager.Instance.userData.stage);
+
+        // === 복사템 추가 ===
+        allitems.Add(cloneItem);
     }
 
     // === 플레이어 사망시 지금 스테이지 재시작 ===
