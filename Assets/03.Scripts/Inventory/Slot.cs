@@ -18,6 +18,9 @@ public class Slot : MonoBehaviour
     // === 강화된 데이터 받아오기 ===
     public void UpdateStatus()
     {
+        // === 하드코딩 때문에 ===
+        ItemData item = GameManager.Instance.allitems[number];
+
         if (number >= GameManager.Instance.allitems.Count)
         {
             icon.sprite = null;
@@ -26,11 +29,11 @@ public class Slot : MonoBehaviour
         }
         else
         {
-            icon.sprite = GameManager.Instance.allitems[number].icon;
+            icon.sprite = item.icon;
 
-            enhancedStatus.text = $"{GameManager.Instance.allitems[number].enhanced}";
+            enhancedStatus.text = $"{item.enhanced}";
 
-            _descriptionText = $"공격력 + {GameManager.Instance.allitems[number].atk}, 방어력 + {GameManager.Instance.allitems[number].def}, HP + {GameManager.Instance.allitems[number].hp}, 크리티컬 + {GameManager.Instance.allitems[number].cri}";
+            _descriptionText = $"공격력 {item.atk} + {item.EnhancedAttack() - item.atk}, 방어력 {item.def} + {item.EnhancedDefence() - item.def}, HP {item.hp} + {item.EnhancedHP() - item.hp}, 크리티컬 {item.cri} + {item.EnhancedCri() - item.cri}, 판매가 {item.PriceItem()}";
         }
     }
 

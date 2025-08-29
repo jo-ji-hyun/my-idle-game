@@ -35,9 +35,9 @@ public class ContentSlots : MonoBehaviour
 
     void OnEnable()
     {
-        if (GameManager.Instance.allitems.Count <= 0) return;
+        int loopCount = Mathf.Min(GameManager.Instance.allitems.Count, slotList.Count);
 
-        for (int i = 0; i < GameManager.Instance.allitems.Count; i++)
+        for (int i = 0; i < loopCount; i++)
         {
             slotList[i].UpdateStatus();
         }
