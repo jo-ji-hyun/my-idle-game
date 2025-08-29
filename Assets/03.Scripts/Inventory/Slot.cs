@@ -15,8 +15,7 @@ public class Slot : MonoBehaviour
     [Header("DescriptionText")]
     public Image descriptionText;              // === 설명창 ===
 
-    private bool _isClick;                    // === 클릭 확인 ===
-
+    private bool _isClick;
     // === 강화된 데이터 받아오기 ===
     public void UpdateStatus()
     {
@@ -36,12 +35,8 @@ public class Slot : MonoBehaviour
     // === 버튼 클릭시 호출 ===
     public void OnClick()
     {
-        bool isCurrentClick = !_isClick;                                      // === 매 클릭시 bool값을 반대로 줌 ===
+        _isClick = !_isClick;
 
-        GameObject descriptionText = GameObject.Find("DescriptionWindow");
-
-        UIManager.Instance.DescriptionWindow(isCurrentClick);
-
-        descriptionText.SetActive(true); // === 나중에 텍스트를 넘겨주는 쪽으로 수정 ===
+        UIManager.Instance.DescriptionWindow(_isClick);
     }
 }

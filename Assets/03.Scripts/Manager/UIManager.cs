@@ -33,6 +33,11 @@ public class UIManager : Singleton<UIManager>
     protected override void Awake()
     {
         base.Awake();
+
+        if (descriptionPanel != null)
+        {
+            descriptionPanel.SetActive(false);
+        }
     }
 
     public void DescriptionWindow(bool x)
