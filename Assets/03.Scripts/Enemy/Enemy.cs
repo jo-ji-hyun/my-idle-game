@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     {
         StageStart();
     }
+
     private void Update()
     {
         if (GameManager.Instance.isBattle)

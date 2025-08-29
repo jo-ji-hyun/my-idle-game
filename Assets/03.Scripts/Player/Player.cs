@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     // === ÃßÀû ===
     void TraceWalk()
     {
+        GameManager.Instance.isBattle = false;
+
         _agent.isStopped = false;
 
         _agent.SetDestination(EnemyManager.Instance.enemyPosition.transform.position);

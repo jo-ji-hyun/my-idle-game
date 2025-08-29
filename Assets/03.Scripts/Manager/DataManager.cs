@@ -36,7 +36,7 @@ public class DataManager : Singleton<DataManager>
         {
             userData = new UserData 
             {
-                stage = 1, bossHp = 0, money = 10000, Atk = 5, Def = 0, HP = 100, Cri = 5
+                stage = 1, bossHp = 0, money = 10000, Atk = 5, Def = 0, HP = 10000, Cri = 5
             };
 
             string json = JsonUtility.ToJson(userData);

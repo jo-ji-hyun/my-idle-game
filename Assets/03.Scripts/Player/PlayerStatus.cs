@@ -27,7 +27,12 @@ public class PlayerStatus : MonoBehaviour
 
     private void Update()
     {
-        TakeDamage(DataManager.Instance.userData.stage);
+        float distance = Vector3.Distance(EnemyManager.Instance.enemyPosition.transform.position, transform.position);
+
+        if(distance < 50)
+        {
+            TakeDamage(DataManager.Instance.userData.stage);
+        }
     }
 
     public void PlayerHpBar()
@@ -53,6 +58,8 @@ public class PlayerStatus : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        currentHp = DataManager.Instance.userData.HP;
+
         // === 최종 데미지 계산 ===
         int finaldamage = (DataManager.Instance.userData.Def - damage) <= 0 ? damage : 1;
 
