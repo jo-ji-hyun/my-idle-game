@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
@@ -26,7 +27,7 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Windows")]
     public GameObject descriptionPanel;
-
+    public TextMeshProUGUI descriptionTxt;
 
     protected override bool IsDestroy => false;
 
@@ -40,8 +41,10 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    public void DescriptionWindow(bool x)
+    public void DescriptionWindow(bool x, string y)
     {
         descriptionPanel.SetActive(x);
+
+        descriptionTxt.text = y;
     }
 }
