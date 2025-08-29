@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
+
 
 public class GameManager : Singleton<GameManager>
 {
     public GameObject player;
     public GameObject enemy;
+
+    public static event Action OnInventoryChanged;     // === 인벤토리 갱신을 위해서 ===
 
     // === 전투 중 ===
     [HideInInspector]
@@ -50,6 +54,18 @@ public class GameManager : Singleton<GameManager>
 
         // === 복사템 추가 ===
         allitems.Add(cloneItem);
+
+        // === 인벤토리 갱신 ===
+        OnInventoryChanged?.Invoke();
+    }
+
+    // === 아이템 제거 로직 ===
+    public void RemoveItem(int x)
+    {
+        allitems.RemoveAt(x);
+
+        // === 인벤토리 갱신 ===
+        OnInventoryChanged?.Invoke();
     }
 
     // === 플레이어 사망시 지금 스테이지 재시작 ===

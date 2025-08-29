@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 00.WoodHelmet
   m_EditorClassIdentifier: 
   Type: 0
+  hp: 1000
   atk: 0
   def: 0
-  hp: 500
   cri: 0
   enhanced: 0
   price: 2000

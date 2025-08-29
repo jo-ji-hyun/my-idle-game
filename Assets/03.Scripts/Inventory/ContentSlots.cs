@@ -11,6 +11,14 @@ public class ContentSlots : MonoBehaviour
 
     public List<Slot> slotList;
 
+    void OnEnable()
+    {
+        // === 인벤토리 구독 ===
+        GameManager.OnInventoryChanged += UpdateInventoryUI;
+
+        UpdateInventoryUI();
+    }
+
     private void Start()
     {
         SlotsCreate();
@@ -33,13 +41,20 @@ public class ContentSlots : MonoBehaviour
         }
     }
 
-    void OnEnable()
+    private void UpdateInventoryUI()
     {
         int loopCount = Mathf.Min(GameManager.Instance.allitems.Count, slotList.Count);
 
         for (int i = 0; i < loopCount; i++)
         {
-            slotList[i].UpdateStatus();
+            slotList[i].gameObject.SetActive(true);
+            slotList[i].UpdateStatusUi();
+        }
+
+        // === 오브젝트 풀링 ===
+        for (int i = loopCount; i < slotList.Count; i++)
+        {
+            slotList[i].gameObject.SetActive(false);
         }
     }
 }

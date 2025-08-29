@@ -25,26 +25,13 @@ public class UIManager : Singleton<UIManager>
     private StageUi stage;
     public StageUi Stage { get { return stage; } }
 
-    [Header("Windows")]
-    public GameObject descriptionPanel;
-    public TextMeshProUGUI descriptionTxt;
+
 
     protected override bool IsDestroy => false;
 
     protected override void Awake()
     {
         base.Awake();
-
-        if (descriptionPanel != null)
-        {
-            descriptionPanel.SetActive(false);
-        }
     }
 
-    public void DescriptionWindow(bool x, string y)
-    {
-        descriptionPanel.SetActive(x);
-
-        descriptionTxt.text = y;
-    }
 }

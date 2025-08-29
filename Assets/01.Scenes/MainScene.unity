@@ -1397,6 +1397,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 507644537}
+  descriptionPanel: {fileID: 950859538}
+  descriptionTxt: {fileID: 2079884356}
+  equipButton: {fileID: 767546233}
 --- !u!1 &517575999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,9 +1932,9 @@ MonoBehaviour:
     stage: 0
     bossHp: 0
     money: 0
+    HP: 0
     Atk: 0
     Def: 0
-    HP: 0
     Cri: 0
 --- !u!1 &724326788
 GameObject:
@@ -3915,6 +3918,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f219f1bd696914749804b4130446c425, type: 2}
   - {fileID: 11400000, guid: 01664aa855255c145b10df7c602f394e, type: 2}
   - {fileID: 11400000, guid: f48fc6f87c108224991e46566b6f3dda, type: 2}
+  hp: {fileID: 247540431}
+  atk: {fileID: 634897205}
+  def: {fileID: 517576001}
+  cri: {fileID: 1343423759}
 --- !u!1 &1704868816
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,8 +4834,6 @@ MonoBehaviour:
   money: {fileID: 1647778789}
   enemyhp: {fileID: 500540727}
   stage: {fileID: 1533150326}
-  descriptionPanel: {fileID: 950859538}
-  descriptionTxt: {fileID: 2079884356}
 --- !u!4 &1921661786
 Transform:
   m_ObjectHideFlags: 0

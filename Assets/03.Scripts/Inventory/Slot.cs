@@ -12,11 +12,12 @@ public class Slot : MonoBehaviour
     public Image icon;                         // === 아이콘 표시 ===
     public TextMeshProUGUI enhancedStatus;     // === 강화 상태 표시 ===
 
-    private string _descriptionText;  // === 설명창 ===
+    private string _descriptionText;           // === 설명창 ===
 
     private bool _isClick;
+
     // === 강화된 데이터 받아오기 ===
-    public void UpdateStatus()
+    public void UpdateStatusUi()
     {
         // === 하드코딩 때문에 ===
         ItemData item = GameManager.Instance.allitems[number];
@@ -33,7 +34,7 @@ public class Slot : MonoBehaviour
 
             enhancedStatus.text = $"{item.enhanced}";
 
-            _descriptionText = $"공격력 {item.atk} + {item.EnhancedAttack() - item.atk}, 방어력 {item.def} + {item.EnhancedDefence() - item.def}, HP {item.hp} + {item.EnhancedHP() - item.hp}, 크리티컬 {item.cri} + {item.EnhancedCri() - item.cri}, 판매가 {item.PriceItem()}";
+            _descriptionText = $"공격력 + {item.EnhancedAttack() - item.atk}, 방어력 + {item.EnhancedDefence() - item.def}, HP + {item.EnhancedHP() - item.hp}, 크리티컬 + {item.EnhancedCri() - item.cri}, 판매가 {item.PriceItem()}";
         }
     }
 
@@ -42,6 +43,6 @@ public class Slot : MonoBehaviour
     {
         _isClick = !_isClick;
 
-        UIManager.Instance.DescriptionWindow(_isClick, _descriptionText);
+        UIManager.Instance.Inventory.DescriptionWindow(_isClick, _descriptionText, number);
     }
 }

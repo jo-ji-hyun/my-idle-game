@@ -11,8 +11,8 @@ public class UserData
     public int money;    // === 소지 금 ===
 
     // === 플레이어 스펙 ===
+    public int HP;
     public int Atk;
     public int Def;
-    public int HP;
     public int Cri;
 }
