@@ -44,6 +44,8 @@ public class GameManager : Singleton<GameManager>
 
         EnemyManager.Instance.EnemySpawn();
 
+        player.transform.position = enemy.transform.position + new Vector3 (0, 0, -50);
+
         Restart();
     }
 
