@@ -55,7 +55,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
                 break;
             case ItemType.ring:
                 cri.text = item.enhanced.ToString();
-                DataManager.Instance.userData.Cri = 5;
+                DataManager.Instance.userData.Cri = 0;
                 DataManager.Instance.userData.Cri += x;
                 break;
         }
