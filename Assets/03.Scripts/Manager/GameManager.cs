@@ -88,6 +88,8 @@ public class GameManager : Singleton<GameManager>
 
     public void Restart()
     {
+        ChangeMoney(500);        // === 환생 지원금 ==
+
         DataManager.Instance.LoadData();
 
         PlayerEquip.Instance.UpdateStatus(PlayerEquip.Instance.EquipmentSlot[0]);   // === 체력만 재생 ===

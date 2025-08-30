@@ -32,7 +32,7 @@ public class EnemyManager : Singleton<EnemyManager>
     // === 게임 매니저에 스폰 담당 ===
     public void NewEnemySpawn()
     {
-        GameManager.Instance.ChangeMoney(1000);
+        GameManager.Instance.ChangeMoney(1000 + DataManager.Instance.userData.stage * 100);
 
         GameManager.Instance.GetItem();
 

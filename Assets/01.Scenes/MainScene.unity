@@ -1400,6 +1400,7 @@ MonoBehaviour:
   descriptionPanel: {fileID: 950859538}
   descriptionTxt: {fileID: 2079884356}
   equipButton: {fileID: 767546233}
+  priceButton: {fileID: 826735949}
 --- !u!1 &517575999
 GameObject:
   m_ObjectHideFlags: 0

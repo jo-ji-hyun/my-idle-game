@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,7 +12,10 @@ public class InventoryUi : MonoBehaviour
     [Header("Windows")]
     public GameObject descriptionPanel;
     public TextMeshProUGUI descriptionTxt;
+
+    [Header("Button")]
     public Button equipButton;
+    public Button priceButton;
 
     private int _CurrentNumber;
 
@@ -19,7 +23,9 @@ public class InventoryUi : MonoBehaviour
     {
         button.onClick.AddListener(ShowInventory);
 
+        // === 버튼에 할당 ===
         equipButton.onClick.AddListener(Equipment);
+        priceButton.onClick.AddListener(PriceItem);
 
         if (descriptionPanel != null)
         {
@@ -64,5 +70,20 @@ public class InventoryUi : MonoBehaviour
         GameManager.Instance.RemoveItem(index);
 
         PlayerEquip.Instance.UpdateStatus(clonedItem);
+
+        descriptionPanel.SetActive(false);
+    }
+
+    // === 클릭시 판매 ===
+    private void PriceItem()
+    {
+        GameManager.Instance.ChangeMoney(GameManager.Instance.allitems[_CurrentNumber].PriceItem());
+
+        if (GameManager.Instance.allitems[_CurrentNumber] != null)
+        {
+            GameManager.Instance.RemoveItem(_CurrentNumber);
+        }
+
+        descriptionPanel.SetActive(false);
     }
 }
