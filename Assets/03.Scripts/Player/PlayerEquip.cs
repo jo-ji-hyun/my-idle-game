@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PlayerEquip : Singleton<PlayerEquip>
 {
@@ -24,43 +25,40 @@ public class PlayerEquip : Singleton<PlayerEquip>
     {
         if (EquipmentSlot != null)
         {
-            UpdateStatus();
+            foreach (ItemData item in EquipmentSlot)
+            {
+                UpdateStatus(item);
+            }
         }
     }
 
-    public void UpdateStatus()
+    // === 하나만 더 해줌 ===
+    public void UpdateStatus(ItemData item)
     {
-        // === 초기화 해버리기 ===
-        DataManager.Instance.userData.HP = 10000;
-        DataManager.Instance.userData.Atk = 5;
-        DataManager.Instance.userData.Def = 0;
-        DataManager.Instance.userData.Cri = 5;
+        item.EnhancedValue();
 
-        foreach (ItemData item in EquipmentSlot)
+        switch (item.Type)
         {
-            item.EnhancedValue();
-
-            DataManager.Instance.userData.HP  += item.hp;
-            DataManager.Instance.userData.Atk += item.atk;
-            DataManager.Instance.userData.Def += item.def;
-            DataManager.Instance.userData.Cri += item.cri;
-            
-            switch (item.Type)
-            {
-                case ItemType.helmet:
-                    hp.text = item.enhanced.ToString();
-                    break;
-                case ItemType.weapon:
-                    atk.text = item.enhanced.ToString();
-                    break;
-                case ItemType.shield:
-                    def.text = item.enhanced.ToString();
-                    break;
-                case ItemType.ring:
-                    cri.text = item.enhanced.ToString();
-                    break;
-            }
+            case ItemType.helmet:
+                hp.text = item.enhanced.ToString();
+                DataManager.Instance.userData.HP = 10000;
+                DataManager.Instance.userData.HP += item.hp;
+                break;
+            case ItemType.weapon:
+                atk.text = item.enhanced.ToString();
+                DataManager.Instance.userData.Atk = 5;
+                DataManager.Instance.userData.Atk += item.atk;
+                break;
+            case ItemType.shield:
+                def.text = item.enhanced.ToString();
+                DataManager.Instance.userData.Def = 0;
+                DataManager.Instance.userData.Def += item.def;
+                break;
+            case ItemType.ring:
+                cri.text = item.enhanced.ToString();
+                DataManager.Instance.userData.Cri = 5;
+                DataManager.Instance.userData.Cri += item.cri;
+                break;
         }
-
     }
 }

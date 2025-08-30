@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     {
         if (GameManager.Instance.isBattle)
         {
-            TakeDamage(DataManager.Instance.userData.Atk * 2);
+            TakeDamage(DataManager.Instance.userData.Atk);
         }
     }
 

@@ -63,6 +63,6 @@ public class InventoryUi : MonoBehaviour
 
         GameManager.Instance.RemoveItem(index);
 
-        PlayerEquip.Instance.UpdateStatus();
+        PlayerEquip.Instance.UpdateStatus(clonedItem);
     }
 }

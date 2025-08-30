@@ -48,8 +48,8 @@ public class EnemyManager : Singleton<EnemyManager>
         DataManager.Instance.userData.bossHp = currentHp; // === 보스 체력을 저장 ===
 
         int stage = DataManager.Instance.userData.stage;
-        float xoffset = Random.Range(-60f, 60f);
-        float zoffset = stage * 50f;
+        float xoffset = Random.Range(-20f, 20f);
+        float zoffset = stage * 60f;
 
         // === 한 적만 계속 소환하기 위해 ===
         GameObject Clone = Instantiate(enemyObject, spawposition + _offset + new Vector3(xoffset, 0, zoffset), Quaternion.identity);

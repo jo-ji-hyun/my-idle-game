@@ -81,12 +81,16 @@ public class GameManager : Singleton<GameManager>
 
         player.transform.position = enemy.transform.position + new Vector3 (0, 0, -50);
 
+        DataManager.Instance.SaveData(DataManager.Instance.userData);               // === 현재 시점을 저장 ===
+
         Restart();
     }
 
     public void Restart()
     {
-        DataManager.Instance.userData.HP = 10000;
+        DataManager.Instance.LoadData();
+
+        PlayerEquip.Instance.UpdateStatus(PlayerEquip.Instance.EquipmentSlot[0]);   // === 체력만 재생 ===
 
         Time.timeScale = 1.0f;
     }
