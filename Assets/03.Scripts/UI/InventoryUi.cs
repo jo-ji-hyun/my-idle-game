@@ -35,7 +35,7 @@ public class InventoryUi : MonoBehaviour
 
     public void ShowInventory()
     {
-        UIManager.Instance.Window.SetActive(true);
+        UIManager.Instance.InventoryWindow.SetActive(true);
     }
 
     // === 아이템 설명 창 ===
