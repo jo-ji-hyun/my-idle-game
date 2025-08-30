@@ -17,7 +17,7 @@ public class EnemyManager : Singleton<EnemyManager>
     public int maxEnemyHp;        // === 최대 체력 ===
 
     // === 적 생성 위치 ===
-    public Vector3 spawposition = new(0, 60, 90);
+    public Vector3 spawposition = new(0, 60, 80);
     private Vector3 _offset = new(0, 0, 80);
 
     public List<ItemData> drop;

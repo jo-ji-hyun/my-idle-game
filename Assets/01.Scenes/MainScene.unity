@@ -1180,7 +1180,7 @@ GameObject:
   - component: {fileID: 485579912}
   - component: {fileID: 485579911}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button (Legacy) shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1833,7 +1833,7 @@ MonoBehaviour:
   enemyPosition: {fileID: 0}
   currentHp: 0
   maxEnemyHp: 0
-  spawposition: {x: 0, y: 60, z: 90}
+  spawposition: {x: 0, y: 60, z: 80}
   drop:
   - {fileID: 11400000, guid: d16fe78a9acbdda498bb73783ba9a113, type: 2}
   - {fileID: 11400000, guid: f219f1bd696914749804b4130446c425, type: 2}
@@ -2016,6 +2016,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 411232386}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 607932919}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -3640,6 +3652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542e8fc360881874883d34d448f3d27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnhanceTxt: {fileID: 1286081662}
 --- !u!1 &1117883241
 GameObject:
   m_ObjectHideFlags: 0
@@ -4463,7 +4476,7 @@ GameObject:
   - component: {fileID: 1453384687}
   - component: {fileID: 1453384686}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button (Legacy) weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4750,7 +4763,7 @@ GameObject:
   - component: {fileID: 1545972699}
   - component: {fileID: 1545972698}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button (Legacy) helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6084,6 +6097,10 @@ MonoBehaviour:
   descriptionPanel: {fileID: 607932919}
   descriptionTxt: {fileID: 1286081662}
   upgradeButton: {fileID: 868056174}
+  helmetBtn: {fileID: 1545972698}
+  weaponBtn: {fileID: 1453384686}
+  shieldBtn: {fileID: 485579911}
+  ringBtn: {fileID: 1945928719}
   helmet: {fileID: 1787236656}
   weapon: {fileID: 1057991647}
   shield: {fileID: 699456225}
@@ -6316,7 +6333,7 @@ GameObject:
   - component: {fileID: 1945928720}
   - component: {fileID: 1945928719}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button (Legacy) ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

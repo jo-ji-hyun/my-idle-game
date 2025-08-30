@@ -93,7 +93,7 @@ public class ItemData : ScriptableObject
             return cri;
         }
 
-        int finalCri = cri + enhanced * 2;
+        int finalCri = cri + enhanced;
 
         // === �ִ밪 100 ===
         return Mathf.Min(finalCri, 100);
