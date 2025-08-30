@@ -28,22 +28,20 @@ public class ItemData : ScriptableObject
     public int price;      // === 판매 가격 ===
     public Sprite icon;    // ===  아이콘 ===
 
-    public void EnhancedValue()
+    public int EnhancedValue()
     {
         switch (Type)
         {
             case ItemType.helmet:
-                hp = EnhancedHP();
-                break;
+                return EnhancedHP();
             case ItemType.weapon:
-                atk = EnhancedAttack();
-                break;
+                return EnhancedAttack();
             case ItemType.shield:
-                def = EnhancedDefence();
-                break;
+                return EnhancedDefence();
             case ItemType.ring:
-                cri = EnhancedCri();
-                break;
+                return EnhancedCri();
+            default:
+                return 0;
         }
     }
 
@@ -54,7 +52,7 @@ public class ItemData : ScriptableObject
             return hp;
         }
 
-        return hp + enhanced * 250;
+        return hp + enhanced * 1000;
     }
 
     public int EnhancedAttack()
@@ -95,7 +93,7 @@ public class ItemData : ScriptableObject
             return cri;
         }
 
-        int finalCri = cri + enhanced * 5;
+        int finalCri = cri + enhanced * 2;
 
         // === 최대값 100 ===
         return Mathf.Min(finalCri, 100);

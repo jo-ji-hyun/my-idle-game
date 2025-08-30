@@ -39,8 +39,11 @@ public class ContentSlots : MonoBehaviour
 
             slotComponent.number = i;
         }
+
+        UpdateInventoryUI();
     }
 
+    // === 인벤토리 갱신 ===
     private void UpdateInventoryUI()
     {
         int loopCount = Mathf.Min(GameManager.Instance.allitems.Count, slotList.Count);
