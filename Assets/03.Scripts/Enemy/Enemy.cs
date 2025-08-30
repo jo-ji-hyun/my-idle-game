@@ -28,7 +28,13 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        _currentHp -= damage;
+        int finaldamage = damage;
+
+        if(DataManager.Instance.userData.Cri > Random.Range(0, 99))
+        {
+            finaldamage += damage + (DataManager.Instance.userData.Cri / 2);
+        }
+        _currentHp -= finaldamage;
 
         if (_currentHp <= 0)
         {

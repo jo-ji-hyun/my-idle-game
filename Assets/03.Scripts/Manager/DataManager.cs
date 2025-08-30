@@ -39,7 +39,7 @@ public class DataManager : Singleton<DataManager>
                 stage = 1, bossHp = 0, money = 10000,
                 HP = 10000,
                 Atk = 5, Def = 0,  
-                Cri = 5
+                Cri = 0
             };
 
             string json = JsonUtility.ToJson(userData);
