@@ -13,6 +13,9 @@ public class PlayerEquip : Singleton<PlayerEquip>
     public TextMeshProUGUI def;
     public TextMeshProUGUI cri;
 
+    [HideInInspector]
+    public int checkEquip;                // === 강화할꺼 체크 ===
+
     protected override bool IsDestroy => false;
 
     protected override void Awake()

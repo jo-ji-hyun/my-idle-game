@@ -57,6 +57,7 @@ public class UpgradeUi : MonoBehaviour
 
         descriptionTxt.text = $"강화 전 : 체력 + {item.EnhancedHP()} \n강화 후 : 체력 + {item.EnhancedHP() + 1000}";
 
+        PlayerEquip.Instance.checkEquip = 0;
     }
 
     public void EnhanceWeapon()
@@ -74,6 +75,7 @@ public class UpgradeUi : MonoBehaviour
             descriptionTxt.text = $"강화 전 : 공격력 + {item.EnhancedAttack()} \n강화 후 : 공격력 + {item.EnhancedAttack() + item.enhanced}";
         }
 
+        PlayerEquip.Instance.checkEquip = 1;
     }
 
     public void EnhanceShield()
@@ -83,6 +85,8 @@ public class UpgradeUi : MonoBehaviour
         ItemData item = PlayerEquip.Instance.EquipmentSlot[2];
 
         descriptionTxt.text = $"강화 전 : 방어력 + {item.EnhancedDefence()} \n강화 후 : 방어력 + {item.EnhancedDefence() + item.enhanced}";
+
+        PlayerEquip.Instance.checkEquip = 2;
     }
 
     public void EnhanceRing()
@@ -92,5 +96,7 @@ public class UpgradeUi : MonoBehaviour
         ItemData item = PlayerEquip.Instance.EquipmentSlot[3];
 
         descriptionTxt.text = $"강화 전 : 크리티컬 + {item.EnhancedCri()} \n강화 후 : 크리티컬 + {item.EnhancedCri() + item.enhanced}";
+
+        PlayerEquip.Instance.checkEquip = 3;
     }
 }
