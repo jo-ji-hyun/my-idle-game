@@ -22,6 +22,8 @@ public class EnhancementWindow : MonoBehaviour
 
     public void UpgradeProcess()
     {
+        if (DataManager.Instance.userData.money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price) return;
+
         if (PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].enhanced >= 20)
         {
             _enhanceChance = 1f - PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].enhanced * 0.005f;
@@ -34,6 +36,8 @@ public class EnhancementWindow : MonoBehaviour
         SucessTxt.text = _enhanceChance.ToString();
 
         int random = Random.Range(0, 100);
+
+        GameManager.Instance.ChangeMoney(-PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price);
 
         if (_enhanceChance > random)
         {
