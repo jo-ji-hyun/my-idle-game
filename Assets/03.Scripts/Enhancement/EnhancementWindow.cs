@@ -7,6 +7,7 @@ public class EnhancementWindow : MonoBehaviour
 {
     private ItemData _item;
 
+    public GameObject enhanceWindow;
     public TextMeshProUGUI EnhanceTxt;
     public TextMeshProUGUI SucessTxt;
 
@@ -22,7 +23,13 @@ public class EnhancementWindow : MonoBehaviour
 
     public void UpgradeProcess()
     {
-        if (DataManager.Instance.userData.money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price) return;
+        // === 돈이 부족할 경우 ===
+        if (DataManager.Instance.userData.money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price)
+        {
+            EnhanceTxt.color = Color.red;
+            EnhanceTxt.text = "골드 부족";
+            return; 
+        }
 
         if (PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].enhanced >= 20)
         {
@@ -51,6 +58,8 @@ public class EnhancementWindow : MonoBehaviour
             _item.enhanced = nextEnhanced;
 
             PlayerEquip.Instance.UpdateStatus(_item);
+
+            enhanceWindow.SetActive(false);
         }
         else
         {
