@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class EnhancementWindow : MonoBehaviour
 {
+    private ItemData _item;
+
     public TextMeshProUGUI EnhanceTxt;
     public TextMeshProUGUI SucessTxt;
 
@@ -38,6 +39,14 @@ public class EnhancementWindow : MonoBehaviour
         {
             EnhanceTxt.color = Color.green;
             EnhanceTxt.text = "강화 성공!";
+
+            _item = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip];
+
+            int nextEnhanced = _item.enhanced + 1;
+
+            _item.enhanced = nextEnhanced;
+
+            PlayerEquip.Instance.UpdateStatus(_item);
         }
         else
         {

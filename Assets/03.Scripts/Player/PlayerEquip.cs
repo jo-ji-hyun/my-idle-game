@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PlayerEquip : Singleton<PlayerEquip>
 {
@@ -42,25 +43,31 @@ public class PlayerEquip : Singleton<PlayerEquip>
         switch (item.Type)
         {
             case ItemType.helmet:
-                hp.text = item.enhanced.ToString();
                 DataManager.Instance.userData.HP = 10000;
                 DataManager.Instance.userData.HP += x;
                 break;
             case ItemType.weapon:
-                atk.text = item.enhanced.ToString();
                 DataManager.Instance.userData.Atk = 5;
                 DataManager.Instance.userData.Atk += x;
                 break;
             case ItemType.shield:
-                def.text = item.enhanced.ToString();
                 DataManager.Instance.userData.Def = 0;
                 DataManager.Instance.userData.Def += x;
                 break;
             case ItemType.ring:
-                cri.text = item.enhanced.ToString();
                 DataManager.Instance.userData.Cri = 0;
                 DataManager.Instance.userData.Cri += x;
                 break;
         }
+        CurrentEnhanced();
+    }
+
+    // === 현재 강화 수치 ===
+    public void CurrentEnhanced()
+    {
+        hp.text = EquipmentSlot[(int)ItemType.helmet].enhanced.ToString();
+        atk.text = EquipmentSlot[(int)ItemType.weapon].enhanced.ToString();
+        def.text = EquipmentSlot[(int)ItemType.shield].enhanced.ToString();
+        cri.text = EquipmentSlot[(int)ItemType.ring].enhanced.ToString();
     }
 }
