@@ -35,7 +35,7 @@ public class GameManager : Singleton<GameManager>
     // === 돈 변동 ===
     public void ChangeMoney(int amount)
     {
-        DataManager.Instance.userData.money += amount;
+        SaveManager.Instance.userData.money += amount;
 
         UIManager.Instance.Money.UpdateUi();
     }
@@ -50,7 +50,7 @@ public class GameManager : Singleton<GameManager>
 
         ItemData cloneItem = Instantiate(originalItem);
 
-        cloneItem.enhanced = Random.Range(0, DataManager.Instance.userData.stage);
+        cloneItem.enhanced = Random.Range(0, SaveManager.Instance.userData.stage);
 
         // === 복사템 추가 ===
         allitems.Add(cloneItem);
@@ -83,7 +83,7 @@ public class GameManager : Singleton<GameManager>
 
         player.transform.position = enemy.transform.position + new Vector3 (0, 0, -50);
 
-        DataManager.Instance.SaveData(DataManager.Instance.userData);               // === 현재 시점을 저장 ===
+        SaveManager.Instance.SaveData(SaveManager.Instance.userData);               // === 현재 시점을 저장 ===
 
         Restart();
     }
@@ -92,7 +92,7 @@ public class GameManager : Singleton<GameManager>
     {
         ChangeMoney(500);        // === 환생 지원금 ==
 
-        DataManager.Instance.LoadData();
+        SaveManager.Instance.LoadData();
 
         PlayerEquip.Instance.UpdateStatus(PlayerEquip.Instance.EquipmentSlot[0]);   // === 체력만 재생 ===
 

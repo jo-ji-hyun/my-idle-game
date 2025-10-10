@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     {
         if (GameManager.Instance.isBattle)
         {
-            TakeDamage(DataManager.Instance.userData.Atk);
+            TakeDamage(SaveManager.Instance.userData.Atk);
         }
     }
 
@@ -30,9 +30,9 @@ public class Enemy : MonoBehaviour
     {
         int finaldamage = damage;
 
-        if(DataManager.Instance.userData.Cri > Random.Range(0, 99))
+        if(SaveManager.Instance.userData.Cri > Random.Range(0, 99))
         {
-            finaldamage += damage + (DataManager.Instance.userData.Cri / 2);
+            finaldamage += damage + (SaveManager.Instance.userData.Cri / 2);
         }
         _currentHp -= finaldamage;
 
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
     {
         SoundManager.Instance.EffectSound(BattleResult.Victory);
 
-        DataManager.Instance.userData.stage++;
+        SaveManager.Instance.userData.stage++;
 
         UIManager.Instance.Stage.UpdateUi();
 

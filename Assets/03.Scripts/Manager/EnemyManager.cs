@@ -32,7 +32,7 @@ public class EnemyManager : Singleton<EnemyManager>
     // === 게임 매니저에 스폰 담당 ===
     public void NewEnemySpawn()
     {
-        GameManager.Instance.ChangeMoney(1000 + DataManager.Instance.userData.stage * 100);
+        GameManager.Instance.ChangeMoney(1000 + SaveManager.Instance.userData.stage * 100);
 
         GameManager.Instance.GetItem();
 
@@ -41,13 +41,13 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public void EnemySpawn()
     {
-        maxEnemyHp = DataManager.Instance.userData.stage * 2000;
+        maxEnemyHp = SaveManager.Instance.userData.stage * 2000;
 
         currentHp = maxEnemyHp;
 
-        DataManager.Instance.userData.bossHp = currentHp; // === 보스 체력을 저장 ===
+        SaveManager.Instance.userData.bossHp = currentHp; // === 보스 체력을 저장 ===
 
-        int stage = DataManager.Instance.userData.stage;
+        int stage = SaveManager.Instance.userData.stage;
         float zoffset = stage * 60f;
 
         // === 한 적만 계속 소환하기 위해 ===

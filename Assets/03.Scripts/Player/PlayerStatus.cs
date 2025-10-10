@@ -18,7 +18,7 @@ public class PlayerStatus : MonoBehaviour
 
     private void Start()
     {
-        _maxHp = DataManager.Instance.userData.HP;
+        _maxHp = SaveManager.Instance.userData.HP;
 
         PlayerHpBar();
 
@@ -31,22 +31,22 @@ public class PlayerStatus : MonoBehaviour
 
         if(distance < 50)
         {
-            TakeDamage(DataManager.Instance.userData.stage);
+            TakeDamage(SaveManager.Instance.userData.stage);
         }
     }
 
     public void PlayerHpBar()
     {
-        currentHp = DataManager.Instance.userData.HP;
+        currentHp = SaveManager.Instance.userData.HP;
 
         UpdateHpBar();
     }
 
     public void UpdatePlayerStatus()
     {
-        atk = DataManager.Instance.userData.Atk;
-        def = DataManager.Instance.userData.Def;
-        cri = DataManager.Instance.userData.Cri;
+        atk = SaveManager.Instance.userData.Atk;
+        def = SaveManager.Instance.userData.Def;
+        cri = SaveManager.Instance.userData.Cri;
     }
 
     void UpdateHpBar()
@@ -58,10 +58,10 @@ public class PlayerStatus : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHp = DataManager.Instance.userData.HP;
+        currentHp = SaveManager.Instance.userData.HP;
 
         // === 최종 데미지 계산 ===
-        int finaldamage = (DataManager.Instance.userData.Def - damage) <= 0 ? damage : 1;
+        int finaldamage = (SaveManager.Instance.userData.Def - damage) <= 0 ? damage : 1;
 
         currentHp -= finaldamage;
 
@@ -71,7 +71,7 @@ public class PlayerStatus : MonoBehaviour
 
             currentHp = 0;
 
-            DataManager.Instance.userData.HP = currentHp;
+            SaveManager.Instance.userData.HP = currentHp;
 
             UpdateHpBar();
 
@@ -79,7 +79,7 @@ public class PlayerStatus : MonoBehaviour
         }
         else 
         {
-            DataManager.Instance.userData.HP = currentHp;
+            SaveManager.Instance.userData.HP = currentHp;
 
             UpdateHpBar();
         }

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class PlayerEquip : Singleton<PlayerEquip>
 {
@@ -26,6 +25,8 @@ public class PlayerEquip : Singleton<PlayerEquip>
 
     private void Start()
     {
+        EquipmentSlot = new List<ItemData>(DataManager.Instance.ItemSlot);
+
         if (EquipmentSlot != null)
         {
             foreach (ItemData item in EquipmentSlot)
@@ -43,20 +44,20 @@ public class PlayerEquip : Singleton<PlayerEquip>
         switch (item.Type)
         {
             case ItemType.helmet:
-                DataManager.Instance.userData.HP = 10000;
-                DataManager.Instance.userData.HP += x;
+                SaveManager.Instance.userData.HP = 10000;
+                SaveManager.Instance.userData.HP += x;
                 break;
             case ItemType.weapon:
-                DataManager.Instance.userData.Atk = 5;
-                DataManager.Instance.userData.Atk += x;
+                SaveManager.Instance.userData.Atk = 5;
+                SaveManager.Instance.userData.Atk += x;
                 break;
             case ItemType.shield:
-                DataManager.Instance.userData.Def = 0;
-                DataManager.Instance.userData.Def += x;
+                SaveManager.Instance.userData.Def = 0;
+                SaveManager.Instance.userData.Def += x;
                 break;
             case ItemType.ring:
-                DataManager.Instance.userData.Cri = 0;
-                DataManager.Instance.userData.Cri += x;
+                SaveManager.Instance.userData.Cri = 0;
+                SaveManager.Instance.userData.Cri += x;
                 break;
         }
         CurrentEnhanced();

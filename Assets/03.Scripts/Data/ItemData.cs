@@ -30,19 +30,14 @@ public class ItemData : ScriptableObject
 
     public int EnhancedValue()
     {
-        switch (Type)
+        return Type switch
         {
-            case ItemType.helmet:
-                return EnhancedHP();
-            case ItemType.weapon:
-                return EnhancedAttack();
-            case ItemType.shield:
-                return EnhancedDefence();
-            case ItemType.ring:
-                return EnhancedCri();
-            default:
-                return 0;
-        }
+            ItemType.helmet => EnhancedHP(),
+            ItemType.weapon => EnhancedAttack(),
+            ItemType.shield => EnhancedDefence(),
+            ItemType.ring => EnhancedCri(),
+            _ => 0,
+        };
     }
 
     public int EnhancedHP()
