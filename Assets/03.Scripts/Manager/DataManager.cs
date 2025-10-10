@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.Playables;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class DataManager : Singleton<DataManager>
 {
