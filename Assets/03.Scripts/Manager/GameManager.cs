@@ -71,6 +71,8 @@ public class GameManager : Singleton<GameManager>
     // === 플레이어 사망시 지금 스테이지 재시작 ===
     public void GameOver()
     {
+        SoundManager.Instance.EffectSound(BattleResult.Defeat);
+
         player.transform.position = new Vector3(0, 23, -95);
 
         GameObject enemy = GameObject.Find("enemy(Clone)");
