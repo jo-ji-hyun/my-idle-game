@@ -2380,6 +2380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1ed308f55688c478cb3d27090b02bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnhanceTxt: {fileID: 653963351}
   SucessTxt: {fileID: 2093976221}
   CostTxt: {fileID: 1698586363}
 --- !u!1 &616138918

@@ -20,7 +20,6 @@ public class ResultWindow : MonoBehaviour
 
     public void UpgradeProcess()
     {
-        EnhanceTxt.text = null;
 
         // === 돈이 부족할 경우 ===
         if (SaveManager.Instance.userData.money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price)
@@ -46,6 +45,8 @@ public class ResultWindow : MonoBehaviour
             _item.enhanced = nextEnhanced;
 
             PlayerEquip.Instance.UpdateStatus(_item);
+
+            PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price += 500;
 
             enhanceWindow.SetActive(false);
 
