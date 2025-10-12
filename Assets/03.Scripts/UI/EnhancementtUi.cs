@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeUi : MonoBehaviour
+public class EnhancementtUi : MonoBehaviour
 {
     public Button button;
 
@@ -13,7 +13,6 @@ public class UpgradeUi : MonoBehaviour
     public TextMeshProUGUI descriptionTxt;
 
     [Header("Button")]
-    public Button upgradeButton;
     public Button helmetBtn;
     public Button weaponBtn;
     public Button shieldBtn;
@@ -25,8 +24,13 @@ public class UpgradeUi : MonoBehaviour
     public Image shield;
     public Image ring;
 
+    [HideInInspector]
+    public float EnhanceChance;
+
     private void Start()
     {
+        EnhanceChance = 100;
+
         button.onClick.AddListener(ShowUpgade);
 
         helmetBtn.onClick.AddListener(EnhanceHelmet);
@@ -50,52 +54,60 @@ public class UpgradeUi : MonoBehaviour
 
     public void EnhanceHelmet()
     {
-        descriptionPanel.SetActive(true);
+        descriptionPanel.SetActive(false);
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[0];
 
         descriptionTxt.text = $"강화 전 : 체력 + {item.EnhancedHP()} \n강화 후 : 체력 + {item.EnhancedHP() + 1000}";
 
         PlayerEquip.Instance.checkEquip = 0;
+
+        descriptionPanel.SetActive(true);
     }
 
     public void EnhanceWeapon()
     {
-        descriptionPanel.SetActive(true);
+        descriptionPanel.SetActive(false);
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[1];
 
         if ((item.enhanced + 1) % 2 == 0)
         {
-            descriptionTxt.text = $"강화 전 : 공격력 + {item.EnhancedAttack()} \n강화 후 : 공격력 + {item.EnhancedAttack() + item.enhanced} + 3";
+            descriptionTxt.text = $"강화 전 : 공격력 + {item.EnhancedAttack()} \n강화 후 : 공격력 + {item.EnhancedAttack() + 1} + 3";
         }
         else 
         {
-            descriptionTxt.text = $"강화 전 : 공격력 + {item.EnhancedAttack()} \n강화 후 : 공격력 + {item.EnhancedAttack() + item.enhanced}";
+            descriptionTxt.text = $"강화 전 : 공격력 + {item.EnhancedAttack()} \n강화 후 : 공격력 + {item.EnhancedAttack() + 1}";
         }
 
         PlayerEquip.Instance.checkEquip = 1;
+
+        descriptionPanel.SetActive(true);
     }
 
     public void EnhanceShield()
     {
-        descriptionPanel.SetActive(true);
+        descriptionPanel.SetActive(false);
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[2];
 
-        descriptionTxt.text = $"강화 전 : 방어력 + {item.EnhancedDefence()} \n강화 후 : 방어력 + {item.EnhancedDefence() + item.enhanced}";
+        descriptionTxt.text = $"강화 전 : 방어력 + {item.EnhancedDefence()} \n강화 후 : 방어력 + {item.EnhancedDefence() + 1}";
 
         PlayerEquip.Instance.checkEquip = 2;
+
+        descriptionPanel.SetActive(true);
     }
 
     public void EnhanceRing()
     {
-        descriptionPanel.SetActive(true);
+        descriptionPanel.SetActive(false);
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[3];
 
-        descriptionTxt.text = $"강화 전 : 크리티컬 + {item.EnhancedCri()} \n강화 후 : 크리티컬 + {item.EnhancedCri() + item.enhanced}";
+        descriptionTxt.text = $"강화 전 : 크리티컬 + {item.EnhancedCri()} \n강화 후 : 크리티컬 + {item.EnhancedCri() + 1}";
 
         PlayerEquip.Instance.checkEquip = 3;
+
+        descriptionPanel.SetActive(true);
     }
 }

@@ -3,18 +3,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class EnhancementWindow : MonoBehaviour
+public class ResultWindow : MonoBehaviour
 {
     private ItemData _item;
 
     public GameObject enhanceWindow;
     public TextMeshProUGUI EnhanceTxt;
-    public TextMeshProUGUI SucessTxt;
 
     [Header("Button")]
     public Button upgrade;
-
-    private float _enhanceChance;
 
     private void Start()
     {
@@ -23,6 +20,8 @@ public class EnhancementWindow : MonoBehaviour
 
     public void UpgradeProcess()
     {
+        EnhanceTxt.text = null;
+
         // === 돈이 부족할 경우 ===
         if (SaveManager.Instance.userData.money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price)
         {
@@ -31,22 +30,11 @@ public class EnhancementWindow : MonoBehaviour
             return; 
         }
 
-        if (PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].enhanced >= 20)
-        {
-            _enhanceChance = 1f - PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].enhanced * 0.005f;
-        }
-        else
-        {
-            _enhanceChance = 100 - PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].enhanced * 5;
-        }
-
-        SucessTxt.text = _enhanceChance.ToString();
-
         int random = Random.Range(0, 100);
 
         GameManager.Instance.ChangeMoney(-PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price);
 
-        if (_enhanceChance > random)
+        if (UIManager.Instance.Enhancement.EnhanceChance > random)
         {
             EnhanceTxt.color = Color.green;
             EnhanceTxt.text = "강화 성공!";

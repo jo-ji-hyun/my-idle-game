@@ -10,6 +10,11 @@ public class UIManager : Singleton<UIManager>
     private InventoryUi inventory;
     public InventoryUi Inventory { get { return inventory; } }
 
+    [SerializeField]
+    private EnhancementtUi enhancement;
+    public EnhancementtUi Enhancement { get { return enhancement; } }
+
+
     public GameObject InventoryWindow;
     public GameObject EnhanceWindow;
 

@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class EnhanceDescription : MonoBehaviour
+{
+    public TextMeshProUGUI SucessTxt;
+    public TextMeshProUGUI CostTxt;
+
+    private void OnEnable()
+    {
+        if (UIManager.Instance.Enhancement.EnhanceChance >= 1)
+        {
+            UIManager.Instance.Enhancement.EnhanceChance = 100 - PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].enhanced * 1.5f;
+        }
+        else
+        {
+            UIManager.Instance.Enhancement.EnhanceChance = 0.5f;
+        }
+
+        SucessTxt.text = UIManager.Instance.Enhancement.EnhanceChance.ToString();
+        CostTxt.text = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price.ToString();
+    }
+}
