@@ -60,6 +60,8 @@ public class EnhancementWindow : MonoBehaviour
             PlayerEquip.Instance.UpdateStatus(_item);
 
             enhanceWindow.SetActive(false);
+
+            SoundManager.Instance.ItemEffectSound(InventoryItem.Enhance);
         }
         else
         {

@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
     // === 스테이지 갱신후 다음 스테이지 준비 ===
     public void StageEnd() 
     {
-        SoundManager.Instance.EffectSound(BattleResult.Victory);
+        SoundManager.Instance.BattleEffectSound(BattleResult.Victory);
 
         SaveManager.Instance.userData.stage++;
 

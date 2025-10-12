@@ -72,6 +72,8 @@ public class InventoryUi : MonoBehaviour
         PlayerEquip.Instance.UpdateStatus(clonedItem);
 
         descriptionPanel.SetActive(false);
+
+        SoundManager.Instance.ItemEffectSound(InventoryItem.Equip);
     }
 
     // === 클릭시 판매 ===
@@ -85,5 +87,7 @@ public class InventoryUi : MonoBehaviour
         }
 
         descriptionPanel.SetActive(false);
+
+        SoundManager.Instance.ItemEffectSound(InventoryItem.Sell);
     }
 }

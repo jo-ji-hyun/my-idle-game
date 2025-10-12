@@ -8,16 +8,32 @@ public enum BattleResult
     Defeat
 }
 
+public enum InventoryItem
+{
+    Sell,
+    Equip,
+    Enhance
+}
 
 public class SoundManager : Singleton<SoundManager>
 {
     private AudioSource _audioSource;
-    public AudioSource EffectSource;
-
-    [Header("Source")]
     public AudioClip BGM;
+
+    [Header("Battle")]
+    public AudioSource BattleSource;
+
     public AudioClip Victory;
     public AudioClip Defeat;
+
+
+    [Header("Item")]
+    public AudioSource ItemSource;
+
+    public AudioClip Sell;
+    public AudioClip Equip;
+    public AudioClip Enhance;
+
 
     protected override bool IsDestroy => false;
 
@@ -34,25 +50,50 @@ public class SoundManager : Singleton<SoundManager>
         _audioSource.Play();
     }
 
-    public void EffectSound(BattleResult type)
+    public void BattleEffectSound(BattleResult type)
     {
-        if (EffectSource.isPlaying)
+        if (BattleSource.isPlaying)
         {
-            EffectSource.Stop();
-            EffectSource.clip = null;
+            BattleSource.Stop();
+            BattleSource.clip = null;
         }
 
         switch (type)
         {
             case BattleResult.Victory:
-                EffectSource.clip = Victory;
+                BattleSource.clip = Victory;
                 break;
             case BattleResult.Defeat:
-                EffectSource.clip = Defeat;
+                BattleSource.clip = Defeat;
                 break;
         }
 
-        EffectSource.Play();
+        BattleSource.Play();
+    }
+
+    public void ItemEffectSound(InventoryItem type)
+    {
+        if (ItemSource.isPlaying)
+        {
+            ItemSource.Stop();
+            ItemSource.clip = null;
+        }
+
+        switch (type)
+        {
+            case InventoryItem.Sell:
+                ItemSource.clip = Sell;
+                break;
+            case InventoryItem.Equip:
+                ItemSource.clip = Equip;
+                break;
+            case InventoryItem.Enhance:
+                ItemSource.clip = Enhance;
+                break;
+                
+        }
+
+        ItemSource.Play();
     }
 
 }
