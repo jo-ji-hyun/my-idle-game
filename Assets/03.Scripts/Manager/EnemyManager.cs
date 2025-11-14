@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,13 +11,13 @@ public class EnemyManager : Singleton<EnemyManager>
 
     // === ui업데이트를 위해 ===
     [HideInInspector]
-    public int currentHp;                // === 보스 현재 체력 ===
+    public int currentHp;                  // === 보스 현재 체력 ===
     [HideInInspector]
-    public int maxEnemyHp;        // === 최대 체력 ===
+    public int maxEnemyHp;                 // === 최대 체력 ===
 
     // === 적 생성 위치 ===
-    public Vector3 spawposition = new(0, 60, 80);
-    private Vector3 _offset = new(0, 0, 80);
+    public Vector3 spawposition = new(0, 60, 60);
+    private Vector3 _offset = new(0, 0, 60);
 
     public List<ItemData> drop;
 
@@ -47,13 +46,12 @@ public class EnemyManager : Singleton<EnemyManager>
 
         SaveManager.Instance.userData.bossHp = currentHp; // === 보스 체력을 저장 ===
 
-        int stage = SaveManager.Instance.userData.stage;
-        float zoffset = stage * 60f;
-
         // === 한 적만 계속 소환하기 위해 ===
-        GameObject Clone = Instantiate(enemyObject, spawposition + _offset + new Vector3(0, 0, zoffset), Quaternion.identity);
+        GameObject Clone = Instantiate(enemyObject, spawposition + _offset, Quaternion.identity);
 
         // === 플레이어가 죽을경우를 대비하여 위치를 기억함 ===
         enemyPosition = Clone;
+
+        GameManager.Instance.PlayerSet();
     }
 }

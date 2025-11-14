@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -78,7 +77,7 @@ public class GameManager : Singleton<GameManager>
     {
         SoundManager.Instance.BattleEffectSound(BattleResult.Defeat);
 
-        player.transform.position = new Vector3(0, 23, -95);
+        PlayerSet();
 
         GameObject enemy = GameObject.Find("enemy(Clone)");
 
@@ -102,6 +101,11 @@ public class GameManager : Singleton<GameManager>
         PlayerEquip.Instance.UpdateStatus(PlayerEquip.Instance.EquipmentSlot[0]);   // === 체력만 재생 ===
 
         Time.timeScale = 1.0f;
+    }
+
+    public void PlayerSet()
+    {
+        player.transform.position = new Vector3(0, 23, -55);
     }
 
     public void GameExit()
