@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +14,6 @@ public class EnemyHP : MonoBehaviour
         
         float hp = (float)EnemyManager.Instance.currentHp / EnemyManager.Instance.maxEnemyHp; 
 
-        hpbar.fillAmount = hp; 
+        hpbar.fillAmount = hp;
     }
 }

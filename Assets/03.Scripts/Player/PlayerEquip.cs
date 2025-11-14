@@ -24,14 +24,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
 
     private void Start()
     {
-        if (SaveManager.Instance.IsLoadData == false)
-        {
-            EquipmentSlot = new List<ItemData>(DataManager.Instance.ItemSlot);
-        }
-        else
-        {
-            EquipmentSlot = new List<ItemData>(SaveManager.Instance.userData.EquippedItems);
-        }
+        EquipmentSlot = new List<ItemData>(DataManager.Instance.ItemSlot);
 
         if (EquipmentSlot != null)
         {
@@ -39,6 +32,8 @@ public class PlayerEquip : Singleton<PlayerEquip>
             {
                 UpdateStatus(item);
             }
+
+            SaveManager.Instance.SaveData(SaveManager.Instance.userData);
         }
     }
 

@@ -112,6 +112,8 @@ public class GameManager : Singleton<GameManager>
 
     public void GameExit()
     {
+        SaveManager.Instance.userData.bossHp = EnemyManager.Instance.currentHp;
+
         SaveManager.Instance.SaveData(SaveManager.Instance.userData);
 
         Application.Quit();
