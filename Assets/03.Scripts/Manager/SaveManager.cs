@@ -1,5 +1,4 @@
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -32,10 +31,10 @@ public class SaveManager : Singleton<SaveManager>
 
             userData = JsonConvert.DeserializeObject<UserData>(loadData);
 
-            DataManager.Instance.ItemSlot[0].enhanced = userData.HelmetEnhanced;
-            DataManager.Instance.ItemSlot[1].enhanced = userData.WeaponEnhanced;
-            DataManager.Instance.ItemSlot[2].enhanced = userData.ShieldEnhanced;
-            DataManager.Instance.ItemSlot[3].enhanced = userData.RingEnhance;
+            for (int i = 0; i < DataManager.Instance.ItemSlot.Count; i++) 
+            {
+                DataManager.Instance.ItemSlot[i].enhanced = userData.ItemSaveDatas[i].Enhanced;
+            }
         }
         else // === 없으면 새로만듬 ===
         {
@@ -48,11 +47,17 @@ public class SaveManager : Singleton<SaveManager>
                 Atk = 5,
                 Def = 0,
                 Cri = 0,
-                HelmetEnhanced = 0,
-                WeaponEnhanced = 0,
-                ShieldEnhanced = 0,
-                RingEnhance = 0,
             };
+
+            for (int i = 0; i < DataManager.Instance.ItemSlot.Count; i++)
+            {
+                ItemSaveData newItemSave = new()
+                {
+                    Enhanced = DataManager.Instance.ItemSlot[i].enhanced                                        
+                };
+
+                userData.ItemSaveDatas.Add(newItemSave);
+            }
 
             string json = JsonConvert.SerializeObject(userData);
 
@@ -62,10 +67,10 @@ public class SaveManager : Singleton<SaveManager>
 
     public void SaveData(UserData data)
     {
-        data.HelmetEnhanced = PlayerEquip.Instance.EquipmentSlot[0].enhanced;
-        data.WeaponEnhanced = PlayerEquip.Instance.EquipmentSlot[1].enhanced;
-        data.ShieldEnhanced = PlayerEquip.Instance.EquipmentSlot[2].enhanced;
-        data.RingEnhance = PlayerEquip.Instance.EquipmentSlot[3].enhanced;
+        for (int i = 0; i < PlayerEquip.Instance.EquipmentSlot.Count; i++)
+        {
+            data.ItemSaveDatas[i].Enhanced = PlayerEquip.Instance.EquipmentSlot[i].enhanced;
+        }
 
         var saveData = JsonConvert.SerializeObject(data);
 

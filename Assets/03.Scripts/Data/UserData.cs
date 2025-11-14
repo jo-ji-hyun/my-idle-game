@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class UserData 
@@ -13,8 +14,11 @@ public class UserData
     public int Def;
     public int Cri;
 
-    public int HelmetEnhanced;
-    public int WeaponEnhanced;
-    public int ShieldEnhanced;
-    public int RingEnhance;
+    public List<ItemSaveData> ItemSaveDatas = new();
+}
+
+[Serializable]
+public class ItemSaveData
+{
+    public int Enhanced;
 }
