@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 [Serializable]
 public class UserData 
@@ -15,4 +13,6 @@ public class UserData
     public int Atk;
     public int Def;
     public int Cri;
+
+    public List<ItemData> EquippedItems = new();
 }

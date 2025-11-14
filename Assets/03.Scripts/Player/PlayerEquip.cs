@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -25,7 +24,14 @@ public class PlayerEquip : Singleton<PlayerEquip>
 
     private void Start()
     {
-        EquipmentSlot = new List<ItemData>(DataManager.Instance.ItemSlot);
+        if (SaveManager.Instance.IsLoadData == false)
+        {
+            EquipmentSlot = new List<ItemData>(DataManager.Instance.ItemSlot);
+        }
+        else
+        {
+            EquipmentSlot = new List<ItemData>(SaveManager.Instance.userData.EquippedItems);
+        }
 
         if (EquipmentSlot != null)
         {

@@ -19,4 +19,4 @@ MonoBehaviour:
   cri: 0
   enhanced: 0
   price: 1000
-  icon: {fileID: -1706263030, guid: 82b0001d85e71b94588b57544f7a1b40, type: 3}
+  icon: Shield

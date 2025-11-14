@@ -106,10 +106,14 @@ public class GameManager : Singleton<GameManager>
     public void PlayerSet()
     {
         player.transform.position = new Vector3(0, 23, -55);
+
+        SaveManager.Instance.SaveData(SaveManager.Instance.userData);
     }
 
     public void GameExit()
     {
+        SaveManager.Instance.SaveData(SaveManager.Instance.userData);
+
         Application.Quit();
     }
 }

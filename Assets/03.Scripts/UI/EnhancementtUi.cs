@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,10 +39,10 @@ public class EnhancementtUi : MonoBehaviour
         // === 버튼을 다 받았으면 ===
         descriptionPanel.SetActive(false);
 
-        helmet.sprite = PlayerEquip.Instance.EquipmentSlot[0].icon;
-        weapon.sprite = PlayerEquip.Instance.EquipmentSlot[1].icon;
-        shield.sprite = PlayerEquip.Instance.EquipmentSlot[2].icon;
-        ring.sprite = PlayerEquip.Instance.EquipmentSlot[3].icon;
+        helmet.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[0].icon);
+        weapon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[1].icon);
+        shield.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[2].icon);
+        ring.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[3].icon);
     }
 
     public void ShowUpgade()

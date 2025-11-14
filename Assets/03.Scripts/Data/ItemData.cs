@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public enum ItemType
 {
@@ -25,8 +22,8 @@ public class ItemData : ScriptableObject
 
     [Header("etc")]
     public int enhanced;   // === 현재 강화 수치 ===
-    public int price;      // === 판매 가격 ===
-    public Sprite icon;    // ===  아이콘 ===
+    public int price;      
+    public string icon;    
 
     public int EnhancedValue()
     {

@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     }
 
     // === 추적 ===
-    void TraceWalk()
+    private void TraceWalk()
     {
         GameManager.Instance.isBattle = false;
 
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     }
 
     // === 공격(Enemy)에서 처리 ===
-    void CombatPlayer()
+    private void CombatPlayer()
     {
         GameManager.Instance.isBattle = true;
     }

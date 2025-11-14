@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ public class DataManager : Singleton<DataManager>
 
     protected override bool IsDestroy => false;
 
-    private void Start()
+    public void CloneItemData()
     {
         ItemSlot.Add(Instantiate(Helmet));
         ItemSlot.Add(Instantiate(Weapon));

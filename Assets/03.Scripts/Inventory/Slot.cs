@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,23 +28,25 @@ public class Slot : MonoBehaviour
         }
         else
         {
-            icon.sprite = item.icon;
-
             enhancedStatus.text = $"{item.enhanced}";
 
             switch (item.Type)
             {
                 case ItemType.helmet:
                     _descriptionText = $"체력 + {item.EnhancedHP()}, 판매가 {item.PriceItem()}";
+                    icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[0].icon);
                     break;
                 case ItemType.weapon:
                     _descriptionText = $"공격력 + {item.EnhancedAttack()}, 판매가 {item.PriceItem()}";
+                    icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[1].icon);
                     break;
                 case ItemType.shield:
                     _descriptionText = $"방어력 + {item.EnhancedDefence()}, 판매가 {item.PriceItem()}";
+                    icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[2].icon);
                     break;
                 case ItemType.ring:
                     _descriptionText = $"크리티컬 + {item.EnhancedCri()}, 판매가 {item.PriceItem()}";
+                    icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[3].icon);
                     break;
             }
 
