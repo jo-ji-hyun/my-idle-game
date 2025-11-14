@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
@@ -9,6 +10,8 @@ public class GameManager : Singleton<GameManager>
 {
     public GameObject player;
     public GameObject enemy;
+    [Header("Button")]
+    public Button ExitBtn;
 
     public static event Action OnInventoryChanged;     // === 인벤토리 갱신을 위해서 ===
 
@@ -23,6 +26,8 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
+
+        ExitBtn.onClick.AddListener(GameExit);
     }
 
     private void Start()
@@ -97,5 +102,10 @@ public class GameManager : Singleton<GameManager>
         PlayerEquip.Instance.UpdateStatus(PlayerEquip.Instance.EquipmentSlot[0]);   // === 체력만 재생 ===
 
         Time.timeScale = 1.0f;
+    }
+
+    public void GameExit()
+    {
+        Application.Quit();
     }
 }
