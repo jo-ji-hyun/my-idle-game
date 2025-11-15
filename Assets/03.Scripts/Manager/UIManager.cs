@@ -14,9 +14,14 @@ public class UIManager : Singleton<UIManager>
     private EnhancementtUi enhancement;
     public EnhancementtUi Enhancement { get { return enhancement; } }
 
+    [SerializeField]
+    private SystemUi system;
+    public SystemUi System { get { return system; } }
+
 
     public GameObject InventoryWindow;
     public GameObject EnhanceWindow;
+    public GameObject SystemWindow;
 
     // === UIµé ¿¬°á ===
     [SerializeField]

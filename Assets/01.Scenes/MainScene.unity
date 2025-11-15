@@ -1464,6 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd47ed40570d1a243bc1e7af87482e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 437043586}
 --- !u!1 &485579909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,7 +3986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &889681070
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8686,8 +8687,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 507644540}
   enhancement: {fileID: 1872291866}
+  system: {fileID: 437043589}
   InventoryWindow: {fileID: 498023654}
   EnhanceWindow: {fileID: 411232386}
+  SystemWindow: {fileID: 889681069}
   money: {fileID: 1647778789}
   enemyhp: {fileID: 500540727}
   stage: {fileID: 1533150326}
