@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public enum BattleResult
 {
@@ -19,6 +19,9 @@ public class SoundManager : Singleton<SoundManager>
 {
     private AudioSource _audioSource;
     public AudioClip BGM;
+
+    [Header("Mixer")]
+    public AudioMixer AudioMixer;
 
     [Header("Battle")]
     public AudioSource BattleSource;
@@ -45,6 +48,9 @@ public class SoundManager : Singleton<SoundManager>
 
     public void Start()
     {
+        SetBGMVolume(1.0f);
+        SetSFXVolume(1.0f);
+
         _audioSource.clip = BGM;
 
         _audioSource.Play();
@@ -96,4 +102,21 @@ public class SoundManager : Singleton<SoundManager>
         ItemSource.Play();
     }
 
+    public void SetBGMVolume(float sliderValue)
+    {
+        float safeValue = Mathf.Max(0.0001f, sliderValue);
+
+        float volume = Mathf.Log10(safeValue) * 20f;
+
+        AudioMixer.SetFloat("BGMVolume", volume);
+    }
+
+    public void SetSFXVolume(float sliderValue)
+    {
+        float safeValue = Mathf.Max(0.0001f, sliderValue);
+
+        float volume = Mathf.Log10(safeValue) * 20f;
+
+        AudioMixer.SetFloat("SFXVolume", volume);
+    }
 }
