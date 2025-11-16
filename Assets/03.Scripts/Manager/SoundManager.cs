@@ -1,18 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public enum BattleResult
-{
-    Victory,
-    Defeat
-}
-
-public enum InventoryItem
-{
-    Sell,
-    Equip,
-    Enhance
-}
 
 public class SoundManager : Singleton<SoundManager>
 {
@@ -25,17 +13,8 @@ public class SoundManager : Singleton<SoundManager>
     [Header("Battle")]
     public AudioSource BattleSource;
 
-    public AudioClip Victory;
-    public AudioClip Defeat;
-
-
     [Header("Item")]
     public AudioSource ItemSource;
-
-    public AudioClip Sell;
-    public AudioClip Equip;
-    public AudioClip Enhance;
-
 
     protected override bool IsDestroy => false;
 
@@ -63,15 +42,7 @@ public class SoundManager : Singleton<SoundManager>
             BattleSource.clip = null;
         }
 
-        switch (type)
-        {
-            case BattleResult.Victory:
-                BattleSource.clip = Victory;
-                break;
-            case BattleResult.Defeat:
-                BattleSource.clip = Defeat;
-                break;
-        }
+        BattleSource.clip = ResourceManager.Instance.GetBattleSFX(type);
 
         BattleSource.Play();
     }
@@ -84,19 +55,7 @@ public class SoundManager : Singleton<SoundManager>
             ItemSource.clip = null;
         }
 
-        switch (type)
-        {
-            case InventoryItem.Sell:
-                ItemSource.clip = Sell;
-                break;
-            case InventoryItem.Equip:
-                ItemSource.clip = Equip;
-                break;
-            case InventoryItem.Enhance:
-                ItemSource.clip = Enhance;
-                break;
-                
-        }
+        ItemSource.clip = ResourceManager.Instance.GetItemSFX(type);
 
         ItemSource.Play();
     }
