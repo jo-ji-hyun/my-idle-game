@@ -21,7 +21,7 @@ public class SystemUi : MonoBehaviour
     {
         Button.onClick.AddListener(ShowSystem);
 
-        SaveButton.onClick.AddListener(SaveManager.Instance.SaveSystem);
+        SaveButton.onClick.AddListener(SaveSystemButton);
         CloseButton.onClick.AddListener(CloseWindow);
 
         if (bgmSlider != null)
@@ -43,6 +43,14 @@ public class SystemUi : MonoBehaviour
 
         _currentBgmVolume = SaveManager.Instance.SystemData.BGMVolume;
         _currentSfxVolume = SaveManager.Instance.SystemData.SFXVolume;
+    }
+
+    public void SaveSystemButton()
+    {
+        _currentBgmVolume = SaveManager.Instance.SystemData.BGMVolume;
+        _currentSfxVolume = SaveManager.Instance.SystemData.SFXVolume;
+
+        SaveManager.Instance.SaveSystem();
     }
 
     public void CloseWindow()
