@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
 {
-    public UserData userData;
+    public UserData UserData;
+    public SystemData SystemData;
 
     protected override bool IsDestroy => false;
 
-    private string _filePath;
+    private string _userPath;
+    private string _systemPath;
 
     protected override void Awake()
     {
@@ -17,7 +19,8 @@ public class SaveManager : Singleton<SaveManager>
         DataManager.Instance.CloneItemData();
 
         // === 파일 경로를 찾기 ===
-        _filePath = Path.Combine(Application.persistentDataPath, "userData.json");
+        _userPath = Path.Combine(Application.persistentDataPath, "userData.json");
+        _systemPath = Path.Combine(Application.persistentDataPath, "systemData.json");
 
         LoadData();
     }
@@ -25,20 +28,20 @@ public class SaveManager : Singleton<SaveManager>
     public void LoadData()
     {
         // === 파일 존재시 ===
-        if (File.Exists(_filePath))
+        if (File.Exists(_userPath))
         {
-            var loadData = File.ReadAllText(_filePath);
+            var loadData = File.ReadAllText(_userPath);
 
-            userData = JsonConvert.DeserializeObject<UserData>(loadData);
+            UserData = JsonConvert.DeserializeObject<UserData>(loadData);
 
             for (int i = 0; i < DataManager.Instance.ItemSlot.Count; i++) 
             {
-                DataManager.Instance.ItemSlot[i].enhanced = userData.ItemSaveDatas[i].Enhanced;
+                DataManager.Instance.ItemSlot[i].enhanced = UserData.ItemSaveDatas[i].Enhanced;
             }
         }
         else // === 없으면 새로만듬 ===
         {
-            userData = new UserData
+            UserData = new UserData
             {
                 stage = 1,
                 bossHp = 0,
@@ -56,24 +59,57 @@ public class SaveManager : Singleton<SaveManager>
                     Enhanced = DataManager.Instance.ItemSlot[i].enhanced                                        
                 };
 
-                userData.ItemSaveDatas.Add(newItemSave);
+                UserData.ItemSaveDatas.Add(newItemSave);
             }
 
-            string json = JsonConvert.SerializeObject(userData);
+            string jsonUser = JsonConvert.SerializeObject(UserData);
 
-            File.WriteAllText(_filePath, json);
+            File.WriteAllText(_userPath, jsonUser);
+        }
+
+        // === 역할 분리 ===
+        if (File.Exists(_systemPath))
+        {
+            var loadSystemData = File.ReadAllText(_systemPath);
+
+            SystemData = JsonConvert.DeserializeObject<SystemData>(loadSystemData);
+        }
+        else
+        {
+            SystemData = new SystemData
+            {
+                BGMVolume = 1.0f,
+                SFXVolume = 1.0f,
+            };
+
+            string jsonSystem = JsonConvert.SerializeObject(SystemData);
+
+            File.WriteAllText(_systemPath, jsonSystem);
         }
     }
 
-    public void SaveData(UserData data)
+    public void SaveUser(UserData data)
     {
         for (int i = 0; i < PlayerEquip.Instance.EquipmentSlot.Count; i++)
         {
             data.ItemSaveDatas[i].Enhanced = PlayerEquip.Instance.EquipmentSlot[i].enhanced;
         }
 
-        var saveData = JsonConvert.SerializeObject(data);
+        var saveUserData = JsonConvert.SerializeObject(data);
 
-        File.WriteAllText(_filePath, saveData);
+        File.WriteAllText(_userPath, saveUserData);
+    }
+
+    public void SaveSystem()
+    {
+        var saveSystemrData = JsonConvert.SerializeObject(SystemData);
+
+        File.WriteAllText(_systemPath, saveSystemrData);
+    }
+
+    public void AllSave()
+    {
+        SaveUser(UserData);
+        SaveSystem();
     }
 }

@@ -33,7 +33,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
                 UpdateStatus(item);
             }
 
-            SaveManager.Instance.SaveData(SaveManager.Instance.userData);
+            SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);
         }
     }
 
@@ -45,20 +45,20 @@ public class PlayerEquip : Singleton<PlayerEquip>
         switch (item.Type)
         {
             case ItemType.helmet:
-                SaveManager.Instance.userData.HP = 10000;
-                SaveManager.Instance.userData.HP += x;
+                SaveManager.Instance.UserData.HP = 10000;
+                SaveManager.Instance.UserData.HP += x;
                 break;
             case ItemType.weapon:
-                SaveManager.Instance.userData.Atk = 5;
-                SaveManager.Instance.userData.Atk += x;
+                SaveManager.Instance.UserData.Atk = 5;
+                SaveManager.Instance.UserData.Atk += x;
                 break;
             case ItemType.shield:
-                SaveManager.Instance.userData.Def = 0;
-                SaveManager.Instance.userData.Def += x;
+                SaveManager.Instance.UserData.Def = 0;
+                SaveManager.Instance.UserData.Def += x;
                 break;
             case ItemType.ring:
-                SaveManager.Instance.userData.Cri = 0;
-                SaveManager.Instance.userData.Cri += x;
+                SaveManager.Instance.UserData.Cri = 0;
+                SaveManager.Instance.UserData.Cri += x;
                 break;
         }
         CurrentEnhanced();

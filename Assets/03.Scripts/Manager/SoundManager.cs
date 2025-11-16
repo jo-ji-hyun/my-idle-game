@@ -47,8 +47,8 @@ public class SoundManager : Singleton<SoundManager>
 
     public void Start()
     {
-        SetBGMVolume(1.0f);
-        SetSFXVolume(1.0f);
+        SetBGMVolume(SaveManager.Instance.SystemData.BGMVolume);
+        SetSFXVolume(SaveManager.Instance.SystemData.SFXVolume);
 
         _audioSource.clip = BGM;
 
@@ -108,6 +108,8 @@ public class SoundManager : Singleton<SoundManager>
         float volume = Mathf.Log10(safeValue) * 20f;
 
         AudioMixer.SetFloat("BGMVolume", volume);
+
+        SaveManager.Instance.SystemData.BGMVolume = sliderValue;
     }
 
     public void SetSFXVolume(float sliderValue)
@@ -117,5 +119,7 @@ public class SoundManager : Singleton<SoundManager>
         float volume = Mathf.Log10(safeValue) * 20f;
 
         AudioMixer.SetFloat("SFXVolume", volume);
+
+        SaveManager.Instance.SystemData.SFXVolume = sliderValue;
     }
 }

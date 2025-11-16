@@ -39,7 +39,7 @@ public class GameManager : Singleton<GameManager>
     // === 돈 변동 ===
     public void ChangeMoney(int amount)
     {
-        SaveManager.Instance.userData.money += amount;
+        SaveManager.Instance.UserData.money += amount;
 
         UIManager.Instance.Money.UpdateUi();
     }
@@ -54,7 +54,7 @@ public class GameManager : Singleton<GameManager>
 
         ItemData cloneItem = Instantiate(originalItem);
 
-        cloneItem.enhanced = Random.Range(0, SaveManager.Instance.userData.stage);
+        cloneItem.enhanced = Random.Range(0, SaveManager.Instance.UserData.stage);
 
         // === 복사템 추가 ===
         allitems.Add(cloneItem);
@@ -87,7 +87,7 @@ public class GameManager : Singleton<GameManager>
 
         player.transform.position = enemy.transform.position + new Vector3 (0, 0, -50);
 
-        SaveManager.Instance.SaveData(SaveManager.Instance.userData);               // === 현재 시점을 저장 ===
+        SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);               // === 현재 시점을 저장 ===
 
         Restart();
     }
@@ -107,14 +107,14 @@ public class GameManager : Singleton<GameManager>
     {
         player.transform.position = new Vector3(0, 23, -55);
 
-        SaveManager.Instance.SaveData(SaveManager.Instance.userData);
+        SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);
     }
 
     public void GameExit()
     {
-        SaveManager.Instance.userData.bossHp = EnemyManager.Instance.currentHp;
+        SaveManager.Instance.UserData.bossHp = EnemyManager.Instance.currentHp;
 
-        SaveManager.Instance.SaveData(SaveManager.Instance.userData);
+        SaveManager.Instance.AllSave();
 
         Application.Quit();
     }

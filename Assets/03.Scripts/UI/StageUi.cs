@@ -14,6 +14,6 @@ public class StageUi : MonoBehaviour
 
     public void UpdateUi()
     {
-        stageTxt.text = SaveManager.Instance.userData.stage.ToString();
+        stageTxt.text = SaveManager.Instance.UserData.stage.ToString();
     }
 }
