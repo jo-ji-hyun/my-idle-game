@@ -79,7 +79,7 @@ public class GameManager : Singleton<GameManager>
 
         PlayerSet();
 
-        GameObject enemy = GameObject.Find("enemy(Clone)");
+        GameObject enemy = EnemyManager.Instance.spawnEnemy;
 
         Destroy(enemy);
 
@@ -110,7 +110,7 @@ public class GameManager : Singleton<GameManager>
 
     public void GameExit()
     {
-        SaveManager.Instance.UserData.bossHp = EnemyManager.Instance.currentHp;
+        SaveManager.Instance.UserData.bossMaxHp = EnemyManager.Instance.currentHp;
 
         SaveManager.Instance.AllSave();
 

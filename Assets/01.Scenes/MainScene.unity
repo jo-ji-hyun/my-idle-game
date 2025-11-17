@@ -2546,8 +2546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75438108e27433644a60f3a24b9f9e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyObject: {fileID: 6306821787230729820, guid: c0708c179d4704b43883236356b0d7b5, type: 3}
-  enemyPosition: {fileID: 0}
+  enemyPrefabs: {fileID: 6306821787230729820, guid: c0708c179d4704b43883236356b0d7b5, type: 3}
+  spawnEnemy: {fileID: 0}
   currentHp: 0
   maxEnemyHp: 0
   spawposition: {x: 0, y: 60, z: 60}
@@ -6118,12 +6118,7 @@ MonoBehaviour:
   BGM: {fileID: 8300000, guid: 4baa6116f41a66a43bc0126c684b6a99, type: 3}
   AudioMixer: {fileID: 24100000, guid: b51a793dd02f21444aeaec71241f18d8, type: 2}
   BattleSource: {fileID: 374905976}
-  Victory: {fileID: 8300000, guid: 4b1befa0281ae1e419c185e2c5eded8a, type: 3}
-  Defeat: {fileID: 8300000, guid: 076192ec68319ae42b00f9b713746d91, type: 3}
   ItemSource: {fileID: 1427747839}
-  Sell: {fileID: 8300000, guid: d82c19d0305f2a1429c490b9e6c3c64a, type: 3}
-  Equip: {fileID: 8300000, guid: f6ff2b90f49f4fe43938e392e71eab47, type: 3}
-  Enhance: {fileID: 8300000, guid: 5c282fe5e8dc5d7458cac2f25a84a636, type: 3}
 --- !u!82 &1365884779
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7690,10 +7685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51b680a895b0c94c8b35d7d5a13cc37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 0
-  def: 0
-  currentHp: 0
-  cri: 0
   hpbar: {fileID: 194198284}
 --- !u!114 &1680695785
 MonoBehaviour:

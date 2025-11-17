@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         while (true) 
         {
             // === 방향 상관없이 거리 차이 구하기 ===
-            float distance = Vector3.Distance(EnemyManager.Instance.enemyPosition.transform.position, transform.position);
+            float distance = Vector3.Distance(EnemyManager.Instance.spawnEnemy.transform.position, transform.position);
 
             if (EnemyManager.Instance.currentHp > 0)
             {
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 
         _agent.isStopped = false;
 
-        _agent.SetDestination(EnemyManager.Instance.enemyPosition.transform.position);
+        _agent.SetDestination(EnemyManager.Instance.spawnEnemy.transform.position);
     }
 
     // === 공격(Enemy)에서 처리 ===

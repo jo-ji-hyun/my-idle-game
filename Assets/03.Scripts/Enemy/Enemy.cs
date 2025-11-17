@@ -45,6 +45,8 @@ public class Enemy : MonoBehaviour
             }
             _currentHp -= finaldamage;
 
+            SaveManager.Instance.UserData.bossCurrentHp = _currentHp;
+
             if (_currentHp <= 0)
             {
                 GameManager.Instance.isBattle = false;         // === 전투 종료 ===

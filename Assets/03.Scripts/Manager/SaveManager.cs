@@ -38,13 +38,15 @@ public class SaveManager : Singleton<SaveManager>
             {
                 DataManager.Instance.ItemSlot[i].enhanced = UserData.ItemSaveDatas[i].Enhanced;
             }
+
+            EnemyManager.Instance.ContinueEnemy();
         }
         else // === 없으면 새로만듬 ===
         {
             UserData = new UserData
             {
                 stage = 1,
-                bossHp = 0,
+                bossMaxHp = 0,
                 money = 10000,
                 MaxHP = 0,
                 CurrentHP = 1000,
@@ -66,6 +68,8 @@ public class SaveManager : Singleton<SaveManager>
             string jsonUser = JsonConvert.SerializeObject(UserData);
 
             File.WriteAllText(_userPath, jsonUser);
+
+            EnemyManager.Instance.NewEnemySpawn();
         }
 
         // === 역할 분리 ===
