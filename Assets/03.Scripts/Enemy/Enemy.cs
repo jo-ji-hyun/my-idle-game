@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void StageStart()
     {
-        _currentHp = EnemyManager.Instance.currentHp;
+        _currentHp = SaveManager.Instance.UserData.bossMaxHp;
 
         UIManager.Instance.EnemyHP.UpdateHpBar();
     }
@@ -45,15 +45,13 @@ public class Enemy : MonoBehaviour
             }
             _currentHp -= finaldamage;
 
-            SaveManager.Instance.UserData.bossCurrentHp = _currentHp;
-
             if (_currentHp <= 0)
             {
                 GameManager.Instance.isBattle = false;         // === 전투 종료 ===
 
                 _currentHp = 0;
 
-                EnemyManager.Instance.currentHp = _currentHp;
+                SaveManager.Instance.UserData.bossCurrentHp = _currentHp;
 
                 UIManager.Instance.EnemyHP.UpdateHpBar();
 
@@ -61,7 +59,7 @@ public class Enemy : MonoBehaviour
             }
             else // === Destroy가 있기 때문에 ===
             {
-                EnemyManager.Instance.currentHp = _currentHp;
+                SaveManager.Instance.UserData.bossCurrentHp = _currentHp;
 
                 UIManager.Instance.EnemyHP.UpdateHpBar();
             }

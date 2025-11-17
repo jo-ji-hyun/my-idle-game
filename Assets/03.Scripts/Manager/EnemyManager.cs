@@ -7,12 +7,6 @@ public class EnemyManager : Singleton<EnemyManager>
     public GameObject enemyPrefabs;
     public GameObject spawnEnemy;
 
-    // === ui업데이트를 위해 ===
-    [HideInInspector]
-    public int currentHp;                  // === 보스 현재 체력 ===
-    [HideInInspector]
-    public int maxEnemyHp;                 // === 최대 체력 ===
-
     // === 적 생성 위치 ===
     public Vector3 spawposition = new(0, 60, 60);
     private Vector3 _offset = new(0, 0, 60);
@@ -38,11 +32,8 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public void EnemySpawn()
     {
-        maxEnemyHp = SaveManager.Instance.UserData.stage * 500;
-
-        currentHp = maxEnemyHp;
-
-        SaveManager.Instance.UserData.bossMaxHp = currentHp; // === 보스 체력을 저장 ===
+        SaveManager.Instance.UserData.bossMaxHp = SaveManager.Instance.UserData.stage * 500;
+        SaveManager.Instance.UserData.bossCurrentHp = SaveManager.Instance.UserData.bossMaxHp;
 
         // === 한 적만 계속 소환하기 위해 ===
         spawnEnemy = Instantiate(enemyPrefabs, spawposition + _offset, Quaternion.identity);
@@ -52,10 +43,6 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public void ContinueEnemy()
     {
-        maxEnemyHp = SaveManager.Instance.UserData.stage * 500;
-
-        currentHp = SaveManager.Instance.UserData.bossCurrentHp;
-
         // === 한 적만 계속 소환하기 위해 ===
         spawnEnemy = Instantiate(enemyPrefabs, spawposition + _offset, Quaternion.identity);
 

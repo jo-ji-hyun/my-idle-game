@@ -110,8 +110,6 @@ public class GameManager : Singleton<GameManager>
 
     public void GameExit()
     {
-        SaveManager.Instance.UserData.bossMaxHp = EnemyManager.Instance.currentHp;
-
         SaveManager.Instance.AllSave();
 
         Application.Quit();

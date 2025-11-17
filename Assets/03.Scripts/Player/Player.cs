@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
             // === 방향 상관없이 거리 차이 구하기 ===
             float distance = Vector3.Distance(EnemyManager.Instance.spawnEnemy.transform.position, transform.position);
 
-            if (EnemyManager.Instance.currentHp > 0)
+            if (SaveManager.Instance.UserData.bossMaxHp > 0)
             {
                 if (distance < 50)
                 {
