@@ -332,19 +332,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 132340272199716768}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7513907687080398300}
-        m_TargetAssemblyTypeName: Slot, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &7513907687080398300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +348,7 @@ MonoBehaviour:
   number: 0
   icon: {fileID: 4730359690966348417}
   enhancedStatus: {fileID: 3529072302335792425}
+  Button: {fileID: 3248388012747670249}
 --- !u!1 &6881499042001787643
 GameObject:
   m_ObjectHideFlags: 0

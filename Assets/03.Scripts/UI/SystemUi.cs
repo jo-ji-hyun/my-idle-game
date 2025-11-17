@@ -37,7 +37,7 @@ public class SystemUi : MonoBehaviour
         }
     }
 
-    public void ShowSystem()
+    private void ShowSystem()
     {
         UIManager.Instance.SystemWindow.SetActive(true);
 
@@ -45,7 +45,7 @@ public class SystemUi : MonoBehaviour
         _currentSfxVolume = SaveManager.Instance.SystemData.SFXVolume;
     }
 
-    public void SaveSystemButton()
+    private void SaveSystemButton()
     {
         _currentBgmVolume = SaveManager.Instance.SystemData.BGMVolume;
         _currentSfxVolume = SaveManager.Instance.SystemData.SFXVolume;
@@ -53,7 +53,7 @@ public class SystemUi : MonoBehaviour
         SaveManager.Instance.SaveSystem();
     }
 
-    public void CloseWindow()
+    private void CloseWindow()
     {
         UIManager.Instance.SystemWindow.SetActive(false);
 

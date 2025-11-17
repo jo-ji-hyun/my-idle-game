@@ -32,28 +32,28 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    public void PlayerHpBar()
+    private void PlayerHpBar()
     {
         currentHp = SaveManager.Instance.UserData.HP;
 
         UpdateHpBar();
     }
 
-    public void UpdatePlayerStatus()
+    private void UpdatePlayerStatus()
     {
         atk = SaveManager.Instance.UserData.Atk;
         def = SaveManager.Instance.UserData.Def;
         cri = SaveManager.Instance.UserData.Cri;
     }
 
-    void UpdateHpBar()
+    private void UpdateHpBar()
     {
         float hp = (float) currentHp / _maxHp;
 
         hpbar.fillAmount = hp;
     }
 
-    public void TakeDamage(int damage)
+    private void TakeDamage(int damage)
     {
         currentHp = SaveManager.Instance.UserData.HP;
 

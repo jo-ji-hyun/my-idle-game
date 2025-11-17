@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-
 public class SoundManager : Singleton<SoundManager>
 {
     private AudioSource _audioSource;

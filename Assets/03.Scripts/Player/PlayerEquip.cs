@@ -65,7 +65,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
     }
 
     // === 현재 강화 수치 ===
-    public void CurrentEnhanced()
+    private void CurrentEnhanced()
     {
         hp.text = EquipmentSlot[(int)ItemType.helmet].enhanced.ToString();
         atk.text = EquipmentSlot[(int)ItemType.weapon].enhanced.ToString();

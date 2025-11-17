@@ -18,7 +18,7 @@ public class ResultWindow : MonoBehaviour
         upgrade.onClick.AddListener(UpgradeProcess);
     }
 
-    public void UpgradeProcess()
+    private void UpgradeProcess()
     {
 
         // === 돈이 부족할 경우 ===

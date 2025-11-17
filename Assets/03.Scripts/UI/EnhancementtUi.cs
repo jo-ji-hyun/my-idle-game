@@ -45,12 +45,12 @@ public class EnhancementtUi : MonoBehaviour
         ring.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[3].icon);
     }
 
-    public void ShowUpgade()
+    private void ShowUpgade()
     {
         UIManager.Instance.EnhanceWindow.SetActive(true);
     }
 
-    public void EnhanceHelmet()
+    private void EnhanceHelmet()
     {
         descriptionPanel.SetActive(false);
 
@@ -63,7 +63,7 @@ public class EnhancementtUi : MonoBehaviour
         descriptionPanel.SetActive(true);
     }
 
-    public void EnhanceWeapon()
+    private void EnhanceWeapon()
     {
         descriptionPanel.SetActive(false);
 
@@ -83,7 +83,7 @@ public class EnhancementtUi : MonoBehaviour
         descriptionPanel.SetActive(true);
     }
 
-    public void EnhanceShield()
+    private void EnhanceShield()
     {
         descriptionPanel.SetActive(false);
 
@@ -96,7 +96,7 @@ public class EnhancementtUi : MonoBehaviour
         descriptionPanel.SetActive(true);
     }
 
-    public void EnhanceRing()
+    private void EnhanceRing()
     {
         descriptionPanel.SetActive(false);
 

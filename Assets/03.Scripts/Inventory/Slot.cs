@@ -9,10 +9,16 @@ public class Slot : MonoBehaviour
     [Header("Slot")]
     public Image icon;                         // === 아이콘 표시 ===
     public TextMeshProUGUI enhancedStatus;     // === 강화 상태 표시 ===
+    public Button Button;
 
     private string _descriptionText;           // === 설명창 ===
 
     private bool _isClick;
+
+    private void Start()
+    {
+        Button.onClick.AddListener(OnClick);
+    }
 
     // === 강화된 데이터 받아오기 ===
     public void UpdateStatusUi()
@@ -55,7 +61,7 @@ public class Slot : MonoBehaviour
     }
 
     // === 버튼 클릭시 호출 ===
-    public void OnClick()
+    private void OnClick()
     {
         _isClick = !_isClick;
 

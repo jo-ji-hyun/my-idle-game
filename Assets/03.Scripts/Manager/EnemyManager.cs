@@ -30,7 +30,7 @@ public class EnemyManager : Singleton<EnemyManager>
 
     private void Start()
     {
-        NewEnemySpawn();
+        EnemySpawn();
     }
 
     // === 게임 매니저에 스폰 담당 ===
