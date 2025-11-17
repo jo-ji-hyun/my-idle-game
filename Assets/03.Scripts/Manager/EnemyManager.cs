@@ -28,6 +28,11 @@ public class EnemyManager : Singleton<EnemyManager>
         base.Awake();
     }
 
+    private void Start()
+    {
+        NewEnemySpawn();
+    }
+
     // === 게임 매니저에 스폰 담당 ===
     public void NewEnemySpawn()
     {
@@ -40,7 +45,7 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public void EnemySpawn()
     {
-        maxEnemyHp = SaveManager.Instance.UserData.stage * 2000;
+        maxEnemyHp = SaveManager.Instance.UserData.stage * 500;
 
         currentHp = maxEnemyHp;
 

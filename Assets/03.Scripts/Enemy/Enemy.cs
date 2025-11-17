@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private int _currentHp;
+    private Coroutine _currentBattleCoroutine;
+    private bool isBattleStart = false;
 
     private void Start()
     {
@@ -13,51 +15,64 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.isBattle)
+        if (GameManager.Instance.isBattle && !isBattleStart)
         {
-            TakeDamage(SaveManager.Instance.UserData.Atk);
+            _currentBattleCoroutine = StartCoroutine(TakeDamage(SaveManager.Instance.UserData.Atk));
+        }
+        else if (!GameManager.Instance.isBattle && isBattleStart)
+        {
+            StopCoroutine(_currentBattleCoroutine);
         }
     }
 
-    public void StageStart()
+    private void StageStart()
     {
         _currentHp = EnemyManager.Instance.currentHp;
 
         UIManager.Instance.EnemyHP.UpdateHpBar();
     }
 
-    public void TakeDamage(int damage)
+    private IEnumerator TakeDamage(int damage)
     {
-        int finaldamage = damage;
+        isBattleStart = true;
 
-        if(SaveManager.Instance.UserData.Cri > Random.Range(0, 99))
+        while (GameManager.Instance.isBattle)
         {
-            finaldamage += damage + (SaveManager.Instance.UserData.Cri / 2);
+            int finaldamage = damage;
+
+            if (SaveManager.Instance.UserData.Cri > Random.Range(0, 99))
+            {
+                finaldamage += damage + (SaveManager.Instance.UserData.Cri / 2);
+            }
+            _currentHp -= finaldamage;
+
+            if (_currentHp <= 0)
+            {
+                GameManager.Instance.isBattle = false;         // === 전투 종료 ===
+
+                _currentHp = 0;
+
+                EnemyManager.Instance.currentHp = _currentHp;
+
+                UIManager.Instance.EnemyHP.UpdateHpBar();
+
+                StageEnd();
+            }
+            else // === Destroy가 있기 때문에 ===
+            {
+                EnemyManager.Instance.currentHp = _currentHp;
+
+                UIManager.Instance.EnemyHP.UpdateHpBar();
+            }
+
+            yield return new WaitForSeconds(0.05f);
         }
-        _currentHp -= finaldamage;
 
-        if (_currentHp <= 0)
-        {
-            GameManager.Instance.isBattle = false;         // === 전투 종료 ===
-
-            _currentHp = 0;
-            
-            EnemyManager.Instance.currentHp = _currentHp;
-
-            UIManager.Instance.EnemyHP.UpdateHpBar();
-
-            StageEnd();
-        }
-        else // === Destroy가 있기 때문에 ===
-        {
-            EnemyManager.Instance.currentHp = _currentHp;
-
-            UIManager.Instance.EnemyHP.UpdateHpBar();
-        }
+        isBattleStart = false;
     }
 
     // === 스테이지 갱신후 다음 스테이지 준비 ===
-    public void StageEnd() 
+    private void StageEnd() 
     {
         SoundManager.Instance.BattleEffectSound(BattleResult.Victory);
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,30 +13,39 @@ public class Player : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
 
         _agent.speed = moveSpeed;
-
     }
 
-    private void Update()
+    private void Start()
     {
-        // === 방향 상관없이 거리 차이 구하기 ===
-        float distance = Vector3.Distance(EnemyManager.Instance.enemyPosition.transform.position, transform.position);
+        StartCoroutine(BattleAndTrace());
+    }
 
-        if (EnemyManager.Instance.currentHp > 0)
+    private IEnumerator BattleAndTrace()
+    {
+        while (true) 
         {
-            if(distance < 50)
+            // === 방향 상관없이 거리 차이 구하기 ===
+            float distance = Vector3.Distance(EnemyManager.Instance.enemyPosition.transform.position, transform.position);
+
+            if (EnemyManager.Instance.currentHp > 0)
             {
-                CombatPlayer();
+                if (distance < 50)
+                {
+                    CombatPlayer();
+                }
+                else
+                {
+                    TraceWalk();
+                }
             }
             else
             {
-                TraceWalk();
-            }
-        }
-        else
-        {
-            _agent.isStopped = false;
+                _agent.isStopped = true;
 
-            GameManager.Instance.isBattle = false;
+                GameManager.Instance.isBattle = false;
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
