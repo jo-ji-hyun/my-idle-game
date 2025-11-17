@@ -45,19 +45,15 @@ public class PlayerEquip : Singleton<PlayerEquip>
         switch (item.Type)
         {
             case ItemType.helmet:
-                SaveManager.Instance.UserData.HP = 10000;
-                SaveManager.Instance.UserData.HP += x;
+                SaveManager.Instance.UserData.MaxHP += x;
                 break;
             case ItemType.weapon:
-                SaveManager.Instance.UserData.Atk = 5;
                 SaveManager.Instance.UserData.Atk += x;
                 break;
             case ItemType.shield:
-                SaveManager.Instance.UserData.Def = 0;
                 SaveManager.Instance.UserData.Def += x;
                 break;
             case ItemType.ring:
-                SaveManager.Instance.UserData.Cri = 0;
                 SaveManager.Instance.UserData.Cri += x;
                 break;
         }

@@ -46,8 +46,9 @@ public class SaveManager : Singleton<SaveManager>
                 stage = 1,
                 bossHp = 0,
                 money = 10000,
-                HP = 10000,
-                Atk = 5,
+                MaxHP = 0,
+                CurrentHP = 1000,
+                Atk = 0,
                 Def = 0,
                 Cri = 0,
             };

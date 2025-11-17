@@ -1,22 +1,23 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public int atk;
-    public int def;
-    public int currentHp;
-    public int cri;
+    private int _atk;
+    private int _def;
+    private int _currentHp;
+    private int _cri;
 
     [Header("UI")]
     public Image hpbar;
 
     private int _maxHp;
+    private Coroutine _currentCombatCoroutine;
+    private bool isCombatStart = false;
 
     private void Start()
     {
-        _maxHp = SaveManager.Instance.UserData.HP;
-
         PlayerHpBar();
 
         UpdatePlayerStatus();
@@ -24,61 +25,69 @@ public class PlayerStatus : MonoBehaviour
 
     private void Update()
     {
-        float distance = Vector3.Distance(EnemyManager.Instance.enemyPosition.transform.position, transform.position);
-
-        if(distance < 50)
+        if (GameManager.Instance.isBattle && !isCombatStart)
         {
-            TakeDamage(SaveManager.Instance.UserData.stage);
+            _currentCombatCoroutine = StartCoroutine(TakeDamage(SaveManager.Instance.UserData.stage));
+
+            isCombatStart = true;
+        }
+        else if (!GameManager.Instance.isBattle && isCombatStart)
+        {
+            StopCoroutine(_currentCombatCoroutine);
+
+            isCombatStart = false;
         }
     }
 
     private void PlayerHpBar()
     {
-        currentHp = SaveManager.Instance.UserData.HP;
+        _maxHp = SaveManager.Instance.UserData.MaxHP;
+        _currentHp = SaveManager.Instance.UserData.CurrentHP;
 
         UpdateHpBar();
     }
 
     private void UpdatePlayerStatus()
     {
-        atk = SaveManager.Instance.UserData.Atk;
-        def = SaveManager.Instance.UserData.Def;
-        cri = SaveManager.Instance.UserData.Cri;
+        _atk = SaveManager.Instance.UserData.Atk;
+        _def = SaveManager.Instance.UserData.Def;
+        _cri = SaveManager.Instance.UserData.Cri;
     }
 
     private void UpdateHpBar()
     {
-        float hp = (float) currentHp / _maxHp;
+        float hp = (float) _currentHp / _maxHp;
 
         hpbar.fillAmount = hp;
     }
 
-    private void TakeDamage(int damage)
+    private IEnumerator TakeDamage(int damage)
     {
-        currentHp = SaveManager.Instance.UserData.HP;
-
-        // === 최종 데미지 계산 ===
-        int finaldamage = (SaveManager.Instance.UserData.Def - damage) <= 0 ? damage : 1;
-
-        currentHp -= finaldamage;
-
-        if (currentHp <= 0)
+        while (GameManager.Instance.isBattle)
         {
-            GameManager.Instance.isBattle = false;         // === 전투 종료 ===
+            UpdatePlayerStatus();
 
-            currentHp = 0;
+            // === 최종 데미지 계산 ===
+            int finaldamage = (SaveManager.Instance.UserData.Def - damage) <= 0 ? damage : 1;
 
-            SaveManager.Instance.UserData.HP = currentHp;
+            SaveManager.Instance.UserData.CurrentHP -= finaldamage;
 
-            UpdateHpBar();
+            _currentHp = SaveManager.Instance.UserData.CurrentHP;
 
-            GameManager.Instance.GameOver();
-        }
-        else 
-        {
-            SaveManager.Instance.UserData.HP = currentHp;
+            if (_currentHp <= 0)
+            {
+                GameManager.Instance.isBattle = false;         // === 전투 종료 ===
 
-            UpdateHpBar();
+                PlayerHpBar();
+
+                GameManager.Instance.GameOver();
+            }
+            else
+            {
+                PlayerHpBar();
+            }
+
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }

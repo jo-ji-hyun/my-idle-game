@@ -31,8 +31,6 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        EnemyManager.Instance.EnemySpawn();
-
         allitems = new List<ItemData>();
     }
 
@@ -77,6 +75,8 @@ public class GameManager : Singleton<GameManager>
     {
         SoundManager.Instance.BattleEffectSound(BattleResult.Defeat);
 
+        SaveManager.Instance.UserData.CurrentHP = SaveManager.Instance.UserData.MaxHP;
+
         PlayerSet();
 
         GameObject enemy = GameObject.Find("enemy(Clone)");
@@ -97,8 +97,6 @@ public class GameManager : Singleton<GameManager>
         ChangeMoney(500);        // === 환생 지원금 ==
 
         SaveManager.Instance.LoadData();
-
-        PlayerEquip.Instance.UpdateStatus(PlayerEquip.Instance.EquipmentSlot[0]);   // === 체력만 재생 ===
 
         Time.timeScale = 1.0f;
     }
