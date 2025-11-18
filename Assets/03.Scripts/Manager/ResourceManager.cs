@@ -65,7 +65,7 @@ public class ResourceManager : Singleton<ResourceManager>
         }
 
         // === 방어 코드 ===
-        string fullPath = Consts.ResourcePath.Icons + data;
+        string fullPath = Consts.ResourcePath.Icons + "/" + data;
 
         Sprite sprite = Load<Sprite>(fullPath);
 
