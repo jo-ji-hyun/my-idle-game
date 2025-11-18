@@ -24,3 +24,10 @@ public class ItemSaveData
 {
     public int Enhanced;
 }
+
+[Serializable]
+public class InventorySaveData
+{
+    public string Name;
+    public int Enhanced;
+}

@@ -24,9 +24,9 @@ public class Slot : MonoBehaviour
     public void UpdateStatusUi()
     {
         // === 하드코딩 때문에 ===
-        ItemData item = GameManager.Instance.InventoryItems[Number];
+        ItemData item = InventoryManager.Instance.InventoryItems[Number];
 
-        if (Number >= GameManager.Instance.InventoryItems.Count)
+        if (Number >= InventoryManager.Instance.InventoryItems.Count)
         {
             Icon.sprite = null;
             EnhancedStatus.text = null;

@@ -48,14 +48,14 @@ public class InventoryUi : MonoBehaviour
     // === 장착시 호출 ===
     private void Equipment()
     {
-        if (GameManager.Instance.InventoryItems.Count <= 0) return;
+        if (InventoryManager.Instance.InventoryItems.Count <= 0) return;
 
         // === 1.타입비교 ===
         int index = _currentNumber;
 
-        int type = (int)GameManager.Instance.InventoryItems[index].Type;
+        int type = (int)InventoryManager.Instance.InventoryItems[index].Type;
 
-        ItemData originalItem = GameManager.Instance.InventoryItems[index];
+        ItemData originalItem = InventoryManager.Instance.InventoryItems[index];
 
         ItemData clonedItem = Instantiate(originalItem);
 
@@ -64,7 +64,7 @@ public class InventoryUi : MonoBehaviour
 
         PlayerEquip.Instance.EquipmentSlot[type] = clonedItem;
 
-        GameManager.Instance.RemoveItem(index);
+        InventoryManager.Instance.RemoveItem(index);
 
         PlayerEquip.Instance.UpdateStatus(clonedItem);
 
@@ -76,11 +76,11 @@ public class InventoryUi : MonoBehaviour
     // === 클릭시 판매 ===
     private void PriceItem()
     {
-        GameManager.Instance.ChangeMoney(GameManager.Instance.InventoryItems[_currentNumber].PriceItem());
+        GameManager.Instance.ChangeMoney(InventoryManager.Instance.InventoryItems[_currentNumber].PriceItem());
 
-        if (GameManager.Instance.InventoryItems[_currentNumber] != null)
+        if (InventoryManager.Instance.InventoryItems[_currentNumber] != null)
         {
-            GameManager.Instance.RemoveItem(_currentNumber);
+            InventoryManager.Instance.RemoveItem(_currentNumber);
         }
 
         DescriptionPanel.SetActive(false);

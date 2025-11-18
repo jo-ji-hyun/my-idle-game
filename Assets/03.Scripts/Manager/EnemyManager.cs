@@ -19,7 +19,7 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         GameManager.Instance.ChangeMoney(1000 + SaveManager.Instance.UserData.Stage * 100);
 
-        GameManager.Instance.GetItem();
+        InventoryManager.Instance.GetItem();
 
         EnemySpawn();
     }

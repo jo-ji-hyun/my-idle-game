@@ -13,7 +13,7 @@ public class ContentSlots : MonoBehaviour
     void OnEnable()
     {
         // === 인벤토리 구독 ===
-        GameManager.OnInventoryChanged += UpdateInventoryUI;
+        InventoryManager.OnInventoryChanged += UpdateInventoryUI;
 
         UpdateInventoryUI();
     }
@@ -45,7 +45,7 @@ public class ContentSlots : MonoBehaviour
     // === 인벤토리 갱신 ===
     private void UpdateInventoryUI()
     {
-        int loopCount = Mathf.Min(GameManager.Instance.InventoryItems.Count, SlotLists.Count);
+        int loopCount = Mathf.Min(InventoryManager.Instance.InventoryItems.Count, SlotLists.Count);
 
         for (int i = 0; i < loopCount; i++)
         {
