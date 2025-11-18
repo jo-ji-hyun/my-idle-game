@@ -24,7 +24,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
                 ItemData cloneItem = Instantiate(originalItem);
 
-                cloneItem.Enhanced = itemData[saveData.Type].Enhanced;
+                cloneItem.Enhanced = loadedData[(int)saveData.Type].Enhanced;
 
                 InventoryItems.Add(cloneItem);
 
