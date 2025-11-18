@@ -16,8 +16,6 @@ public class SaveManager : Singleton<SaveManager>
     {
         base.Awake();
 
-        DataManager.Instance.CloneItemData();
-
         // === 파일 경로를 찾기 ===
         _userPath = Path.Combine(Application.persistentDataPath, "userData.json");
         _systemPath = Path.Combine(Application.persistentDataPath, "systemData.json");
@@ -40,6 +38,8 @@ public class SaveManager : Singleton<SaveManager>
             }
 
             EnemyManager.Instance.ContinueEnemy();
+
+            InventoryManager.Instance.LoadItems(UserData.PlayerInventory);
         }
         else // === 없으면 새로만듬 ===
         {
@@ -65,11 +65,13 @@ public class SaveManager : Singleton<SaveManager>
                 UserData.ItemSaveDatas.Add(newItemSave);
             }
 
+            UserData.PlayerInventory = new System.Collections.Generic.List<InventorySaveData>();
+
             string jsonUser = JsonConvert.SerializeObject(UserData);
 
             File.WriteAllText(_userPath, jsonUser);
 
-            EnemyManager.Instance.NewEnemySpawn();
+            EnemyManager.Instance.EnemySpawn();
         }
 
         // === 역할 분리 ===

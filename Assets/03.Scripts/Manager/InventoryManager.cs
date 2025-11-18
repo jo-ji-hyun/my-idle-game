@@ -4,23 +4,42 @@ using Random = UnityEngine.Random;
 
 public class InventoryManager : Singleton<InventoryManager>
 {
-    public List<ItemData> InventoryItems;
+    public List<ItemData> InventoryItems = new();
 
     public static event Action OnInventoryChanged;     // === 인벤토리 갱신을 위해서 ===
 
     protected override bool IsDestroy => false;
 
-    private void Start()
+    public void LoadItems(List<InventorySaveData> loadedData)
     {
-        InventoryItems = new List<ItemData>();
+        InventoryItems.Clear();
+
+        var itemData = DataManager.Instance.ItemDrops;
+
+        foreach (var saveData in loadedData)
+        {
+            if (itemData.TryGetValue(saveData.Type, out ItemData originalData))
+            {
+                ItemData originalItem = DataManager.Instance.ItemDrops[saveData.Type];
+
+                ItemData cloneItem = Instantiate(originalItem);
+
+                cloneItem.Enhanced = itemData[saveData.Type].Enhanced;
+
+                InventoryItems.Add(cloneItem);
+
+                OnInventoryChanged?.Invoke();
+            }
+        }
     }
+
     // === 랜덤으로 강화된 아이템 획득 ===
     public void GetItem()
     {
-        int ran = Random.Range(0, DataManager.Instance.ItemDrops.Count);
+        Consts.ItemType randomKey = (Consts.ItemType)Random.Range(0, 4);
 
         // === 복사본 만들기 ===
-        ItemData originalItem = DataManager.Instance.ItemDrops[ran];
+        ItemData originalItem = DataManager.Instance.ItemDrops[randomKey];
 
         ItemData cloneItem = Instantiate(originalItem);
 
@@ -28,6 +47,15 @@ public class InventoryManager : Singleton<InventoryManager>
 
         // === 복사템 추가 ===
         InventoryItems.Add(cloneItem);
+
+        InventorySaveData saveData = new()
+        {
+            Type = cloneItem.Type,
+
+            Enhanced = cloneItem.Enhanced
+        };
+
+        SaveManager.Instance.UserData.PlayerInventory.Add(saveData);
 
         // === 인벤토리 갱신 ===
         OnInventoryChanged?.Invoke();

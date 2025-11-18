@@ -17,7 +17,7 @@ public class UserData
     public int Cri;
 
     public List<ItemSaveData> ItemSaveDatas = new();
-    public Dictionary<int, InventorySaveData> PlayerInventory = new();
+    public List<InventorySaveData> PlayerInventory = new();
 }
 
 [Serializable]
@@ -29,6 +29,6 @@ public class ItemSaveData
 [Serializable]
 public class InventorySaveData
 {
-    public string Name;
+    public Consts.ItemType Type;
     public int Enhanced;
 }
