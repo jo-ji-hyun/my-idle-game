@@ -36,3 +36,13 @@
 
 [Fix] 버그 수정
 
+## 코드 컨벤션
+|접근자|변수|예시|bool 값|
+|------|-----------|----------|----------|
+|public| 파스칼 (첫문자 대문자) | public int MaxHp | public bool IsCount |
+|private| _카멜 ( _ + 첫문자 소문자 이후 대문자) | private int _currentHp | private bool isCount |
+
+* 클래스/구조체/메서드/enum 변수 => 파스칼 (ex. GameManager, private void GameOver(), public void LevelUp(), ItemType.Helmet )
+
+* 지역 변수 => 카멜 (ex. int number )
+
