@@ -9,15 +9,15 @@ public class DataManager : Singleton<DataManager>
     public ItemData Ring;
 
     [HideInInspector]
-    public List<ItemData> ItemSlot;
+    public List<ItemData> ItemDrops;
 
     protected override bool IsDestroy => false;
 
     public void CloneItemData()
     {
-        ItemSlot.Add(Instantiate(Helmet));
-        ItemSlot.Add(Instantiate(Weapon));
-        ItemSlot.Add(Instantiate(Shield));
-        ItemSlot.Add(Instantiate(Ring));
+        ItemDrops.Add(Instantiate(Helmet));
+        ItemDrops.Add(Instantiate(Weapon));
+        ItemDrops.Add(Instantiate(Shield));
+        ItemDrops.Add(Instantiate(Ring));
     }
 }

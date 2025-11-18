@@ -5,13 +5,12 @@ public class EnemyManager : Singleton<EnemyManager>
 {
     [Header("Enemy")]
     public GameObject EnemyPrefabs;
+    [HideInInspector]
     public GameObject SpawnEnemy;
 
     // === 적 생성 위치 ===
     private Vector3 _spawposition = new(0, 60, 60);
     private Vector3 _offset = new(0, 0, 60);
-
-    public List<ItemData> Drops;
 
     protected override bool IsDestroy => false;
 

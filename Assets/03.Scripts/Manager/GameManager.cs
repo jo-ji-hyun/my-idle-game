@@ -7,7 +7,6 @@ using Random = UnityEngine.Random;
 public class GameManager : Singleton<GameManager>
 {
     public GameObject Player;
-    public GameObject Enemy;
 
     public static event Action OnInventoryChanged;     // === 인벤토리 갱신을 위해서 ===
 
@@ -37,10 +36,10 @@ public class GameManager : Singleton<GameManager>
     // === 랜덤으로 강화된 아이템 획득 ===
     public void GetItem()
     {
-        int ran = Random.Range(0, EnemyManager.Instance.Drops.Count);
+        int ran = Random.Range(0, DataManager.Instance.ItemDrops.Count);
 
         // === 복사본 만들기 ===
-        ItemData originalItem = EnemyManager.Instance.Drops[ran];
+        ItemData originalItem = DataManager.Instance.ItemDrops[ran];
 
         ItemData cloneItem = Instantiate(originalItem);
 
