@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 03.DiamondRing
   m_EditorClassIdentifier: 
   Type: 3
-  hp: 0
-  atk: 0
-  def: 0
-  cri: 5
-  enhanced: 0
-  price: 800
-  icon: Ring
+  Hp: 0
+  Atk: 0
+  Def: 0
+  Cri: 5
+  Enhanced: 0
+  Price: 0
+  Icon: 

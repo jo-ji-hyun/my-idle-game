@@ -52,6 +52,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
                 SaveManager.Instance.UserData.Cri = x;
                 break;
         }
+
         CurrentEnhanced();
     }
 

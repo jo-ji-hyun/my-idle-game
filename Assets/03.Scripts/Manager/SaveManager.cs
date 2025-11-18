@@ -49,7 +49,7 @@ public class SaveManager : Singleton<SaveManager>
                 BossMaxHp = 0,
                 Money = 10000,
                 MaxHP = 0,
-                CurrentHP = 1000,
+                CurrentHP = 500,
                 Atk = 0,
                 Def = 0,
                 Cri = 0,

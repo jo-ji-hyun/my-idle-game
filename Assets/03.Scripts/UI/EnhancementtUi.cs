@@ -56,7 +56,7 @@ public class EnhancementtUi : MonoBehaviour
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[0];
 
-        DescriptionTxt.text = $"강화 전 : 체력 + {item.EnhancedHP()} \n강화 후 : 체력 + {item.EnhancedHP() + 1000}";
+        DescriptionTxt.text = $"강화 전 : 체력 + {item.EnhancedHP()} \n강화 후 : 체력 + {item.EnhancedHP() + 100}";
 
         PlayerEquip.Instance.CheckEquipNumber = 0;
 

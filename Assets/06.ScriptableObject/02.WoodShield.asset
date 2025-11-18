@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 02.WoodShield
   m_EditorClassIdentifier: 
   Type: 2
-  hp: 0
-  atk: 0
-  def: 3
-  cri: 0
-  enhanced: 0
-  price: 1000
-  icon: Shield
+  Hp: 0
+  Atk: 0
+  Def: 1
+  Cri: 0
+  Enhanced: 0
+  Price: 0
+  Icon: 

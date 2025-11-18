@@ -40,19 +40,19 @@ public class Slot : MonoBehaviour
             {
                 case Consts.ItemType.Helmet:
                     _descriptionText = $"체력 + {item.EnhancedHP()}, 판매가 {item.PriceItem()}";
-                    Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[0].Icon);
+                    Icon.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Helmet);
                     break;
                 case Consts.ItemType.Weapon:
                     _descriptionText = $"공격력 + {item.EnhancedAttack()}, 판매가 {item.PriceItem()}";
-                    Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[1].Icon);
+                    Icon.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Weapon);
                     break;
                 case Consts.ItemType.Shield:
                     _descriptionText = $"방어력 + {item.EnhancedDefence()}, 판매가 {item.PriceItem()}";
-                    Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[2].Icon);
+                    Icon.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Shield);
                     break;
                 case Consts.ItemType.Ring:
                     _descriptionText = $"크리티컬 + {item.EnhancedCri()}, 판매가 {item.PriceItem()}";
-                    Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[3].Icon);
+                    Icon.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Ring);
                     break;
             }
 
