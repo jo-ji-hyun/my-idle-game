@@ -9441,15 +9441,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db39d51e4c1c084388ce248e4f0a74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 507644540}
-  enhancement: {fileID: 1872291866}
-  system: {fileID: 437043589}
+  <Inventory>k__BackingField: {fileID: 507644540}
+  <Enhancement>k__BackingField: {fileID: 1872291866}
+  <System>k__BackingField: {fileID: 437043589}
+  <Money>k__BackingField: {fileID: 1647778789}
+  <EnemyHP>k__BackingField: {fileID: 500540727}
+  <Stage>k__BackingField: {fileID: 1533150326}
   InventoryWindow: {fileID: 498023654}
   EnhanceWindow: {fileID: 411232386}
   SystemWindow: {fileID: 889681069}
-  money: {fileID: 1647778789}
-  enemyhp: {fileID: 500540727}
-  stage: {fileID: 1533150326}
 --- !u!4 &1921661786
 Transform:
   m_ObjectHideFlags: 0

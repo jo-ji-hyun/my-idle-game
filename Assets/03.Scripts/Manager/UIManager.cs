@@ -3,35 +3,28 @@ using UnityEngine;
 public class UIManager : Singleton<UIManager>
 {
     // === 인벤토리 창과 업그레이드 버튼 작동 준비 ===
-    [SerializeField]
-    private InventoryUi inventory;
-    public InventoryUi Inventory { get { return inventory; } }
+    [field:SerializeField]
+    public InventoryUi Inventory { get; private set; }
 
-    [SerializeField]
-    private EnhancementtUi enhancement;
-    public EnhancementtUi Enhancement { get { return enhancement; } }
+    [field:SerializeField]
+    public EnhancementtUi Enhancement { get; private set; }
 
-    [SerializeField]
-    private SystemUi system;
-    public SystemUi System { get { return system; } }
+    [field: SerializeField]
+    public SystemUi System { get; private set; }
+
+    [field: SerializeField]
+    public MoneyUi Money { get; private set; }
+
+    [field: SerializeField]
+    public EnemyHP EnemyHP { get; private set; }
+
+    [field: SerializeField]
+    public StageUi Stage { get; private set; }
 
     [Header("Object")]
     public GameObject InventoryWindow;
     public GameObject EnhanceWindow;
     public GameObject SystemWindow;
-
-    [Header("Ui")]
-    [SerializeField]
-    private MoneyUi money;
-    public MoneyUi Money { get { return money; } }
-
-    [SerializeField]
-    private EnemyHP enemyhp;
-    public EnemyHP EnemyHP { get { return enemyhp; } }
-
-    [SerializeField]
-    private StageUi stage;
-    public StageUi Stage { get { return stage; } }
 
     protected override bool IsDestroy => false;
 
