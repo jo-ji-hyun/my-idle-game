@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    public int number;
+    public int Number;
 
     [Header("Slot")]
-    public Image icon;                         // === 아이콘 표시 ===
-    public TextMeshProUGUI enhancedStatus;     // === 강화 상태 표시 ===
-    public Button Button;
+    public Image Icon;                         // === 아이콘 표시 ===
+    public TextMeshProUGUI EnhancedStatus;     // === 강화 상태 표시 ===
+    public Button SlotBtn;
 
     private string _descriptionText;           // === 설명창 ===
 
@@ -17,42 +17,42 @@ public class Slot : MonoBehaviour
 
     private void Start()
     {
-        Button.onClick.AddListener(OnClick);
+        SlotBtn.onClick.AddListener(OnClick);
     }
 
     // === 강화된 데이터 받아오기 ===
     public void UpdateStatusUi()
     {
         // === 하드코딩 때문에 ===
-        ItemData item = GameManager.Instance.allitems[number];
+        ItemData item = GameManager.Instance.InventoryItems[Number];
 
-        if (number >= GameManager.Instance.allitems.Count)
+        if (Number >= GameManager.Instance.InventoryItems.Count)
         {
-            icon.sprite = null;
-            enhancedStatus.text = null;
+            Icon.sprite = null;
+            EnhancedStatus.text = null;
             _descriptionText = null;
         }
         else
         {
-            enhancedStatus.text = $"{item.enhanced}";
+            EnhancedStatus.text = $"{item.Enhanced}";
 
             switch (item.Type)
             {
-                case ItemType.helmet:
+                case ItemType.Helmet:
                     _descriptionText = $"체력 + {item.EnhancedHP()}, 판매가 {item.PriceItem()}";
-                    icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[0].icon);
+                    Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[0].Icon);
                     break;
-                case ItemType.weapon:
+                case ItemType.Weapon:
                     _descriptionText = $"공격력 + {item.EnhancedAttack()}, 판매가 {item.PriceItem()}";
-                    icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[1].icon);
+                    Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[1].Icon);
                     break;
-                case ItemType.shield:
+                case ItemType.Shield:
                     _descriptionText = $"방어력 + {item.EnhancedDefence()}, 판매가 {item.PriceItem()}";
-                    icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[2].icon);
+                    Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[2].Icon);
                     break;
-                case ItemType.ring:
+                case ItemType.Ring:
                     _descriptionText = $"크리티컬 + {item.EnhancedCri()}, 판매가 {item.PriceItem()}";
-                    icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[3].icon);
+                    Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[3].Icon);
                     break;
             }
 
@@ -65,6 +65,6 @@ public class Slot : MonoBehaviour
     {
         _isClick = !_isClick;
 
-        UIManager.Instance.Inventory.DescriptionWindow(_isClick, _descriptionText, number);
+        UIManager.Instance.Inventory.DescriptionWindow(_isClick, _descriptionText, Number);
     }
 }

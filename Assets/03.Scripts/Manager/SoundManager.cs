@@ -23,7 +23,7 @@ public class SoundManager : Singleton<SoundManager>
         _audioSource = GetComponent<AudioSource>();
     }
 
-    public void Start()
+    private void Start()
     {
         SetBGMVolume(SaveManager.Instance.SystemData.BGMVolume);
         SetSFXVolume(SaveManager.Instance.SystemData.SFXVolume);

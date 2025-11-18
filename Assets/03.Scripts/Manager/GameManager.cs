@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 
 public class GameManager : Singleton<GameManager>
 {
-    public GameObject player;
-    public GameObject enemy;
+    public GameObject Player;
+    public GameObject Enemy;
     [Header("Button")]
     public Button ExitBtn;
 
@@ -16,9 +16,9 @@ public class GameManager : Singleton<GameManager>
 
     // === 전투 중 ===
     [HideInInspector]
-    public bool isBattle = false;
+    public bool IsBattle = false;
 
-    public List<ItemData> allitems;
+    public List<ItemData> InventoryItems;
 
     protected override bool IsDestroy => false;
 
@@ -31,13 +31,13 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        allitems = new List<ItemData>();
+        InventoryItems = new List<ItemData>();
     }
 
     // === 돈 변동 ===
     public void ChangeMoney(int amount)
     {
-        SaveManager.Instance.UserData.money += amount;
+        SaveManager.Instance.UserData.Money += amount;
 
         UIManager.Instance.Money.UpdateUi();
     }
@@ -45,17 +45,17 @@ public class GameManager : Singleton<GameManager>
     // === 랜덤으로 강화된 아이템 획득 ===
     public void GetItem()
     {
-        int ran = Random.Range(0, EnemyManager.Instance.drop.Count);
+        int ran = Random.Range(0, EnemyManager.Instance.Drops.Count);
 
         // === 복사본 만들기 ===
-        ItemData originalItem = EnemyManager.Instance.drop[ran];
+        ItemData originalItem = EnemyManager.Instance.Drops[ran];
 
         ItemData cloneItem = Instantiate(originalItem);
 
-        cloneItem.enhanced = Random.Range(0, SaveManager.Instance.UserData.stage);
+        cloneItem.Enhanced = Random.Range(0, SaveManager.Instance.UserData.Stage);
 
         // === 복사템 추가 ===
-        allitems.Add(cloneItem);
+        InventoryItems.Add(cloneItem);
 
         // === 인벤토리 갱신 ===
         OnInventoryChanged?.Invoke();
@@ -64,7 +64,7 @@ public class GameManager : Singleton<GameManager>
     // === 아이템 제거 로직 ===
     public void RemoveItem(int x)
     {
-        allitems.RemoveAt(x);
+        InventoryItems.RemoveAt(x);
 
         // === 인벤토리 갱신 ===
         OnInventoryChanged?.Invoke();
@@ -79,20 +79,20 @@ public class GameManager : Singleton<GameManager>
 
         PlayerSet();
 
-        GameObject enemy = EnemyManager.Instance.spawnEnemy;
+        GameObject enemy = EnemyManager.Instance.SpawnEnemy;
 
         Destroy(enemy);
 
         EnemyManager.Instance.EnemySpawn();
 
-        player.transform.position = enemy.transform.position + new Vector3 (0, 0, -50);
+        Player.transform.position = enemy.transform.position + new Vector3 (0, 0, -50);
 
         SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);               // === 현재 시점을 저장 ===
 
         Restart();
     }
 
-    public void Restart()
+    private void Restart()
     {
         ChangeMoney(500);        // === 환생 지원금 ==
 
@@ -103,12 +103,12 @@ public class GameManager : Singleton<GameManager>
 
     public void PlayerSet()
     {
-        player.transform.position = new Vector3(0, 23, -55);
+        Player.transform.position = new Vector3(0, 23, -55);
 
         SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);
     }
 
-    public void GameExit()
+    private void GameExit()
     {
         SaveManager.Instance.AllSave();
 

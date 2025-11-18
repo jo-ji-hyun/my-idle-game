@@ -4,26 +4,21 @@ using UnityEngine;
 public class EnemyManager : Singleton<EnemyManager>
 {
     [Header("Enemy")]
-    public GameObject enemyPrefabs;
-    public GameObject spawnEnemy;
+    public GameObject EnemyPrefabs;
+    public GameObject SpawnEnemy;
 
     // === 적 생성 위치 ===
-    public Vector3 spawposition = new(0, 60, 60);
+    private Vector3 _spawposition = new(0, 60, 60);
     private Vector3 _offset = new(0, 0, 60);
 
-    public List<ItemData> drop;
+    public List<ItemData> Drops;
 
     protected override bool IsDestroy => false;
-
-    protected override void Awake()
-    {
-        base.Awake();
-    }
 
     // === 게임 매니저에 스폰 담당 ===
     public void NewEnemySpawn()
     {
-        GameManager.Instance.ChangeMoney(1000 + SaveManager.Instance.UserData.stage * 100);
+        GameManager.Instance.ChangeMoney(1000 + SaveManager.Instance.UserData.Stage * 100);
 
         GameManager.Instance.GetItem();
 
@@ -32,11 +27,11 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public void EnemySpawn()
     {
-        SaveManager.Instance.UserData.bossMaxHp = SaveManager.Instance.UserData.stage * 500;
-        SaveManager.Instance.UserData.bossCurrentHp = SaveManager.Instance.UserData.bossMaxHp;
+        SaveManager.Instance.UserData.BossMaxHp = SaveManager.Instance.UserData.Stage * 500;
+        SaveManager.Instance.UserData.BossCurrentHp = SaveManager.Instance.UserData.BossMaxHp;
 
         // === 한 적만 계속 소환하기 위해 ===
-        spawnEnemy = Instantiate(enemyPrefabs, spawposition + _offset, Quaternion.identity);
+        SpawnEnemy = Instantiate(EnemyPrefabs, _spawposition + _offset, Quaternion.identity);
 
         GameManager.Instance.PlayerSet();
     }
@@ -44,7 +39,7 @@ public class EnemyManager : Singleton<EnemyManager>
     public void ContinueEnemy()
     {
         // === 한 적만 계속 소환하기 위해 ===
-        spawnEnemy = Instantiate(enemyPrefabs, spawposition + _offset, Quaternion.identity);
+        SpawnEnemy = Instantiate(EnemyPrefabs, _spawposition + _offset, Quaternion.identity);
 
         GameManager.Instance.PlayerSet();
     }

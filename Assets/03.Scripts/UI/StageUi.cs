@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StageUi : MonoBehaviour
 {
-    public TextMeshProUGUI stageTxt;
+    public TextMeshProUGUI StageTxt;
 
     private void Start()
     {
@@ -12,6 +12,6 @@ public class StageUi : MonoBehaviour
 
     public void UpdateUi()
     {
-        stageTxt.text = SaveManager.Instance.UserData.stage.ToString();
+        StageTxt.text = SaveManager.Instance.UserData.Stage.ToString();
     }
 }

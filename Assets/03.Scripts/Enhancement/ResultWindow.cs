@@ -7,22 +7,22 @@ public class ResultWindow : MonoBehaviour
 {
     private ItemData _item;
 
-    public GameObject enhanceWindow;
+    public GameObject EnhanceWindow;
     public TextMeshProUGUI EnhanceTxt;
 
     [Header("Button")]
-    public Button upgrade;
+    public Button UpgradeBtn;
 
     private void Start()
     {
-        upgrade.onClick.AddListener(UpgradeProcess);
+        UpgradeBtn.onClick.AddListener(UpgradeProcess);
     }
 
     private void UpgradeProcess()
     {
 
         // === 돈이 부족할 경우 ===
-        if (SaveManager.Instance.UserData.money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price)
+        if (SaveManager.Instance.UserData.Money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Price)
         {
             EnhanceTxt.color = Color.red;
             EnhanceTxt.text = "골드 부족";
@@ -31,26 +31,26 @@ public class ResultWindow : MonoBehaviour
 
         int random = Random.Range(0, 100);
 
-        GameManager.Instance.ChangeMoney(-PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price);
+        GameManager.Instance.ChangeMoney(-PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Price);
 
         if (UIManager.Instance.Enhancement.EnhanceChance > random)
         {
             EnhanceTxt.color = Color.green;
             EnhanceTxt.text = "강화 성공!";
 
-            _item = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip];
+            _item = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber];
 
-            int nextEnhanced = _item.enhanced + 1;
+            int nextEnhanced = _item.Enhanced + 1;
 
-            _item.enhanced = nextEnhanced;
+            _item.Enhanced = nextEnhanced;
 
             PlayerEquip.Instance.UpdateStatus(_item);
 
-            PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.checkEquip].price += 500;
+            PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Price += 500;
 
-            enhanceWindow.SetActive(false);
+            EnhanceWindow.SetActive(false);
 
-            SoundManager.Instance.ItemEffectSound(InventoryItem.Enhance);
+            SoundManager.Instance.ItemEffectSound(InventoryItem.Enhanced);
         }
         else
         {

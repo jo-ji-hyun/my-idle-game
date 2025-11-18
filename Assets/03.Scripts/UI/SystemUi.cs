@@ -3,37 +3,37 @@ using UnityEngine.UI;
 
 public class SystemUi : MonoBehaviour
 {
-    public Button Button;
+    public Button UiBtn;
     [Header("Windows")]
-    public Button SaveButton;
-    public Button CloseButton;
+    public Button SaveBtn;
+    public Button CloseBtn;
 
     [SerializeField]
-    private Slider bgmSlider;
+    private Slider _bgmSlider;
 
     [SerializeField] 
-    private Slider sfxSlider;
+    private Slider _sfxSlider;
 
     private float _currentBgmVolume;
     private float _currentSfxVolume;
 
     public void Start()
     {
-        Button.onClick.AddListener(ShowSystem);
+        UiBtn.onClick.AddListener(ShowSystem);
 
-        SaveButton.onClick.AddListener(SaveSystemButton);
-        CloseButton.onClick.AddListener(CloseWindow);
+        SaveBtn.onClick.AddListener(SaveSystemButton);
+        CloseBtn.onClick.AddListener(CloseWindow);
 
-        if (bgmSlider != null)
+        if (_bgmSlider != null)
         {
-            bgmSlider.value = SaveManager.Instance.SystemData.BGMVolume;
-            bgmSlider.onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
+            _bgmSlider.value = SaveManager.Instance.SystemData.BGMVolume;
+            _bgmSlider.onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
         }
 
-        if (sfxSlider != null)
+        if (_sfxSlider != null)
         {
-            sfxSlider.value = SaveManager.Instance.SystemData.SFXVolume;
-            sfxSlider.onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
+            _sfxSlider.value = SaveManager.Instance.SystemData.SFXVolume;
+            _sfxSlider.onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
         }
     }
 
@@ -57,14 +57,14 @@ public class SystemUi : MonoBehaviour
     {
         UIManager.Instance.SystemWindow.SetActive(false);
 
-        if (bgmSlider != null)
+        if (_bgmSlider != null)
         {
-            bgmSlider.value = _currentBgmVolume;
+            _bgmSlider.value = _currentBgmVolume;
         }
 
-        if (sfxSlider != null)
+        if (_sfxSlider != null)
         {
-            sfxSlider.value = _currentSfxVolume;
+            _sfxSlider.value = _currentSfxVolume;
         }
     }
 }

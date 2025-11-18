@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6874400567998535675}
   - component: {fileID: 3529072302335792425}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text (TMP)_Enhanced_Status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,8 +96,8 @@ MonoBehaviour:
   m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 52
+  m_fontSizeMax: 100
   m_fontStyle: 1
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 1024
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 31.532227, y: -9.097656, z: 0, w: 0}
+  m_margin: {x: 0.8828125, y: -9.097656, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1518165955180515572}
   - component: {fileID: 4730359690966348417}
   m_Layer: 5
-  m_Name: icon
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,10 +345,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f8feafa476fd549950c046f1c43fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 0
-  icon: {fileID: 4730359690966348417}
-  enhancedStatus: {fileID: 3529072302335792425}
-  Button: {fileID: 3248388012747670249}
+  Number: 0
+  Icon: {fileID: 4730359690966348417}
+  EnhancedStatus: {fileID: 3529072302335792425}
+  SlotBtn: {fileID: 3248388012747670249}
 --- !u!1 &6881499042001787643
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -15, y: 0}
-  m_SizeDelta: {x: 85.0057, y: 60}
+  m_SizeDelta: {x: 150, y: 60}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &4947069393859067338
 CanvasRenderer:
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

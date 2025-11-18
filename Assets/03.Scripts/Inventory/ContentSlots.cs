@@ -4,11 +4,11 @@ using UnityEngine;
 public class ContentSlots : MonoBehaviour
 {
     [SerializeField]
-    private GameObject slot;
+    private GameObject _slot;
 
     private int _slotCount = 20;
 
-    public List<Slot> slotList;
+    public List<Slot> SlotLists;
 
     void OnEnable()
     {
@@ -26,17 +26,17 @@ public class ContentSlots : MonoBehaviour
     // === 인벤토리 슬롯 배치 ===
     private void SlotsCreate()
     {
-        slotList = new List<Slot>();
+        SlotLists = new List<Slot>();
 
         for (int i = 0; i < _slotCount; i++)
         {
-            GameObject slotPrefabs = Instantiate(slot, transform);
+            GameObject slotPrefabs = Instantiate(_slot, transform);
 
             Slot slotComponent = slotPrefabs.GetComponent<Slot>();
 
-            slotList.Add(slotComponent);
+            SlotLists.Add(slotComponent);
 
-            slotComponent.number = i;
+            slotComponent.Number = i;
         }
 
         UpdateInventoryUI();
@@ -45,18 +45,18 @@ public class ContentSlots : MonoBehaviour
     // === 인벤토리 갱신 ===
     private void UpdateInventoryUI()
     {
-        int loopCount = Mathf.Min(GameManager.Instance.allitems.Count, slotList.Count);
+        int loopCount = Mathf.Min(GameManager.Instance.InventoryItems.Count, SlotLists.Count);
 
         for (int i = 0; i < loopCount; i++)
         {
-            slotList[i].gameObject.SetActive(true);
-            slotList[i].UpdateStatusUi();
+            SlotLists[i].gameObject.SetActive(true);
+            SlotLists[i].UpdateStatusUi();
         }
 
         // === 오브젝트 풀링 ===
-        for (int i = loopCount; i < slotList.Count; i++)
+        for (int i = loopCount; i < SlotLists.Count; i++)
         {
-            slotList[i].gameObject.SetActive(false);
+            SlotLists[i].gameObject.SetActive(false);
         }
     }
 }

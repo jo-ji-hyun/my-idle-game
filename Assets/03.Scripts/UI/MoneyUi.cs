@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MoneyUi : MonoBehaviour
 {
-    public TextMeshProUGUI moneyValue;
+    public TextMeshProUGUI MoneyValue;
 
     void Start()
     {
@@ -12,6 +12,6 @@ public class MoneyUi : MonoBehaviour
 
     public void UpdateUi()
     {
-        moneyValue.text = string.Format("{0:N0}", SaveManager.Instance.UserData.money);
+        MoneyValue.text = string.Format("{0:N0}", SaveManager.Instance.UserData.Money);
     }
 }

@@ -7,20 +7,15 @@ public class PlayerEquip : Singleton<PlayerEquip>
     public List<ItemData> EquipmentSlot;
 
     [Header("UI")]
-    public TextMeshProUGUI hp;
-    public TextMeshProUGUI atk;
-    public TextMeshProUGUI def;
-    public TextMeshProUGUI cri;
+    public TextMeshProUGUI HpTxt;
+    public TextMeshProUGUI AtkTxt;
+    public TextMeshProUGUI DefTxt;
+    public TextMeshProUGUI CriTxt;
 
     [HideInInspector]
-    public int checkEquip;                // === 강화할꺼 체크 ===
+    public int CheckEquipNumber;                // === 강화할꺼 체크 ===
 
     protected override bool IsDestroy => false;
-
-    protected override void Awake()
-    {
-        base.Awake();
-    }
 
     private void Start()
     {
@@ -44,16 +39,16 @@ public class PlayerEquip : Singleton<PlayerEquip>
 
         switch (item.Type)
         {
-            case ItemType.helmet:
+            case ItemType.Helmet:
                 SaveManager.Instance.UserData.MaxHP = x;
                 break;
-            case ItemType.weapon:
+            case ItemType.Weapon:
                 SaveManager.Instance.UserData.Atk = x;
                 break;
-            case ItemType.shield:
+            case ItemType.Shield:
                 SaveManager.Instance.UserData.Def = x;
                 break;
-            case ItemType.ring:
+            case ItemType.Ring:
                 SaveManager.Instance.UserData.Cri = x;
                 break;
         }
@@ -63,9 +58,9 @@ public class PlayerEquip : Singleton<PlayerEquip>
     // === 현재 강화 수치 ===
     private void CurrentEnhanced()
     {
-        hp.text = EquipmentSlot[(int)ItemType.helmet].enhanced.ToString();
-        atk.text = EquipmentSlot[(int)ItemType.weapon].enhanced.ToString();
-        def.text = EquipmentSlot[(int)ItemType.shield].enhanced.ToString();
-        cri.text = EquipmentSlot[(int)ItemType.ring].enhanced.ToString();
+        HpTxt.text = EquipmentSlot[(int)ItemType.Helmet].Enhanced.ToString();
+        AtkTxt.text = EquipmentSlot[(int)ItemType.Weapon].Enhanced.ToString();
+        DefTxt.text = EquipmentSlot[(int)ItemType.Shield].Enhanced.ToString();
+        CriTxt.text = EquipmentSlot[(int)ItemType.Ring].Enhanced.ToString();
     }
 }

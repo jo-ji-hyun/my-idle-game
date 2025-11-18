@@ -2,10 +2,10 @@ using UnityEngine;
 
 public enum ItemType
 {
-    helmet,
-    weapon,
-    shield,
-    ring
+    Helmet,
+    Weapon,
+    Shield,
+    Ring
 }
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
@@ -15,48 +15,48 @@ public class ItemData : ScriptableObject
 
     // === 추가 능력치 ===
     [Header("Status")]
-    public int hp;
-    public int atk;
-    public int def;
-    public int cri;
+    public int Hp;
+    public int Atk;
+    public int Def;
+    public int Cri;
 
     [Header("etc")]
-    public int enhanced;   // === 현재 강화 수치 ===
-    public int price;      
-    public string icon;    
+    public int Enhanced;   // === 현재 강화 수치 ===
+    public int Price;      
+    public string Icon;    
 
     public int EnhancedValue()
     {
         return Type switch
         {
-            ItemType.helmet => EnhancedHP(),
-            ItemType.weapon => EnhancedAttack(),
-            ItemType.shield => EnhancedDefence(),
-            ItemType.ring => EnhancedCri(),
+            ItemType.Helmet => EnhancedHP(),
+            ItemType.Weapon => EnhancedAttack(),
+            ItemType.Shield => EnhancedDefence(),
+            ItemType.Ring => EnhancedCri(),
             _ => 0,
         };
     }
 
     public int EnhancedHP()
     {
-        if (this.Type != ItemType.helmet)
+        if (this.Type != ItemType.Helmet)
         {
-            return hp;
+            return Hp;
         }
 
-        return hp + enhanced * 1000;
+        return Hp + Enhanced * 1000;
     }
 
     public int EnhancedAttack()
     {
-        if (this.Type != ItemType.weapon)
+        if (this.Type != ItemType.Weapon)
         {
-            return atk;
+            return Atk;
         }
 
         int atkBonus = 0;
 
-        for (int i = 1; i <= enhanced; i++)
+        for (int i = 1; i <= Enhanced; i++)
         {
             // === 짝수 레벨마다 보너스를 누적 ===
             if (i % 2 == 0)
@@ -65,27 +65,27 @@ public class ItemData : ScriptableObject
             }
         }
 
-        return atk + atkBonus + enhanced;
+        return Atk + atkBonus + Enhanced;
     }
 
     public int EnhancedDefence()
     {
-        if (this.Type != ItemType.shield)
+        if (this.Type != ItemType.Shield)
         {
-            return def;
+            return Def;
         }
 
-        return def + enhanced;
+        return Def + Enhanced;
     }
 
     public int EnhancedCri() 
     {
-        if (this.Type != ItemType.ring)
+        if (this.Type != ItemType.Ring)
         {
-            return cri;
+            return Cri;
         }
 
-        int finalCri = cri + enhanced;
+        int finalCri = Cri + Enhanced;
 
         // === 최대값 100 ===
         return Mathf.Min(finalCri, 100);
@@ -93,6 +93,6 @@ public class ItemData : ScriptableObject
 
     public int PriceItem()
     {
-        return price + 500 * enhanced;
+        return Price + 500 * Enhanced;
     }
 }

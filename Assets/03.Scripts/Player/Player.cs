@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed = 65.0f;
+    private float _moveSpeed = 65.0f;
 
     private NavMeshAgent _agent;
 
@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
 
-        _agent.speed = moveSpeed;
+        _agent.speed = _moveSpeed;
     }
 
     private void Start()
@@ -25,9 +25,9 @@ public class Player : MonoBehaviour
         while (true) 
         {
             // === 방향 상관없이 거리 차이 구하기 ===
-            float distance = Vector3.Distance(EnemyManager.Instance.spawnEnemy.transform.position, transform.position);
+            float distance = Vector3.Distance(EnemyManager.Instance.SpawnEnemy.transform.position, transform.position);
 
-            if (SaveManager.Instance.UserData.bossMaxHp > 0)
+            if (SaveManager.Instance.UserData.BossMaxHp > 0)
             {
                 if (distance < 50)
                 {
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
             {
                 _agent.isStopped = true;
 
-                GameManager.Instance.isBattle = false;
+                GameManager.Instance.IsBattle = false;
             }
 
             yield return new WaitForSeconds(0.5f);
@@ -52,16 +52,16 @@ public class Player : MonoBehaviour
     // === 추적 ===
     private void TraceWalk()
     {
-        GameManager.Instance.isBattle = false;
+        GameManager.Instance.IsBattle = false;
 
         _agent.isStopped = false;
 
-        _agent.SetDestination(EnemyManager.Instance.spawnEnemy.transform.position);
+        _agent.SetDestination(EnemyManager.Instance.SpawnEnemy.transform.position);
     }
 
     // === 공격(Enemy)에서 처리 ===
     private void CombatPlayer()
     {
-        GameManager.Instance.isBattle = true;
+        GameManager.Instance.IsBattle = true;
     }
 }

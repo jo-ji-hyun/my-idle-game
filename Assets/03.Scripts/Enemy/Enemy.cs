@@ -14,11 +14,11 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.isBattle && !isBattleStart)
+        if (GameManager.Instance.IsBattle && !isBattleStart)
         {
             _currentBattleCoroutine = StartCoroutine(TakeDamage(SaveManager.Instance.UserData.Atk));
         }
-        else if (!GameManager.Instance.isBattle && isBattleStart)
+        else if (!GameManager.Instance.IsBattle && isBattleStart)
         {
             StopCoroutine(_currentBattleCoroutine);
         }
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void StageStart()
     {
-        _currentHp = SaveManager.Instance.UserData.bossMaxHp;
+        _currentHp = SaveManager.Instance.UserData.BossMaxHp;
 
         UIManager.Instance.EnemyHP.UpdateHpBar();
     }
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     {
         isBattleStart = true;
 
-        while (GameManager.Instance.isBattle)
+        while (GameManager.Instance.IsBattle)
         {
             int finaldamage = damage;
 
@@ -47,11 +47,11 @@ public class Enemy : MonoBehaviour
 
             if (_currentHp <= 0)
             {
-                GameManager.Instance.isBattle = false;         // === 전투 종료 ===
+                GameManager.Instance.IsBattle = false;         // === 전투 종료 ===
 
                 _currentHp = 0;
 
-                SaveManager.Instance.UserData.bossCurrentHp = _currentHp;
+                SaveManager.Instance.UserData.BossCurrentHp = _currentHp;
 
                 UIManager.Instance.EnemyHP.UpdateHpBar();
 
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
             }
             else // === Destroy가 있기 때문에 ===
             {
-                SaveManager.Instance.UserData.bossCurrentHp = _currentHp;
+                SaveManager.Instance.UserData.BossCurrentHp = _currentHp;
 
                 UIManager.Instance.EnemyHP.UpdateHpBar();
             }
@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
     {
         SoundManager.Instance.BattleEffectSound(BattleResult.Victory);
 
-        SaveManager.Instance.UserData.stage++;
+        SaveManager.Instance.UserData.Stage++;
 
         UIManager.Instance.Stage.UpdateUi();
 

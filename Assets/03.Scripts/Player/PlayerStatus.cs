@@ -4,13 +4,11 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    private int _atk;
     private int _def;
     private int _currentHp;
-    private int _cri;
 
     [Header("UI")]
-    public Image hpbar;
+    public Image Hpbar;
 
     private int _maxHp;
     private Coroutine _currentCombatCoroutine;
@@ -25,13 +23,13 @@ public class PlayerStatus : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.isBattle && !isCombatStart)
+        if (GameManager.Instance.IsBattle && !isCombatStart)
         {
-            _currentCombatCoroutine = StartCoroutine(TakeDamage(SaveManager.Instance.UserData.stage));
+            _currentCombatCoroutine = StartCoroutine(TakeDamage(SaveManager.Instance.UserData.Stage));
 
             isCombatStart = true;
         }
-        else if (!GameManager.Instance.isBattle && isCombatStart)
+        else if (!GameManager.Instance.IsBattle && isCombatStart)
         {
             StopCoroutine(_currentCombatCoroutine);
 
@@ -49,26 +47,24 @@ public class PlayerStatus : MonoBehaviour
 
     private void UpdatePlayerStatus()
     {
-        _atk = SaveManager.Instance.UserData.Atk;
         _def = SaveManager.Instance.UserData.Def;
-        _cri = SaveManager.Instance.UserData.Cri;
     }
 
     private void UpdateHpBar()
     {
         float hp = (float) _currentHp / _maxHp;
 
-        hpbar.fillAmount = hp;
+        Hpbar.fillAmount = hp;
     }
 
     private IEnumerator TakeDamage(int damage)
     {
-        while (GameManager.Instance.isBattle)
+        while (GameManager.Instance.IsBattle)
         {
             UpdatePlayerStatus();
 
             // === 최종 데미지 계산 ===
-            int finaldamage = (SaveManager.Instance.UserData.Def - damage) <= 0 ? damage : 1;
+            int finaldamage = (_def - damage) <= 0 ? damage : 1;
 
             SaveManager.Instance.UserData.CurrentHP -= finaldamage;
 
@@ -76,7 +72,7 @@ public class PlayerStatus : MonoBehaviour
 
             if (_currentHp <= 0)
             {
-                GameManager.Instance.isBattle = false;         // === 전투 종료 ===
+                GameManager.Instance.IsBattle = false;         // === 전투 종료 ===
 
                 PlayerHpBar();
 

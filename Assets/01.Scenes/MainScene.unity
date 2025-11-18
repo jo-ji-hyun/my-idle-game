@@ -1577,11 +1577,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd47ed40570d1a243bc1e7af87482e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button: {fileID: 437043586}
-  SaveButton: {fileID: 2091399997}
-  CloseButton: {fileID: 1698075099}
-  bgmSlider: {fileID: 1822057040}
-  sfxSlider: {fileID: 1641310858}
+  UiBtn: {fileID: 437043586}
+  SaveBtn: {fileID: 2091399997}
+  CloseBtn: {fileID: 1698075099}
+  _bgmSlider: {fileID: 1822057040}
+  _sfxSlider: {fileID: 1641310858}
 --- !u!1 &485579909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,8 +1872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fdbe38ea28c9bd4d88c09a80dd23092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpbar: {fileID: 1335130737}
-  hpbartext: {fileID: 1165617094}
+  Hpbar: {fileID: 1335130737}
+  HpbarTxt: {fileID: 1165617094}
 --- !u!1 &507644535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,11 +2008,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3f0df5e6cf6514fbe41d66b14baf66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 507644537}
-  descriptionPanel: {fileID: 950859538}
-  descriptionTxt: {fileID: 2079884356}
-  equipButton: {fileID: 767546233}
-  priceButton: {fileID: 826735949}
+  UiBtn: {fileID: 507644537}
+  DescriptionPanel: {fileID: 950859538}
+  DescriptionTxt: {fileID: 2079884356}
+  EquipBtn: {fileID: 767546233}
+  SellBtn: {fileID: 826735949}
 --- !u!1 &517575999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2237,9 +2237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63afe86aeb287f1409e5a29b3f6da0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enhanceWindow: {fileID: 607932919}
+  EnhanceWindow: {fileID: 607932919}
   EnhanceTxt: {fileID: 653963351}
-  upgrade: {fileID: 868056174}
+  UpgradeBtn: {fileID: 868056174}
 --- !u!1 &532932593
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,12 +2546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75438108e27433644a60f3a24b9f9e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs: {fileID: 6306821787230729820, guid: c0708c179d4704b43883236356b0d7b5, type: 3}
-  spawnEnemy: {fileID: 0}
-  currentHp: 0
-  maxEnemyHp: 0
-  spawposition: {x: 0, y: 60, z: 60}
-  drop:
+  EnemyPrefabs: {fileID: 6306821787230729820, guid: c0708c179d4704b43883236356b0d7b5, type: 3}
+  SpawnEnemy: {fileID: 0}
+  Drops:
   - {fileID: 11400000, guid: d16fe78a9acbdda498bb73783ba9a113, type: 2}
   - {fileID: 11400000, guid: f219f1bd696914749804b4130446c425, type: 2}
   - {fileID: 11400000, guid: 01664aa855255c145b10df7c602f394e, type: 2}
@@ -2872,7 +2869,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 28b245fa5a94a51438fd9d65af270e33, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3216,7 +3213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7f92521ede381b14e8f65e1f0e5439cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4771,7 +4768,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d5232fd578d33484d98c06d877b915ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6799,7 +6796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d83408936e75e54bb868e26a58cbbc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageTxt: {fileID: 403141693}
+  StageTxt: {fileID: 403141693}
 --- !u!1 &1539801619
 GameObject:
   m_ObjectHideFlags: 0
@@ -7467,7 +7464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce3e03a407d67f459a5d63386bcfe3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyValue: {fileID: 1996230454}
+  MoneyValue: {fileID: 1996230454}
 --- !u!1 &1667007651
 GameObject:
   m_ObjectHideFlags: 0
@@ -7650,7 +7647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04041de0f696c914fa000ae8b31f2ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 65
 --- !u!195 &1680695783
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7685,7 +7681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51b680a895b0c94c8b35d7d5a13cc37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpbar: {fileID: 194198284}
+  Hpbar: {fileID: 194198284}
 --- !u!114 &1680695785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7699,11 +7695,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EquipmentSlot: []
-  hp: {fileID: 247540431}
-  atk: {fileID: 634897205}
-  def: {fileID: 517576001}
-  cri: {fileID: 1343423759}
-  checkEquip: 0
+  HpTxt: {fileID: 247540431}
+  AtkTxt: {fileID: 634897205}
+  DefTxt: {fileID: 517576001}
+  CriTxt: {fileID: 1343423759}
+  CheckEquipNumber: 0
 --- !u!1 &1698075097
 GameObject:
   m_ObjectHideFlags: 0
@@ -7988,11 +7984,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ebd3e75051f484697807224e5ea953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1680695780}
-  enemy: {fileID: 0}
-  ExitBtn: {fileID: 986928152}
-  isBattle: 0
-  allitems: []
+  Player: {fileID: 1680695780}
+  Enemy: {fileID: 0}
+  ExitBtn: {fileID: 1091862513}
+  IsBattle: 0
+  InventoryItems: []
 --- !u!4 &1704868818
 Transform:
   m_ObjectHideFlags: 0
@@ -8112,10 +8108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 760, y: 1280}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -8388,7 +8384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 77a6a754b7f75a34399ef4991eb539cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9239,13 +9235,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64c61c9a20619c489bb91e3e21f742f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 1872291863}
-  descriptionPanel: {fileID: 607932919}
-  descriptionTxt: {fileID: 1286081662}
-  helmetBtn: {fileID: 1545972698}
-  weaponBtn: {fileID: 1453384686}
-  shieldBtn: {fileID: 485579911}
-  ringBtn: {fileID: 1945928719}
+  UiBtn: {fileID: 1872291863}
+  DescriptionPanel: {fileID: 607932919}
+  DescriptionTxt: {fileID: 1286081662}
+  HelmetBtn: {fileID: 1545972698}
+  WeaponBtn: {fileID: 1453384686}
+  ShieldBtn: {fileID: 485579911}
+  RingBtn: {fileID: 1945928719}
   helmet: {fileID: 1787236656}
   weapon: {fileID: 1057991647}
   shield: {fileID: 699456225}
@@ -9811,8 +9807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59cb665bed35b394cbe8de8edccf8d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot: {fileID: 4013836030250668745, guid: ea742697d8cf7d744bf164b13c5514f4, type: 3}
-  slotList: []
+  _slot: {fileID: 4013836030250668745, guid: ea742697d8cf7d744bf164b13c5514f4, type: 3}
+  SlotLists: []
 --- !u!1 &1996230452
 GameObject:
   m_ObjectHideFlags: 0

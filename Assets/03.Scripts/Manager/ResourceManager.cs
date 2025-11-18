@@ -12,7 +12,7 @@ public enum InventoryItem
 {
     Sell,
     Equip,
-    Enhance
+    Enhanced
 }
 
 public static class ResourcePath

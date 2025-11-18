@@ -15,12 +15,12 @@ public class UIManager : Singleton<UIManager>
     private SystemUi system;
     public SystemUi System { get { return system; } }
 
-
+    [Header("Object")]
     public GameObject InventoryWindow;
     public GameObject EnhanceWindow;
     public GameObject SystemWindow;
 
-    // === UIµé ¿¬°á ===
+    [Header("Ui")]
     [SerializeField]
     private MoneyUi money;
     public MoneyUi Money { get { return money; } }
@@ -33,13 +33,6 @@ public class UIManager : Singleton<UIManager>
     private StageUi stage;
     public StageUi Stage { get { return stage; } }
 
-
-
     protected override bool IsDestroy => false;
-
-    protected override void Awake()
-    {
-        base.Awake();
-    }
 
 }

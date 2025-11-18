@@ -36,7 +36,7 @@ public class SaveManager : Singleton<SaveManager>
 
             for (int i = 0; i < DataManager.Instance.ItemSlot.Count; i++) 
             {
-                DataManager.Instance.ItemSlot[i].enhanced = UserData.ItemSaveDatas[i].Enhanced;
+                DataManager.Instance.ItemSlot[i].Enhanced = UserData.ItemSaveDatas[i].Enhanced;
             }
 
             EnemyManager.Instance.ContinueEnemy();
@@ -45,9 +45,9 @@ public class SaveManager : Singleton<SaveManager>
         {
             UserData = new UserData
             {
-                stage = 1,
-                bossMaxHp = 0,
-                money = 10000,
+                Stage = 1,
+                BossMaxHp = 0,
+                Money = 10000,
                 MaxHP = 0,
                 CurrentHP = 1000,
                 Atk = 0,
@@ -59,7 +59,7 @@ public class SaveManager : Singleton<SaveManager>
             {
                 ItemSaveData newItemSave = new()
                 {
-                    Enhanced = DataManager.Instance.ItemSlot[i].enhanced                                        
+                    Enhanced = DataManager.Instance.ItemSlot[i].Enhanced                                        
                 };
 
                 UserData.ItemSaveDatas.Add(newItemSave);
@@ -97,7 +97,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         for (int i = 0; i < PlayerEquip.Instance.EquipmentSlot.Count; i++)
         {
-            data.ItemSaveDatas[i].Enhanced = PlayerEquip.Instance.EquipmentSlot[i].enhanced;
+            data.ItemSaveDatas[i].Enhanced = PlayerEquip.Instance.EquipmentSlot[i].Enhanced;
         }
 
         var saveUserData = JsonConvert.SerializeObject(data);

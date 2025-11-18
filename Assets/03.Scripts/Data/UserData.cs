@@ -4,10 +4,10 @@ using System.Collections.Generic;
 [Serializable]
 public class UserData 
 {
-    public int stage;          
-    public int bossMaxHp;     
-    public int bossCurrentHp;
-    public int money;          
+    public int Stage;          
+    public int BossMaxHp;     
+    public int BossCurrentHp;
+    public int Money;          
 
     // === 플레이어 스펙 ===
     public int MaxHP;
