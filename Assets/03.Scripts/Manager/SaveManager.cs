@@ -34,9 +34,9 @@ public class SaveManager : Singleton<SaveManager>
 
             UserData = JsonConvert.DeserializeObject<UserData>(loadData);
 
-            for (int i = 0; i < DataManager.Instance.ItemDrops.Count; i++) 
+            for (int i = 0; i < DataManager.Instance.ItemEquips.Count; i++) 
             {
-                DataManager.Instance.ItemDrops[i].Enhanced = UserData.ItemSaveDatas[i].Enhanced;
+                DataManager.Instance.ItemEquips[i].Enhanced = UserData.ItemSaveDatas[i].Enhanced;
             }
 
             EnemyManager.Instance.ContinueEnemy();
@@ -55,11 +55,11 @@ public class SaveManager : Singleton<SaveManager>
                 Cri = 0,
             };
 
-            for (int i = 0; i < DataManager.Instance.ItemDrops.Count; i++)
+            for (int i = 0; i < DataManager.Instance.ItemEquips.Count; i++)
             {
                 ItemSaveData newItemSave = new()
                 {
-                    Enhanced = DataManager.Instance.ItemDrops[i].Enhanced                                        
+                    Enhanced = DataManager.Instance.ItemEquips[i].Enhanced                                        
                 };
 
                 UserData.ItemSaveDatas.Add(newItemSave);

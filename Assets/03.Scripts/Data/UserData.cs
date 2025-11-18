@@ -17,6 +17,7 @@ public class UserData
     public int Cri;
 
     public List<ItemSaveData> ItemSaveDatas = new();
+    public Dictionary<int, InventorySaveData> PlayerInventory = new();
 }
 
 [Serializable]

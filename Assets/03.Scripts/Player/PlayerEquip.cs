@@ -19,7 +19,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
 
     private void Start()
     {
-        EquipmentSlot = new List<ItemData>(DataManager.Instance.ItemDrops);
+        EquipmentSlot = new List<ItemData>(DataManager.Instance.ItemEquips);
 
         if (EquipmentSlot != null)
         {
