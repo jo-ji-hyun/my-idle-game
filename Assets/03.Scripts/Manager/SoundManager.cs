@@ -33,7 +33,7 @@ public class SoundManager : Singleton<SoundManager>
         _audioSource.Play();
     }
 
-    public void BattleEffectSound(BattleResult type)
+    public void BattleEffectSound(Consts.BattleResult type)
     {
         if (BattleSource.isPlaying)
         {
@@ -46,7 +46,7 @@ public class SoundManager : Singleton<SoundManager>
         BattleSource.Play();
     }
 
-    public void ItemEffectSound(InventoryItem type)
+    public void ItemEffectSound(Consts.InventoryItem type)
     {
         if (ItemSource.isPlaying)
         {

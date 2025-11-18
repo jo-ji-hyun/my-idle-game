@@ -70,7 +70,7 @@ public class InventoryUi : MonoBehaviour
 
         DescriptionPanel.SetActive(false);
 
-        SoundManager.Instance.ItemEffectSound(InventoryItem.Equip);
+        SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Equip);
     }
 
     // === 클릭시 판매 ===
@@ -85,6 +85,6 @@ public class InventoryUi : MonoBehaviour
 
         DescriptionPanel.SetActive(false);
 
-        SoundManager.Instance.ItemEffectSound(InventoryItem.Sell);
+        SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Sell);
     }
 }

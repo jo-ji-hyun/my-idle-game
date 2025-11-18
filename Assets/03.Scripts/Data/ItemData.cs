@@ -1,17 +1,9 @@
 using UnityEngine;
 
-public enum ItemType
-{
-    Helmet,
-    Weapon,
-    Shield,
-    Ring
-}
-
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class ItemData : ScriptableObject
 {
-    public ItemType Type;  // === 아이템 종류 ===
+    public Consts.ItemType Type;  // === 아이템 종류 ===
 
     // === 추가 능력치 ===
     [Header("Status")]
@@ -29,17 +21,17 @@ public class ItemData : ScriptableObject
     {
         return Type switch
         {
-            ItemType.Helmet => EnhancedHP(),
-            ItemType.Weapon => EnhancedAttack(),
-            ItemType.Shield => EnhancedDefence(),
-            ItemType.Ring => EnhancedCri(),
+            Consts.ItemType.Helmet => EnhancedHP(),
+            Consts.ItemType.Weapon => EnhancedAttack(),
+            Consts.ItemType.Shield => EnhancedDefence(),
+            Consts.ItemType.Ring => EnhancedCri(),
             _ => 0,
         };
     }
 
     public int EnhancedHP()
     {
-        if (this.Type != ItemType.Helmet)
+        if (this.Type != Consts.ItemType.Helmet)
         {
             return Hp;
         }
@@ -49,7 +41,7 @@ public class ItemData : ScriptableObject
 
     public int EnhancedAttack()
     {
-        if (this.Type != ItemType.Weapon)
+        if (this.Type != Consts.ItemType.Weapon)
         {
             return Atk;
         }
@@ -70,7 +62,7 @@ public class ItemData : ScriptableObject
 
     public int EnhancedDefence()
     {
-        if (this.Type != ItemType.Shield)
+        if (this.Type != Consts.ItemType.Shield)
         {
             return Def;
         }
@@ -80,7 +72,7 @@ public class ItemData : ScriptableObject
 
     public int EnhancedCri() 
     {
-        if (this.Type != ItemType.Ring)
+        if (this.Type != Consts.ItemType.Ring)
         {
             return Cri;
         }

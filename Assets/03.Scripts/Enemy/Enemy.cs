@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
     // === 스테이지 갱신후 다음 스테이지 준비 ===
     private void StageEnd() 
     {
-        SoundManager.Instance.BattleEffectSound(BattleResult.Victory);
+        SoundManager.Instance.BattleEffectSound(Consts.BattleResult.Victory);
 
         SaveManager.Instance.UserData.Stage++;
 

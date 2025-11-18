@@ -1,32 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public enum BattleResult
-{
-    Victory,
-    Defeat
-}
-
-public enum InventoryItem
-{
-    Sell,
-    Equip,
-    Enhanced
-}
-
-public static class ResourcePath
-{
-    public const string SFX_Battle = "Music/SFX/Battle";
-    public const string SFX_Item = "Music/SFX/Item";
-}
-
 public class ResourceManager : Singleton<ResourceManager>
 {
     protected override bool IsDestroy => false;
 
-    private readonly Dictionary<BattleResult, AudioClip> _sfxBattle = new();
-    private readonly Dictionary<InventoryItem, AudioClip> _sfxItem = new();
+    private readonly Dictionary<Consts.BattleResult, AudioClip> _sfxBattle = new();
+    private readonly Dictionary<Consts.InventoryItem, AudioClip> _sfxItem = new();
+    private readonly Dictionary<Consts.ItemType, Sprite> _itemIcons = new();
 
     public T Load<T>(string path) where T : Object
     {
@@ -34,7 +15,7 @@ public class ResourceManager : Singleton<ResourceManager>
         return resource;
     }
 
-    public AudioClip GetBattleSFX(BattleResult result)
+    public AudioClip GetBattleSFX(Consts.BattleResult result)
     {
         if (_sfxBattle.ContainsKey(result))
         {
@@ -42,7 +23,7 @@ public class ResourceManager : Singleton<ResourceManager>
         }
 
         // === 规绢 内靛 ===
-        string fullPath = ResourcePath.SFX_Battle + "/" + result;
+        string fullPath = Consts.ResourcePath.SFX_Battle + "/" + result;
 
         AudioClip clip = Load<AudioClip>(fullPath);
 
@@ -55,7 +36,7 @@ public class ResourceManager : Singleton<ResourceManager>
         return null;
     }
 
-    public AudioClip GetItemSFX(InventoryItem result)
+    public AudioClip GetItemSFX(Consts.InventoryItem result)
     {
         if (_sfxItem.ContainsKey(result))
         {
@@ -63,7 +44,7 @@ public class ResourceManager : Singleton<ResourceManager>
         }
 
         // === 规绢 内靛 ===
-        string fullPath = ResourcePath.SFX_Item + "/" + result;
+        string fullPath = Consts.ResourcePath.SFX_Item + "/" + result;
 
         AudioClip clip = Load<AudioClip>(fullPath);
 
@@ -71,6 +52,27 @@ public class ResourceManager : Singleton<ResourceManager>
         {
             _sfxItem.Add(result, clip);
             return clip;
+        }
+
+        return null;
+    }
+
+    public Sprite GetItemSprite(Consts.ItemType data)
+    {
+        if (_itemIcons.ContainsKey(data))
+        {
+            return _itemIcons[data];
+        }
+
+        // === 规绢 内靛 ===
+        string fullPath = Consts.ResourcePath.Icons + data;
+
+        Sprite sprite = Load<Sprite>(fullPath);
+
+        if (sprite != null)
+        {
+            _itemIcons.Add(data, sprite);
+            return sprite;
         }
 
         return null;

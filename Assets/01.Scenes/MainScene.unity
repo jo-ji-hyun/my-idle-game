@@ -9242,10 +9242,10 @@ MonoBehaviour:
   WeaponBtn: {fileID: 1453384686}
   ShieldBtn: {fileID: 485579911}
   RingBtn: {fileID: 1945928719}
-  helmet: {fileID: 1787236656}
-  weapon: {fileID: 1057991647}
-  shield: {fileID: 699456225}
-  ring: {fileID: 623067682}
+  Helmet: {fileID: 1787236656}
+  Weapon: {fileID: 1057991647}
+  Shield: {fileID: 699456225}
+  Ring: {fileID: 623067682}
   EnhanceChance: 0
 --- !u!1 &1880567171
 GameObject:

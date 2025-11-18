@@ -39,16 +39,16 @@ public class PlayerEquip : Singleton<PlayerEquip>
 
         switch (item.Type)
         {
-            case ItemType.Helmet:
+            case Consts.ItemType.Helmet:
                 SaveManager.Instance.UserData.MaxHP = x;
                 break;
-            case ItemType.Weapon:
+            case Consts.ItemType.Weapon:
                 SaveManager.Instance.UserData.Atk = x;
                 break;
-            case ItemType.Shield:
+            case Consts.ItemType.Shield:
                 SaveManager.Instance.UserData.Def = x;
                 break;
-            case ItemType.Ring:
+            case Consts.ItemType.Ring:
                 SaveManager.Instance.UserData.Cri = x;
                 break;
         }
@@ -58,9 +58,9 @@ public class PlayerEquip : Singleton<PlayerEquip>
     // === 현재 강화 수치 ===
     private void CurrentEnhanced()
     {
-        HpTxt.text = EquipmentSlot[(int)ItemType.Helmet].Enhanced.ToString();
-        AtkTxt.text = EquipmentSlot[(int)ItemType.Weapon].Enhanced.ToString();
-        DefTxt.text = EquipmentSlot[(int)ItemType.Shield].Enhanced.ToString();
-        CriTxt.text = EquipmentSlot[(int)ItemType.Ring].Enhanced.ToString();
+        HpTxt.text = EquipmentSlot[(int)Consts.ItemType.Helmet].Enhanced.ToString();
+        AtkTxt.text = EquipmentSlot[(int)Consts.ItemType.Weapon].Enhanced.ToString();
+        DefTxt.text = EquipmentSlot[(int)Consts.ItemType.Shield].Enhanced.ToString();
+        CriTxt.text = EquipmentSlot[(int)Consts.ItemType.Ring].Enhanced.ToString();
     }
 }

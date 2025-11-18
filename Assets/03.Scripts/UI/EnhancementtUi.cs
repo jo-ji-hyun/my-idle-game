@@ -17,10 +17,10 @@ public class EnhancementtUi : MonoBehaviour
     public Button RingBtn;
 
     [Header("Sprite")]
-    public Image helmet;
-    public Image weapon;
-    public Image shield;
-    public Image ring;
+    public Image Helmet;
+    public Image Weapon;
+    public Image Shield;
+    public Image Ring;
 
     [HideInInspector]
     public float EnhanceChance;
@@ -39,10 +39,10 @@ public class EnhancementtUi : MonoBehaviour
         // === 버튼을 다 받았으면 ===
         DescriptionPanel.SetActive(false);
 
-        helmet.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[0].Icon);
-        weapon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[1].Icon);
-        shield.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[2].Icon);
-        ring.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[3].Icon);
+        Helmet.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[0].Icon);
+        Weapon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[1].Icon);
+        Shield.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[2].Icon);
+        Ring.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[3].Icon);
     }
 
     private void ShowUpgade()

@@ -38,19 +38,19 @@ public class Slot : MonoBehaviour
 
             switch (item.Type)
             {
-                case ItemType.Helmet:
+                case Consts.ItemType.Helmet:
                     _descriptionText = $"체력 + {item.EnhancedHP()}, 판매가 {item.PriceItem()}";
                     Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[0].Icon);
                     break;
-                case ItemType.Weapon:
+                case Consts.ItemType.Weapon:
                     _descriptionText = $"공격력 + {item.EnhancedAttack()}, 판매가 {item.PriceItem()}";
                     Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[1].Icon);
                     break;
-                case ItemType.Shield:
+                case Consts.ItemType.Shield:
                     _descriptionText = $"방어력 + {item.EnhancedDefence()}, 판매가 {item.PriceItem()}";
                     Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[2].Icon);
                     break;
-                case ItemType.Ring:
+                case Consts.ItemType.Ring:
                     _descriptionText = $"크리티컬 + {item.EnhancedCri()}, 판매가 {item.PriceItem()}";
                     Icon.sprite = Resources.Load<Sprite>("Icons/" + PlayerEquip.Instance.EquipmentSlot[3].Icon);
                     break;

@@ -50,7 +50,7 @@ public class ResultWindow : MonoBehaviour
 
             EnhanceWindow.SetActive(false);
 
-            SoundManager.Instance.ItemEffectSound(InventoryItem.Enhanced);
+            SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Enhanced);
         }
         else
         {
