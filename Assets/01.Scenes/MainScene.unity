@@ -1580,6 +1580,7 @@ MonoBehaviour:
   UiBtn: {fileID: 437043586}
   SaveBtn: {fileID: 2091399997}
   CloseBtn: {fileID: 1698075099}
+  GameExitBtn: {fileID: 986928152}
   _bgmSlider: {fileID: 1822057040}
   _sfxSlider: {fileID: 1641310858}
 --- !u!1 &485579909
@@ -7986,7 +7987,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1680695780}
   Enemy: {fileID: 0}
-  ExitBtn: {fileID: 1091862513}
   IsBattle: 0
   InventoryItems: []
 --- !u!4 &1704868818

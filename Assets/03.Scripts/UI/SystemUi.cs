@@ -4,10 +4,13 @@ using UnityEngine.UI;
 public class SystemUi : MonoBehaviour
 {
     public Button UiBtn;
+
     [Header("Windows")]
     public Button SaveBtn;
     public Button CloseBtn;
+    public Button GameExitBtn;
 
+    [Header("Slider")]
     [SerializeField]
     private Slider _bgmSlider;
 

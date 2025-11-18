@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
@@ -9,8 +8,6 @@ public class GameManager : Singleton<GameManager>
 {
     public GameObject Player;
     public GameObject Enemy;
-    [Header("Button")]
-    public Button ExitBtn;
 
     public static event Action OnInventoryChanged;     // === 인벤토리 갱신을 위해서 ===
 
@@ -22,15 +19,10 @@ public class GameManager : Singleton<GameManager>
 
     protected override bool IsDestroy => false;
 
-    protected override void Awake()
-    {
-        base.Awake();
-
-        ExitBtn.onClick.AddListener(GameExit);
-    }
-
     private void Start()
     {
+        UIManager.Instance.System.GameExitBtn.onClick.AddListener(GameExit);
+
         InventoryItems = new List<ItemData>();
     }
 
