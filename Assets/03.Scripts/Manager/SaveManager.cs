@@ -37,9 +37,9 @@ public class SaveManager : Singleton<SaveManager>
                 DataManager.Instance.ItemEquips[i].Enhanced = UserData.ItemSaveDatas[i].Enhanced;
             }
 
-            EnemyManager.Instance.ContinueEnemy();
-
             InventoryManager.Instance.LoadItems(UserData.PlayerInventory);
+
+            EnemyManager.Instance.ContinueEnemy();
         }
         else // === 없으면 새로만듬 ===
         {
@@ -102,7 +102,7 @@ public class SaveManager : Singleton<SaveManager>
             data.ItemSaveDatas[i].Enhanced = PlayerEquip.Instance.EquipmentSlot[i].Enhanced;
         }
 
-        InventoryManager.Instance.SaveItems(InventoryManager.Instance.InventoryItems);
+        InventoryManager.Instance.SaveItems(UserData.PlayerInventory);
 
         var saveUserData = JsonConvert.SerializeObject(data);
 

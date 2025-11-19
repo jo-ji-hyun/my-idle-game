@@ -27,25 +27,31 @@ public class InventoryManager : Singleton<InventoryManager>
                 cloneItem.Enhanced = saveData.Enhanced;
 
                 InventoryItems.Add(cloneItem);
-
-                OnInventoryChanged?.Invoke();
             }
         }
+
+        OnInventoryChanged?.Invoke();
     }
 
-    public void SaveItems(List<ItemData> userData)
+    public void SaveItems(List<InventorySaveData> playerInventory)
     {
-        foreach (var saveData in userData)
+        playerInventory.Clear();
+
+        List<ItemData> saveItems = InventoryItems;
+
+        for (var i = 0; i < saveItems.Count; i++)
         {
             InventorySaveData newData = new()
             {
-                Type = saveData.Type,
+                Type = saveItems[i].Type,
 
-                Enhanced = saveData.Enhanced
+                Enhanced = saveItems[i].Enhanced
             };
 
-            SaveManager.Instance.UserData.PlayerInventory.Add(newData);
+            playerInventory.Add(newData);
         }
+
+        OnInventoryChanged?.Invoke();
     }
 
     // === ·£´ýÀ¸·Î °­È­µÈ ¾ÆÀÌÅÛ È¹µæ ===
