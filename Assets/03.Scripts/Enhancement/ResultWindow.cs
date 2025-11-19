@@ -26,6 +26,8 @@ public class ResultWindow : MonoBehaviour
         {
             EnhanceTxt.color = Color.red;
             EnhanceTxt.text = "골드 부족";
+
+            SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.NoMoney);
             return; 
         }
 
@@ -56,6 +58,8 @@ public class ResultWindow : MonoBehaviour
         {
             EnhanceTxt.color = Color.red;
             EnhanceTxt.text = "강화 실패!";
+
+            SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Fail);
         }
     }
 }

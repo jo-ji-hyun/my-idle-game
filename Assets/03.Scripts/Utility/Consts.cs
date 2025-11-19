@@ -3,15 +3,17 @@ public static class Consts
 {
     public enum BattleResult
     {
-        Victory,
-        Defeat
+        Defeat,
+        Victory
     }
 
     public enum InventoryItem
     {
-        Sell,
+        Enhanced,
         Equip,
-        Enhanced
+        Fail,
+        NoMoney,
+        Sell
     }
 
     public enum ItemType
