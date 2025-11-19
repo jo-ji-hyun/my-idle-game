@@ -102,6 +102,8 @@ public class SaveManager : Singleton<SaveManager>
             data.ItemSaveDatas[i].Enhanced = PlayerEquip.Instance.EquipmentSlot[i].Enhanced;
         }
 
+        InventoryManager.Instance.SaveItems(InventoryManager.Instance.InventoryItems);
+
         var saveUserData = JsonConvert.SerializeObject(data);
 
         File.WriteAllText(_userPath, saveUserData);

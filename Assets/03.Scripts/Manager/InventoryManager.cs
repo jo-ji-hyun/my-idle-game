@@ -24,12 +24,27 @@ public class InventoryManager : Singleton<InventoryManager>
 
                 ItemData cloneItem = Instantiate(originalItem);
 
-                cloneItem.Enhanced = loadedData[(int)saveData.Type].Enhanced;
+                cloneItem.Enhanced = saveData.Enhanced;
 
                 InventoryItems.Add(cloneItem);
 
                 OnInventoryChanged?.Invoke();
             }
+        }
+    }
+
+    public void SaveItems(List<ItemData> userData)
+    {
+        foreach (var saveData in userData)
+        {
+            InventorySaveData newData = new()
+            {
+                Type = saveData.Type,
+
+                Enhanced = saveData.Enhanced
+            };
+
+            SaveManager.Instance.UserData.PlayerInventory.Add(newData);
         }
     }
 
@@ -47,15 +62,6 @@ public class InventoryManager : Singleton<InventoryManager>
 
         // === 복사템 추가 ===
         InventoryItems.Add(cloneItem);
-
-        InventorySaveData saveData = new()
-        {
-            Type = cloneItem.Type,
-
-            Enhanced = cloneItem.Enhanced
-        };
-
-        SaveManager.Instance.UserData.PlayerInventory.Add(saveData);
 
         // === 인벤토리 갱신 ===
         OnInventoryChanged?.Invoke();
