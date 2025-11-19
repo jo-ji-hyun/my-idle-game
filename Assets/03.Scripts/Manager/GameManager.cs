@@ -27,29 +27,21 @@ public class GameManager : Singleton<GameManager>
     // === 플레이어 사망시 지금 스테이지 재시작 ===
     public void GameOver()
     {
+        ChangeMoney(500);        // === 환생 지원금 ==
+
         SoundManager.Instance.BattleEffectSound(Consts.BattleResult.Defeat);
 
         SaveManager.Instance.UserData.CurrentHP = SaveManager.Instance.UserData.MaxHP;
 
         PlayerSet();
 
-        GameObject enemy = EnemyManager.Instance.SpawnEnemy;
-
-        Destroy(enemy);
-
         EnemyManager.Instance.EnemySpawn();
-
-        Player.transform.position = enemy.transform.position + new Vector3 (0, 0, -50);
-
-        SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);               // === 현재 시점을 저장 ===
 
         Restart();
     }
 
     private void Restart()
     {
-        ChangeMoney(500);        // === 환생 지원금 ==
-
         SaveManager.Instance.LoadData();
 
         Time.timeScale = 1.0f;
@@ -57,7 +49,7 @@ public class GameManager : Singleton<GameManager>
 
     public void PlayerSet()
     {
-        Player.transform.position = new Vector3(0, 23, -55);
+        Player.transform.position = new Vector3(0, 23, -35);
 
         SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);
     }

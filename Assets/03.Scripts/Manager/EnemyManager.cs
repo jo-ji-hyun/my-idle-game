@@ -1,11 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : Singleton<EnemyManager>
 {
     [Header("Enemy")]
     public GameObject EnemyPrefabs;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject SpawnEnemy;
 
     // === 적 생성 위치 ===
@@ -26,7 +25,12 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public void EnemySpawn()
     {
-        SaveManager.Instance.UserData.BossMaxHp = SaveManager.Instance.UserData.Stage * 500;
+        if(SpawnEnemy != null)
+        {
+            Destroy(SpawnEnemy);
+        }
+        
+        SaveManager.Instance.UserData.BossMaxHp = SaveManager.Instance.UserData.Stage * 250;
         SaveManager.Instance.UserData.BossCurrentHp = SaveManager.Instance.UserData.BossMaxHp;
 
         // === 한 적만 계속 소환하기 위해 ===
@@ -37,6 +41,11 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public void ContinueEnemy()
     {
+        if (SpawnEnemy != null)
+        {
+            Destroy(SpawnEnemy);
+        }
+
         // === 한 적만 계속 소환하기 위해 ===
         SpawnEnemy = Instantiate(EnemyPrefabs, _spawposition + _offset, Quaternion.identity);
 
