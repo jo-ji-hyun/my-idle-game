@@ -42,7 +42,7 @@ public class SystemUi : MonoBehaviour
 
     private void ShowSystem()
     {
-        UIManager.Instance.SystemWindow.SetActive(true);
+        UiManager.Instance.SystemWindow.SetActive(true);
 
         _currentBgmVolume = SaveManager.Instance.SystemData.BGMVolume;
         _currentSfxVolume = SaveManager.Instance.SystemData.SFXVolume;
@@ -58,7 +58,7 @@ public class SystemUi : MonoBehaviour
 
     private void CloseWindow()
     {
-        UIManager.Instance.SystemWindow.SetActive(false);
+        UiManager.Instance.SystemWindow.SetActive(false);
 
         if (_bgmSlider != null)
         {

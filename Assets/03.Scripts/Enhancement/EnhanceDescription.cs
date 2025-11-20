@@ -11,16 +11,16 @@ public class EnhanceDescription : MonoBehaviour
     {
         EnhanceTxt.text = "";
 
-        if (UIManager.Instance.Enhancement.EnhanceChance >= 1)
+        if (UiManager.Instance.Enhancement.EnhanceChance >= 1)
         {
-            UIManager.Instance.Enhancement.EnhanceChance = 100 - PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Enhanced * 1.5f;
+            UiManager.Instance.Enhancement.EnhanceChance = 100 - PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Enhanced * 1.5f;
         }
         else
         {
-            UIManager.Instance.Enhancement.EnhanceChance = 0.5f;
+            UiManager.Instance.Enhancement.EnhanceChance = 0.5f;
         }
 
-        SucessTxt.text = UIManager.Instance.Enhancement.EnhanceChance.ToString();
+        SucessTxt.text = UiManager.Instance.Enhancement.EnhanceChance.ToString();
         CostTxt.text = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].PriceItem().ToString();
     }
 }

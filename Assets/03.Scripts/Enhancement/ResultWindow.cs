@@ -35,7 +35,7 @@ public class ResultWindow : MonoBehaviour
 
         GameManager.Instance.ChangeMoney(-PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Price);
 
-        if (UIManager.Instance.Enhancement.EnhanceChance > random)
+        if (UiManager.Instance.Enhancement.EnhanceChance > random)
         {
             EnhanceTxt.color = Color.green;
             EnhanceTxt.text = "강화 성공!";

@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     {
         _currentHp = SaveManager.Instance.UserData.BossMaxHp;
 
-        UIManager.Instance.EnemyHP.UpdateHpBar();
+        UiManager.Instance.EnemyHP.UpdateHpBar();
     }
 
     private IEnumerator TakeDamage(int damage)
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
 
                 SaveManager.Instance.UserData.BossCurrentHp = _currentHp;
 
-                UIManager.Instance.EnemyHP.UpdateHpBar();
+                UiManager.Instance.EnemyHP.UpdateHpBar();
 
                 StageEnd();
             }
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
             {
                 SaveManager.Instance.UserData.BossCurrentHp = _currentHp;
 
-                UIManager.Instance.EnemyHP.UpdateHpBar();
+                UiManager.Instance.EnemyHP.UpdateHpBar();
             }
 
             yield return new WaitForSeconds(0.05f);
@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
 
         SaveManager.Instance.UserData.Stage++;
 
-        UIManager.Instance.Stage.UpdateUi();
+        UiManager.Instance.Stage.UpdateUi();
 
         EnemyManager.Instance.NewEnemySpawn();
 

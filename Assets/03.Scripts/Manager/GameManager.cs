@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        UIManager.Instance.System.GameExitBtn.onClick.AddListener(GameExit);
+        UiManager.Instance.System.GameExitBtn.onClick.AddListener(GameExit);
     }
 
     // === 돈 변동 ===
@@ -21,7 +21,7 @@ public class GameManager : Singleton<GameManager>
     {
         SaveManager.Instance.UserData.Money += amount;
 
-        UIManager.Instance.Money.UpdateUi();
+        UiManager.Instance.Money.UpdateUi();
     }
 
     // === 플레이어 사망시 지금 스테이지 재시작 ===

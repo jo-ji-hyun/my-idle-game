@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UIManager : Singleton<UIManager>
+public class UiManager : Singleton<UiManager>
 {
     // === 인벤토리 창과 업그레이드 버튼 작동 준비 ===
     [field:SerializeField]

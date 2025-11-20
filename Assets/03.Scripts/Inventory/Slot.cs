@@ -65,6 +65,6 @@ public class Slot : MonoBehaviour
     {
         _isClick = !_isClick;
 
-        UIManager.Instance.Inventory.DescriptionWindow(_isClick, _descriptionText, Number);
+        UiManager.Instance.Inventory.DescriptionWindow(_isClick, _descriptionText, Number);
     }
 }

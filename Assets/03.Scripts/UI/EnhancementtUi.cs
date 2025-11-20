@@ -47,7 +47,7 @@ public class EnhancementtUi : MonoBehaviour
 
     private void ShowUpgade()
     {
-        UIManager.Instance.EnhanceWindow.SetActive(true);
+        UiManager.Instance.EnhanceWindow.SetActive(true);
     }
 
     private void EnhanceHelmet()
