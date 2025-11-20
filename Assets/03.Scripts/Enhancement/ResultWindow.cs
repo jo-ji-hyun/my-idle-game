@@ -20,7 +20,6 @@ public class ResultWindow : MonoBehaviour
 
     private void UpgradeProcess()
     {
-
         // === 돈이 부족할 경우 ===
         if (SaveManager.Instance.UserData.Money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Price)
         {
@@ -33,7 +32,7 @@ public class ResultWindow : MonoBehaviour
 
         int random = Random.Range(0, 100);
 
-        GameManager.Instance.ChangeMoney(-PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Price);
+        GameManager.Instance.ChangeMoney(-PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].PriceItem());
 
         if (UiManager.Instance.Enhancement.EnhanceChance > random)
         {
