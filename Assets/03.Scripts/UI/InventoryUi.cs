@@ -55,18 +55,24 @@ public class InventoryUi : MonoBehaviour
 
         int type = (int)InventoryManager.Instance.InventoryItems[index].Type;
 
-        ItemData originalItem = InventoryManager.Instance.InventoryItems[index];
+        ItemData equipItem = InventoryManager.Instance.InventoryItems[index];
 
-        ItemData clonedItem = Instantiate(originalItem);
+        // === 2. 강화상태가 똑같거나 더 작으면 장착 무효화 ===
+        if (PlayerEquip.Instance.EquipmentSlot[type].Enhanced >= equipItem.Enhanced)
+        {
+            SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Error);
+            DescriptionWindow(true, "낮은 등급이라 장착 불가", index);
+            return;
+        }
 
-        // === 2. 동일한 타입 비우기 ===
+        // === 3. 동일한 타입 비우기 ===
         PlayerEquip.Instance.EquipmentSlot[type] = null;
 
-        PlayerEquip.Instance.EquipmentSlot[type] = clonedItem;
+        PlayerEquip.Instance.EquipmentSlot[type] = equipItem;
 
         InventoryManager.Instance.RemoveItem(index);
 
-        PlayerEquip.Instance.UpdateStatus(clonedItem);
+        PlayerEquip.Instance.UpdateStatus(equipItem);
 
         DescriptionPanel.SetActive(false);
 

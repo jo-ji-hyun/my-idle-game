@@ -36,7 +36,7 @@ public class ItemData : ScriptableObject
             return Hp;
         }
 
-        return Hp + Enhanced * 100;
+        return Hp + Enhanced * 120;
     }
 
     public int EnhancedAttack()

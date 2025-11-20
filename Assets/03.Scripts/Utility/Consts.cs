@@ -11,6 +11,7 @@ public static class Consts
     {
         Enhanced,
         Equip,
+        Error,
         Fail,
         NoMoney,
         Sell
