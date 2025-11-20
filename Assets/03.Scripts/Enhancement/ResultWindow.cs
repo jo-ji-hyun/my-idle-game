@@ -42,13 +42,9 @@ public class ResultWindow : MonoBehaviour
 
             _item = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber];
 
-            int nextEnhanced = _item.Enhanced + 1;
-
-            _item.Enhanced = nextEnhanced;
+            _item.Enhanced ++;
 
             PlayerEquip.Instance.UpdateStatus(_item);
-
-            PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Price += 500;
 
             EnhanceWindow.SetActive(false);
 

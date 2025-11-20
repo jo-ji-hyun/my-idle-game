@@ -21,6 +21,6 @@ public class EnhanceDescription : MonoBehaviour
         }
 
         SucessTxt.text = UIManager.Instance.Enhancement.EnhanceChance.ToString();
-        CostTxt.text = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Price.ToString();
+        CostTxt.text = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].PriceItem().ToString();
     }
 }
