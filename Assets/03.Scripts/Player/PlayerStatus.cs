@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -63,7 +63,7 @@ public class PlayerStatus : MonoBehaviour
         {
             UpdatePlayerStatus();
 
-            // === √÷¡æ µ•πÃ¡ˆ ∞ËªÍ ===
+            // === ÏµúÏ¢Ö Îç∞ÎØ∏ÏßÄ Í≥ÑÏÇ∞ ===
             int finaldamage = (_def - damage) <= 0 ? damage : 1;
 
             SaveManager.Instance.UserData.CurrentHP -= finaldamage;
@@ -72,7 +72,7 @@ public class PlayerStatus : MonoBehaviour
 
             if (_currentHp <= 0)
             {
-                GameManager.Instance.IsBattle = false;         // === ¿¸≈ı ¡æ∑· ===
+                GameManager.Instance.IsBattle = false;         // === Ï†ÑÌà¨ Ï¢ÖÎ£å ===
 
                 PlayerHpBar();
 

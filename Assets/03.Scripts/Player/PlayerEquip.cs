@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
     public TextMeshProUGUI CriTxt;
 
     [HideInInspector]
-    public int CheckEquipNumber;                // === °­È­ÇÒ²¨ Ã¼Å© ===
+    public int CheckEquipNumber;                // === ê°•í™”í• êº¼ ì²´í¬ ===
 
     protected override bool IsDestroy => false;
 
@@ -32,7 +32,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
         }
     }
 
-    // === ÇÏ³ª¸¸ ´õ ÇØÁÜ ===
+    // === í•˜ë‚˜ë§Œ ë” í•´ì¤Œ ===
     public void UpdateStatus(ItemData item)
     {
        int enhanced = item.EnhancedValue();
@@ -56,7 +56,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
         CurrentEnhanced();
     }
 
-    // === ÇöÀç °­È­ ¼öÄ¡ ===
+    // === í˜„ì¬ ê°•í™” ìˆ˜ì¹˜ ===
     private void CurrentEnhanced()
     {
         HpTxt.text = EquipmentSlot[(int)Consts.ItemType.Helmet].Enhanced.ToString();

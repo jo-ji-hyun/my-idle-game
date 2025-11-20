@@ -1,4 +1,4 @@
-
+﻿
 public static class Consts 
 {
     public enum BattleResult

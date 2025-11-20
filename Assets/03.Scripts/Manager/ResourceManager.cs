@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourceManager : Singleton<ResourceManager>
@@ -22,7 +22,7 @@ public class ResourceManager : Singleton<ResourceManager>
             return _sfxBattle[result];
         }
 
-        // === ¹æ¾î ÄÚµå ===
+        // === ë°©ì–´ ì½”ë“œ ===
         string fullPath = Consts.ResourcePath.SFX_Battle + "/" + result;
 
         AudioClip clip = Load<AudioClip>(fullPath);
@@ -43,7 +43,7 @@ public class ResourceManager : Singleton<ResourceManager>
             return _sfxItem[result];
         }
 
-        // === ¹æ¾î ÄÚµå ===
+        // === ë°©ì–´ ì½”ë“œ ===
         string fullPath = Consts.ResourcePath.SFX_Item + "/" + result;
 
         AudioClip clip = Load<AudioClip>(fullPath);
@@ -64,7 +64,7 @@ public class ResourceManager : Singleton<ResourceManager>
             return _itemIcons[data];
         }
 
-        // === ¹æ¾î ÄÚµå ===
+        // === ë°©ì–´ ì½”ë“œ ===
         string fullPath = Consts.ResourcePath.Icons + "/" + data;
 
         Sprite sprite = Load<Sprite>(fullPath);

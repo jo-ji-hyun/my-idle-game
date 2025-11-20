@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class UiManager : Singleton<UiManager>
 {
-    // === ÀÎº¥Åä¸® Ã¢°ú ¾÷±×·¹ÀÌµå ¹öÆ° ÀÛµ¿ ÁØºñ ===
+    // === ì¸ë²¤í† ë¦¬ ì°½ê³¼ ì—…ê·¸ë ˆì´ë“œ ë²„íŠ¼ ì‘ë™ ì¤€ë¹„ ===
     [field:SerializeField]
     public InventoryUi Inventory { get; private set; }
 

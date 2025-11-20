@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 
 [Serializable]
@@ -9,7 +9,7 @@ public class UserData
     public int BossCurrentHp;
     public int Money;          
 
-    // === ÇÃ·¹ÀÌ¾î ½ºÆå ===
+    // === í”Œë ˆì´ì–´ ìŠ¤í™ ===
     public int MaxHP;
     public int CurrentHP;
     public int Atk;

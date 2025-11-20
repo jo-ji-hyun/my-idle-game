@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+Ôªøusing System.Collections.Generic;
 using UnityEngine;
 
 public class ContentSlots : MonoBehaviour
@@ -12,7 +12,7 @@ public class ContentSlots : MonoBehaviour
 
     void OnEnable()
     {
-        // === ¿Œ∫•≈‰∏Æ ±∏µ∂ ===
+        // === Ïù∏Î≤§ÌÜ†Î¶¨ Íµ¨ÎèÖ ===
         InventoryManager.OnInventoryChanged += UpdateInventoryUI;
 
         UpdateInventoryUI();
@@ -23,7 +23,7 @@ public class ContentSlots : MonoBehaviour
         SlotsCreate();
     }
 
-    // === ¿Œ∫•≈‰∏Æ ΩΩ∑‘ πËƒ° ===
+    // === Ïù∏Î≤§ÌÜ†Î¶¨ Ïä¨Î°Ø Î∞∞Ïπò ===
     private void SlotsCreate()
     {
         SlotLists = new List<Slot>();
@@ -42,7 +42,7 @@ public class ContentSlots : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    // === ¿Œ∫•≈‰∏Æ ∞ªΩ≈ ===
+    // === Ïù∏Î≤§ÌÜ†Î¶¨ Í∞±Ïã† ===
     private void UpdateInventoryUI()
     {
         int loopCount = Mathf.Min(InventoryManager.Instance.InventoryItems.Count, SlotLists.Count);
@@ -53,7 +53,7 @@ public class ContentSlots : MonoBehaviour
             SlotLists[i].UpdateStatusUi();
         }
 
-        // === ø¿∫Í¡ß∆Æ «Æ∏µ ===
+        // === Ïò§Î∏åÏ†ùÌä∏ ÌíÄÎßÅ ===
         for (int i = loopCount; i < SlotLists.Count; i++)
         {
             SlotLists[i].gameObject.SetActive(false);

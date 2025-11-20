@@ -1,4 +1,4 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,7 +36,7 @@ public class EnhancementtUi : MonoBehaviour
         ShieldBtn.onClick.AddListener(EnhanceShield);
         RingBtn.onClick.AddListener(EnhanceRing);
 
-        // === ¹öÆ°À» ´Ù ¹Ş¾ÒÀ¸¸é ===
+        // === ë²„íŠ¼ì„ ë‹¤ ë°›ì•˜ìœ¼ë©´ ===
         DescriptionPanel.SetActive(false);
 
         Helmet.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Helmet);
@@ -56,7 +56,7 @@ public class EnhancementtUi : MonoBehaviour
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[0];
 
-        DescriptionTxt.text = $"°­È­ Àü : Ã¼·Â + {item.EnhancedHP()} \n°­È­ ÈÄ : Ã¼·Â + {item.EnhancedHP() + 100}";
+        DescriptionTxt.text = $"ê°•í™” ì „ : ì²´ë ¥ + {item.EnhancedHP()} \nê°•í™” í›„ : ì²´ë ¥ + {item.EnhancedHP() + 100}";
 
         PlayerEquip.Instance.CheckEquipNumber = 0;
 
@@ -71,11 +71,11 @@ public class EnhancementtUi : MonoBehaviour
 
         if ((item.Enhanced + 1) % 2 == 0)
         {
-            DescriptionTxt.text = $"°­È­ Àü : °ø°İ·Â + {item.EnhancedAttack()} \n°­È­ ÈÄ : °ø°İ·Â + {item.EnhancedAttack() + 1} + 3";
+            DescriptionTxt.text = $"ê°•í™” ì „ : ê³µê²©ë ¥ + {item.EnhancedAttack()} \nê°•í™” í›„ : ê³µê²©ë ¥ + {item.EnhancedAttack() + 1} + 3";
         }
         else 
         {
-            DescriptionTxt.text = $"°­È­ Àü : °ø°İ·Â + {item.EnhancedAttack()} \n°­È­ ÈÄ : °ø°İ·Â + {item.EnhancedAttack() + 1}";
+            DescriptionTxt.text = $"ê°•í™” ì „ : ê³µê²©ë ¥ + {item.EnhancedAttack()} \nê°•í™” í›„ : ê³µê²©ë ¥ + {item.EnhancedAttack() + 1}";
         }
 
         PlayerEquip.Instance.CheckEquipNumber = 1;
@@ -89,7 +89,7 @@ public class EnhancementtUi : MonoBehaviour
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[2];
 
-        DescriptionTxt.text = $"°­È­ Àü : ¹æ¾î·Â + {item.EnhancedDefence()} \n°­È­ ÈÄ : ¹æ¾î·Â + {item.EnhancedDefence() + 1}";
+        DescriptionTxt.text = $"ê°•í™” ì „ : ë°©ì–´ë ¥ + {item.EnhancedDefence()} \nê°•í™” í›„ : ë°©ì–´ë ¥ + {item.EnhancedDefence() + 1}";
 
         PlayerEquip.Instance.CheckEquipNumber = 2;
 
@@ -102,7 +102,7 @@ public class EnhancementtUi : MonoBehaviour
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[3];
 
-        DescriptionTxt.text = $"°­È­ Àü : Å©¸®Æ¼ÄÃ + {item.EnhancedCri()} \n°­È­ ÈÄ : Å©¸®Æ¼ÄÃ + {item.EnhancedCri() + 1}";
+        DescriptionTxt.text = $"ê°•í™” ì „ : í¬ë¦¬í‹°ì»¬ + {item.EnhancedCri()} \nê°•í™” í›„ : í¬ë¦¬í‹°ì»¬ + {item.EnhancedCri() + 1}";
 
         PlayerEquip.Instance.CheckEquipNumber = 3;
 

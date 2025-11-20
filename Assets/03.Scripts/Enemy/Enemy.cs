@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
             if (_currentHp <= 0)
             {
-                GameManager.Instance.IsBattle = false;         // === ÀüÅõ Á¾·á ===
+                GameManager.Instance.IsBattle = false;         // === ì „íˆ¬ ì¢…ë£Œ ===
 
                 _currentHp = 0;
 
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
 
                 StageEnd();
             }
-            else // === Destroy°¡ ÀÖ±â ¶§¹®¿¡ ===
+            else // === Destroyê°€ ìžˆê¸° ë•Œë¬¸ì— ===
             {
                 SaveManager.Instance.UserData.BossCurrentHp = _currentHp;
 
@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
         isBattleStart = false;
     }
 
-    // === ½ºÅ×ÀÌÁö °»½ÅÈÄ ´ÙÀ½ ½ºÅ×ÀÌÁö ÁØºñ ===
+    // === ìŠ¤í…Œì´ì§€ ê°±ì‹ í›„ ë‹¤ìŒ ìŠ¤í…Œì´ì§€ ì¤€ë¹„ ===
     private void StageEnd() 
     {
         SoundManager.Instance.BattleEffectSound(Consts.BattleResult.Victory);

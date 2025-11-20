@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+ï»¿using Newtonsoft.Json;
 using System.IO;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         base.Awake();
 
-        // === ÆÄÀÏ °æ·Î¸¦ Ã£±â ===
+        // === íŒŒì¼ ê²½ë¡œë¥¼ ì°¾ê¸° ===
         _userPath = Path.Combine(Application.persistentDataPath, "userData.json");
         _systemPath = Path.Combine(Application.persistentDataPath, "systemData.json");
 
@@ -25,7 +25,7 @@ public class SaveManager : Singleton<SaveManager>
 
     public void LoadData()
     {
-        // === ÆÄÀÏ Á¸Àç½Ã ===
+        // === íŒŒì¼ ì¡´ì¬ì‹œ ===
         if (File.Exists(_userPath))
         {
             var loadData = File.ReadAllText(_userPath);
@@ -41,7 +41,7 @@ public class SaveManager : Singleton<SaveManager>
 
             EnemyManager.Instance.ContinueEnemy();
         }
-        else // === ¾øÀ¸¸é »õ·Î¸¸µë ===
+        else // === ì—†ìœ¼ë©´ ìƒˆë¡œë§Œë“¬ ===
         {
             UserData = new UserData
             {
@@ -74,7 +74,7 @@ public class SaveManager : Singleton<SaveManager>
             EnemyManager.Instance.EnemySpawn();
         }
 
-        // === ¿ªÇÒ ºĞ¸® ===
+        // === ì—­í•  ë¶„ë¦¬ ===
         if (File.Exists(_systemPath))
         {
             var loadSystemData = File.ReadAllText(_systemPath);

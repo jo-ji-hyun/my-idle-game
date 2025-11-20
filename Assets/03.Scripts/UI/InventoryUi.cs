@@ -1,4 +1,4 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +20,7 @@ public class InventoryUi : MonoBehaviour
     {
         UiBtn.onClick.AddListener(ShowInventory);
 
-        // === ¹öÆ°¿¡ ÇÒ´ç ===
+        // === ë²„íŠ¼ì— í• ë‹¹ ===
         EquipBtn.onClick.AddListener(Equipment);
         SellBtn.onClick.AddListener(PriceItem);
 
@@ -35,7 +35,7 @@ public class InventoryUi : MonoBehaviour
         UiManager.Instance.InventoryWindow.SetActive(true);
     }
 
-    // === ¾ÆÀÌÅÛ ¼³¸í Ã¢ ===
+    // === ì•„ì´í…œ ì„¤ëª… ì°½ ===
     public void DescriptionWindow(bool x, string y, int num)
     {
         DescriptionPanel.SetActive(x);
@@ -45,27 +45,27 @@ public class InventoryUi : MonoBehaviour
         _currentNumber = num;
     }
 
-    // === ÀåÂø½Ã È£Ãâ ===
+    // === ì¥ì°©ì‹œ í˜¸ì¶œ ===
     private void Equipment()
     {
         if (InventoryManager.Instance.InventoryItems.Count <= 0) return;
 
-        // === 1.Å¸ÀÔºñ±³ ===
+        // === 1.íƒ€ì…ë¹„êµ ===
         int index = _currentNumber;
 
         int type = (int)InventoryManager.Instance.InventoryItems[index].Type;
 
         ItemData equipItem = InventoryManager.Instance.InventoryItems[index];
 
-        // === 2. °­È­»óÅÂ°¡ ¶È°°°Å³ª ´õ ÀÛÀ¸¸é ÀåÂø ¹«È¿È­ ===
+        // === 2. ê°•í™”ìƒíƒœê°€ ë˜‘ê°™ê±°ë‚˜ ë” ì‘ìœ¼ë©´ ì¥ì°© ë¬´íš¨í™” ===
         if (PlayerEquip.Instance.EquipmentSlot[type].Enhanced >= equipItem.Enhanced)
         {
             SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Error);
-            DescriptionWindow(true, "³·Àº µî±ŞÀÌ¶ó ÀåÂø ºÒ°¡", index);
+            DescriptionWindow(true, "ë‚®ì€ ë“±ê¸‰ì´ë¼ ì¥ì°© ë¶ˆê°€", index);
             return;
         }
 
-        // === 3. µ¿ÀÏÇÑ Å¸ÀÔ ºñ¿ì±â ===
+        // === 3. ë™ì¼í•œ íƒ€ì… ë¹„ìš°ê¸° ===
         PlayerEquip.Instance.EquipmentSlot[type] = null;
 
         PlayerEquip.Instance.EquipmentSlot[type] = equipItem;
@@ -79,7 +79,7 @@ public class InventoryUi : MonoBehaviour
         SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Equip);
     }
 
-    // === Å¬¸¯½Ã ÆÇ¸Å ===
+    // === í´ë¦­ì‹œ íŒë§¤ ===
     private void PriceItem()
     {
         GameManager.Instance.ChangeMoney(InventoryManager.Instance.InventoryItems[_currentNumber].PriceItem());

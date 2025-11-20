@@ -3,9 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class ItemData : ScriptableObject
 {
-    public Consts.ItemType Type;  // === ¾ÆÀÌÅÛ Á¾·ù ===
+    public Consts.ItemType Type;  // === ì•„ì´í…œ ì¢…ë¥˜ ===
 
-    // === Ãß°¡ ´É·ÂÄ¡ ===
+    // === ì¶”ê°€ ëŠ¥ë ¥ì¹˜ ===
     [Header("Status")]
     public int Hp;
     public int Atk;
@@ -13,7 +13,7 @@ public class ItemData : ScriptableObject
     public int Cri;
 
     [Header("etc")]
-    public int Enhanced;   // === ÇöÀç °­È­ ¼öÄ¡ ===
+    public int Enhanced;   // === í˜„ì¬ ê°•í™” ìˆ˜ì¹˜ ===
     public int Price;      
     public string Icon;    
 
@@ -50,7 +50,7 @@ public class ItemData : ScriptableObject
 
         for (int i = 1; i <= Enhanced; i++)
         {
-            // === Â¦¼ö ·¹º§¸¶´Ù º¸³Ê½º¸¦ ´©Àû ===
+            // === ì§ìˆ˜ ë ˆë²¨ë§ˆë‹¤ ë³´ë„ˆìŠ¤ë¥¼ ëˆ„ì  ===
             if (i % 2 == 0)
             {
                 atkBonus += 3;
@@ -79,7 +79,7 @@ public class ItemData : ScriptableObject
 
         int finalCri = Cri + Enhanced;
 
-        // === ÃÖ´ë°ª 100 ===
+        // === ìµœëŒ€ê°’ 100 ===
         return Mathf.Min(finalCri, 100);
     }
 

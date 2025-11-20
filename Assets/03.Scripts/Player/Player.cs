@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     {
         while (true) 
         {
-            // === ¹æÇâ »ó°ü¾øÀÌ °Å¸® Â÷ÀÌ ±¸ÇÏ±â ===
+            // === ë°©í–¥ ìƒê´€ì—†ì´ ê±°ë¦¬ ì°¨ì´ êµ¬í•˜ê¸° ===
             float distance = Vector3.Distance(EnemyManager.Instance.SpawnEnemy.transform.position, transform.position);
 
             if (SaveManager.Instance.UserData.BossMaxHp > 0)
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    // === ÃßÀû ===
+    // === ì¶”ì  ===
     private void TraceWalk()
     {
         GameManager.Instance.IsBattle = false;
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         _agent.SetDestination(EnemyManager.Instance.SpawnEnemy.transform.position);
     }
 
-    // === °ø°İ(Enemy)¿¡¼­ Ã³¸® ===
+    // === ê³µê²©(Enemy)ì—ì„œ ì²˜ë¦¬ ===
     private void CombatPlayer()
     {
         GameManager.Instance.IsBattle = true;

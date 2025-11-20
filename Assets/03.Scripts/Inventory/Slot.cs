@@ -1,4 +1,4 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,11 +7,11 @@ public class Slot : MonoBehaviour
     public int Number;
 
     [Header("Slot")]
-    public Image Icon;                         // === ¾ÆÀÌÄÜ Ç¥½Ã ===
-    public TextMeshProUGUI EnhancedStatus;     // === °­È­ »óÅÂ Ç¥½Ã ===
+    public Image Icon;                         // === ì•„ì´ì½˜ í‘œì‹œ ===
+    public TextMeshProUGUI EnhancedStatus;     // === ê°•í™” ìƒíƒœ í‘œì‹œ ===
     public Button SlotBtn;
 
-    private string _descriptionText;           // === ¼³¸íÃ¢ ===
+    private string _descriptionText;           // === ì„¤ëª…ì°½ ===
 
     private bool _isClick;
 
@@ -20,10 +20,10 @@ public class Slot : MonoBehaviour
         SlotBtn.onClick.AddListener(OnClick);
     }
 
-    // === °­È­µÈ µ¥ÀÌÅÍ ¹Ş¾Æ¿À±â ===
+    // === ê°•í™”ëœ ë°ì´í„° ë°›ì•„ì˜¤ê¸° ===
     public void UpdateStatusUi()
     {
-        // === ÇÏµåÄÚµù ¶§¹®¿¡ ===
+        // === í•˜ë“œì½”ë”© ë•Œë¬¸ì— ===
         ItemData item = InventoryManager.Instance.InventoryItems[Number];
 
         if (Number >= InventoryManager.Instance.InventoryItems.Count)
@@ -39,19 +39,19 @@ public class Slot : MonoBehaviour
             switch (item.Type)
             {
                 case Consts.ItemType.Helmet:
-                    _descriptionText = $"Ã¼·Â + {item.EnhancedHP()}, ÆÇ¸Å°¡ {item.PriceItem()}";
+                    _descriptionText = $"ì²´ë ¥ + {item.EnhancedHP()}, íŒë§¤ê°€ {item.PriceItem()}";
                     Icon.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Helmet);
                     break;
                 case Consts.ItemType.Weapon:
-                    _descriptionText = $"°ø°İ·Â + {item.EnhancedAttack()}, ÆÇ¸Å°¡ {item.PriceItem()}";
+                    _descriptionText = $"ê³µê²©ë ¥ + {item.EnhancedAttack()}, íŒë§¤ê°€ {item.PriceItem()}";
                     Icon.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Weapon);
                     break;
                 case Consts.ItemType.Shield:
-                    _descriptionText = $"¹æ¾î·Â + {item.EnhancedDefence()}, ÆÇ¸Å°¡ {item.PriceItem()}";
+                    _descriptionText = $"ë°©ì–´ë ¥ + {item.EnhancedDefence()}, íŒë§¤ê°€ {item.PriceItem()}";
                     Icon.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Shield);
                     break;
                 case Consts.ItemType.Ring:
-                    _descriptionText = $"Å©¸®Æ¼ÄÃ + {item.EnhancedCri()}, ÆÇ¸Å°¡ {item.PriceItem()}";
+                    _descriptionText = $"í¬ë¦¬í‹°ì»¬ + {item.EnhancedCri()}, íŒë§¤ê°€ {item.PriceItem()}";
                     Icon.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Ring);
                     break;
             }
@@ -60,7 +60,7 @@ public class Slot : MonoBehaviour
         }
     }
 
-    // === ¹öÆ° Å¬¸¯½Ã È£Ãâ ===
+    // === ë²„íŠ¼ í´ë¦­ì‹œ í˜¸ì¶œ ===
     private void OnClick()
     {
         _isClick = !_isClick;

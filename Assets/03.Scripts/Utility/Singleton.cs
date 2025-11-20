@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         {
-            // === ½Ì±ÛÅæ ÀÎ½ºÅÏ½º¸¦ º¸ÀåÇÏ±â À§ÇØ¼­===
+            // === ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ë³´ì¥í•˜ê¸° ìœ„í•´ì„œ===
             if (_instance == null)
             {
                 _instance = FindObjectOfType<T>();
@@ -27,7 +27,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void Awake()
     {
-        // === Áßº¹ »ı¼º ¹æÁö ===
+        // === ì¤‘ë³µ ìƒì„± ë°©ì§€ ===
         if (_instance != null && _instance != this)
         {
             Destroy(gameObject);

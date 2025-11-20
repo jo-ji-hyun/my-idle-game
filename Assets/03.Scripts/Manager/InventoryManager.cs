@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
@@ -6,7 +6,7 @@ public class InventoryManager : Singleton<InventoryManager>
 {
     public List<ItemData> InventoryItems = new();
 
-    public static event Action OnInventoryChanged;     // === ÀÎº¥Åä¸® °»½ÅÀ» À§ÇØ¼­ ===
+    public static event Action OnInventoryChanged;     // === ì¸ë²¤í† ë¦¬ ê°±ì‹ ì„ ìœ„í•´ì„œ ===
 
     protected override bool IsDestroy => false;
 
@@ -54,31 +54,31 @@ public class InventoryManager : Singleton<InventoryManager>
         OnInventoryChanged?.Invoke();
     }
 
-    // === ·£´ıÀ¸·Î °­È­µÈ ¾ÆÀÌÅÛ È¹µæ ===
+    // === ëœë¤ìœ¼ë¡œ ê°•í™”ëœ ì•„ì´í…œ íšë“ ===
     public void GetItem()
     {
         Consts.ItemType randomKey = (Consts.ItemType)Random.Range(0, 4);
 
-        // === º¹»çº» ¸¸µé±â ===
+        // === ë³µì‚¬ë³¸ ë§Œë“¤ê¸° ===
         ItemData originalItem = DataManager.Instance.ItemDrops[randomKey];
 
         ItemData cloneItem = Instantiate(originalItem);
 
         cloneItem.Enhanced = Random.Range(0, SaveManager.Instance.UserData.Stage);
 
-        // === º¹»çÅÛ Ãß°¡ ===
+        // === ë³µì‚¬í…œ ì¶”ê°€ ===
         InventoryItems.Add(cloneItem);
 
-        // === ÀÎº¥Åä¸® °»½Å ===
+        // === ì¸ë²¤í† ë¦¬ ê°±ì‹  ===
         OnInventoryChanged?.Invoke();
     }
 
-    // === ¾ÆÀÌÅÛ Á¦°Å ·ÎÁ÷ ===
+    // === ì•„ì´í…œ ì œê±° ë¡œì§ ===
     public void RemoveItem(int x)
     {
         InventoryItems.RemoveAt(x);
 
-        // === ÀÎº¥Åä¸® °»½Å ===
+        // === ì¸ë²¤í† ë¦¬ ê°±ì‹  ===
         OnInventoryChanged?.Invoke();
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class EnemyManager : Singleton<EnemyManager>
 {
@@ -7,13 +7,13 @@ public class EnemyManager : Singleton<EnemyManager>
     //[HideInInspector]
     public GameObject SpawnEnemy;
 
-    // === Àû »ı¼º À§Ä¡ ===
+    // === ì  ìƒì„± ìœ„ì¹˜ ===
     private Vector3 _spawposition = new(0, 60, 60);
     private Vector3 _offset = new(0, 0, 60);
 
     protected override bool IsDestroy => false;
 
-    // === °ÔÀÓ ¸Å´ÏÀú¿¡ ½ºÆù ´ã´ç ===
+    // === ê²Œì„ ë§¤ë‹ˆì €ì— ìŠ¤í° ë‹´ë‹¹ ===
     public void NewEnemySpawn()
     {
         GameManager.Instance.ChangeMoney(1000 + SaveManager.Instance.UserData.Stage * 100);
@@ -33,7 +33,7 @@ public class EnemyManager : Singleton<EnemyManager>
         SaveManager.Instance.UserData.BossMaxHp = SaveManager.Instance.UserData.Stage * 250;
         SaveManager.Instance.UserData.BossCurrentHp = SaveManager.Instance.UserData.BossMaxHp;
 
-        // === ÇÑ Àû¸¸ °è¼Ó ¼ÒÈ¯ÇÏ±â À§ÇØ ===
+        // === í•œ ì ë§Œ ê³„ì† ì†Œí™˜í•˜ê¸° ìœ„í•´ ===
         SpawnEnemy = Instantiate(EnemyPrefabs, _spawposition + _offset, Quaternion.identity);
 
         GameManager.Instance.PlayerSet();
@@ -46,7 +46,7 @@ public class EnemyManager : Singleton<EnemyManager>
             Destroy(SpawnEnemy);
         }
 
-        // === ÇÑ Àû¸¸ °è¼Ó ¼ÒÈ¯ÇÏ±â À§ÇØ ===
+        // === í•œ ì ë§Œ ê³„ì† ì†Œí™˜í•˜ê¸° ìœ„í•´ ===
         SpawnEnemy = Instantiate(EnemyPrefabs, _spawposition + _offset, Quaternion.identity);
 
         GameManager.Instance.PlayerSet();

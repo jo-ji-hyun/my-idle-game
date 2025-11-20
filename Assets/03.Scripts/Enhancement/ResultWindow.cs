@@ -1,4 +1,4 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -20,11 +20,11 @@ public class ResultWindow : MonoBehaviour
 
     private void UpgradeProcess()
     {
-        // === µ·ÀÌ ºÎÁ·ÇÒ °æ¿ì ===
+        // === ëˆì´ ë¶€ì¡±í•  ê²½ìš° ===
         if (SaveManager.Instance.UserData.Money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Price)
         {
             EnhanceTxt.color = Color.red;
-            EnhanceTxt.text = "°ñµå ºÎÁ·";
+            EnhanceTxt.text = "ê³¨ë“œ ë¶€ì¡±";
 
             SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.NoMoney);
             return; 
@@ -37,7 +37,7 @@ public class ResultWindow : MonoBehaviour
         if (UiManager.Instance.Enhancement.EnhanceChance > random)
         {
             EnhanceTxt.color = Color.green;
-            EnhanceTxt.text = "°­È­ ¼º°ø!";
+            EnhanceTxt.text = "ê°•í™” ì„±ê³µ!";
 
             _item = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber];
 
@@ -52,7 +52,7 @@ public class ResultWindow : MonoBehaviour
         else
         {
             EnhanceTxt.color = Color.red;
-            EnhanceTxt.text = "°­È­ ½ÇÆĞ!";
+            EnhanceTxt.text = "ê°•í™” ì‹¤íŒ¨!";
 
             SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Fail);
         }

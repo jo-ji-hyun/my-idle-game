@@ -1,11 +1,11 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 
 public class GameManager : Singleton<GameManager>
 {
     public GameObject Player;
 
-    // === ÀüÅõ Áß ===
+    // === ì „íˆ¬ ì¤‘ ===
     [HideInInspector]
     public bool IsBattle = false;
 
@@ -16,7 +16,7 @@ public class GameManager : Singleton<GameManager>
         UiManager.Instance.System.GameExitBtn.onClick.AddListener(GameExit);
     }
 
-    // === µ· º¯µ¿ ===
+    // === ëˆ ë³€ë™ ===
     public void ChangeMoney(int amount)
     {
         SaveManager.Instance.UserData.Money += amount;
@@ -24,10 +24,10 @@ public class GameManager : Singleton<GameManager>
         UiManager.Instance.Money.UpdateUi();
     }
 
-    // === ÇÃ·¹ÀÌ¾î »ç¸Á½Ã Áö±İ ½ºÅ×ÀÌÁö Àç½ÃÀÛ ===
+    // === í”Œë ˆì´ì–´ ì‚¬ë§ì‹œ ì§€ê¸ˆ ìŠ¤í…Œì´ì§€ ì¬ì‹œì‘ ===
     public void GameOver()
     {
-        ChangeMoney(500);        // === È¯»ı Áö¿ø±İ ==
+        ChangeMoney(500);        // === í™˜ìƒ ì§€ì›ê¸ˆ ==
 
         SoundManager.Instance.BattleEffectSound(Consts.BattleResult.Defeat);
 
