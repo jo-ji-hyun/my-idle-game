@@ -3723,7 +3723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 77a6a754b7f75a34399ef4991eb539cc, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5226,7 +5226,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 28b245fa5a94a51438fd9d65af270e33, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5625,7 +5625,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d5232fd578d33484d98c06d877b915ff, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6693,7 +6693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7f92521ede381b14e8f65e1f0e5439cd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8282,6 +8282,7 @@ GameObject:
   - component: {fileID: 1785851026}
   - component: {fileID: 1785851025}
   - component: {fileID: 1785851027}
+  - component: {fileID: 1785851028}
   m_Layer: 5
   m_Name: Equipment
   m_TagString: Untagged
@@ -8376,6 +8377,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1785851028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785851023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8ad4c8ccfbb01419179c66150974bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Helmet_img: {fileID: 841926110}
+  Weapon_img: {fileID: 1200090004}
+  Shield_img: {fileID: 1492087869}
+  Ring_img: {fileID: 1135168316}
 --- !u!1 &1787236654
 GameObject:
   m_ObjectHideFlags: 0
