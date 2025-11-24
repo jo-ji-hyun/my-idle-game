@@ -61,8 +61,7 @@ public class AccountUi : MonoBehaviour
             {
                 FirebaseUser user = signInTask.Result.User;
                 MessageTxt.text = $"로그인 성공! 사용자: {user.Email},\\ UID: {user.UserId}";
-                ShowMessage();
-                AccountPannel.SetActive(false);
+                StartCoroutine(EndAccount());
             }
         }
         catch (FirebaseException e)
@@ -127,8 +126,8 @@ public class AccountUi : MonoBehaviour
             {
                 FirebaseUser user = guestTask.Result.User;
                 MessageTxt.text = $"게스트 로그인 성공!\\ 익명 UID: {user.UserId}";
-                ShowMessage();
-                AccountPannel.SetActive(false);
+
+                StartCoroutine(EndAccount());
             }
         }
         catch (FirebaseException e)
@@ -184,5 +183,14 @@ public class AccountUi : MonoBehaviour
         yield return new WaitForSeconds(_pannelViewTime);
 
         CheckMessagePanel.SetActive(false);
+    }
+
+    private IEnumerator EndAccount()
+    {
+        yield return new WaitForSeconds(_pannelViewTime);
+
+        CheckMessagePanel.SetActive(false);
+
+        AccountPannel.SetActive(false);
     }
 }

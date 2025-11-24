@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Address: Assets/00.Externals/myimage
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Common
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a12b69f9e05ee514dbaa60b716d0dacb, type: 2}
