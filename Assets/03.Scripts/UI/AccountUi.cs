@@ -187,6 +187,8 @@ public class AccountUi : MonoBehaviour
 
     private IEnumerator EndAccount()
     {
+        CheckMessagePanel.SetActive(true);
+
         yield return new WaitForSeconds(_pannelViewTime);
 
         CheckMessagePanel.SetActive(false);

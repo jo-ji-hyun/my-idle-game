@@ -150,7 +150,7 @@ public class LoadingUi : MonoBehaviour
                 if (LoadingBar.value >= 0.99f)
                 {
                     NewAmountTxt.text = "게임 시작 준비 완료...";
-                    yield return new WaitForSeconds(1.0f);
+                    yield return new WaitForSeconds(2.0f);
                     operation.allowSceneActivation = true;
                     yield break;
                 }
