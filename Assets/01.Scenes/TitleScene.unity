@@ -2008,6 +2008,7 @@ MonoBehaviour:
   AmountTxt: {fileID: 534627249}
   PercentageTxt: {fileID: 1244913382}
   ProgressBar: {fileID: 738198982}
+  CatalogsToUpdate: []
 --- !u!1 &823668999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,7 +2062,8 @@ MonoBehaviour:
   Amount: 0
   DownLoadBtn: {fileID: 2008790772}
   CancelBtn: {fileID: 618283355}
-  LoadingPannel: {fileID: 804467168}
+  DownLoadingPannel: {fileID: 804467168}
+  DownloadUIHandler: {fileID: 804467170}
 --- !u!1 &848054744
 GameObject:
   m_ObjectHideFlags: 0

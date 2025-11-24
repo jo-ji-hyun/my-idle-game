@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 1a91db86a959e0740a990b70bca5144e
   m_currentHash:
     serializedVersion: 2
-    Hash: 6813b0ec2f7fd13c1b83c8df9a7d0f9d
+    Hash: b669cd24ed4bf3b683bffa91d0a17a75
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
       - m_Id: 0fd71b4014bc8fe4e998eff3899a1dba
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 971a66f3cd8629249866d027f6a00539
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+        m_Value: gs://my-idle-game-cee34.firebasestorage.app
       - m_Id: a1e9d0a959326d2468d0fb777f048eb4
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
       - m_Id: b9b7bc64b0a243b40b53f6bd38c82c11
