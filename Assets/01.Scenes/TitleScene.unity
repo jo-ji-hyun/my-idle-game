@@ -494,7 +494,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1707067627}
+      - m_Target: {fileID: 273671265}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -842,6 +842,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &273671265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 273671266}
+  - component: {fileID: 273671267}
+  m_Layer: 0
+  m_Name: Loading
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &273671266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273671265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1707067631}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &273671267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273671265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614ed1765af5609489782c2c7de774e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadingBar: {fileID: 1942567877}
+  NewAmountTxt: {fileID: 1639366732}
+  Amount: 0
+  DownLoadBtn: {fileID: 2008790772}
+  CancelBtn: {fileID: 618283355}
+  DownLoadingPannel: {fileID: 804467168}
+  DownloadFiles: {fileID: 804467170}
 --- !u!1 &441407381
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,7 +2070,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 823669000}
-  - component: {fileID: 823669001}
   m_Layer: 0
   m_Name: TitleUi
   m_TagString: Untagged
@@ -2041,29 +2092,8 @@ Transform:
   m_Children:
   - {fileID: 1024623115}
   - {fileID: 1773353740}
-  - {fileID: 1707067631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &823669001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823668999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 614ed1765af5609489782c2c7de774e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExitBtn: {fileID: 1754396022}
-  LoadingBar: {fileID: 1942567877}
-  NewAmountTxt: {fileID: 1639366732}
-  Amount: 0
-  DownLoadBtn: {fileID: 2008790772}
-  CancelBtn: {fileID: 618283355}
-  DownLoadingPannel: {fileID: 804467168}
-  DownloadUIHandler: {fileID: 804467170}
 --- !u!1 &848054744
 GameObject:
   m_ObjectHideFlags: 0
@@ -4873,7 +4903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1707067628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4950,7 +4980,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1882074960}
-  m_Father: {fileID: 823669000}
+  m_Father: {fileID: 273671266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6360,6 +6390,7 @@ SceneRoots:
   - {fileID: 1985970219}
   - {fileID: 741801708}
   - {fileID: 823669000}
+  - {fileID: 273671266}
   - {fileID: 804467169}
   - {fileID: 756042521}
   - {fileID: 1659380574}

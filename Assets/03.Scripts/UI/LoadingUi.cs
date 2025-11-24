@@ -7,9 +7,8 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TitleUi : MonoBehaviour
+public class LoadingUi : MonoBehaviour
 {
-    public Button ExitBtn;
     public Slider LoadingBar;
 
     [Header("Loading")]
@@ -24,7 +23,7 @@ public class TitleUi : MonoBehaviour
     //===  Addressables 데이터 저장 ===
     private List<string> _catalogsToUpdate;
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(StartLoading());
     }
