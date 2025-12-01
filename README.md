@@ -4,26 +4,59 @@
 # 개요
 적을 처치하여 아이템을 얻고 강화하여 더 높은 단계를 노려보자!
 
-## 주요 기능
-자동 이동 및 자동 공격
+패배헤도 지원금을 통해 더 강해지고 다시 싸운다!
 
-![kill](https://github.com/user-attachments/assets/3077c50d-dec0-4d65-910e-4a7c67af4e5a)
+## 주요 기능
+
+### 로그인(파이어 베이스)
+<img width="1076" height="438" alt="1" src="https://github.com/user-attachments/assets/41e93115-a42c-4403-a91c-66c453393f3e" />
+
+![login](https://github.com/user-attachments/assets/8a895183-5518-46b7-b4f1-7be7440b7c00)
+
+게스트 로그인
+
+![guest](https://github.com/user-attachments/assets/cd41c094-66f8-463b-a362-2d6a37845c45)
+
+
+이메일 로그인(실패)
+
+![email_fail](https://github.com/user-attachments/assets/8eba0d71-9bef-45e5-9a9f-a28359d08c12)
+![email_fail2](https://github.com/user-attachments/assets/aa26aed4-20e3-44ee-b0a7-c6bcafef2229)
+
+이메일 로그인(성공)
+
+![email_success](https://github.com/user-attachments/assets/ecaf7d94-84e6-405c-b212-76bae592a6c2)
+
+### 게임 스타트!
+![loading](https://github.com/user-attachments/assets/16be3bf7-c3c2-4497-8cd5-a3c36892284c)
+
+업데이트로 이미지 변경
+
+![change](https://github.com/user-attachments/assets/780866e2-d1b2-47ea-a7e6-fd6ea86b5990)
+
+### 인게임 
 
 적 처치시 아이템 드랍
 
-![item](https://github.com/user-attachments/assets/24286ebf-0b54-40ef-8f19-0a0edecb7baa)
+![item](https://github.com/user-attachments/assets/aa46b91f-b5f4-4823-bc8a-522e4a996c3c)
 
 아이템 장착
 
-![equip](https://github.com/user-attachments/assets/d10d928a-2e09-41dc-be2e-16138c7799c5)
+![equip](https://github.com/user-attachments/assets/911725dc-5ef2-4c65-9e90-cb06bac83e21)
 
 아이템 강화
 
-![enhance](https://github.com/user-attachments/assets/6acf3e63-9114-401a-a753-09c01459e160)
+![enhanced](https://github.com/user-attachments/assets/b2e6cdf3-80d0-4b59-aa45-e14b3016f149)
+
+강화 실패 및 돈 부족
+
+![failed](https://github.com/user-attachments/assets/30b3b901-5ce5-4fec-ab97-cc838574ddef)
+
 
 패배시 적 체력 회복 및 지원금(+500 G)
 
-![die](https://github.com/user-attachments/assets/9a8a4425-1fe1-4558-bb0a-63bde94cbc52)
+![die](https://github.com/user-attachments/assets/a8887c9e-2db1-417e-a806-db15772bc13e)
+
 
 ## 커밋 규칙
 [Docs] 문서 및 파일 작업
