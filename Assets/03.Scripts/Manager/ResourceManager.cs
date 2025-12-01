@@ -56,25 +56,4 @@ public class ResourceManager : Singleton<ResourceManager>
 
         return null;
     }
-
-    public Sprite GetItemSprite(Consts.ItemType data)
-    {
-        if (_itemIcons.ContainsKey(data))
-        {
-            return _itemIcons[data];
-        }
-
-        // === 방어 코드 ===
-        string fullPath = Consts.ResourcePath.Icons + "/" + data;
-
-        Sprite sprite = Load<Sprite>(fullPath);
-
-        if (sprite != null)
-        {
-            _itemIcons.Add(data, sprite);
-            return sprite;
-        }
-
-        return null;
-    }
 }

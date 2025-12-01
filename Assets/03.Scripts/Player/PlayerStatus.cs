@@ -16,6 +16,7 @@ public class PlayerStatus : MonoBehaviour
 
     private void Start()
     {
+        Hpbar.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Hpbar.png[Hpbar_0]");
         PlayerHpBar();
 
         UpdatePlayerStatus();

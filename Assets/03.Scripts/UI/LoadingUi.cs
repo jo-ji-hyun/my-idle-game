@@ -31,11 +31,6 @@ public class LoadingUi : MonoBehaviour
     // === 1. 메인 진입점: 초기화 -> 업데이트 확인 -> (분기) -> 씬 로드 ===
     private IEnumerator StartLoading()
     {
-        while (!Caching.ClearCache())
-        {
-            yield return null;
-        }
-
         yield return Addressables.InitializeAsync();
 
         AsyncOperationHandle<List<string>> checkHandle = Addressables.CheckForCatalogUpdates(false);

@@ -15,7 +15,7 @@ public class FirebaseController : MonoBehaviour
     // === 파이어 베이스 초기화 ===
     private void Awake()
     {
-        Debug.Log("[Firebase] 의존성 확인 중…");
+        Caching.ClearCache();
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(t =>
         {
             IsReady = (t.Result == DependencyStatus.Available);

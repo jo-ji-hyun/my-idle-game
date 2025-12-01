@@ -10,9 +10,9 @@ public class EquipUi : MonoBehaviour
 
     public void Start()
     {
-        Helmet_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/myimage/itemSheet0.png[itemSheet0_2]");
-        Weapon_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/myimage/itemSheet0.png[itemSheet0_4]");
-        Shield_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/myimage/itemSheet0.png[itemSheet0_0]");
-        Ring_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/myimage/itemSheet0.png[itemSheet0_3]");
+        Helmet_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_0]");
+        Weapon_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_1]");
+        Shield_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_2]");
+        Ring_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_3]");
     }
 }

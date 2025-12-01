@@ -39,10 +39,10 @@ public class EnhancementtUi : MonoBehaviour
         // === 버튼을 다 받았으면 ===
         DescriptionPanel.SetActive(false);
 
-        Helmet.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Helmet);
-        Weapon.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Weapon);
-        Shield.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Shield);
-        Ring.sprite = ResourceManager.Instance.GetItemSprite(Consts.ItemType.Ring);
+        Helmet.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_0]");
+        Weapon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_1]");
+        Shield.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_2]");
+        Ring.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_3]");
     }
 
     private void ShowUpgade()

@@ -60,7 +60,7 @@ public class AccountUi : MonoBehaviour
             if (signInTask.IsCompletedSuccessfully)
             {
                 FirebaseUser user = signInTask.Result.User;
-                MessageTxt.text = $"로그인 성공! 사용자: {user.Email},\\ UID: {user.UserId}";
+                MessageTxt.text = $"로그인 성공!,\\ UID: {user.Email}";
                 StartCoroutine(EndAccount());
             }
         }
@@ -94,7 +94,7 @@ public class AccountUi : MonoBehaviour
             if (registerTask.IsCompletedSuccessfully)
             {
                 FirebaseUser newUser = registerTask.Result.User;
-                MessageTxt.text = $"회원가입 성공! UID: {newUser.UserId},\\ Email: {newUser.Email}";
+                MessageTxt.text = $"회원가입 성공! \\ UID: {newUser.UserId}";
                 ShowMessage();
             }
         }
@@ -125,7 +125,7 @@ public class AccountUi : MonoBehaviour
             if (guestTask.IsCompletedSuccessfully)
             {
                 FirebaseUser user = guestTask.Result.User;
-                MessageTxt.text = $"게스트 로그인 성공!\\ 익명 UID: {user.UserId}";
+                MessageTxt.text = $"게스트 로그인 성공!\\ 익명 UID: \\ {user.UserId}";
 
                 StartCoroutine(EndAccount());
             }
