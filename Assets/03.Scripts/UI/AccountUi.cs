@@ -60,7 +60,7 @@ public class AccountUi : MonoBehaviour
             if (signInTask.IsCompletedSuccessfully)
             {
                 FirebaseUser user = signInTask.Result.User;
-                MessageTxt.text = $"로그인 성공!,\\ UID: {user.Email}";
+                MessageTxt.text = $"로그인 성공!,\\ Email: \\ {user.Email}";
                 StartCoroutine(EndAccount());
             }
         }
@@ -132,7 +132,7 @@ public class AccountUi : MonoBehaviour
         }
         catch (FirebaseException e)
         {
-            MessageTxt.text = $"게스트 로그인 실패: {e.ErrorCode} - {e.Message}";
+            MessageTxt.text = $"게스트 로그인 실패: \\ {e.ErrorCode} - {e.Message}";
             ShowMessage();
         }
     }

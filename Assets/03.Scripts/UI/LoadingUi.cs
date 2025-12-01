@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class LoadingUi : MonoBehaviour
 {
+    private AudioSource _audioSource;
+
     public Slider LoadingBar;
 
     [Header("Loading")]
@@ -25,6 +27,8 @@ public class LoadingUi : MonoBehaviour
 
     private void OnEnable()
     {
+        _audioSource = GetComponent<AudioSource>();
+
         StartCoroutine(StartLoading());
     }
 
@@ -45,6 +49,9 @@ public class LoadingUi : MonoBehaviour
 
         _catalogsToUpdate = checkHandle.Result;
         Addressables.Release(checkHandle);
+
+        _audioSource.clip = AddressableManager.Instance.GetAssets<AudioClip>("Assets/00.Externals/Myaddressable/Music/Lobby.mp3");
+        _audioSource.Play();
 
         // === 업데이트 여부 확인 ===
         if (_catalogsToUpdate != null && _catalogsToUpdate.Count > 0)
