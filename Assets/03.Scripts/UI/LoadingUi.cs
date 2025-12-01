@@ -31,6 +31,11 @@ public class LoadingUi : MonoBehaviour
     // === 1. 메인 진입점: 초기화 -> 업데이트 확인 -> (분기) -> 씬 로드 ===
     private IEnumerator StartLoading()
     {
+        while (!Caching.ClearCache())
+        {
+            yield return null;
+        }
+
         yield return Addressables.InitializeAsync();
 
         AsyncOperationHandle<List<string>> checkHandle = Addressables.CheckForCatalogUpdates(false);
@@ -69,12 +74,31 @@ public class LoadingUi : MonoBehaviour
         long totalDownloadSize = sizeHandle.Result;
         Addressables.Release(sizeHandle);
 
-        float sizeMB = (float)totalDownloadSize / 1024f / 1024f;
+        string totalAmount;
+
+        if (totalDownloadSize < 1024 * 1024) 
+        {
+            float sizeKB = (float)totalDownloadSize / 1024f;
+
+            if (totalDownloadSize > 0 && sizeKB < 1f)
+            {
+                totalAmount = "매우 작은 용량";
+            }
+            else
+            {
+                totalAmount = $"{sizeKB:F0} KB"; 
+            }
+        }
+        else 
+        {
+            float sizeMB = (float)totalDownloadSize / 1024f / 1024f;
+            totalAmount = $"{sizeMB:F2} MB";
+        }
 
         // === 2. 다운로드 요청 UI 활성화 및 리스너 연결 ===
         DownLoadBtn.gameObject.SetActive(true);
         CancelBtn.gameObject.SetActive(true);
-        NewAmountTxt.text = $"업데이트가 발견되었습니다. 다운로드 크기: {sizeMB:F2} MB";
+        NewAmountTxt.text = $"업데이트가 발견되었습니다. 다운로드 크기:  {totalAmount}";
 
         DownLoadBtn.onClick.RemoveAllListeners();
         CancelBtn.onClick.RemoveAllListeners();
@@ -123,7 +147,7 @@ public class LoadingUi : MonoBehaviour
     // === 3. 경로 2: 씬 로딩 로직 (기존 코드 기반) ===
     private IEnumerator LoadMainScene()
     {
-        // 다운로드 UI 요소 숨김 및 로딩 바 초기화
+        // === 다운로드 UI 요소 숨김 및 로딩 바 초기화 ===
         DownLoadBtn.gameObject.SetActive(false);
         CancelBtn.gameObject.SetActive(false);
         LoadingBar.value = 0f;
