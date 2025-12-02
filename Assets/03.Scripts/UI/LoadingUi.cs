@@ -18,6 +18,7 @@ public class LoadingUi : MonoBehaviour
     [SerializeField] private long Amount;
     public Button DownLoadBtn;
     public Button CancelBtn;
+    public Button CompleteBtn;
 
     public GameObject DownLoadingPannel;
     public DownLoadFiles DownloadFiles;
@@ -175,9 +176,24 @@ public class LoadingUi : MonoBehaviour
 
                 if (LoadingBar.value >= 0.99f)
                 {
-                    NewAmountTxt.text = "게임 시작 준비 완료...";
-                    yield return new WaitForSeconds(2.0f);
-                    operation.allowSceneActivation = true;
+                    NewAmountTxt.text = "게임 시작 준비 완료... \\ 버튼을 누르세요";
+
+                    CompleteBtn.gameObject.SetActive(true);
+
+                    bool isWaitingForStart = false;
+
+                    CompleteBtn.onClick.AddListener(() => { isWaitingForStart = true;});
+
+                    while (!isWaitingForStart)
+                    {
+                        yield return null;
+                    }
+
+                    if (isWaitingForStart)
+                    {
+                        operation.allowSceneActivation = true;
+                    }
+
                     yield break;
                 }
             }
