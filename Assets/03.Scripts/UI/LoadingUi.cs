@@ -60,7 +60,7 @@ public class LoadingUi : MonoBehaviour
         }
         else
         {
-            NewAmountTxt.text = "최신 버전입니다. 게임을 시작합니다.";
+            NewAmountTxt.text = "최신 버전입니다.\n 게임을 시작합니다.";
             yield return StartCoroutine(LoadMainScene());
         }
 
@@ -175,7 +175,7 @@ public class LoadingUi : MonoBehaviour
 
                 if (LoadingBar.value >= 0.99f)
                 {
-                    NewAmountTxt.text = "게임 시작 준비 완료... \\ 버튼을 누르세요";
+                    NewAmountTxt.text = "게임 시작 준비 완료... \n 버튼을 누르세요";
 
                     CompleteBtn.gameObject.SetActive(true);
 

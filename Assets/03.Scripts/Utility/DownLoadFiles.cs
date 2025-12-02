@@ -94,13 +94,13 @@ public class DownLoadFiles : MonoBehaviour
 
             if (_totalDownloadAmount < 1024 * 1024)
             {
-                AmountTxt.text = $"{currentKB:F0} KB / {totalKB:F0} KB 다운로드 중";
+                AmountTxt.text = $"{currentKB:F0} KB /\n {totalKB:F0} KB 다운로드 중";
             }
             else // === 1MB 이상이면 MB 단위로 표시 ===
             {
                 float currentMB = currentKB / 1024f;
                 float totalMB = totalKB / 1024f;
-                AmountTxt.text = $"{currentMB:F2} MB / {totalMB:F2} MB 다운로드 중";
+                AmountTxt.text = $"{currentMB:F2} MB /\n {totalMB:F2} MB 다운로드 중";
             }
             yield return null;
         }
