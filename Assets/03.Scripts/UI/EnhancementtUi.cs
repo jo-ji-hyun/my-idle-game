@@ -9,6 +9,7 @@ public class EnhancementtUi : MonoBehaviour
     [Header("Windows")]
     public GameObject DescriptionPanel;
     public TextMeshProUGUI DescriptionTxt;
+    public Image Statusicon;
 
     [Header("Button")]
     public Button HelmetBtn;
@@ -56,6 +57,8 @@ public class EnhancementtUi : MonoBehaviour
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[0];
 
+        Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_0]");
+
         DescriptionTxt.text = $"강화 전 : 체력 + {item.EnhancedHP()} \n강화 후 : 체력 + {item.EnhancedHP() + 100}";
 
         PlayerEquip.Instance.CheckEquipNumber = 0;
@@ -68,6 +71,8 @@ public class EnhancementtUi : MonoBehaviour
         DescriptionPanel.SetActive(false);
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[1];
+
+        Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_1]");
 
         if ((item.Enhanced + 1) % 2 == 0)
         {
@@ -89,6 +94,8 @@ public class EnhancementtUi : MonoBehaviour
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[2];
 
+        Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_2]");
+
         DescriptionTxt.text = $"강화 전 : 방어력 + {item.EnhancedDefence()} \n강화 후 : 방어력 + {item.EnhancedDefence() + 1}";
 
         PlayerEquip.Instance.CheckEquipNumber = 2;
@@ -101,6 +108,8 @@ public class EnhancementtUi : MonoBehaviour
         DescriptionPanel.SetActive(false);
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[3];
+
+        Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_3]");
 
         DescriptionTxt.text = $"강화 전 : 크리티컬 + {item.EnhancedCri()} \n강화 후 : 크리티컬 + {item.EnhancedCri() + 1}";
 

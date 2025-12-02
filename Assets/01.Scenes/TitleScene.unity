@@ -890,7 +890,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadingBar: {fileID: 1942567877}
   NewAmountTxt: {fileID: 1639366732}
-  Amount: 0
   DownLoadBtn: {fileID: 2008790772}
   CancelBtn: {fileID: 618283355}
   CompleteBtn: {fileID: 1250869709}
@@ -2168,6 +2167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 823669000}
+  - component: {fileID: 823669001}
   m_Layer: 0
   m_Name: TitleUi
   m_TagString: Untagged
@@ -2192,6 +2192,19 @@ Transform:
   - {fileID: 1773353740}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &823669001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823668999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6052f872c8abc459defc69fda58ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitBtn: {fileID: 1754396022}
 --- !u!1 &848054744
 GameObject:
   m_ObjectHideFlags: 0
@@ -5611,7 +5624,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 760, y: 600}
+  m_ReferenceResolution: {x: 760, y: 1280}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

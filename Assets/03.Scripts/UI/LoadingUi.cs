@@ -15,7 +15,6 @@ public class LoadingUi : MonoBehaviour
 
     [Header("Loading")]
     public TextMeshProUGUI NewAmountTxt;
-    [SerializeField] private long Amount;
     public Button DownLoadBtn;
     public Button CancelBtn;
     public Button CompleteBtn;

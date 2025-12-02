@@ -27,7 +27,6 @@ public class FirebaseController : MonoBehaviour
             }
             else
             {
-                Debug.LogError($"[Firebase] 준비 실패: {t.Result}");
                 _readyTcs.TrySetResult(false);
             }
         });
