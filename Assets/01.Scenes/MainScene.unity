@@ -7886,6 +7886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hpbar: {fileID: 194198284}
+  PlayerCanvas: {fileID: 1738310266}
 --- !u!114 &1680695785
 MonoBehaviour:
   m_ObjectHideFlags: 0

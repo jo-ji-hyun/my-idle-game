@@ -9,6 +9,7 @@ public class PlayerStatus : MonoBehaviour
 
     [Header("UI")]
     public Image Hpbar;
+    public GameObject PlayerCanvas;
 
     private int _maxHp;
     private Coroutine _currentCombatCoroutine;
@@ -17,7 +18,9 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         Hpbar.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Hpbar.png[Hpbar_0]");
+
         PlayerHpBar();
+        PlayerCanvas.SetActive(false);
 
         UpdatePlayerStatus();
     }
@@ -40,6 +43,8 @@ public class PlayerStatus : MonoBehaviour
 
     private void PlayerHpBar()
     {
+        PlayerCanvas.SetActive(true);
+
         _maxHp = SaveManager.Instance.UserData.MaxHP;
         _currentHp = SaveManager.Instance.UserData.CurrentHP;
 
@@ -76,6 +81,8 @@ public class PlayerStatus : MonoBehaviour
                 GameManager.Instance.IsBattle = false;         // === 전투 종료 ===
 
                 PlayerHpBar();
+
+                PlayerCanvas.SetActive(false);
 
                 GameManager.Instance.GameOver();
             }
