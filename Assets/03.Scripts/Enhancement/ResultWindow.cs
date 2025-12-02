@@ -21,7 +21,7 @@ public class ResultWindow : MonoBehaviour
     private void UpgradeProcess()
     {
         // === 돈이 부족할 경우 ===
-        if (SaveManager.Instance.UserData.Money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Price)
+        if (SaveManager.Instance.UserData.Money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].PriceItem())
         {
             EnhanceTxt.color = Color.red;
             EnhanceTxt.text = "골드 부족";
