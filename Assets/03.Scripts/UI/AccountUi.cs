@@ -143,7 +143,7 @@ public class AccountUi : MonoBehaviour
         switch (errorCode)
         {
             case AuthError.WeakPassword:
-                MessageTxt.text = "비밀번호가 너무 짧습니다 (6자 이상이어야 합니다).";
+                MessageTxt.text = "비밀번호가 너무 짧습니다 \\ (6자 이상이어야 합니다).";
                 break;
             case AuthError.InvalidEmail:
                 MessageTxt.text = "유효하지 않은 이메일 형식입니다.";
@@ -158,7 +158,10 @@ public class AccountUi : MonoBehaviour
                 MessageTxt.text = "비밀번호가 일치하지 않습니다.";
                 break;
             case AuthError.TooManyRequests: 
-                MessageTxt.text = "너무 많은 시도가 있었습니다. 잠시 후 다시 시도해 주세요.";
+                MessageTxt.text = "너무 많은 시도가 있었습니다.\\ 잠시 후 다시 시도해 주세요.";
+                break;
+            default:
+                MessageTxt.text = "알 수 없는 오류";
                 break;
         }
 

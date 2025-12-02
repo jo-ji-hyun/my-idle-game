@@ -100,7 +100,7 @@ public class LoadingUi : MonoBehaviour
         // === 2. 다운로드 요청 UI 활성화 및 리스너 연결 ===
         DownLoadBtn.gameObject.SetActive(true);
         CancelBtn.gameObject.SetActive(true);
-        NewAmountTxt.text = $"업데이트가 발견되었습니다. 다운로드 크기:  {totalAmount}";
+        NewAmountTxt.text = $"업데이트가 발견되었습니다.\\ 다운로드 크기:  {totalAmount}";
 
         DownLoadBtn.onClick.RemoveAllListeners();
         CancelBtn.onClick.RemoveAllListeners();

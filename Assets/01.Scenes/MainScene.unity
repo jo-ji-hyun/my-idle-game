@@ -9457,7 +9457,7 @@ MonoBehaviour:
   UiBtn: {fileID: 1872291863}
   DescriptionPanel: {fileID: 607932919}
   DescriptionTxt: {fileID: 1286081662}
-  Statusicon: {fileID: 0}
+  Statusicon: {fileID: 166896785}
   HelmetBtn: {fileID: 1545972698}
   WeaponBtn: {fileID: 1453384686}
   ShieldBtn: {fileID: 485579911}
