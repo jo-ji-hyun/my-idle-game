@@ -3,7 +3,7 @@ guid: 8b1597f814131ba408d3e1f636d885e0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -81,19 +81,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -119,19 +106,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -139,10 +113,10 @@ TextureImporter:
       name: Hpbar_0
       rect:
         serializedVersion: 2
-        x: 97
-        y: 589
-        width: 834
-        height: 215
+        x: 96
+        y: 594
+        width: 833
+        height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d79de6a98df833468f6acc99dadb08c
-      internalID: -995526205
+      spriteID: 752dc906c3c5a474993f4b8b60608c83
+      internalID: -1158189236
       vertices: []
       indices: 
       edges: []
@@ -160,10 +134,10 @@ TextureImporter:
       name: Hpbar_1
       rect:
         serializedVersion: 2
-        x: 94
-        y: 233
-        width: 834
-        height: 215
+        x: 95
+        y: 240
+        width: 833
+        height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb608801d48ae8b479d917d818d50814
-      internalID: -1933359469
+      spriteID: beafff6f977d6644cbf9d4ab46463177
+      internalID: 2066990942
       vertices: []
       indices: 
       edges: []
@@ -180,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 22f500dc96ee4154ab5cbe7b2ef73528
     internalID: 0
     vertices: []
     indices: 
@@ -188,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hpbar_0: -995526205
-      Hpbar_1: -1933359469
+      Hpbar_0: -1158189236
+      Hpbar_1: 2066990942
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

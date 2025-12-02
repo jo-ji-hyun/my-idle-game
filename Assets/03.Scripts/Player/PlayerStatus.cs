@@ -9,6 +9,7 @@ public class PlayerStatus : MonoBehaviour
 
     [Header("UI")]
     public Image Hpbar;
+    public Image BackHp;
     public GameObject PlayerCanvas;
 
     private int _maxHp;
@@ -18,6 +19,7 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         Hpbar.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Hpbar.png[Hpbar_0]");
+        BackHp.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Hpbar.png[Hpbar_0]");
 
         PlayerHpBar();
         PlayerCanvas.SetActive(false);

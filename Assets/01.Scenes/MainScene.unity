@@ -2023,7 +2023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fdbe38ea28c9bd4d88c09a80dd23092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hpbar: {fileID: 1335130737}
+  HpbarFront: {fileID: 1335130737}
+  HpbarBack: {fileID: 1871890720}
   HpbarTxt: {fileID: 1165617094}
 --- !u!1 &507644535
 GameObject:
@@ -7886,6 +7887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hpbar: {fileID: 194198284}
+  BackHp: {fileID: 498125126}
   PlayerCanvas: {fileID: 1738310266}
 --- !u!114 &1680695785
 MonoBehaviour:
