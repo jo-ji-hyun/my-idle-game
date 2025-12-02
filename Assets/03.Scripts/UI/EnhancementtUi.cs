@@ -59,7 +59,7 @@ public class EnhancementtUi : MonoBehaviour
 
         Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_0]");
 
-        DescriptionTxt.text = $"강화 전 : 체력 + {item.EnhancedHP()} \n강화 후 : 체력 + {item.EnhancedHP() + 100}";
+        DescriptionTxt.text = $"강화 전 : 체력 + {item.EnhancedHP()} \n강화 후 : 체력 + {item.EnhancedHP() + 150}";
 
         PlayerEquip.Instance.CheckEquipNumber = 0;
 

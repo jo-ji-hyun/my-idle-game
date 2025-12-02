@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class ItemData : ScriptableObject
@@ -36,7 +36,7 @@ public class ItemData : ScriptableObject
             return Hp;
         }
 
-        return Hp + Enhanced * 120;
+        return Hp + Enhanced * 150;
     }
 
     public int EnhancedAttack()
