@@ -16,9 +16,14 @@ public class EnemyManager : Singleton<EnemyManager>
     // === 게임 매니저에 스폰 담당 ===
     public void NewEnemySpawn()
     {
-        GameManager.Instance.ChangeMoney(1000 + SaveManager.Instance.UserData.Stage * 100);
+        GameManager.Instance.ChangeMoney(1000 + SaveManager.Instance.UserData.Stage * 1000);
 
-        InventoryManager.Instance.GetItem();
+        int bonusitem = 1 + SaveManager.Instance.UserData.Stage / 50;
+
+        for (int i = 0; i < bonusitem; i++)
+        {
+            InventoryManager.Instance.GetItem();
+        }
 
         EnemySpawn();
     }

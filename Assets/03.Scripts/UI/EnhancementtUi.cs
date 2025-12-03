@@ -109,7 +109,7 @@ public class EnhancementtUi : MonoBehaviour
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[3];
 
-        if(item.EnhancedCri() > 100) 
+        if(item.EnhancedCri() >= 100) 
         {
             Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_3]");
 

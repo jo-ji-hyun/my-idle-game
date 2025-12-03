@@ -17,7 +17,7 @@ public class EnhanceDescription : MonoBehaviour
         }
         else
         {
-            UiManager.Instance.Enhancement.EnhanceChance = Mathf.Max(0.01f ,(PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Enhanced - 99) * 0.01f);
+            UiManager.Instance.Enhancement.EnhanceChance = Mathf.Max(0.01f , 1 - (PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Enhanced - 99) * 0.01f);
         }
 
         SucessTxt.text = UiManager.Instance.Enhancement.EnhanceChance.ToString();
