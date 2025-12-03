@@ -32,14 +32,10 @@ public class PlayerStatus : MonoBehaviour
         if (GameManager.Instance.IsBattle && !isCombatStart)
         {
             _currentCombatCoroutine = StartCoroutine(TakeDamage(SaveManager.Instance.UserData.Stage));
-
-            isCombatStart = true;
         }
         else if (!GameManager.Instance.IsBattle && isCombatStart)
         {
             StopCoroutine(_currentCombatCoroutine);
-
-            isCombatStart = false;
         }
     }
 
@@ -67,12 +63,14 @@ public class PlayerStatus : MonoBehaviour
 
     private IEnumerator TakeDamage(int damage)
     {
+        isCombatStart = true;
+
         while (GameManager.Instance.IsBattle)
         {
             UpdatePlayerStatus();
 
             // === 최종 데미지 계산 ===
-            int finaldamage = (_def - damage) <= 0 ? damage : 1;
+            int finaldamage = Mathf.Max(1, damage - _def);
 
             SaveManager.Instance.UserData.CurrentHP -= finaldamage;
 
@@ -95,5 +93,7 @@ public class PlayerStatus : MonoBehaviour
 
             yield return new WaitForSeconds(0.05f);
         }
+
+        isCombatStart = false;
     }
 }

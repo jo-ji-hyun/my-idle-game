@@ -20,7 +20,7 @@ public class InventoryManager : Singleton<InventoryManager>
         {
             if (itemData.TryGetValue(saveData.Type, out ItemData originalData))
             {
-                ItemData originalItem = DataManager.Instance.ItemDrops[saveData.Type];
+                ItemData originalItem = DataManager.Instance.ItemDrops[originalData.Type];
 
                 ItemData cloneItem = Instantiate(originalItem);
 

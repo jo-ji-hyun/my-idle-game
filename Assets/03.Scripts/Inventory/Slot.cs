@@ -39,19 +39,19 @@ public class Slot : MonoBehaviour
             switch (item.Type)
             {
                 case Consts.ItemType.Helmet:
-                    _descriptionText = $"체력 + {item.EnhancedHP()}, 판매가 {item.PriceItem()}";
+                    _descriptionText = $"체력 + {item.EnhancedHP()}, 판매가 {item.PriceItem():N0}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_0]");
                     break;
                 case Consts.ItemType.Weapon:
-                    _descriptionText = $"공격력 + {item.EnhancedAttack()}, 판매가 {item.PriceItem()}";
+                    _descriptionText = $"공격력 + {item.EnhancedAttack()}, 판매가 {item.PriceItem():N0}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_1]");
                     break;
                 case Consts.ItemType.Shield:
-                    _descriptionText = $"방어력 + {item.EnhancedDefence()}, 판매가 {item.PriceItem()}";
+                    _descriptionText = $"방어력 + {item.EnhancedDefence()}, 판매가 {item.PriceItem():N0}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_2]");
                     break;
                 case Consts.ItemType.Ring:
-                    _descriptionText = $"크리티컬 + {item.EnhancedCri()}, 판매가 {item.PriceItem()}";
+                    _descriptionText = $"크리티컬 + {item.EnhancedCri()}, 판매가 {item.PriceItem():N0}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_3]");
                     break;
             }

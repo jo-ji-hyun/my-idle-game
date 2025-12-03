@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
 
         while (GameManager.Instance.IsBattle)
         {
-            int finaldamage = damage;
+            int finaldamage = Mathf.Max(damage, SaveManager.Instance.UserData.Atk);
 
             if (SaveManager.Instance.UserData.Cri > Random.Range(0, 99))
             {

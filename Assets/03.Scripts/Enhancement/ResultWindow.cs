@@ -7,6 +7,7 @@ public class ResultWindow : MonoBehaviour
 {
     private ItemData _item;
 
+    public Image Close;
     public GameObject EnhanceWindow;
     public TextMeshProUGUI EnhanceTxt;
 
@@ -15,6 +16,7 @@ public class ResultWindow : MonoBehaviour
 
     private void Start()
     {
+        Close.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Close.png[Close]");
         UpgradeBtn.onClick.AddListener(UpgradeProcess);
     }
 
