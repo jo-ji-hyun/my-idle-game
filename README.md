@@ -40,6 +40,10 @@
 
 ![item](https://github.com/user-attachments/assets/aa46b91f-b5f4-4823-bc8a-522e4a996c3c)
 
+적 처치시 100라운드 마다 추가 아이템 드랍
+
+![2](https://github.com/user-attachments/assets/6ba714ff-e15a-4eca-bb18-40e730c178ba)
+
 아이템 장착
 
 ![equip](https://github.com/user-attachments/assets/911725dc-5ef2-4c65-9e90-cb06bac83e21)
@@ -48,14 +52,18 @@
 
 ![enhanced](https://github.com/user-attachments/assets/b2e6cdf3-80d0-4b59-aa45-e14b3016f149)
 
-강화 실패 및 돈 부족
+강화 실패 및 돈 부족시 경고!
 
 ![failed](https://github.com/user-attachments/assets/30b3b901-5ce5-4fec-ab97-cc838574ddef)
 
 
-패배시 적 체력 회복 및 지원금(+500 G)
+패배시 적 체력 회복 및 지원금(+ G)
 
 ![die](https://github.com/user-attachments/assets/a8887c9e-2db1-417e-a806-db15772bc13e)
+
+위쪽의 장비창을 눌러 현재 스테이터스 확인
+
+![1](https://github.com/user-attachments/assets/087fe4f4-c9fa-4744-b5df-97a618ac6803)
 
 
 ## 커밋 규칙
