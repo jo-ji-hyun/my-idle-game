@@ -18,9 +18,9 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         GameManager.Instance.ChangeMoney(1000 + SaveManager.Instance.UserData.Stage * 1000);
 
-        int bonusitem = 1 + SaveManager.Instance.UserData.Stage / 50;
+        int itemget = 1 + SaveManager.Instance.UserData.Stage / 100;
 
-        for (int i = 0; i < bonusitem; i++)
+        for (int i = 0; i < itemget; i++)
         {
             InventoryManager.Instance.GetItem();
         }

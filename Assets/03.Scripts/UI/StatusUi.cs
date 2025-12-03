@@ -35,6 +35,6 @@ public class StatusUi : MonoBehaviour
         Atk.text = $"{SaveManager.Instance.UserData.Atk}";
         Def.text = $"{SaveManager.Instance.UserData.Def}";
         Cri.text = $"{SaveManager.Instance.UserData.Cri}";
-        CriDmg.text = $"{(int)(SaveManager.Instance.UserData.Atk * 1.5f) + (SaveManager.Instance.UserData.Cri) / 2}";
+        CriDmg.text = $"{(int)(SaveManager.Instance.UserData.Atk * 1.2f) + (SaveManager.Instance.UserData.Cri) / 2}";
     }
 }

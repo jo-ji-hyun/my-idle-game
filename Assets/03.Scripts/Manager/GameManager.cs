@@ -27,7 +27,7 @@ public class GameManager : Singleton<GameManager>
     // === 플레이어 사망시 지금 스테이지 재시작 ===
     public void GameOver()
     {
-        ChangeMoney(500 + 100 * SaveManager.Instance.UserData.Stage);        // === 환생 지원금 ==
+        ChangeMoney(500 + 150 * SaveManager.Instance.UserData.Stage);        // === 환생 지원금 ==
 
         SoundManager.Instance.BattleEffectSound(Consts.BattleResult.Defeat);
 
