@@ -63,5 +63,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
         AtkTxt.text = EquipmentSlot[(int)Consts.ItemType.Weapon].Enhanced.ToString();
         DefTxt.text = EquipmentSlot[(int)Consts.ItemType.Shield].Enhanced.ToString();
         CriTxt.text = EquipmentSlot[(int)Consts.ItemType.Ring].Enhanced.ToString();
+
+        UiManager.Instance.Status.UpdateStatusUi();
     }
 }

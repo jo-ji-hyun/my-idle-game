@@ -26,17 +26,15 @@ public class StatusUi : MonoBehaviour
         Cri_icon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status1.png[status1_0]");
         Cri_Dmg_icon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_3]");
 
-        UpdateStatusUi();
-
         this.gameObject.SetActive(false);
     }
 
     public void UpdateStatusUi()
     {
-        MaxHp.text =$"{SaveManager.Instance.UserData.MaxHP}";
-        Atk.text =$"{SaveManager.Instance.UserData.Atk}";
-        Def.text =$"{SaveManager.Instance.UserData.Def}";
-        Cri.text =$"{SaveManager.Instance.UserData.Cri}";
-        CriDmg.text =$"{SaveManager.Instance.UserData.Atk + (SaveManager.Instance.UserData.Cri) / 2}";
+        MaxHp.text = $"{SaveManager.Instance.UserData.MaxHP}";
+        Atk.text = $"{SaveManager.Instance.UserData.Atk}";
+        Def.text = $"{SaveManager.Instance.UserData.Def}";
+        Cri.text = $"{SaveManager.Instance.UserData.Cri}";
+        CriDmg.text = $"{SaveManager.Instance.UserData.Atk + (SaveManager.Instance.UserData.Cri) / 2}";
     }
 }
