@@ -52,7 +52,7 @@ public class Slot : MonoBehaviour
                     break;
                 case Consts.ItemType.Ring:
                     _descriptionText = $"크리티컬 + {item.EnhancedCri()}, 판매가 {item.PriceItem():N0}";
-                    Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status1.png[status1_0]");
+                    Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_3]");
                     break;
             }
 

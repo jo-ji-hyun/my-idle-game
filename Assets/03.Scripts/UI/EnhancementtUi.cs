@@ -109,14 +109,16 @@ public class EnhancementtUi : MonoBehaviour
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[3];
 
-        Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_3]");
-
         if(item.EnhancedCri() > 100) 
         {
+            Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_3]");
+
             DescriptionTxt.text = $"강화 전 : 크리티컬 데미지 + {item.EnhancedCri() / 2} \n강화 후 : 크리티컬 데미지 + {(item.EnhancedCri() + 1) / 2}";
         }
         else 
         {
+            Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status1.png[status1_0]");
+
             DescriptionTxt.text = $"강화 전 : 크리티컬 + {item.EnhancedCri()} \n강화 후 : 크리티컬 + {item.EnhancedCri() + 1}";
         }
 
