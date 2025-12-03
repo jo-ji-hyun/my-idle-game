@@ -76,6 +76,8 @@ public class InventoryUi : MonoBehaviour
 
         DescriptionPanel.SetActive(false);
 
+        UiManager.Instance.Status.UpdateStatusUi();
+
         SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Equip);
     }
 

@@ -21,6 +21,9 @@ public class UiManager : Singleton<UiManager>
     [field: SerializeField]
     public StageUi Stage { get; private set; }
 
+    [field: SerializeField]
+    public StatusUi Status { get; private set; }
+
     [Header("Object")]
     public GameObject InventoryWindow;
     public GameObject EnhanceWindow;

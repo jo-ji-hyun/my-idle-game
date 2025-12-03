@@ -49,6 +49,8 @@ public class ResultWindow : MonoBehaviour
 
             EnhanceWindow.SetActive(false);
 
+            UiManager.Instance.Status.UpdateStatusUi();
+
             SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Enhanced);
         }
         else
