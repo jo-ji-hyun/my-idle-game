@@ -31,10 +31,14 @@ public class PlayerStatus : MonoBehaviour
     {
         if (GameManager.Instance.IsBattle && !isCombatStart)
         {
+            isCombatStart = true;
+
             _currentCombatCoroutine = StartCoroutine(TakeDamage(SaveManager.Instance.UserData.Stage));
         }
         else if (!GameManager.Instance.IsBattle && isCombatStart)
         {
+            isCombatStart = false;
+
             StopCoroutine(_currentCombatCoroutine);
         }
     }
@@ -63,8 +67,6 @@ public class PlayerStatus : MonoBehaviour
 
     private IEnumerator TakeDamage(int damage)
     {
-        isCombatStart = true;
-
         while (GameManager.Instance.IsBattle)
         {
             UpdatePlayerStatus();
@@ -93,7 +95,5 @@ public class PlayerStatus : MonoBehaviour
 
             yield return new WaitForSeconds(0.05f);
         }
-
-        isCombatStart = false;
     }
 }
