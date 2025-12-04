@@ -1,9 +1,12 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StatusUi : MonoBehaviour
 {
+    public static event Action OnStatusChanged;
+
     public Image Hp_icon;
     public Image Atk_icon;
     public Image Def_icon;
@@ -26,6 +29,8 @@ public class StatusUi : MonoBehaviour
         Cri_icon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status1.png[status1_0]");
         Cri_Dmg_icon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_3]");
 
+        UpdateStatusUi();
+
         this.gameObject.SetActive(false);
     }
 
@@ -36,5 +41,7 @@ public class StatusUi : MonoBehaviour
         Def.text = $"{SaveManager.Instance.UserData.Def}";
         Cri.text = $"{SaveManager.Instance.UserData.Cri}";
         CriDmg.text = $"{(int)(SaveManager.Instance.UserData.Atk * 1.2f) + (SaveManager.Instance.UserData.Cri) / 2}";
+
+        OnStatusChanged?.Invoke();
     }
 }

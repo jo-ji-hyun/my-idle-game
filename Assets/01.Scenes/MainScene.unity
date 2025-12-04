@@ -8708,51 +8708,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200090002}
   m_CullTransparentMesh: 1
---- !u!1 &1201040701
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1201040703}
-  - component: {fileID: 1201040702}
-  m_Layer: 0
-  m_Name: Inventory Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1201040702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201040701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5104ffb2b7918c341ab4a3147fc385bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InventoryItems: []
---- !u!4 &1201040703
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201040701}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1217062561
 GameObject:
   m_ObjectHideFlags: 0
@@ -10939,7 +10894,6 @@ GameObject:
   - component: {fileID: 1680695783}
   - component: {fileID: 1680695782}
   - component: {fileID: 1680695784}
-  - component: {fileID: 1680695785}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -11014,24 +10968,6 @@ MonoBehaviour:
   Hpbar: {fileID: 194198284}
   BackHp: {fileID: 498125126}
   PlayerCanvas: {fileID: 1738310266}
---- !u!114 &1680695785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680695780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f908df438ff84d24b9c4fa0c3a8ed951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EquipmentSlot: []
-  HpTxt: {fileID: 247540431}
-  AtkTxt: {fileID: 634897205}
-  DefTxt: {fileID: 517576001}
-  CriTxt: {fileID: 1343423759}
-  CheckEquipNumber: 0
 --- !u!1 &1684429910
 GameObject:
   m_ObjectHideFlags: 0
@@ -11866,6 +11802,10 @@ MonoBehaviour:
   Ring_img: {fileID: 1135168316}
   StatusCallBtn: {fileID: 1785851029}
   StatusWindow: {fileID: 140178611}
+  HpTxt: {fileID: 247540431}
+  AtkTxt: {fileID: 634897205}
+  DefTxt: {fileID: 517576001}
+  CriTxt: {fileID: 1343423759}
 --- !u!114 &1785851029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14993,4 +14933,3 @@ SceneRoots:
   - {fileID: 590840198}
   - {fileID: 1365884777}
   - {fileID: 1921661786}
-  - {fileID: 1201040703}

@@ -67,6 +67,8 @@ public class SaveManager : Singleton<SaveManager>
                         InitializeDefaultUserData();
                     }
 
+                    DataManager.Instance.CloneItemData();
+
                     if (task.IsCompleted)
                     {
                         DataSnapshot snapshot = task.Result;
@@ -76,10 +78,18 @@ public class SaveManager : Singleton<SaveManager>
                             string loadData = snapshot.GetRawJsonValue();
                             UserData = JsonConvert.DeserializeObject<UserData>(loadData);
 
-                            for (int i = 0; i < DataManager.Instance.ItemEquips.Count; i++)
+                            foreach (var loaditem in DataManager.Instance.ItemEquips)
                             {
-                                DataManager.Instance.ItemEquips[i].Enhanced = UserData.ItemSaveDatas[i].Enhanced;
+                                int slotKey = loaditem.Key;
+                                ItemData currentItem = loaditem.Value;
+
+                                if (UserData.ItemSaveDatas.TryGetValue(slotKey, out ItemSaveData saveData))
+                                {
+                                    currentItem.Enhanced = saveData.Enhanced;
+                                }
                             }
+
+                            PlayerEquip.Instance.EquipItemCheck();
 
                             InventoryManager.Instance.LoadItems(UserData.PlayerInventory);
                         }
@@ -119,6 +129,8 @@ public class SaveManager : Singleton<SaveManager>
     // === 데이터가 없을시 ===
     private void InitializeDefaultUserData()
     {
+        DataManager.Instance.CloneItemData();
+
         UserData = new UserData
         {
             Stage = 1,
@@ -132,17 +144,22 @@ public class SaveManager : Singleton<SaveManager>
             Cri = 0,
         };
 
-        for (int i = 0; i < DataManager.Instance.ItemEquips.Count; i++)
+        foreach (var equip in DataManager.Instance.ItemEquips)
         {
+            int slotKey = equip.Key;          
+            ItemData currentEquip = equip.Value; 
+
             ItemSaveData newItemSave = new()
             {
-                Enhanced = DataManager.Instance.ItemEquips[i].Enhanced
+                Enhanced = currentEquip.Enhanced,
             };
 
-            UserData.ItemSaveDatas.Add(newItemSave);
+            UserData.ItemSaveDatas[slotKey] = newItemSave;
         }
 
-        UserData.PlayerInventory = new System.Collections.Generic.List<InventorySaveData>();
+        PlayerEquip.Instance.EquipItemCheck();
+
+        UserData.PlayerInventory = new System.Collections.Generic.Dictionary<int, InventorySaveData>();
 
         SaveUser(UserData);
     }
@@ -158,7 +175,6 @@ public class SaveManager : Singleton<SaveManager>
         SaveSystem();
     }
 
-
     public void SaveUser(UserData data)
     {
         string currentUserId = UserId;
@@ -168,9 +184,17 @@ public class SaveManager : Singleton<SaveManager>
             return;
         }
 
-        for (int i = 0; i < PlayerEquip.Instance.EquipmentSlot.Count; i++)
+        foreach (var saveitem in PlayerEquip.Instance.EquipmentSlot)
         {
-            data.ItemSaveDatas[i].Enhanced = PlayerEquip.Instance.EquipmentSlot[i].Enhanced;
+            int slotKey = saveitem.Key;
+            ItemData currentEquip = saveitem.Value;
+
+            ItemSaveData newItemSave = new()
+            {
+                Enhanced = currentEquip.Enhanced, 
+            };
+
+            UserData.ItemSaveDatas[slotKey] = newItemSave;
         }
 
         InventoryManager.Instance.SaveItems(UserData.PlayerInventory);

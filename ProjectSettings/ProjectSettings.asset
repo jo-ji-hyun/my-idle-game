@@ -164,6 +164,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.DefaultCompany.Myidlegame
+    Standalone: com.DefaultCompany.Myidlegame
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -850,7 +851,7 @@ PlayerSettings:
   embeddedLinuxEnableGamepadInput: 1
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
-  apiCompatibilityLevel: 6
+  apiCompatibilityLevel: 3
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
   cloudProjectId: 844bd2e5-954b-4423-8e2b-7cadf8622b13

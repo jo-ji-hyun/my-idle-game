@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 public class DataManager : Singleton<DataManager> 
@@ -10,31 +9,27 @@ public class DataManager : Singleton<DataManager>
     public ItemData Ring;
 
     [HideInInspector]
-    public List<ItemData> ItemEquips;
+    public Dictionary<int, ItemData> ItemEquips;
     [HideInInspector]
     public Dictionary<Consts.ItemType, ItemData> ItemDrops = new();
 
     protected override bool IsDestroy => false;
-    protected override void Awake()
-    {
-        base.Awake();
-
-        CloneItemData();
-    }
 
     public void CloneItemData()
     {
-        ItemEquips = new List<ItemData>
+        ItemEquips = new Dictionary<int, ItemData>
         {
-            Instantiate(Helmet),
-            Instantiate(Weapon),
-            Instantiate(Shield),
-            Instantiate(Ring)
+            {0, Instantiate(Helmet)},
+            {1, Instantiate(Weapon)},
+            {2, Instantiate(Shield)},
+            {3, Instantiate(Ring)}
         };
 
         foreach (var item in ItemEquips) 
         {
-            ItemDrops[item.Type] = item;
+            ItemData value = item.Value;
+
+            ItemDrops[value.Type] = value;
         }
     }
 }

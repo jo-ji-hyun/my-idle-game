@@ -1,29 +1,22 @@
 ﻿using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class PlayerEquip : Singleton<PlayerEquip>
 {
-    public List<ItemData> EquipmentSlot;
-
-    [Header("UI")]
-    public TextMeshProUGUI HpTxt;
-    public TextMeshProUGUI AtkTxt;
-    public TextMeshProUGUI DefTxt;
-    public TextMeshProUGUI CriTxt;
+    public Dictionary<int, ItemData> EquipmentSlot;
 
     [HideInInspector]
     public int CheckEquipNumber;                // === 강화할꺼 체크 ===
 
     protected override bool IsDestroy => false;
 
-    private void Start()
+    public void EquipItemCheck()
     {
-        EquipmentSlot = new List<ItemData>(DataManager.Instance.ItemEquips);
+        EquipmentSlot = new Dictionary<int, ItemData>(DataManager.Instance.ItemEquips);
 
         if (EquipmentSlot != null)
         {
-            foreach (ItemData item in EquipmentSlot)
+            foreach (ItemData item in EquipmentSlot.Values)
             {
                 UpdateStatus(item);
             }
@@ -50,18 +43,5 @@ public class PlayerEquip : Singleton<PlayerEquip>
                 SaveManager.Instance.UserData.Cri = enhanced;
                 break;
         }
-
-        CurrentEnhanced();
-    }
-
-    // === 현재 강화 수치 ===
-    private void CurrentEnhanced()
-    {
-        HpTxt.text = EquipmentSlot[(int)Consts.ItemType.Helmet].Enhanced.ToString();
-        AtkTxt.text = EquipmentSlot[(int)Consts.ItemType.Weapon].Enhanced.ToString();
-        DefTxt.text = EquipmentSlot[(int)Consts.ItemType.Shield].Enhanced.ToString();
-        CriTxt.text = EquipmentSlot[(int)Consts.ItemType.Ring].Enhanced.ToString();
-
-        UiManager.Instance.Status.UpdateStatusUi();
     }
 }
