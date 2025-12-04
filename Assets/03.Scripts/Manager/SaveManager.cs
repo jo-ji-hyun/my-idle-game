@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
-using System.IO;
+﻿using Firebase;
+using Firebase.Database;
+using Firebase.Extensions;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
@@ -9,94 +11,163 @@ public class SaveManager : Singleton<SaveManager>
 
     protected override bool IsDestroy => false;
 
-    private string _userPath;
-    private string _systemPath;
+    public string UserId;
+    private DatabaseReference _reference;
+    private bool _isFirebaseInitialized = false;
+    private const string DatabaseUrl = "https://my-idle-game-cee34-default-rtdb.firebaseio.com/";
 
     protected override void Awake()
     {
         base.Awake();
 
-        // === 파일 경로를 찾기 ===
-        _userPath = Path.Combine(Application.persistentDataPath, "userData.json");
-        _systemPath = Path.Combine(Application.persistentDataPath, "systemData.json");
+        InitializeFirebaseDatabase();
+    }
 
-        LoadData();
+    private void InitializeFirebaseDatabase()
+    {
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+        {
+            var dependencyStatus = task.Result;
+            if (dependencyStatus == DependencyStatus.Available)
+            {
+                _reference = FirebaseDatabase.GetInstance(FirebaseApp.DefaultInstance, DatabaseUrl).RootReference;
+                _isFirebaseInitialized = true;
+                Debug.Log("Firebase Realtime Database 참조 성공.");
+
+            }
+            else
+            {
+                Debug.LogError($"Firebase 의존성 확인 실패: {dependencyStatus}");
+            }
+        });
     }
 
     public void LoadData()
     {
-        // === 파일 존재시 ===
-        if (File.Exists(_userPath))
+        if (!_isFirebaseInitialized)
         {
-            var loadData = File.ReadAllText(_userPath);
-
-            UserData = JsonConvert.DeserializeObject<UserData>(loadData);
-
-            for (int i = 0; i < DataManager.Instance.ItemEquips.Count; i++) 
-            {
-                DataManager.Instance.ItemEquips[i].Enhanced = UserData.ItemSaveDatas[i].Enhanced;
-            }
-
-            InventoryManager.Instance.LoadItems(UserData.PlayerInventory);
-
-            EnemyManager.Instance.ContinueEnemy();
+            Debug.LogError("Firebase 데이터베이스가 아직 초기화되지 않았습니다. 잠시 후 다시 시도하거나 초기화 성공 후 호출하세요.");
+            return;
         }
-        else // === 없으면 새로만듬 ===
-        {
-            UserData = new UserData
-            {
-                Stage = 1,
-                BossMaxHp = 0,
-                Money = 10000,
-                MaxHP = 0,
-                CurrentHP = 500,
-                Atk = 0,
-                Def = 0,
-                Cri = 0,
-            };
 
-            for (int i = 0; i < DataManager.Instance.ItemEquips.Count; i++)
-            {
-                ItemSaveData newItemSave = new()
+        string currentUserId = UserId;
+        if (string.IsNullOrEmpty(currentUserId))
+        {
+            Debug.LogError("로그인된 사용자가 없습니다. 로드를 진행할 수 없습니다.");
+            InitializeDefaultUserData();
+            return;
+        }
+
+        _reference.Child("users").Child(UserId).Child("userData")
+                .GetValueAsync()
+                .ContinueWithOnMainThread(task =>
                 {
-                    Enhanced = DataManager.Instance.ItemEquips[i].Enhanced                                        
-                };
+                    if (task.IsFaulted)
+                    {
+                        InitializeDefaultUserData();
+                    }
 
-                UserData.ItemSaveDatas.Add(newItemSave);
-            }
+                    if (task.IsCompleted)
+                    {
+                        DataSnapshot snapshot = task.Result;
 
-            UserData.PlayerInventory = new System.Collections.Generic.List<InventorySaveData>();
+                        if (snapshot != null && snapshot.Exists)
+                        {
+                            string loadData = snapshot.GetRawJsonValue();
+                            UserData = JsonConvert.DeserializeObject<UserData>(loadData);
 
-            string jsonUser = JsonConvert.SerializeObject(UserData);
+                            for (int i = 0; i < DataManager.Instance.ItemEquips.Count; i++)
+                            {
+                                DataManager.Instance.ItemEquips[i].Enhanced = UserData.ItemSaveDatas[i].Enhanced;
+                            }
 
-            File.WriteAllText(_userPath, jsonUser);
+                            InventoryManager.Instance.LoadItems(UserData.PlayerInventory);
+                        }
+                        else 
+                        {
+                            InitializeDefaultUserData();
+                        }
+                    }
+                });
 
-            EnemyManager.Instance.EnemySpawn();
-        }
+        _reference.Child("users").Child(UserId).Child("systemData")
+                .GetValueAsync()
+                .ContinueWithOnMainThread(task =>
+                {
+                    if (task.IsFaulted)
+                    {
+                        InitializeDefaultSystemData();
+                    }
 
-        // === 역할 분리 ===
-        if (File.Exists(_systemPath))
+                    if (task.IsCompleted)
+                    {
+                        DataSnapshot snapshot = task.Result;
+
+                        if (snapshot != null && snapshot.Exists)
+                        {
+                            string loadData = snapshot.GetRawJsonValue();
+                            SystemData = JsonConvert.DeserializeObject<SystemData>(loadData);
+                        }
+                        else
+                        {
+                            InitializeDefaultSystemData();
+                        }
+                    }
+                });
+    }
+
+    // === 데이터가 없을시 ===
+    private void InitializeDefaultUserData()
+    {
+        UserData = new UserData
         {
-            var loadSystemData = File.ReadAllText(_systemPath);
+            Stage = 1,
+            BossMaxHp = 250,
+            BossCurrentHp = 250,
+            Money = 10000,
+            MaxHP = 0,
+            CurrentHP = 500,
+            Atk = 0,
+            Def = 0,
+            Cri = 0,
+        };
 
-            SystemData = JsonConvert.DeserializeObject<SystemData>(loadSystemData);
-        }
-        else
+        for (int i = 0; i < DataManager.Instance.ItemEquips.Count; i++)
         {
-            SystemData = new SystemData
+            ItemSaveData newItemSave = new()
             {
-                BGMVolume = 1.0f,
-                SFXVolume = 1.0f,
+                Enhanced = DataManager.Instance.ItemEquips[i].Enhanced
             };
 
-            string jsonSystem = JsonConvert.SerializeObject(SystemData);
-
-            File.WriteAllText(_systemPath, jsonSystem);
+            UserData.ItemSaveDatas.Add(newItemSave);
         }
+
+        UserData.PlayerInventory = new System.Collections.Generic.List<InventorySaveData>();
+
+        SaveUser(UserData);
     }
+
+    private void InitializeDefaultSystemData()
+    {
+        SystemData = new SystemData
+        {
+            BGMVolume = 1.0f,
+            SFXVolume = 1.0f,
+        };
+
+        SaveSystem();
+    }
+
 
     public void SaveUser(UserData data)
     {
+        string currentUserId = UserId;
+        if (string.IsNullOrEmpty(currentUserId))
+        {
+            Debug.LogError("로그인된 사용자가 없으므로 시스템 설정을 저장할 수 없습니다.");
+            return;
+        }
+
         for (int i = 0; i < PlayerEquip.Instance.EquipmentSlot.Count; i++)
         {
             data.ItemSaveDatas[i].Enhanced = PlayerEquip.Instance.EquipmentSlot[i].Enhanced;
@@ -106,14 +177,44 @@ public class SaveManager : Singleton<SaveManager>
 
         var saveUserData = JsonConvert.SerializeObject(data);
 
-        File.WriteAllText(_userPath, saveUserData);
+        _reference.Child("users").Child(UserId).Child("userData")
+            .SetRawJsonValueAsync(saveUserData)
+            .ContinueWithOnMainThread(task =>
+            {
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("Firebase 데이터 저장 실패: " + task.Exception);
+                }
+                else if (task.IsCompleted)
+                {
+                    Debug.Log($"User Data 저장 완료: UID = {UserId}");
+                }
+            });
     }
 
     public void SaveSystem()
     {
+        string currentUserId = UserId;
+        if (string.IsNullOrEmpty(currentUserId))
+        {
+            Debug.LogError("로그인된 사용자가 없으므로 시스템 설정을 저장할 수 없습니다.");
+            return;
+        }
+
         var saveSystemrData = JsonConvert.SerializeObject(SystemData);
 
-        File.WriteAllText(_systemPath, saveSystemrData);
+        _reference.Child("users").Child(UserId).Child("systemData")
+            .SetRawJsonValueAsync(saveSystemrData)
+            .ContinueWithOnMainThread(task =>{
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("Firebase 데이터 저장 실패: " + task.Exception);
+                }
+                else if (task.IsCompleted)
+                {
+                    Debug.Log($"System Data 저장 완료: UID = {UserId}");
+                }
+            });
     }
 
     public void AllSave()

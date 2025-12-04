@@ -53,7 +53,7 @@ public class SystemUi : MonoBehaviour
         _currentBgmVolume = SaveManager.Instance.SystemData.BGMVolume;
         _currentSfxVolume = SaveManager.Instance.SystemData.SFXVolume;
 
-        SaveManager.Instance.SaveSystem();
+        SaveManager.Instance.AllSave();
     }
 
     private void CloseWindow()

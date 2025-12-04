@@ -61,6 +61,7 @@ public class AccountUi : MonoBehaviour
             {
                 FirebaseUser user = signInTask.Result.User;
                 MessageTxt.text = $"로그인 성공!,\n Email: \n {user.Email}";
+                SaveManager.Instance.UserId = user.UserId;
                 StartCoroutine(EndAccount());
             }
         }
@@ -126,7 +127,7 @@ public class AccountUi : MonoBehaviour
             {
                 FirebaseUser user = guestTask.Result.User;
                 MessageTxt.text = $"게스트 로그인 성공!\n 익명 UID: \n {user.UserId}";
-
+                SaveManager.Instance.UserId = user.UserId;
                 StartCoroutine(EndAccount());
             }
         }
@@ -161,7 +162,7 @@ public class AccountUi : MonoBehaviour
                 MessageTxt.text = "너무 많은 시도가 있었습니다.\n 잠시 후 다시 시도해 주세요.";
                 break;
             default:
-                MessageTxt.text = "알 수 없는 오류";
+                MessageTxt.text = "다시 시도해 주세요.";
                 break;
         }
 
@@ -197,5 +198,7 @@ public class AccountUi : MonoBehaviour
         CheckMessagePanel.SetActive(false);
 
         AccountPannel.SetActive(false);
+
+        SaveManager.Instance.LoadData();
     }
 }

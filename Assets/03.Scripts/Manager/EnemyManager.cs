@@ -13,6 +13,11 @@ public class EnemyManager : Singleton<EnemyManager>
 
     protected override bool IsDestroy => false;
 
+    private void Start()
+    {
+        ContinueEnemy();
+    }
+
     // === 게임 매니저에 스폰 담당 ===
     public void NewEnemySpawn()
     {

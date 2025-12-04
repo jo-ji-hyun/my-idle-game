@@ -27,8 +27,6 @@ public class PlayerEquip : Singleton<PlayerEquip>
             {
                 UpdateStatus(item);
             }
-
-            SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);
         }
     }
 
