@@ -28,6 +28,8 @@ public class PlayerStatus : MonoBehaviour
         PlayerCanvas.SetActive(false);
 
         UpdatePlayerStatus();
+
+        StatusUi.OnStatusChanged += UpdateHpBar;
     }
 
     private void Update()

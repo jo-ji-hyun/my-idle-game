@@ -1002,7 +1002,7 @@ GameObject:
   - component: {fileID: 360355168}
   - component: {fileID: 360355167}
   m_Layer: 0
-  m_Name: SaveManager
+  m_Name: Save Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1952,7 +1952,7 @@ GameObject:
   - component: {fileID: 685958053}
   - component: {fileID: 685958052}
   m_Layer: 0
-  m_Name: InventoryManager
+  m_Name: Inventory Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3045,7 +3045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f908df438ff84d24b9c4fa0c3a8ed951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EquipmentSlot: []
   CheckEquipNumber: 0
 --- !u!4 &1020244670
 Transform:
@@ -3175,7 +3174,7 @@ GameObject:
   - component: {fileID: 1048782003}
   - component: {fileID: 1048782002}
   m_Layer: 0
-  m_Name: DataManager
+  m_Name: Data Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3197,7 +3196,6 @@ MonoBehaviour:
   Weapon: {fileID: 11400000, guid: f219f1bd696914749804b4130446c425, type: 2}
   Shield: {fileID: 11400000, guid: 01664aa855255c145b10df7c602f394e, type: 2}
   Ring: {fileID: 11400000, guid: f48fc6f87c108224991e46566b6f3dda, type: 2}
-  ItemEquips: []
 --- !u!4 &1048782003
 Transform:
   m_ObjectHideFlags: 0
