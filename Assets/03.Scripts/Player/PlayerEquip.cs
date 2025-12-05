@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerEquip : Singleton<PlayerEquip>
 {
-    public Dictionary<int, ItemData> EquipmentSlot;
+    public List<ItemData> EquipmentSlot;
 
     [HideInInspector]
     public int CheckEquipNumber;                // === 강화할꺼 체크 ===
@@ -12,11 +12,11 @@ public class PlayerEquip : Singleton<PlayerEquip>
 
     public void EquipItemCheck()
     {
-        EquipmentSlot = new Dictionary<int, ItemData>(DataManager.Instance.ItemEquips);
+        EquipmentSlot = new List<ItemData>(DataManager.Instance.ItemEquips);
 
         if (EquipmentSlot != null)
         {
-            foreach (ItemData item in EquipmentSlot.Values)
+            foreach (ItemData item in EquipmentSlot)
             {
                 UpdateStatus(item);
             }
@@ -31,7 +31,11 @@ public class PlayerEquip : Singleton<PlayerEquip>
         switch (item.Type)
         {
             case Consts.ItemType.Helmet:
-                float healthRatio = (float)SaveManager.Instance.UserData.CurrentHP / SaveManager.Instance.UserData.MaxHP;
+                float healthRatio = 1.0f;
+                if (SaveManager.Instance.UserData.MaxHP > 0 && SaveManager.Instance.UserData.CurrentHP > 0)
+                {
+                    healthRatio = (float)SaveManager.Instance.UserData.CurrentHP / SaveManager.Instance.UserData.MaxHP;
+                }
                 SaveManager.Instance.UserData.MaxHP = enhanced;
                 SaveManager.Instance.UserData.CurrentHP = Mathf.RoundToInt(SaveManager.Instance.UserData.MaxHP * healthRatio);
                 SaveManager.Instance.UserData.CurrentHP = Mathf.Min(SaveManager.Instance.UserData.MaxHP, SaveManager.Instance.UserData.CurrentHP);

@@ -50,6 +50,8 @@ public class GameManager : Singleton<GameManager>
     public void PlayerSet()
     {
         Player.transform.position = new Vector3(0, 23, -35);
+
+        SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);
     }
 
     private void GameExit()

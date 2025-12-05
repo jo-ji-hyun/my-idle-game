@@ -72,7 +72,7 @@ public class SaveManager : Singleton<SaveManager>
                     {
                         DataSnapshot snapshot = task.Result;
 
-                        if (snapshot != null && snapshot.Exists)
+                        if (snapshot != null && snapshot.Exists && snapshot.ChildrenCount > 0)
                         {
                             string loadData = snapshot.GetRawJsonValue();
                             UserData = JsonConvert.DeserializeObject<UserData>(loadData);
@@ -141,7 +141,7 @@ public class SaveManager : Singleton<SaveManager>
             BossCurrentHp = 250,
             Money = 10000,
             MaxHP = 0,
-            CurrentHP = 500,
+            CurrentHP = 0,
             Atk = 0,
             Def = 0,
             Cri = 0,
@@ -150,16 +150,15 @@ public class SaveManager : Singleton<SaveManager>
         };
 
         foreach (var equip in DataManager.Instance.ItemEquips)
-        {
-            int slotKey = equip.Key;          
-            ItemData currentEquip = equip.Value; 
+        {     
+            ItemData currentEquip = equip; 
 
             ItemSaveData newItemSave = new()
             {
                 Enhanced = currentEquip.Enhanced,
             };
 
-            UserData.ItemSaveDatas[slotKey] = newItemSave;
+            UserData.ItemSaveDatas.Add(newItemSave);
         }
 
         PlayerEquip.Instance.EquipItemCheck();
@@ -189,15 +188,14 @@ public class SaveManager : Singleton<SaveManager>
 
         foreach (var saveitem in PlayerEquip.Instance.EquipmentSlot)
         {
-            int slotKey = saveitem.Key;
-            ItemData currentEquip = saveitem.Value;
+            ItemData currentEquip = saveitem;
 
             ItemSaveData newItemSave = new()
             {
                 Enhanced = currentEquip.Enhanced, 
             };
 
-            UserData.ItemSaveDatas[slotKey] = newItemSave;
+            UserData.ItemSaveDatas[(int)saveitem.Type] = newItemSave;
         }
 
         InventoryManager.Instance.SaveItems(UserData.PlayerInventory);
