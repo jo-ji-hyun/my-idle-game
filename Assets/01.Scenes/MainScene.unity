@@ -773,7 +773,6 @@ GameObject:
   - component: {fileID: 176543190}
   - component: {fileID: 176543192}
   - component: {fileID: 176543191}
-  - component: {fileID: 176543194}
   - component: {fileID: 176543193}
   m_Layer: 5
   m_Name: Def icon
@@ -852,27 +851,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TipComment: "\uBC29\uC5B4\uB825"
---- !u!65 &176543194
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176543189}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 80, y: 80, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &178862157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1860,6 @@ GameObject:
   - component: {fileID: 400201433}
   - component: {fileID: 400201435}
   - component: {fileID: 400201434}
-  - component: {fileID: 400201437}
   - component: {fileID: 400201436}
   m_Layer: 5
   m_Name: Cri icon
@@ -1961,27 +1938,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TipComment: "\uD06C\uB9AC\uD2F0\uCEEC"
---- !u!65 &400201437
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400201432}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 80, y: 80, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &403141691
 GameObject:
   m_ObjectHideFlags: 0
@@ -5170,7 +5126,6 @@ GameObject:
   - component: {fileID: 754705860}
   - component: {fileID: 754705862}
   - component: {fileID: 754705861}
-  - component: {fileID: 754705864}
   - component: {fileID: 754705863}
   m_Layer: 5
   m_Name: Cri damage icon
@@ -5249,27 +5204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TipComment: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0"
---- !u!65 &754705864
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754705859}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 80, y: 80, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &762265429
 GameObject:
   m_ObjectHideFlags: 0
@@ -6623,7 +6557,6 @@ GameObject:
   - component: {fileID: 920676597}
   - component: {fileID: 920676599}
   - component: {fileID: 920676598}
-  - component: {fileID: 920676601}
   - component: {fileID: 920676600}
   m_Layer: 5
   m_Name: Max hp icon
@@ -6702,27 +6635,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TipComment: "\uCD5C\uB300 \uCCB4\uB825"
---- !u!65 &920676601
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920676596}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 80, y: 80, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &922401617
 GameObject:
   m_ObjectHideFlags: 0
@@ -7556,7 +7468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0"
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e518d3084566b43afc57004e0b6633, type: 2}
   m_sharedMaterial: {fileID: 5039076036764523313, guid: 72e518d3084566b43afc57004e0b6633, type: 2}
@@ -7583,7 +7495,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.55
+  m_fontSize: 52.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11999,7 +11911,6 @@ GameObject:
   - component: {fileID: 1772666803}
   - component: {fileID: 1772666805}
   - component: {fileID: 1772666804}
-  - component: {fileID: 1772666807}
   - component: {fileID: 1772666806}
   m_Layer: 5
   m_Name: Atk icon
@@ -12078,27 +11989,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TipComment: "\uACF5\uACA9\uB825"
---- !u!65 &1772666807
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772666802}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 80, y: 80, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1785851023
 GameObject:
   m_ObjectHideFlags: 0

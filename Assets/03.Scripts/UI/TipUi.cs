@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TipUi : MonoBehaviour
+public class TipUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]private string TipComment;
 
-    private void OnMouseOver()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipManager.Instance.Show(TipComment);
+        TooltipManager.Instance.Show(TipComment, transform.position);
     }
 
-    private void OnMouseExit()
+    public void OnPointerExit(PointerEventData eventData)
     {
         TooltipManager.Instance.Hide();
     }
