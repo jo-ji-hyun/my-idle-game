@@ -8,12 +8,15 @@ public class DataManager : Singleton<DataManager>
     public ItemData Shield;
     public ItemData Ring;
 
-    [HideInInspector]
     public Dictionary<int, ItemData> ItemEquips;
-    [HideInInspector]
     public Dictionary<Consts.ItemType, ItemData> ItemDrops = new();
 
     protected override bool IsDestroy => false;
+
+    private void Start()
+    {
+        CloneItemData();
+    }
 
     public void CloneItemData()
     {
@@ -25,11 +28,13 @@ public class DataManager : Singleton<DataManager>
             {3, Instantiate(Ring)}
         };
 
-        foreach (var item in ItemEquips) 
+        foreach (var item in ItemEquips)
         {
-            ItemData value = item.Value;
+            Consts.ItemType itemTypeKey = (Consts.ItemType)item.Key;
 
-            ItemDrops[value.Type] = value;
+            ItemData itemDataValue = item.Value;
+
+            ItemDrops.Add(itemTypeKey, itemDataValue);
         }
     }
 }

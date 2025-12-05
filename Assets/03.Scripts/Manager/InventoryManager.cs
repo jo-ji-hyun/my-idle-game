@@ -10,7 +10,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     protected override bool IsDestroy => false;
 
-    public void LoadItems(Dictionary<int, InventorySaveData> loadedData)
+    public void LoadItems(List<InventorySaveData> loadedData)
     {
         InventoryItems.Clear();
 
@@ -18,7 +18,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
         foreach (var saveData in loadedData)
         {
-            InventorySaveData inventoryitems = saveData.Value;
+            InventorySaveData inventoryitems = saveData;
 
             if (itemData.TryGetValue(inventoryitems.Type, out ItemData originalData))
             {
@@ -35,7 +35,7 @@ public class InventoryManager : Singleton<InventoryManager>
         OnInventoryChanged?.Invoke();
     }
 
-    public void SaveItems(Dictionary<int, InventorySaveData> playerInventory)
+    public void SaveItems(List<InventorySaveData> playerInventory)
     {
         playerInventory.Clear();
 
@@ -50,7 +50,7 @@ public class InventoryManager : Singleton<InventoryManager>
                 Enhanced = saveItems[i].Enhanced
             };
 
-            playerInventory.Add(i, newData);
+            playerInventory.Add(newData);
         }
 
         OnInventoryChanged?.Invoke();

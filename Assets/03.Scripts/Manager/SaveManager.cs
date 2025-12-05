@@ -3,6 +3,7 @@ using Firebase.Database;
 using Firebase.Extensions;
 using Newtonsoft.Json;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SaveManager : Singleton<SaveManager>
 {
@@ -58,7 +59,7 @@ public class SaveManager : Singleton<SaveManager>
             return;
         }
 
-        _reference.Child("users").Child(UserId).Child("userData")
+        _reference.Child("users").Child(UserId).Child("UserData")
                 .GetValueAsync()
                 .ContinueWithOnMainThread(task =>
                 {
@@ -66,8 +67,6 @@ public class SaveManager : Singleton<SaveManager>
                     {
                         InitializeDefaultUserData();
                     }
-
-                    DataManager.Instance.CloneItemData();
 
                     if (task.IsCompleted)
                     {
@@ -78,17 +77,23 @@ public class SaveManager : Singleton<SaveManager>
                             string loadData = snapshot.GetRawJsonValue();
                             UserData = JsonConvert.DeserializeObject<UserData>(loadData);
 
-                            foreach (var loaditem in DataManager.Instance.ItemEquips)
+                            if (UserData.PlayerInventory == null)
                             {
-                                int slotKey = loaditem.Key;
-                                ItemData currentItem = loaditem.Value;
-
-                                if (UserData.ItemSaveDatas.TryGetValue(slotKey, out ItemSaveData saveData))
-                                {
-                                    currentItem.Enhanced = saveData.Enhanced;
-                                }
+                                UserData.PlayerInventory = new List<InventorySaveData>();
+                            }
+                            else 
+                            {
+                                Debug.Log("인벤토리 준비완료");
                             }
 
+                            for (int i = 0; i < DataManager.Instance.ItemEquips.Count; i++) 
+                            {
+                                foreach (var loaditem in DataManager.Instance.ItemEquips)
+                                {
+                                    DataManager.Instance.ItemEquips[i].Enhanced = UserData.ItemSaveDatas[i].Enhanced;
+                                }
+                            }
+                            
                             PlayerEquip.Instance.EquipItemCheck();
 
                             InventoryManager.Instance.LoadItems(UserData.PlayerInventory);
@@ -100,7 +105,7 @@ public class SaveManager : Singleton<SaveManager>
                     }
                 });
 
-        _reference.Child("users").Child(UserId).Child("systemData")
+        _reference.Child("users").Child(UserId).Child("SystemData")
                 .GetValueAsync()
                 .ContinueWithOnMainThread(task =>
                 {
@@ -129,8 +134,6 @@ public class SaveManager : Singleton<SaveManager>
     // === 데이터가 없을시 ===
     private void InitializeDefaultUserData()
     {
-        DataManager.Instance.CloneItemData();
-
         UserData = new UserData
         {
             Stage = 1,
@@ -142,6 +145,8 @@ public class SaveManager : Singleton<SaveManager>
             Atk = 0,
             Def = 0,
             Cri = 0,
+            ItemSaveDatas = new List<ItemSaveData>(),
+            PlayerInventory = new List<InventorySaveData>()
         };
 
         foreach (var equip in DataManager.Instance.ItemEquips)
@@ -158,8 +163,6 @@ public class SaveManager : Singleton<SaveManager>
         }
 
         PlayerEquip.Instance.EquipItemCheck();
-
-        UserData.PlayerInventory = new System.Collections.Generic.Dictionary<int, InventorySaveData>();
 
         SaveUser(UserData);
     }
@@ -201,7 +204,7 @@ public class SaveManager : Singleton<SaveManager>
 
         var saveUserData = JsonConvert.SerializeObject(data);
 
-        _reference.Child("users").Child(UserId).Child("userData")
+        _reference.Child("users").Child(UserId).Child("UserData")
             .SetRawJsonValueAsync(saveUserData)
             .ContinueWithOnMainThread(task =>
             {
@@ -227,7 +230,7 @@ public class SaveManager : Singleton<SaveManager>
 
         var saveSystemrData = JsonConvert.SerializeObject(SystemData);
 
-        _reference.Child("users").Child(UserId).Child("systemData")
+        _reference.Child("users").Child(UserId).Child("SystemData")
             .SetRawJsonValueAsync(saveSystemrData)
             .ContinueWithOnMainThread(task =>{
                 if (task.IsFaulted)
