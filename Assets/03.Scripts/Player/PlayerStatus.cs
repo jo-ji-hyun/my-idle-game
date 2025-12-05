@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class PlayerStatus : MonoBehaviour
     public Image Hpbar;
     public Image BackHp;
     public GameObject PlayerCanvas;
+
+    public TextMeshProUGUI HpbarTxt;
 
     private int _maxHp;
     private Coroutine _currentCombatCoroutine;
@@ -60,6 +63,8 @@ public class PlayerStatus : MonoBehaviour
 
     private void UpdateHpBar()
     {
+        HpbarTxt.text = _currentHp.ToString();
+
         float hp = (float) _currentHp / _maxHp;
 
         Hpbar.fillAmount = hp;

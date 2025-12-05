@@ -31,7 +31,10 @@ public class PlayerEquip : Singleton<PlayerEquip>
         switch (item.Type)
         {
             case Consts.ItemType.Helmet:
+                float healthRatio = (float)SaveManager.Instance.UserData.CurrentHP / SaveManager.Instance.UserData.MaxHP;
                 SaveManager.Instance.UserData.MaxHP = enhanced;
+                SaveManager.Instance.UserData.CurrentHP = Mathf.RoundToInt(SaveManager.Instance.UserData.MaxHP * healthRatio);
+                SaveManager.Instance.UserData.CurrentHP = Mathf.Min(SaveManager.Instance.UserData.MaxHP, SaveManager.Instance.UserData.CurrentHP);
                 break;
             case Consts.ItemType.Weapon:
                 SaveManager.Instance.UserData.Atk = enhanced;
