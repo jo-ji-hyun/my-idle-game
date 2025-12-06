@@ -13,9 +13,8 @@ public class TooltipManager : Singleton<TooltipManager>
         TooltipBox.SetActive(false);
     }
 
-    public void Show(string text, Vector3 pos) 
+    public void Show(string text) 
     {
-        TooltipBox.transform.position = pos;
         TooltipBox.SetActive(true);
         TooltipTxt.text = text;
     }

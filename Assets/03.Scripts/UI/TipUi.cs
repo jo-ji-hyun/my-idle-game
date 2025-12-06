@@ -7,7 +7,7 @@ public class TipUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipManager.Instance.Show(TipComment, transform.position);
+        TooltipManager.Instance.Show(TipComment);
     }
 
     public void OnPointerExit(PointerEventData eventData)
