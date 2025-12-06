@@ -30,7 +30,7 @@ public class InventoryUi : MonoBehaviour
         }
     }
 
-    public void ShowInventory()
+    private void ShowInventory()
     {
         UiManager.Instance.InventoryWindow.SetActive(true);
     }

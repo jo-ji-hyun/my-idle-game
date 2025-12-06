@@ -61,4 +61,9 @@ public class ResultWindow : MonoBehaviour
             SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Fail);
         }
     }
+
+    private void OnDisable()
+    {
+        EnhanceTxt.text = null;
+    }
 }

@@ -10,6 +10,9 @@ public class UiManager : Singleton<UiManager>
     public EnhancementtUi Enhancement { get; private set; }
 
     [field: SerializeField]
+    public StoreUi Store { get; private set; }
+
+    [field: SerializeField]
     public SystemUi System { get; private set; }
 
     [field: SerializeField]
@@ -28,6 +31,7 @@ public class UiManager : Singleton<UiManager>
     public GameObject InventoryWindow;
     public GameObject EnhanceWindow;
     public GameObject SystemWindow;
+    public GameObject StoreWindow;
 
     protected override bool IsDestroy => false;
 
