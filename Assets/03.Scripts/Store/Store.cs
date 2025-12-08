@@ -65,6 +65,8 @@ public class Store : MonoBehaviour
 
     private void Heal() 
     {
+        if (SaveManager.Instance.UserData.IsHeal == true) return;
+
         _isClick = !_isClick;
 
         _descriptitem = " 스테이지 클리어시 최대 체력으로 회복합니다.";
@@ -76,6 +78,8 @@ public class Store : MonoBehaviour
 
     private void AutoClean() 
     {
+        if (SaveManager.Instance.UserData.IsAutoClean == true) return;
+
         _isClick = !_isClick;
 
         _descriptitem = " 현재 장착된 장비의 강화수치 보다 낮은 아이템을 자동 판매합니다.";

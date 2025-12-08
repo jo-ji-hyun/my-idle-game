@@ -29,6 +29,8 @@ public class ShoppingWindow : MonoBehaviour
         ShoppingResult.color = Color.green;
         ShoppingResult.text = "구매 성공!";
 
+        GameManager.Instance.ChangeMoney(-UiManager.Instance.Store.CurrentItemPrice);
+
         UiManager.Instance.Store.SoldOut();
     }
 

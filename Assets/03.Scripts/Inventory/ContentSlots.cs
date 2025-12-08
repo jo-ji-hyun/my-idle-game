@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ContentSlots : MonoBehaviour
 {
+    [SerializeField]
+    private TextMeshProUGUI _currentInventoryTxt;
+
     [SerializeField]
     private GameObject _slot;
 
@@ -10,12 +14,17 @@ public class ContentSlots : MonoBehaviour
 
     public List<Slot> SlotLists;
 
-    void OnEnable()
+    private void OnEnable()
     {
         // === 인벤토리 구독 ===
         InventoryManager.OnInventoryChanged += UpdateInventoryUI;
 
         UpdateInventoryUI();
+    }
+
+    private void OnDisable()
+    {
+        InventoryManager.OnInventoryChanged -= UpdateInventoryUI;
     }
 
     private void Start()
@@ -45,6 +54,10 @@ public class ContentSlots : MonoBehaviour
     // === 인벤토리 갱신 ===
     private void UpdateInventoryUI()
     {
+        CheckSlot();
+
+        _currentInventoryTxt.text = $"{InventoryManager.Instance.InventoryItems.Count / SlotLists.Count}";
+
         int loopCount = Mathf.Min(InventoryManager.Instance.InventoryItems.Count, SlotLists.Count);
 
         for (int i = 0; i < loopCount; i++)
@@ -57,6 +70,29 @@ public class ContentSlots : MonoBehaviour
         for (int i = loopCount; i < SlotLists.Count; i++)
         {
             SlotLists[i].gameObject.SetActive(false);
+        }
+    }
+
+    private void CheckSlot() 
+    {
+        if (SaveManager.Instance.UserData.BagSizeLevel == 0) return;
+
+        int maxSlot = _slotCount + 10 * SaveManager.Instance.UserData.BagSizeLevel;
+
+        if(maxSlot > _slotCount) 
+        {
+            for (int i = _slotCount; i < maxSlot; i++)
+            {
+                GameObject slotPrefabs = Instantiate(_slot, transform);
+
+                Slot slotComponent = slotPrefabs.GetComponent<Slot>();
+
+                SlotLists.Add(slotComponent);
+
+                slotComponent.Number = i;
+
+                _slotCount = maxSlot;
+            }
         }
     }
 }
