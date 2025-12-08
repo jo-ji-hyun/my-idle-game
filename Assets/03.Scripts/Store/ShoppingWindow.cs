@@ -28,6 +28,8 @@ public class ShoppingWindow : MonoBehaviour
 
         ShoppingResult.color = Color.green;
         ShoppingResult.text = "구매 성공!";
+
+        UiManager.Instance.Store.SoldOut();
     }
 
     private void OnDisable()

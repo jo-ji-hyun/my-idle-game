@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 108253226}
   - component: {fileID: 108253225}
   m_Layer: 5
-  m_Name: Button (Legacy) helmet
+  m_Name: Button (Legacy) heal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1338,6 +1338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248199033}
   - component: {fileID: 248199034}
+  - component: {fileID: 248199035}
   m_Layer: 5
   m_Name: Store
   m_TagString: Untagged
@@ -1357,8 +1358,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1714979126}
   - {fileID: 2039691623}
+  - {fileID: 1714979126}
   - {fileID: 922405415}
   - {fileID: 887538860}
   m_Father: {fileID: 2040191846}
@@ -1394,6 +1395,26 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &248199035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248199032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da31f46a53ae074b8f7f3a21df9d125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item_bag: {fileID: 2039691624}
+  Item_heal: {fileID: 1714979127}
+  Item_auto: {fileID: 922405416}
+  Item_draw: {fileID: 887538861}
+  Item_bag_Btn: {fileID: 2068998461}
+  Item_heal_Btn: {fileID: 108253225}
+  Item_auto_Btn: {fileID: 1188505868}
+  Item_draw_Btn: {fileID: 1197559940}
 --- !u!1 &252531981
 GameObject:
   m_ObjectHideFlags: 0
@@ -6213,7 +6234,7 @@ GameObject:
   - component: {fileID: 887538862}
   - component: {fileID: 887538861}
   m_Layer: 5
-  m_Name: Item4
+  m_Name: Item_draw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6854,7 +6875,7 @@ GameObject:
   - component: {fileID: 922405417}
   - component: {fileID: 922405416}
   m_Layer: 5
-  m_Name: Item3
+  m_Name: Item_auto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7765,7 +7786,7 @@ GameObject:
   - component: {fileID: 1059412757}
   - component: {fileID: 1059412756}
   m_Layer: 5
-  m_Name: Shopping Cart Txt
+  m_Name: Shopping Result Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8845,7 +8866,7 @@ GameObject:
   - component: {fileID: 1188505869}
   - component: {fileID: 1188505868}
   m_Layer: 5
-  m_Name: Button (Legacy) shield
+  m_Name: Button (Legacy) auto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9040,7 +9061,7 @@ GameObject:
   - component: {fileID: 1197559941}
   - component: {fileID: 1197559940}
   m_Layer: 5
-  m_Name: Button (Legacy) ring
+  m_Name: Button (Legacy) draw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11884,7 +11905,7 @@ GameObject:
   - component: {fileID: 1714979128}
   - component: {fileID: 1714979127}
   m_Layer: 5
-  m_Name: Item1
+  m_Name: Item_heal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12869,6 +12890,7 @@ MonoBehaviour:
   DescriptionPanel: {fileID: 770418384}
   ItemDescriptionTxt: {fileID: 2079391919}
   ItemPrice: {fileID: 178862159}
+  Description_icon: {fileID: 1858306071}
   CurrentItemPrice: 0
 --- !u!1 &1810563270
 GameObject:
@@ -14578,7 +14600,7 @@ GameObject:
   - component: {fileID: 2039691625}
   - component: {fileID: 2039691624}
   m_Layer: 5
-  m_Name: Item2
+  m_Name: Item_bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14733,7 +14755,7 @@ GameObject:
   - component: {fileID: 2068998462}
   - component: {fileID: 2068998461}
   m_Layer: 5
-  m_Name: Button (Legacy) weapon
+  m_Name: Button (Legacy) bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
