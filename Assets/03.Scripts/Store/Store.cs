@@ -3,12 +3,6 @@ using UnityEngine.UI;
 
 public class Store : MonoBehaviour
 {
-    [Header("Image")]
-    public Image Item_bag;
-    public Image Item_heal;
-    public Image Item_auto;
-    public Image Item_draw;
-
     [Header("Button")]
     public Button Item_bag_Btn;
     public Button Item_heal_Btn;
@@ -18,31 +12,6 @@ public class Store : MonoBehaviour
     private bool _isClick;
     private string _descriptitem;
     private int _itemprice;
-
-    private void OnEnable()
-    {
-        Item_bag.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_0]");
-
-        if (SaveManager.Instance.UserData.IsHeal == false) 
-        {
-            Item_heal.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_1]");
-        }
-        else 
-        {
-            Item_heal.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Sold_Out.png[Sold_Out]");
-        }
-
-        if(SaveManager.Instance.UserData.IsAutoClean == false) 
-        {
-            Item_auto.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_2]");
-        }
-        else 
-        {
-            Item_auto.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Sold_Out.png[Sold_Out]");
-        }
-
-        Item_draw.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_3]");
-    }
 
     private void Start()
     {
@@ -60,7 +29,7 @@ public class Store : MonoBehaviour
 
         _itemprice = 100000;
 
-        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, Item_heal.sprite, 0);
+        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 0);
     }
 
     private void Heal() 
@@ -73,7 +42,7 @@ public class Store : MonoBehaviour
 
         _itemprice = 500000;
 
-        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, Item_heal.sprite, 1);
+        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 1);
     }
 
     private void AutoClean() 
@@ -86,7 +55,7 @@ public class Store : MonoBehaviour
 
         _itemprice = 1000000;
 
-        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, Item_heal.sprite, 2);
+        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 2);
     }
 
     private void DrawItem() 
@@ -97,7 +66,7 @@ public class Store : MonoBehaviour
 
         _itemprice = 1000000;
 
-        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, Item_heal.sprite, 3);
+        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 3);
     }
 
 }

@@ -12,10 +12,42 @@ public class StoreUi : MonoBehaviour
     public TextMeshProUGUI ItemPrice;
     public Image Description_icon;
 
+    [Header("Image")]
+    public Image Item_bag;
+    public Image Item_heal;
+    public Image Item_auto;
+    public Image Item_draw;
+
     [HideInInspector]
     public int CurrentItemPrice;
 
-    private int _selectedItemID;
+    [HideInInspector]
+    public int SelectedItemID;
+
+    private void OnEnable()
+    {
+        Item_bag.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_0]");
+
+        if (SaveManager.Instance.UserData.IsHeal == false)
+        {
+            Item_heal.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_1]");
+        }
+        else
+        {
+            Item_heal.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Sold_Out.png[Sold_Out]");
+        }
+
+        if (SaveManager.Instance.UserData.IsAutoClean == false)
+        {
+            Item_auto.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_2]");
+        }
+        else
+        {
+            Item_auto.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Sold_Out.png[Sold_Out]");
+        }
+
+        Item_draw.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_3]");
+    }
 
     private void Start()
     {
@@ -33,7 +65,7 @@ public class StoreUi : MonoBehaviour
     }
 
     // === 상점 아이템 설명 ===
-    public void DescriptionWindow(bool x, string info, int pirce, Sprite sprite, int num)
+    public void DescriptionWindow(bool x, string info, int pirce, int num)
     {
         DescriptionPanel.SetActive(x);
 
@@ -41,25 +73,32 @@ public class StoreUi : MonoBehaviour
 
         CurrentItemPrice = pirce;
         ItemPrice.text = $"{pirce:N0}";
-        
-        Description_icon.sprite = sprite;
 
-        _selectedItemID = num;
+        SelectedItemID = num;
+
+        Description_icon.sprite = Changeicon();
     }
-    
-    public void SoldOut() 
-    {
-        switch (_selectedItemID) 
-        {
-            case 0: SaveManager.Instance.UserData.BagSizeLevel++;
-                break;
-            case 1: SaveManager.Instance.UserData.IsHeal = true;
-                break;
-            case 2: SaveManager.Instance.UserData.IsAutoClean = true;
-                break;
-            case 3: SaveManager.Instance.UserData.IsDrawItem = true;
-                break;
 
+    private Sprite Changeicon() 
+    {
+        Sprite sprite;
+
+        switch (SelectedItemID) 
+        {
+            case 0:
+                sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_0]");
+                return sprite;
+            case 1:
+                sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_1]");
+                return sprite;
+            case 2:
+                sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_2]");
+                return sprite;
+            case 3:
+                sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_3]");
+                return sprite;
+            default: 
+                return null;
         }
     }
 }

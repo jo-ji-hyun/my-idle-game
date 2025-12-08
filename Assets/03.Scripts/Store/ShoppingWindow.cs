@@ -31,7 +31,29 @@ public class ShoppingWindow : MonoBehaviour
 
         GameManager.Instance.ChangeMoney(-UiManager.Instance.Store.CurrentItemPrice);
 
-        UiManager.Instance.Store.SoldOut();
+        SoldOut();
+    }
+
+    public void SoldOut()
+    {
+        switch (UiManager.Instance.Store.SelectedItemID)
+        {
+            case 0:
+                SaveManager.Instance.UserData.BagSizeLevel++;
+                break;
+            case 1:
+                SaveManager.Instance.UserData.IsHeal = true;
+                UiManager.Instance.Store.Item_heal.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Sold_Out.png[Sold_Out]");
+                break;
+            case 2:
+                SaveManager.Instance.UserData.IsAutoClean = true;
+                UiManager.Instance.Store.Item_auto.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Sold_Out.png[Sold_Out]");
+                break;
+            case 3:
+                SaveManager.Instance.UserData.IsDrawItem = true;
+                break;
+
+        }
     }
 
     private void OnDisable()
