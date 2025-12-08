@@ -1407,10 +1407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da31f46a53ae074b8f7f3a21df9d125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item_bag: {fileID: 2039691624}
-  Item_heal: {fileID: 1714979127}
-  Item_auto: {fileID: 922405416}
-  Item_draw: {fileID: 887538861}
   Item_bag_Btn: {fileID: 2068998461}
   Item_heal_Btn: {fileID: 108253225}
   Item_auto_Btn: {fileID: 1188505868}
@@ -13369,7 +13365,12 @@ MonoBehaviour:
   ItemDescriptionTxt: {fileID: 2079391919}
   ItemPrice: {fileID: 178862159}
   Description_icon: {fileID: 1858306071}
+  Item_bag: {fileID: 2039691624}
+  Item_heal: {fileID: 1714979127}
+  Item_auto: {fileID: 922405416}
+  Item_draw: {fileID: 887538861}
   CurrentItemPrice: 0
+  SelectedItemID: 0
 --- !u!1 &1810563270
 GameObject:
   m_ObjectHideFlags: 0
