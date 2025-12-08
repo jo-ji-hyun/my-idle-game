@@ -9,16 +9,6 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector]
     public bool IsBattle = false;
 
-    // === 아이템 구매 현황 ===
-    [HideInInspector]
-    public int BagSizeLevel;
-    [HideInInspector]
-    public bool IsHeal;
-    [HideInInspector]
-    public bool IsAutoClean;
-    [HideInInspector]
-    public bool IsDrawItem;
-
     protected override bool IsDestroy => false;
 
     private void Start()

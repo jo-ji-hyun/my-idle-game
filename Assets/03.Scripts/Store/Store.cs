@@ -23,7 +23,7 @@ public class Store : MonoBehaviour
     {
         Item_bag.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_0]");
 
-        if(GameManager.Instance.IsHeal == false) 
+        if (SaveManager.Instance.UserData.IsHeal == false) 
         {
             Item_heal.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_1]");
         }
@@ -32,7 +32,7 @@ public class Store : MonoBehaviour
             Item_heal.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Sold_Out.png[Sold_Out]");
         }
 
-        if(GameManager.Instance.IsAutoClean == false) 
+        if(SaveManager.Instance.UserData.IsAutoClean == false) 
         {
             Item_auto.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_2]");
         }

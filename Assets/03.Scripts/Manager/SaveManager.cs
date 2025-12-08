@@ -146,7 +146,11 @@ public class SaveManager : Singleton<SaveManager>
             Def = 0,
             Cri = 0,
             ItemSaveDatas = new List<ItemSaveData>(),
-            PlayerInventory = new List<InventorySaveData>()
+            PlayerInventory = new List<InventorySaveData>(),
+            BagSizeLevel = 0,
+            IsHeal = false,
+            IsAutoClean = false,
+            IsDrawItem = false,
         };
 
         foreach (var equip in DataManager.Instance.ItemEquips)

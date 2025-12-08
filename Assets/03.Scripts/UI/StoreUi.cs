@@ -51,13 +51,13 @@ public class StoreUi : MonoBehaviour
     {
         switch (_selectedItemID) 
         {
-            case 0: GameManager.Instance.BagSizeLevel++;
+            case 0: SaveManager.Instance.UserData.BagSizeLevel++;
                 break;
-            case 1: GameManager.Instance.IsHeal = true;
+            case 1: SaveManager.Instance.UserData.IsHeal = true;
                 break;
-            case 2: GameManager.Instance.IsAutoClean = true;
+            case 2: SaveManager.Instance.UserData.IsAutoClean = true;
                 break;
-            case 3: GameManager.Instance.IsDrawItem = true;
+            case 3: SaveManager.Instance.UserData.IsDrawItem = true;
                 break;
 
         }

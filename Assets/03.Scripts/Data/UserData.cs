@@ -18,6 +18,11 @@ public class UserData
 
     public List<ItemSaveData> ItemSaveDatas;
     public List<InventorySaveData> PlayerInventory;
+
+    public int BagSizeLevel;
+    public bool IsHeal;
+    public bool IsAutoClean;
+    public bool IsDrawItem;
 }
 
 [Serializable]
