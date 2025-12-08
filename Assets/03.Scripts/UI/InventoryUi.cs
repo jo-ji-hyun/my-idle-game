@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class InventoryUi : MonoBehaviour
 {
     public Button UiBtn;
+    public GameObject CleanInventory;
 
     [Header("Windows")]
     public GameObject DescriptionPanel;
@@ -22,11 +23,16 @@ public class InventoryUi : MonoBehaviour
 
         // === 버튼에 할당 ===
         EquipBtn.onClick.AddListener(Equipment);
-        SellBtn.onClick.AddListener(PriceItem);
+        SellBtn.onClick.AddListener(SellitemInventory);
 
         if (DescriptionPanel != null)
         {
             DescriptionPanel.SetActive(false);
+        }
+
+        if (SaveManager.Instance.UserData.IsAutoClean == true)
+        { 
+            CleanInventory.SetActive(true);
         }
     }
 
@@ -82,7 +88,7 @@ public class InventoryUi : MonoBehaviour
     }
 
     // === 클릭시 판매 ===
-    private void PriceItem()
+    private void SellitemInventory()
     {
         GameManager.Instance.ChangeMoney(InventoryManager.Instance.InventoryItems[_currentNumber].PriceItem());
 
@@ -94,5 +100,14 @@ public class InventoryUi : MonoBehaviour
         DescriptionPanel.SetActive(false);
 
         SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Sell);
+    }
+
+    public void AutoSellitem(ItemData sellitem)
+    {
+        GameManager.Instance.ChangeMoney(sellitem.PriceItem());
+
+        InventoryManager.Instance.InventoryItems.Remove(sellitem);
+
+        InventoryManager.Instance.ChangeInventory();
     }
 }

@@ -1673,7 +1673,7 @@ GameObject:
   - component: {fileID: 332675475}
   - component: {fileID: 332675474}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button (Legacy) auto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3386,7 +3386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &498023655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3829,6 +3829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UiBtn: {fileID: 507644537}
+  CleanInventory: {fileID: 1177962682}
   DescriptionPanel: {fileID: 950859538}
   DescriptionTxt: {fileID: 2079884356}
   EquipBtn: {fileID: 767546233}
@@ -8907,6 +8908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1177962683}
+  - component: {fileID: 1177962684}
   m_Layer: 5
   m_Name: Auto Inventory Clean
   m_TagString: Untagged
@@ -8934,6 +8936,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1177962684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177962682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d5abd432fdc364dbbdaaaf8422b5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveBtn: {fileID: 332675474}
 --- !u!1 &1185530016
 GameObject:
   m_ObjectHideFlags: 0
@@ -8965,7 +8980,7 @@ RectTransform:
   m_Father: {fileID: 1880567172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10317,7 +10332,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC790\uB3D9\uD310\uB9E4"
+  m_text: "\uC790\uB3D9 \uD310\uB9E4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72e518d3084566b43afc57004e0b6633, type: 2}
   m_sharedMaterial: {fileID: 5039076036764523313, guid: 72e518d3084566b43afc57004e0b6633, type: 2}
@@ -10350,7 +10365,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -14805,7 +14820,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 675, y: 0}
+  m_SizeDelta: {x: 675, y: 3}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1971228788
 MonoBehaviour:

@@ -32,7 +32,7 @@ public class InventoryManager : Singleton<InventoryManager>
             }
         }
 
-        OnInventoryChanged?.Invoke();
+        ChangeInventory();
     }
 
     public void SaveItems(List<InventorySaveData> playerInventory)
@@ -53,7 +53,7 @@ public class InventoryManager : Singleton<InventoryManager>
             playerInventory.Add(newData);
         }
 
-        OnInventoryChanged?.Invoke();
+        ChangeInventory();
     }
 
     // === 랜덤으로 강화된 아이템 획득 ===
@@ -71,8 +71,7 @@ public class InventoryManager : Singleton<InventoryManager>
         // === 복사템 추가 ===
         InventoryItems.Add(cloneItem);
 
-        // === 인벤토리 갱신 ===
-        OnInventoryChanged?.Invoke();
+        ChangeInventory();
     }
 
     // === 아이템 제거 로직 ===
@@ -80,7 +79,12 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         InventoryItems.RemoveAt(x);
 
-        // === 인벤토리 갱신 ===
+        ChangeInventory();
+    }
+
+    // === 인벤토리 갱신 ===
+    public void ChangeInventory() 
+    {
         OnInventoryChanged?.Invoke();
     }
 }
