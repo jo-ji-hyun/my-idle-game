@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,9 @@ public class ShoppingWindow : MonoBehaviour
 
     [Header("Button")]
     public Button BuyBtn;
+
+    [Header("Draw")]
+    public List<CardSlot> CardSlots = new();
 
     private void Start()
     {
@@ -50,10 +55,30 @@ public class ShoppingWindow : MonoBehaviour
                 UiManager.Instance.Store.Item_auto.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Sold_Out.png[Sold_Out]");
                 break;
             case 3:
-                SaveManager.Instance.UserData.IsDrawItem = true;
+                StartCoroutine(DrawCoroutine());
                 break;
 
         }
+    }
+
+    private IEnumerator DrawCoroutine() 
+    {
+        List<ItemData> result = InventoryManager.Instance.Draw10items();
+
+        for (int i = 0; i < result.Count; i++)
+        {
+            ItemData item = result[i];
+
+            CardSlots[i].gameObject.SetActive(true);
+
+            CardSlots[i].SetInfo(item);
+
+            InventoryManager.Instance.InventoryItems.Add(item);
+
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        InventoryManager.Instance.ChangeInventory();
     }
 
     private void OnDisable()

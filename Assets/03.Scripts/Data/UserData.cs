@@ -22,7 +22,6 @@ public class UserData
     public int BagSizeLevel;
     public bool IsHeal;
     public bool IsAutoClean;
-    public bool IsDrawItem;
 }
 
 [Serializable]

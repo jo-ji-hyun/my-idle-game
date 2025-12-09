@@ -7,7 +7,6 @@ public class ResourceManager : Singleton<ResourceManager>
 
     private readonly Dictionary<Consts.BattleResult, AudioClip> _sfxBattle = new();
     private readonly Dictionary<Consts.InventoryItem, AudioClip> _sfxItem = new();
-    private readonly Dictionary<Consts.ItemType, Sprite> _itemIcons = new();
 
     public T Load<T>(string path) where T : Object
     {

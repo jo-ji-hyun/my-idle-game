@@ -8,6 +8,7 @@ public class EquipUi : MonoBehaviour
     public Image Weapon_img;
     public Image Shield_img;
     public Image Ring_img;
+
     [Header("Status")]
     public Button StatusCallBtn;
     public GameObject StatusWindow;
@@ -21,10 +22,10 @@ public class EquipUi : MonoBehaviour
 
     private void Start()
     {
-        Helmet_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_0]");
-        Weapon_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_1]");
-        Shield_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_2]");
-        Ring_img.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_3]");
+        Helmet_img.sprite = AddressableManager.Instance.GetAssets<Sprite>(PlayerEquip.Instance.EquipmentSlot[0].Icon);
+        Weapon_img.sprite = AddressableManager.Instance.GetAssets<Sprite>(PlayerEquip.Instance.EquipmentSlot[1].Icon);
+        Shield_img.sprite = AddressableManager.Instance.GetAssets<Sprite>(PlayerEquip.Instance.EquipmentSlot[2].Icon);
+        Ring_img.sprite = AddressableManager.Instance.GetAssets<Sprite>(PlayerEquip.Instance.EquipmentSlot[3].Icon);
 
         StatusCallBtn.onClick.AddListener(ShowStatus);
 

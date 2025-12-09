@@ -150,7 +150,6 @@ public class SaveManager : Singleton<SaveManager>
             BagSizeLevel = 0,
             IsHeal = false,
             IsAutoClean = false,
-            IsDrawItem = false,
         };
 
         foreach (var equip in DataManager.Instance.ItemEquips)

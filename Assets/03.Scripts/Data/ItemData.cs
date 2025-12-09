@@ -14,7 +14,9 @@ public class ItemData : ScriptableObject
 
     [Header("etc")]
     public int Enhanced;   // === 현재 강화 수치 ===
-    public int Price;      
+    public int Price;
+
+    [Header("Addressable")] // === 주소값 ===
     public string Icon;    
 
     public int EnhancedValue()

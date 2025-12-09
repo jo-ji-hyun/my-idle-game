@@ -59,6 +59,16 @@ public class InventoryManager : Singleton<InventoryManager>
     // === 랜덤으로 강화된 아이템 획득 ===
     public void GetItem()
     {
+        ItemData newitem = NewItem();
+
+        // === 복사템 추가 ===
+        InventoryItems.Add(newitem);
+
+        ChangeInventory();
+    }
+
+    private ItemData NewItem() 
+    {
         Consts.ItemType randomKey = (Consts.ItemType)Random.Range(0, 4);
 
         // === 복사본 만들기 ===
@@ -68,10 +78,19 @@ public class InventoryManager : Singleton<InventoryManager>
 
         cloneItem.Enhanced = Random.Range(0, SaveManager.Instance.UserData.Stage);
 
-        // === 복사템 추가 ===
-        InventoryItems.Add(cloneItem);
+        return cloneItem;
+    }
 
-        ChangeInventory();
+    public List<ItemData> Draw10items() 
+    {
+        List<ItemData> items = new();
+
+        for (var i = 0; i < 10; i++)
+        {
+            items.Add(NewItem());
+        }
+
+        return items;
     }
 
     // === 아이템 제거 로직 ===
