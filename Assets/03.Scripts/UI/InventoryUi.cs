@@ -107,7 +107,5 @@ public class InventoryUi : MonoBehaviour
         GameManager.Instance.ChangeMoney(sellitem.PriceItem());
 
         InventoryManager.Instance.InventoryItems.Remove(sellitem);
-
-        InventoryManager.Instance.ChangeInventory();
     }
 }

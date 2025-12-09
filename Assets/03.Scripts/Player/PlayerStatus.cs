@@ -45,6 +45,13 @@ public class PlayerStatus : MonoBehaviour
             isCombatStart = false;
 
             StopCoroutine(_currentCombatCoroutine);
+
+            if (SaveManager.Instance.UserData.IsHeal == true)
+            {
+                SaveManager.Instance.UserData.CurrentHP = SaveManager.Instance.UserData.MaxHP;
+            }
+
+            UpdateHpBar();
         }
     }
 

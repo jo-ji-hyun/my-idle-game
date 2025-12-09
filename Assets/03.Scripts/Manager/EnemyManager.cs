@@ -30,11 +30,6 @@ public class EnemyManager : Singleton<EnemyManager>
             InventoryManager.Instance.GetItem();
         }
 
-        if (SaveManager.Instance.UserData.IsHeal == true)
-        {
-            SaveManager.Instance.UserData.CurrentHP = SaveManager.Instance.UserData.MaxHP;
-        }
-
         EnemySpawn();
     }
 

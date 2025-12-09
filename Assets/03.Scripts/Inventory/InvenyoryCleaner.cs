@@ -27,6 +27,8 @@ public class InvenyoryCleaner : MonoBehaviour
 
     private void AutoClean() 
     {
+        if (SaveManager.Instance.UserData.IsAutoClean == false) return;
+
         _isClick = !_isClick;
 
         if(_isClick && InventoryManager.Instance.InventoryItems.Count > 0) 
@@ -85,5 +87,7 @@ public class InvenyoryCleaner : MonoBehaviour
         }
 
         _autoSell = null;
+
+        InventoryManager.Instance.ChangeInventory();
     }
 }

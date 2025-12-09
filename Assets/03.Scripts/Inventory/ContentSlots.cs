@@ -56,7 +56,7 @@ public class ContentSlots : MonoBehaviour
     {
         CheckSlot();
 
-        _currentInventoryTxt.text = $"{InventoryManager.Instance.InventoryItems.Count / SlotLists.Count}";
+        _currentInventoryTxt.text = $"{InventoryManager.Instance.InventoryItems.Count} / {SlotLists.Count}";
 
         int loopCount = Mathf.Min(InventoryManager.Instance.InventoryItems.Count, SlotLists.Count);
 
@@ -79,7 +79,7 @@ public class ContentSlots : MonoBehaviour
 
         int maxSlot = _slotCount + 10 * SaveManager.Instance.UserData.BagSizeLevel;
 
-        if(maxSlot > _slotCount) 
+        if(maxSlot < SlotLists.Count) 
         {
             for (int i = _slotCount; i < maxSlot; i++)
             {
