@@ -32,6 +32,7 @@ public class UiManager : Singleton<UiManager>
     public GameObject EnhanceWindow;
     public GameObject SystemWindow;
     public GameObject StoreWindow;
+    public GameObject CardWindow;
 
     protected override bool IsDestroy => false;
 

@@ -13,6 +13,8 @@ public class ShoppingWindow : MonoBehaviour
     public Button BuyBtn;
 
     [Header("Draw")]
+    public Button GoInventoryBtn;
+    public Button CloseBtn;
     public List<CardSlot> CardSlots = new();
 
     private void Start()
@@ -63,6 +65,8 @@ public class ShoppingWindow : MonoBehaviour
 
     private IEnumerator DrawCoroutine() 
     {
+        UiManager.Instance.CardWindow.SetActive(true);
+
         List<ItemData> result = InventoryManager.Instance.Draw10items();
 
         for (int i = 0; i < result.Count; i++)
@@ -79,10 +83,26 @@ public class ShoppingWindow : MonoBehaviour
         }
 
         InventoryManager.Instance.ChangeInventory();
+
+        GoInventoryBtn.gameObject.SetActive(true);
+        CloseBtn.gameObject.SetActive(true);
+
+        GoInventoryBtn.onClick.AddListener(GoToInventory);
+    }
+
+    private void GoToInventory() 
+    {
+        UiManager.Instance.CardWindow.SetActive(false);
+
+        UiManager.Instance.StoreWindow.SetActive(false);
+
+        UiManager.Instance.InventoryWindow.SetActive(true);
     }
 
     private void OnDisable()
     {
+        GoInventoryBtn.onClick?.RemoveAllListeners();
+
         ShoppingResult.text = null;
     }
 }
