@@ -4,6 +4,7 @@ using System.Collections.Generic;
 [Serializable]
 public class UserData 
 {
+    public int Version;
     public int Stage;          
     public int BossMaxHp;     
     public int BossCurrentHp;

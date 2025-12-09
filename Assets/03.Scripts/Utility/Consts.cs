@@ -31,4 +31,12 @@ public static class Consts
         public const string SFX_Item = "Music/SFX/Item";
         public const string Icons = "Icons";
     }
+
+    // === 추후에 UserData에 새로운 정보를 입력해야한다면 Current버전을 올리고 이전 버전과 체크해야한다 === 
+    public static class Version 
+    {
+        public const int Current_Version = 0;
+        public const int Version1_Check = 1;
+        public const int Version2_Check = 2;
+    }
 }

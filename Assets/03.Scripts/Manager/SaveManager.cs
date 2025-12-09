@@ -77,6 +77,11 @@ public class SaveManager : Singleton<SaveManager>
                             string loadData = snapshot.GetRawJsonValue();
                             UserData = JsonConvert.DeserializeObject<UserData>(loadData);
 
+                            //if(UserData.Version < Consts.Version.Current_Version) 
+                            //{
+                            //    UpdateVersion(UserData);
+                            //}
+
                             if (UserData.PlayerInventory == null)
                             {
                                 UserData.PlayerInventory = new List<InventorySaveData>();
@@ -131,11 +136,35 @@ public class SaveManager : Singleton<SaveManager>
                 });
     }
 
+    private void UpdateVersion(UserData loaduser) 
+    {
+        if(loaduser.Version < Consts.Version.Version1_Check) 
+        {
+            // === 추후 저장될 데이터가 증가시 직접입력 ===
+
+            loaduser.Version = Consts.Version.Version1_Check;
+        }
+
+        //if(loaduser.Version < Consts.Version.Version2_Check) 
+        //{
+
+        //loaduser.Version = Consts.Version.Version2_Check;
+        //}
+
+        if (loaduser.Version != Consts.Version.Current_Version)
+        {
+            loaduser.Version = Consts.Version.Current_Version;
+        }
+
+        AllSave();
+    }
+
     // === 데이터가 없을시 ===
     private void InitializeDefaultUserData()
     {
         UserData = new UserData
         {
+            Version = Consts.Version.Current_Version,
             Stage = 1,
             BossMaxHp = 250,
             BossCurrentHp = 250,
