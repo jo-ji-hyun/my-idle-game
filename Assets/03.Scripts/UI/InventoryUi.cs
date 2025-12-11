@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class InventoryUi : MonoBehaviour
 {
     public Button UiBtn;
-    public GameObject CleanInventory;
 
     [Header("Windows")]
     public GameObject DescriptionPanel;
@@ -14,6 +13,13 @@ public class InventoryUi : MonoBehaviour
     [Header("Button")]
     public Button EquipBtn;
     public Button SellBtn;
+
+    [Header("AutoClean")]
+    public GameObject CleanInventory;
+    public Button ActiveBtn;
+    public Animator BtnAnimator;
+    [HideInInspector]
+    public bool IsAutoOn = false;
 
     private int _currentNumber;
 
@@ -30,6 +36,8 @@ public class InventoryUi : MonoBehaviour
             DescriptionPanel.SetActive(false);
         }
 
+        CleanInventory.SetActive(false);
+
         if (SaveManager.Instance.UserData.IsAutoClean == true)
         { 
             CleanInventory.SetActive(true);
@@ -39,6 +47,16 @@ public class InventoryUi : MonoBehaviour
     private void ShowInventory()
     {
         UiManager.Instance.InventoryWindow.SetActive(true);
+
+        if (SaveManager.Instance.UserData.IsAutoClean == true)
+        {
+            CleanInventory.SetActive(true);
+        }
+
+        if (BtnAnimator != null && SaveManager.Instance.UserData.IsAutoClean == true)
+        {
+            BtnAnimator.SetBool("IsActive", IsAutoOn);
+        }
     }
 
     // === 아이템 설명 창 ===

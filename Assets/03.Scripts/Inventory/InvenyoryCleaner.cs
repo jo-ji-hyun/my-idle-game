@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InvenyoryCleaner : MonoBehaviour
 {
-    public Button ActiveBtn;
+    private InventoryUi _inventoryUi;
 
     private bool _isClick = false;
 
     private readonly List<ItemData> _sellitems = new();
 
     private Coroutine _autoSell;
+    private Coroutine _continueSell;
 
     private void Start()
     {
-        ActiveBtn.onClick.AddListener(AutoClean);
+        _inventoryUi = UiManager.Instance.Inventory;
+
+        _inventoryUi.ActiveBtn.onClick.AddListener(AutoClean);
 
         InventoryManager.OnInventoryChanged += OnInventoryDataChanged;
     }
@@ -31,16 +33,31 @@ public class InvenyoryCleaner : MonoBehaviour
 
         _isClick = !_isClick;
 
-        if(_isClick && InventoryManager.Instance.InventoryItems.Count > 0) 
+        _inventoryUi.IsAutoOn = _isClick;
+
+        if (_inventoryUi.BtnAnimator != null && SaveManager.Instance.UserData.IsAutoClean == true)
         {
-            OnInventoryDataChanged();
+            _inventoryUi.BtnAnimator.SetBool("IsActive", _inventoryUi.IsAutoOn);
+        }
+
+        if (_isClick) 
+        {
+            _continueSell = StartCoroutine(ContinueAutoClean());
         }
         else
         {
             if (_autoSell != null) 
             {
                 StopCoroutine(_autoSell);
+
                 _autoSell = null;
+            }
+
+            if (_continueSell != null) 
+            { 
+                StopCoroutine(_continueSell);
+
+                _continueSell = null;
             }
         }
     }
@@ -75,11 +92,23 @@ public class InvenyoryCleaner : MonoBehaviour
         }
     }
 
+    private IEnumerator ContinueAutoClean()
+    {
+        while (_isClick)
+        {
+            OnInventoryDataChanged();
+
+            yield return new WaitForSeconds(1.0f);
+        }
+
+        _continueSell = null;
+    }
+
     private IEnumerator AutoCleanCorutine(float delayTime) 
     {
         while (_sellitems.Count > 0)
         {
-            UiManager.Instance.Inventory.AutoSellitem(_sellitems[0]);
+            _inventoryUi.AutoSellitem(_sellitems[0]);
 
             _sellitems.RemoveAt(0);
 
