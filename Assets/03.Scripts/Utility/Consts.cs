@@ -17,6 +17,12 @@ public static class Consts
         Sell
     }
 
+    public enum SpecialItem 
+    {
+        CardDraw,
+        SoldOut
+    }
+
     public enum ItemType
     {
         Helmet,
@@ -29,7 +35,7 @@ public static class Consts
     {
         public const string SFX_Battle = "Music/SFX/Battle";
         public const string SFX_Item = "Music/SFX/Item";
-        public const string Icons = "Icons";
+        public const string SFX_Special = "Music/SFX/Special";
     }
 
     // === 추후에 UserData에 새로운 정보를 입력해야한다면 Current버전을 올리고 이전 버전과 체크해야한다 === 

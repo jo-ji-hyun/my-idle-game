@@ -38,6 +38,8 @@ public class ShoppingWindow : MonoBehaviour
 
         GameManager.Instance.ChangeMoney(-UiManager.Instance.Store.CurrentItemPrice);
 
+        SoundManager.Instance.SpecialEffectSound(Consts.SpecialItem.SoldOut);
+
         SoldOut();
     }
 
@@ -78,6 +80,8 @@ public class ShoppingWindow : MonoBehaviour
             CardSlots[i].SetInfo(item);
 
             InventoryManager.Instance.InventoryItems.Add(item);
+
+            SoundManager.Instance.SpecialEffectSound(Consts.SpecialItem.CardDraw);
 
             yield return new WaitForSeconds(0.2f);
         }

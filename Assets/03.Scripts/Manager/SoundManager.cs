@@ -15,6 +15,9 @@ public class SoundManager : Singleton<SoundManager>
     [Header("Item")]
     public AudioSource ItemSource;
 
+    [Header("Special")]
+    public AudioSource SpecialSource;
+
     protected override bool IsDestroy => false;
 
     protected override void Awake()
@@ -57,6 +60,19 @@ public class SoundManager : Singleton<SoundManager>
         ItemSource.clip = ResourceManager.Instance.GetItemSFX(type);
 
         ItemSource.Play();
+    }
+
+    public void SpecialEffectSound(Consts.SpecialItem type)
+    {
+        if (SpecialSource.isPlaying)
+        {
+            SpecialSource.Stop();
+            SpecialSource.clip = null;
+        }
+
+        SpecialSource.clip = ResourceManager.Instance.GetSpecialSFX(type);
+
+        SpecialSource.Play();
     }
 
     public void SetBGMVolume(float sliderValue)

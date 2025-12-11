@@ -7,6 +7,7 @@ public class ResourceManager : Singleton<ResourceManager>
 
     private readonly Dictionary<Consts.BattleResult, AudioClip> _sfxBattle = new();
     private readonly Dictionary<Consts.InventoryItem, AudioClip> _sfxItem = new();
+    private readonly Dictionary<Consts.SpecialItem, AudioClip> _sfxspcial = new();
 
     public T Load<T>(string path) where T : Object
     {
@@ -50,6 +51,27 @@ public class ResourceManager : Singleton<ResourceManager>
         if (clip != null)
         {
             _sfxItem.Add(result, clip);
+            return clip;
+        }
+
+        return null;
+    }
+
+    public AudioClip GetSpecialSFX(Consts.SpecialItem result)
+    {
+        if (_sfxspcial.ContainsKey(result))
+        {
+            return _sfxspcial[result];
+        }
+
+        // === 방어 코드 ===
+        string fullPath = Consts.ResourcePath.SFX_Special + "/" + result;
+
+        AudioClip clip = Load<AudioClip>(fullPath);
+
+        if (clip != null)
+        {
+            _sfxspcial.Add(result, clip);
             return clip;
         }
 
