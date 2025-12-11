@@ -61,6 +61,8 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         ItemData newitem = NewItem();
 
+        newitem.Enhanced = StageGetItems();
+
         // === 복사템 추가 ===
         InventoryItems.Add(newitem);
 
@@ -76,11 +78,26 @@ public class InventoryManager : Singleton<InventoryManager>
 
         ItemData cloneItem = Instantiate(originalItem);
 
-        cloneItem.Enhanced = Random.Range(0, SaveManager.Instance.UserData.Stage);
-
         return cloneItem;
     }
 
+    private int StageGetItems()
+    {
+        return Random.Range(0, SaveManager.Instance.UserData.Stage);
+    }
+
+    // === 뽑기 아이템의 강화수치 조절 ===
+    private int DrawGetItems()
+    {
+        int minenhanced = Math.Max(0, SaveManager.Instance.UserData.Stage - 25);
+        int maxenhanced = SaveManager.Instance.UserData.Stage + 25;
+
+        int enhanced = Random.Range(minenhanced, maxenhanced);
+
+        return enhanced;
+    }
+
+    // === 10회 뽑기시 아이템을 미리 리스트에 추가후 반환 ===
     public List<ItemData> Draw10items() 
     {
         List<ItemData> items = new();
@@ -88,6 +105,8 @@ public class InventoryManager : Singleton<InventoryManager>
         for (var i = 0; i < 10; i++)
         {
             items.Add(NewItem());
+
+            items[i].Enhanced = DrawGetItems();
         }
 
         return items;
