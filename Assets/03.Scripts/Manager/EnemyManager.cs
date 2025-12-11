@@ -40,7 +40,7 @@ public class EnemyManager : Singleton<EnemyManager>
             Destroy(SpawnEnemy);
         }
         
-        SaveManager.Instance.UserData.BossMaxHp = SaveManager.Instance.UserData.Stage * 250;
+        SaveManager.Instance.UserData.BossMaxHp = SaveManager.Instance.UserData.Stage * 350;
         SaveManager.Instance.UserData.BossCurrentHp = SaveManager.Instance.UserData.BossMaxHp;
 
         // === 한 적만 계속 소환하기 위해 ===

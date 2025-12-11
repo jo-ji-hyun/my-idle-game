@@ -31,8 +31,6 @@ public class InventoryManager : Singleton<InventoryManager>
                 InventoryItems.Add(cloneItem);
             }
         }
-
-        ChangeInventory();
     }
 
     public void SaveItems(List<InventorySaveData> playerInventory)

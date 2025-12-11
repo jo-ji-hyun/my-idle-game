@@ -79,7 +79,7 @@ public class ContentSlots : MonoBehaviour
 
         int maxSlot = _slotCount + 10 * SaveManager.Instance.UserData.BagSizeLevel;
 
-        if(maxSlot < SlotLists.Count) 
+        if(_slotCount < maxSlot) 
         {
             for (int i = _slotCount; i < maxSlot; i++)
             {
@@ -91,7 +91,7 @@ public class ContentSlots : MonoBehaviour
 
                 slotComponent.Number = i;
 
-                _slotCount = maxSlot;
+                _slotCount++;
             }
         }
     }

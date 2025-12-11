@@ -118,5 +118,7 @@ public class InvenyoryCleaner : MonoBehaviour
         _autoSell = null;
 
         InventoryManager.Instance.ChangeInventory();
+
+        SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);
     }
 }
