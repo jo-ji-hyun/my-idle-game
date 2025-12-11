@@ -40,6 +40,8 @@ public class ShoppingWindow : MonoBehaviour
 
         SoundManager.Instance.SpecialEffectSound(Consts.SpecialItem.SoldOut);
 
+        SaveManager.Instance.AllSave();
+
         SoldOut();
     }
 

@@ -52,11 +52,6 @@ public class StoreUi : MonoBehaviour
     private void Start()
     {
         StoreBtn.onClick.AddListener(ShowStore);
-
-        if (DescriptionPanel != null)
-        {
-            DescriptionPanel.SetActive(false);
-        }
     }
 
     private void ShowStore()

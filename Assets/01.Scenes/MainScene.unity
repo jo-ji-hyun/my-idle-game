@@ -5358,11 +5358,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UiBtn: {fileID: 507644537}
-  CleanInventory: {fileID: 1177962682}
   DescriptionPanel: {fileID: 950859538}
   DescriptionTxt: {fileID: 2079884356}
   EquipBtn: {fileID: 767546233}
   SellBtn: {fileID: 826735949}
+  CleanInventory: {fileID: 1177962682}
   ActiveBtn: {fileID: 332675474}
   BtnAnimator: {fileID: 332675477}
   IsAutoOn: 0
@@ -15926,15 +15926,15 @@ MonoBehaviour:
   CloseBtn: {fileID: 428479899}
   CardSlots:
   - {fileID: 8445388007898922874}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 509793969}
+  - {fileID: 42799644}
+  - {fileID: 2100176512}
+  - {fileID: 296725937}
+  - {fileID: 907659851}
+  - {fileID: 1282827557}
+  - {fileID: 1443566849}
+  - {fileID: 384094533}
+  - {fileID: 133883546}
 --- !u!114 &1740790457
 MonoBehaviour:
   m_ObjectHideFlags: 0
