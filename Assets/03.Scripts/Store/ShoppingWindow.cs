@@ -109,6 +109,11 @@ public class ShoppingWindow : MonoBehaviour
     {
         GoInventoryBtn.onClick?.RemoveAllListeners();
 
+        for (int i = 0; i < CardSlots.Count; i++)
+        {
+            CardSlots[i].gameObject.SetActive(false);
+        }
+
         ShoppingResult.text = null;
     }
 }
