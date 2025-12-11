@@ -79,9 +79,9 @@ public class ContentSlots : MonoBehaviour
 
         int maxSlot = _slotCount + 10 * SaveManager.Instance.UserData.BagSizeLevel;
 
-        if(_slotCount < maxSlot) 
+        if(maxSlot > SlotLists.Count) 
         {
-            for (int i = _slotCount; i < maxSlot; i++)
+            for (int i = SlotLists.Count; i < maxSlot; i++)
             {
                 GameObject slotPrefabs = Instantiate(_slot, transform);
 
@@ -90,8 +90,6 @@ public class ContentSlots : MonoBehaviour
                 SlotLists.Add(slotComponent);
 
                 slotComponent.Number = i;
-
-                _slotCount++;
             }
         }
     }
