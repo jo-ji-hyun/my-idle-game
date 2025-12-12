@@ -1021,6 +1021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UserData:
+    Version: 0
     Stage: 0
     BossMaxHp: 0
     BossCurrentHp: 0
@@ -1032,6 +1033,10 @@ MonoBehaviour:
     Cri: 0
     ItemSaveDatas: []
     PlayerInventory: []
+    BagSizeLevel: 0
+    IsHeal: 0
+    HealLevel: 0
+    IsAutoClean: 0
   SystemData:
     BGMVolume: 0
     SFXVolume: 0
@@ -2917,7 +2922,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 320, y: 120}
+  m_SizeDelta: {x: 320, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &988655103
 MonoBehaviour:
@@ -3045,6 +3050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f908df438ff84d24b9c4fa0c3a8ed951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EquipmentSlot: []
   CheckEquipNumber: 0
 --- !u!4 &1020244670
 Transform:
@@ -3196,6 +3202,7 @@ MonoBehaviour:
   Weapon: {fileID: 11400000, guid: f219f1bd696914749804b4130446c425, type: 2}
   Shield: {fileID: 11400000, guid: 01664aa855255c145b10df7c602f394e, type: 2}
   Ring: {fileID: 11400000, guid: f48fc6f87c108224991e46566b6f3dda, type: 2}
+  ItemEquips: []
 --- !u!4 &1048782003
 Transform:
   m_ObjectHideFlags: 0
@@ -5282,7 +5289,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -140}
-  m_SizeDelta: {x: 340, y: 100}
+  m_SizeDelta: {x: 360, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1639366732
 MonoBehaviour:
