@@ -11,13 +11,15 @@ public class EnhanceDescription : MonoBehaviour
     {
         EnhanceTxt.text = "";
 
-        if (UiManager.Instance.Enhancement.EnhanceChance >= 1)
+        int currentEnhanced = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Enhanced;
+
+        if (currentEnhanced < 100)
         {
-            UiManager.Instance.Enhancement.EnhanceChance = 100 - PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Enhanced;
+            UiManager.Instance.Enhancement.EnhanceChance = 100 - currentEnhanced;
         }
         else
         {
-            UiManager.Instance.Enhancement.EnhanceChance = Mathf.Max(0.01f , 1 - (PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Enhanced - 99) * 0.01f);
+            UiManager.Instance.Enhancement.EnhanceChance = Mathf.Max(0.01f , 1 - (currentEnhanced - 99) * 0.01f);
         }
 
         SucessTxt.text = UiManager.Instance.Enhancement.EnhanceChance.ToString();

@@ -22,6 +22,7 @@ public class UserData
 
     public int BagSizeLevel;
     public bool IsHeal;
+    public int HealLevel;
     public bool IsAutoClean;
 }
 

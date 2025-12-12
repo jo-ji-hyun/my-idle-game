@@ -28,8 +28,6 @@ public class EnhancementtUi : MonoBehaviour
 
     private void Start()
     {
-        EnhanceChance = 100;
-
         UiBtn.onClick.AddListener(ShowUpgade);
 
         HelmetBtn.onClick.AddListener(EnhanceHelmet);

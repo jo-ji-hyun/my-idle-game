@@ -39,7 +39,7 @@ public class Store : MonoBehaviour
 
     private void Heal() 
     {
-        if (SaveManager.Instance.UserData.IsHeal == true) return;
+        if (SaveManager.Instance.UserData.HealLevel == 10) return;
 
         _isClick = !_isClick;
 
@@ -69,7 +69,7 @@ public class Store : MonoBehaviour
 
         _descriptitem = " 랜덤한 아이템 10종을 획득합니다.";
 
-        _itemprice = 500000 + 5000 * SaveManager.Instance.UserData.Stage;
+        _itemprice = 600000 + 6000 * SaveManager.Instance.UserData.Stage;
 
         UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 3);
     }

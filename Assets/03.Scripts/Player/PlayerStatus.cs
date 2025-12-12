@@ -7,6 +7,7 @@ public class PlayerStatus : MonoBehaviour
 {
     private int _def;
     private int _currentHp;
+    private UserData _saveData;
 
     [Header("UI")]
     public Image Hpbar;
@@ -21,6 +22,8 @@ public class PlayerStatus : MonoBehaviour
 
     private void Start()
     {
+        _saveData = SaveManager.Instance.UserData; // === 유저 데이터 캐싱 ===
+
         Hpbar.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Hpbar.png[Hpbar_0]");
         BackHp.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Hpbar.png[Hpbar_0]");
 
@@ -38,7 +41,7 @@ public class PlayerStatus : MonoBehaviour
         {
             isCombatStart = true;
 
-            _currentCombatCoroutine = StartCoroutine(TakeDamage(SaveManager.Instance.UserData.Stage));
+            _currentCombatCoroutine = StartCoroutine(TakeDamage(_saveData.Stage));
         }
         else if (!GameManager.Instance.IsBattle && isCombatStart)
         {
@@ -46,12 +49,12 @@ public class PlayerStatus : MonoBehaviour
 
             StopCoroutine(_currentCombatCoroutine);
 
-            if (SaveManager.Instance.UserData.IsHeal == true)
+            if (_saveData.IsHeal == true)
             {
-                SaveManager.Instance.UserData.CurrentHP = SaveManager.Instance.UserData.MaxHP;
+                _saveData.CurrentHP = Mathf.Min(_saveData.MaxHP, _saveData.CurrentHP + (int)(_saveData.MaxHP * _saveData.HealLevel/10) );
             }
 
-            UpdateHpBar();
+            PlayerHpBar();
         }
     }
 
@@ -59,15 +62,15 @@ public class PlayerStatus : MonoBehaviour
     {
         PlayerCanvas.SetActive(true);
 
-        _maxHp = SaveManager.Instance.UserData.MaxHP;
-        _currentHp = SaveManager.Instance.UserData.CurrentHP;
+        _maxHp = _saveData.MaxHP;
+        _currentHp = _saveData.CurrentHP;
 
         UpdateHpBar();
     }
 
     private void UpdatePlayerStatus()
     {
-        _def = SaveManager.Instance.UserData.Def;
+        _def = _saveData.Def;
     }
 
     private void UpdateHpBar()
@@ -88,9 +91,9 @@ public class PlayerStatus : MonoBehaviour
             // === 최종 데미지 계산 ===
             int finaldamage = Mathf.Max(1, damage - _def);
 
-            SaveManager.Instance.UserData.CurrentHP -= finaldamage;
+            _saveData.CurrentHP -= finaldamage;
 
-            _currentHp = SaveManager.Instance.UserData.CurrentHP;
+            _currentHp = _saveData.CurrentHP;
 
             if (_currentHp <= 0)
             {

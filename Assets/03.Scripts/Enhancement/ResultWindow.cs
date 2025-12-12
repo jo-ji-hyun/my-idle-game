@@ -32,7 +32,7 @@ public class ResultWindow : MonoBehaviour
             return; 
         }
 
-        int random = Random.Range(0, 100);
+        float random = Random.Range(0f, 100f);
 
         GameManager.Instance.ChangeMoney(-PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].PriceItem());
 

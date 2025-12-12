@@ -77,10 +77,10 @@ public class SaveManager : Singleton<SaveManager>
                             string loadData = snapshot.GetRawJsonValue();
                             UserData = JsonConvert.DeserializeObject<UserData>(loadData);
 
-                            //if(UserData.Version < Consts.Version.Current_Version) 
-                            //{
-                            //    UpdateVersion(UserData);
-                            //}
+                            if(UserData.Version < Consts.Version.Current_Version) 
+                            {
+                                UpdateVersion(UserData);
+                            }
 
                             if (UserData.PlayerInventory == null)
                             {
@@ -140,7 +140,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         if(loaduser.Version < Consts.Version.Version1_Check) 
         {
-            // === 추후 저장될 데이터가 증가시 직접입력 ===
+            loaduser.HealLevel = 0;
 
             loaduser.Version = Consts.Version.Version1_Check;
         }
@@ -178,6 +178,7 @@ public class SaveManager : Singleton<SaveManager>
             PlayerInventory = new List<InventorySaveData>(),
             BagSizeLevel = 0,
             IsHeal = false,
+            HealLevel = 0,
             IsAutoClean = false,
         };
 
