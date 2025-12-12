@@ -32,7 +32,7 @@ public class Store : MonoBehaviour
 
         _descriptitem = " 가방의 크기(+10)를 늘려줍니다.";
 
-        _itemprice = 100000;
+        _itemprice = 100000 + SaveManager.Instance.UserData.BagSizeLevel * 100000;
 
         UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 0);
     }
@@ -43,9 +43,9 @@ public class Store : MonoBehaviour
 
         _isClick = !_isClick;
 
-        _descriptitem = " 스테이지 클리어시 최대 체력으로 회복합니다.";
+        _descriptitem = " 스테이지 클리어시 체력을 회복합니다.";
 
-        _itemprice = 500000;
+        _itemprice = 500000 + SaveManager.Instance.UserData.HealLevel * 100000;
 
         UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 1);
     }
@@ -69,7 +69,7 @@ public class Store : MonoBehaviour
 
         _descriptitem = " 랜덤한 아이템 10종을 획득합니다.";
 
-        _itemprice = 600000 + 6000 * SaveManager.Instance.UserData.Stage;
+        _itemprice = 500000 + 26500 * SaveManager.Instance.UserData.Stage;
 
         UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 3);
     }
