@@ -140,7 +140,15 @@ public class SaveManager : Singleton<SaveManager>
     {
         if(loaduser.Version < Consts.Version.Version1_Check) 
         {
-            loaduser.HealLevel = 0;
+            if (loaduser.IsHeal)
+            {
+                loaduser.HealLevel = 1;
+            }
+            else
+            {
+                loaduser.HealLevel = 0;
+            }
+
             loaduser.IsAutoOn = false;
 
             loaduser.Version = Consts.Version.Version1_Check;

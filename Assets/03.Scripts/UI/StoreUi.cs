@@ -28,7 +28,7 @@ public class StoreUi : MonoBehaviour
     {
         Item_bag.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_0]");
 
-        if (SaveManager.Instance.UserData.IsHeal == false)
+        if (SaveManager.Instance.UserData.HealLevel < 10)
         {
             Item_heal.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_1]");
         }
