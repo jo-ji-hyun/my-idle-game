@@ -5,8 +5,7 @@ using UnityEngine;
 public class InvenyoryCleaner : MonoBehaviour
 {
     private InventoryUi _inventoryUi;
-
-    private bool _isClick = false;
+    private UserData _savedata;
 
     private readonly List<ItemData> _sellitems = new();
 
@@ -16,6 +15,7 @@ public class InvenyoryCleaner : MonoBehaviour
     private void Start()
     {
         _inventoryUi = UiManager.Instance.Inventory;
+        _savedata = SaveManager.Instance.UserData;
 
         _inventoryUi.ActiveBtn.onClick.AddListener(AutoClean);
 
@@ -31,16 +31,14 @@ public class InvenyoryCleaner : MonoBehaviour
     {
         if (SaveManager.Instance.UserData.IsAutoClean == false) return;
 
-        _isClick = !_isClick;
-
-        _inventoryUi.IsAutoOn = _isClick;
+        _savedata.IsAutoOn = !_savedata.IsAutoOn;
 
         if (_inventoryUi.BtnAnimator != null && SaveManager.Instance.UserData.IsAutoClean == true)
         {
-            _inventoryUi.BtnAnimator.SetBool("IsActive", _inventoryUi.IsAutoOn);
+            _inventoryUi.BtnAnimator.SetBool("IsActive", _savedata.IsAutoOn);
         }
 
-        if (_isClick) 
+        if (_savedata.IsAutoOn) 
         {
             _continueSell = StartCoroutine(ContinueAutoClean());
         }
@@ -64,7 +62,7 @@ public class InvenyoryCleaner : MonoBehaviour
 
     private void OnInventoryDataChanged()
     {
-        if (!_isClick) return;
+        if (!_savedata.IsAutoOn) return;
 
         AddSellitems();
 
@@ -94,7 +92,7 @@ public class InvenyoryCleaner : MonoBehaviour
 
     private IEnumerator ContinueAutoClean()
     {
-        while (_isClick)
+        while (_savedata.IsAutoOn)
         {
             OnInventoryDataChanged();
 

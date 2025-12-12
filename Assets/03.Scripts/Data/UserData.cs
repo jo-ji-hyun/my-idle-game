@@ -24,6 +24,7 @@ public class UserData
     public bool IsHeal;
     public int HealLevel;
     public bool IsAutoClean;
+    public bool IsAutoOn;
 }
 
 [Serializable]

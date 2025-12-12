@@ -18,8 +18,6 @@ public class InventoryUi : MonoBehaviour
     public GameObject CleanInventory;
     public Button ActiveBtn;
     public Animator BtnAnimator;
-    [HideInInspector]
-    public bool IsAutoOn = false;
 
     private int _currentNumber;
 
@@ -55,7 +53,7 @@ public class InventoryUi : MonoBehaviour
 
         if (BtnAnimator != null && SaveManager.Instance.UserData.IsAutoClean == true)
         {
-            BtnAnimator.SetBool("IsActive", IsAutoOn);
+            BtnAnimator.SetBool("IsActive", SaveManager.Instance.UserData.IsAutoOn);
         }
     }
 

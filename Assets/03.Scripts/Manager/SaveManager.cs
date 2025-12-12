@@ -141,6 +141,7 @@ public class SaveManager : Singleton<SaveManager>
         if(loaduser.Version < Consts.Version.Version1_Check) 
         {
             loaduser.HealLevel = 0;
+            loaduser.IsAutoOn = false;
 
             loaduser.Version = Consts.Version.Version1_Check;
         }
@@ -180,6 +181,7 @@ public class SaveManager : Singleton<SaveManager>
             IsHeal = false,
             HealLevel = 0,
             IsAutoClean = false,
+            IsAutoOn = false,
         };
 
         foreach (var equip in DataManager.Instance.ItemEquips)
