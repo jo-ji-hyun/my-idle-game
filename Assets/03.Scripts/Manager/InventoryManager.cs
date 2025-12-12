@@ -35,6 +35,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void SaveItems(List<InventorySaveData> playerInventory)
     {
+        if (InventoryItems.Count == 0) return;
+
         playerInventory.Clear();
 
         List<ItemData> saveItems = InventoryItems;
