@@ -154,20 +154,12 @@ public class SaveManager : Singleton<SaveManager>
             loaduser.Version = Consts.Version.Version1_Check;
         }
 
-        //if(loaduser.Version < Consts.Version.Version2_Check) 
-        //{
-
-        //loaduser.Version = Consts.Version.Version2_Check;
-        //}
-
         if (loaduser.Version != Consts.Version.Current_Version)
         {
             loaduser.Version = Consts.Version.Current_Version;
         }
 
         UserData = loaduser;
-
-        AllSave();
     }
 
     // === 데이터가 없을시 ===

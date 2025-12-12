@@ -5365,7 +5365,6 @@ MonoBehaviour:
   CleanInventory: {fileID: 1177962682}
   ActiveBtn: {fileID: 332675474}
   BtnAnimator: {fileID: 332675477}
-  IsAutoOn: 0
 --- !u!1 &509793967
 GameObject:
   m_ObjectHideFlags: 0
