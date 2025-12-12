@@ -46,6 +46,11 @@ public class EnemyManager : Singleton<EnemyManager>
         // === 한 적만 계속 소환하기 위해 ===
         SpawnEnemy = Instantiate(EnemyPrefabs, _spawposition + _offset, Quaternion.identity);
 
+        if (SaveManager.Instance.UserData.IsHeal == true)
+        {
+            SaveManager.Instance.UserData.CurrentHP = Mathf.Min(SaveManager.Instance.UserData.MaxHP, SaveManager.Instance.UserData.CurrentHP + (int)(SaveManager.Instance.UserData.MaxHP * SaveManager.Instance.UserData.HealLevel / 10));
+        }
+
         GameManager.Instance.PlayerSet();
     }
 

@@ -16,20 +16,24 @@ public class ContentSlots : MonoBehaviour
 
     private void OnEnable()
     {
+        if(SlotLists.Count > 20)
+        {
+            CheckSlot();
+        }
+
         // === 인벤토리 구독 ===
         InventoryManager.OnInventoryChanged += UpdateInventoryUI;
+    }
+    private void Start()
+    {
+        SlotsCreate();
 
-        UpdateInventoryUI();
+        CheckSlot();
     }
 
     private void OnDisable()
     {
         InventoryManager.OnInventoryChanged -= UpdateInventoryUI;
-    }
-
-    private void Start()
-    {
-        SlotsCreate();
     }
 
     // === 인벤토리 슬롯 배치 ===
@@ -54,8 +58,6 @@ public class ContentSlots : MonoBehaviour
     // === 인벤토리 갱신 ===
     private void UpdateInventoryUI()
     {
-        CheckSlot();
-
         _currentInventoryTxt.text = $"{InventoryManager.Instance.InventoryItems.Count} / {SlotLists.Count}";
 
         int loopCount = Mathf.Min(InventoryManager.Instance.InventoryItems.Count, SlotLists.Count);
@@ -92,5 +94,7 @@ public class ContentSlots : MonoBehaviour
                 slotComponent.Number = i;
             }
         }
+
+        UpdateInventoryUI();
     }
 }

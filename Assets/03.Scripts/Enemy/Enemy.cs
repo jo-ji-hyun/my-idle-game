@@ -4,8 +4,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private int _currentHp;
-    private Coroutine _currentBattleCoroutine;
-    private bool isBattleStart = false;
 
     private void Start()
     {
@@ -14,30 +12,27 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.IsBattle && !isBattleStart)
+        if (GameManager.Instance.IsBattle)
         {
-            _currentBattleCoroutine = StartCoroutine(TakeDamage(SaveManager.Instance.UserData.Atk));
+            StartCoroutine(TakeDamage(SaveManager.Instance.UserData.Atk));
         }
-        else if (!GameManager.Instance.IsBattle && isBattleStart)
+        else if (!GameManager.Instance.IsBattle)
         {
-            StopCoroutine(_currentBattleCoroutine);
+            UiManager.Instance.EnemyHP.UpdateHpBar();
         }
     }
 
     private void StageStart()
     {
-        _currentHp = SaveManager.Instance.UserData.BossMaxHp;
-
+        _currentHp = SaveManager.Instance.UserData.BossCurrentHp;
         UiManager.Instance.EnemyHP.UpdateHpBar();
     }
 
     private IEnumerator TakeDamage(int damage)
     {
-        isBattleStart = true;
-
         while (GameManager.Instance.IsBattle)
         {
-            int finaldamage = Mathf.Min(1, damage - (int)SaveManager.Instance.UserData.Stage / 5);
+            int finaldamage = Mathf.Max(1, damage - (int)SaveManager.Instance.UserData.Stage / 5);
 
             if (SaveManager.Instance.UserData.Cri > Random.Range(0, 99))
             {
@@ -64,10 +59,8 @@ public class Enemy : MonoBehaviour
                 UiManager.Instance.EnemyHP.UpdateHpBar();
             }
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(1.0f);
         }
-
-        isBattleStart = false;
     }
 
     // === 스테이지 갱신후 다음 스테이지 준비 ===

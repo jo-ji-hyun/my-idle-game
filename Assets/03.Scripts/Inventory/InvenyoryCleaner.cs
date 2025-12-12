@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class InvenyoryCleaner : MonoBehaviour
 {
-    private InventoryUi _inventoryUi;
-    private UserData _savedata;
-
     private readonly List<ItemData> _sellitems = new();
 
     private Coroutine _autoSell;
@@ -14,10 +11,7 @@ public class InvenyoryCleaner : MonoBehaviour
 
     private void Start()
     {
-        _inventoryUi = UiManager.Instance.Inventory;
-        _savedata = SaveManager.Instance.UserData;
-
-        _inventoryUi.ActiveBtn.onClick.AddListener(AutoClean);
+        UiManager.Instance.Inventory.ActiveBtn.onClick.AddListener(AutoClean);
 
         InventoryManager.OnInventoryChanged += OnInventoryDataChanged;
     }
@@ -31,14 +25,14 @@ public class InvenyoryCleaner : MonoBehaviour
     {
         if (SaveManager.Instance.UserData.IsAutoClean == false) return;
 
-        _savedata.IsAutoOn = !_savedata.IsAutoOn;
+        SaveManager.Instance.UserData.IsAutoOn = !SaveManager.Instance.UserData.IsAutoOn;
 
-        if (_inventoryUi.BtnAnimator != null && SaveManager.Instance.UserData.IsAutoClean == true)
+        if (UiManager.Instance.Inventory.BtnAnimator != null && SaveManager.Instance.UserData.IsAutoClean == true)
         {
-            _inventoryUi.BtnAnimator.SetBool("IsActive", _savedata.IsAutoOn);
+            UiManager.Instance.Inventory.BtnAnimator.SetBool("IsActive", SaveManager.Instance.UserData.IsAutoOn);
         }
 
-        if (_savedata.IsAutoOn) 
+        if (SaveManager.Instance.UserData.IsAutoOn) 
         {
             _continueSell = StartCoroutine(ContinueAutoClean());
         }
@@ -62,7 +56,7 @@ public class InvenyoryCleaner : MonoBehaviour
 
     private void OnInventoryDataChanged()
     {
-        if (!_savedata.IsAutoOn) return;
+        if (!SaveManager.Instance.UserData.IsAutoOn) return;
 
         AddSellitems();
 
@@ -92,7 +86,7 @@ public class InvenyoryCleaner : MonoBehaviour
 
     private IEnumerator ContinueAutoClean()
     {
-        while (_savedata.IsAutoOn)
+        while (SaveManager.Instance.UserData.IsAutoOn)
         {
             OnInventoryDataChanged();
 
@@ -106,7 +100,7 @@ public class InvenyoryCleaner : MonoBehaviour
     {
         while (_sellitems.Count > 0)
         {
-            _inventoryUi.AutoSellitem(_sellitems[0]);
+            UiManager.Instance.Inventory.AutoSellitem(_sellitems[0]);
 
             _sellitems.RemoveAt(0);
 
@@ -114,8 +108,6 @@ public class InvenyoryCleaner : MonoBehaviour
         }
 
         _autoSell = null;
-
-        InventoryManager.Instance.ChangeInventory();
 
         SaveManager.Instance.SaveUser(SaveManager.Instance.UserData);
     }

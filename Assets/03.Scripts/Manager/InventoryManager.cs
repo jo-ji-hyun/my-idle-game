@@ -20,16 +20,13 @@ public class InventoryManager : Singleton<InventoryManager>
         {
             InventorySaveData inventoryitems = saveData;
 
-            if (itemData.TryGetValue(inventoryitems.Type, out ItemData originalData))
-            {
-                ItemData originalItem = DataManager.Instance.ItemDrops[originalData.Type];
+            ItemData originalItem = itemData[inventoryitems.Type];
 
-                ItemData cloneItem = Instantiate(originalItem);
+            ItemData cloneItem = Instantiate(originalItem);
 
-                cloneItem.Enhanced = inventoryitems.Enhanced;
+            cloneItem.Enhanced = inventoryitems.Enhanced;
 
-                InventoryItems.Add(cloneItem);
-            }
+            InventoryItems.Add(cloneItem);
         }
     }
 

@@ -111,7 +111,7 @@ public class EnhancementtUi : MonoBehaviour
         {
             Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_3]");
 
-            DescriptionTxt.text = $"강화 전 : 크리티컬 데미지 + {(int)(SaveManager.Instance.UserData.Atk * 1.2f) + (SaveManager.Instance.UserData.Cri / 2)} \n강화 후 : 크리티컬 데미지 + {(int)(SaveManager.Instance.UserData.Atk * 1.2f) + ((SaveManager.Instance.UserData.Cri + 1) / 2)}";
+            DescriptionTxt.text = $"강화 전 : 크리티컬 데미지 + {(int)(SaveManager.Instance.UserData.Atk * 1.2f) + (SaveManager.Instance.UserData.Cri / 2)} \n강화 후 : 크리티컬 데미지 + {(int)(SaveManager.Instance.UserData.Atk * 1.2f) + ((SaveManager.Instance.UserData.Cri + 1) / 2.0f)}";
         }
         else 
         {
