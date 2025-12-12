@@ -30,6 +30,8 @@ public class ShoppingWindow : MonoBehaviour
         {
             ShoppingResult.color = Color.red;
             ShoppingResult.text = "금액 부족";
+
+            SoundManager.Instance.SpecialEffectSound(Consts.SpecialItem.NotEnoughMoney);
             return;
         }
 
@@ -102,7 +104,7 @@ public class ShoppingWindow : MonoBehaviour
 
         UiManager.Instance.StoreWindow.SetActive(false);
 
-        UiManager.Instance.InventoryWindow.SetActive(true);
+        UiManager.Instance.Inventory.ShowInventory();
     }
 
     private void OnDisable()

@@ -44,7 +44,7 @@ public class InventoryUi : MonoBehaviour
         }
     }
 
-    private void ShowInventory()
+    public void ShowInventory()
     {
         UiManager.Instance.InventoryWindow.SetActive(true);
 

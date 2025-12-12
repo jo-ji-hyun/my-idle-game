@@ -20,6 +20,7 @@ public static class Consts
     public enum SpecialItem 
     {
         CardDraw,
+        NotEnoughMoney,
         SoldOut
     }
 
