@@ -157,6 +157,8 @@ public class SaveManager : Singleton<SaveManager>
             loaduser.Version = Consts.Version.Current_Version;
         }
 
+        UserData = loaduser;
+
         AllSave();
     }
 
