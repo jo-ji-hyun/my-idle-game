@@ -30,7 +30,9 @@ public class UserData
 [Serializable]
 public class ItemSaveData
 {
+    public Consts.ItemType Type;
     public int Enhanced;
+    public int Grade;
 }
 
 [Serializable]

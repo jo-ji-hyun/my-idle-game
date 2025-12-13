@@ -1037,6 +1037,7 @@ MonoBehaviour:
     IsHeal: 0
     HealLevel: 0
     IsAutoClean: 0
+    IsAutoOn: 0
   SystemData:
     BGMVolume: 0
     SFXVolume: 0
@@ -3198,11 +3199,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a74941823fa6db429af94ef1235766e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Helmet: {fileID: 11400000, guid: d16fe78a9acbdda498bb73783ba9a113, type: 2}
-  Weapon: {fileID: 11400000, guid: f219f1bd696914749804b4130446c425, type: 2}
-  Shield: {fileID: 11400000, guid: 01664aa855255c145b10df7c602f394e, type: 2}
-  Ring: {fileID: 11400000, guid: f48fc6f87c108224991e46566b6f3dda, type: 2}
-  ItemEquips: []
+  Allitems:
+  - {fileID: 11400000, guid: d16fe78a9acbdda498bb73783ba9a113, type: 2}
+  - {fileID: 11400000, guid: f219f1bd696914749804b4130446c425, type: 2}
+  - {fileID: 11400000, guid: 01664aa855255c145b10df7c602f394e, type: 2}
+  - {fileID: 11400000, guid: f48fc6f87c108224991e46566b6f3dda, type: 2}
 --- !u!4 &1048782003
 Transform:
   m_ObjectHideFlags: 0

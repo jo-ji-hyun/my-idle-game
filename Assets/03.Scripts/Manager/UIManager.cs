@@ -7,7 +7,7 @@ public class UiManager : Singleton<UiManager>
     public InventoryUi Inventory { get; private set; }
 
     [field:SerializeField]
-    public EnhancementtUi Enhancement { get; private set; }
+    public EnhancementUi Enhancement { get; private set; }
 
     [field: SerializeField]
     public StoreUi Store { get; private set; }

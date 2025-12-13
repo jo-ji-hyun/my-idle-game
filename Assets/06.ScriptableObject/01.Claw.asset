@@ -19,4 +19,6 @@ MonoBehaviour:
   Cri: 0
   Enhanced: 0
   Price: 1000
+  Grade: 0
+  IsPossibleToUpgrade: 1
   Icon: Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_1]

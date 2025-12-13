@@ -77,7 +77,11 @@ public class InvenyoryCleaner : MonoBehaviour
                 continue;
             }
 
-            if (item.Enhanced < SaveManager.Instance.UserData.ItemSaveDatas[(int)item.Type].Enhanced)
+            ItemData equipitem = PlayerEquip.Instance.EquipmentSlot[(int)item.Type];
+
+            int equipValue = equipitem.EnhancedValue();
+
+            if (item.EnhancedValue() < equipValue)
             {
                 _sellitems.Add(item);
             }

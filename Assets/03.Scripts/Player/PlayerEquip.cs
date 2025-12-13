@@ -10,10 +10,47 @@ public class PlayerEquip : Singleton<PlayerEquip>
 
     protected override bool IsDestroy => false;
 
+    // === 아무런 세이브 데이터가 없을때 ===
+    public void InitData()
+    {
+        for (int i = 0; i <= (int)Consts.ItemType.Ring; i++)
+        {
+            EquipmentSlot.Add(Instantiate(DataManager.Instance.Allitems[i]));
+        }
+    }
+
+    // === 세이브 데이터가 있을 경우 ===
+    public void InitLoadData(UserData data)
+    {
+        foreach (var loaditem in data.ItemSaveDatas)
+        {
+            Consts.ItemType itemType = loaditem.Type;
+
+            int loadGrade = loaditem.Grade;
+
+            if (DataManager.Instance.AllitemsByType.TryGetValue(itemType, out List<ItemData> clonitems))
+            {
+                for(int i = 0; i < clonitems.Count; i++)
+                {
+                    if(loadGrade == clonitems[i].Grade)
+                    {
+                        ItemData newdata = Instantiate(clonitems[i]);
+
+                        newdata.Enhanced = loaditem.Enhanced;
+       
+                        EquipmentSlot.Add(newdata);
+
+                        break;
+                    }
+                }
+            }
+        }
+
+        EquipItemCheck();
+    }
+
     public void EquipItemCheck()
     {
-        EquipmentSlot = new List<ItemData>(DataManager.Instance.ItemEquips);
-
         if (EquipmentSlot != null)
         {
             foreach (ItemData item in EquipmentSlot)

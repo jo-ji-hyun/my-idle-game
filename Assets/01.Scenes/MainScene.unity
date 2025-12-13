@@ -6555,31 +6555,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 616138921}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 411232386}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 607932919}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &616138921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12554,7 +12530,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 144.30872, y: 128}
-  m_SizeDelta: {x: 515, y: 130}
+  m_SizeDelta: {x: 515, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1286081662
 MonoBehaviour:
@@ -12639,7 +12615,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.000091552734, y: 44.654053, z: 2.678955, w: 0}
+  m_margin: {x: -0.000091552734, y: 3.321289, z: 2.678955, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17782,10 +17758,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1872291861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64c61c9a20619c489bb91e3e21f742f, type: 3}
+  m_Script: {fileID: 11500000, guid: a01582d1400429449a03fd22037cbc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UiBtn: {fileID: 1872291863}
+  UiCloseBtn: {fileID: 616138920}
   DescriptionPanel: {fileID: 607932919}
   DescriptionTxt: {fileID: 1286081662}
   Statusicon: {fileID: 166896785}
@@ -17793,10 +17770,11 @@ MonoBehaviour:
   WeaponBtn: {fileID: 1453384686}
   ShieldBtn: {fileID: 485579911}
   RingBtn: {fileID: 1945928719}
-  Helmet: {fileID: 1787236656}
-  Weapon: {fileID: 1057991647}
-  Shield: {fileID: 699456225}
-  Ring: {fileID: 623067682}
+  EnhanceSlotImage:
+  - {fileID: 1787236656}
+  - {fileID: 1057991647}
+  - {fileID: 699456225}
+  - {fileID: 623067682}
   EnhanceChance: 0
 --- !u!1 &1873421795
 GameObject:
@@ -18294,7 +18272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Inventory>k__BackingField: {fileID: 507644540}
-  <Enhancement>k__BackingField: {fileID: 1872291866}
+  <Enhancement>k__BackingField: {fileID: 0}
   <Store>k__BackingField: {fileID: 1804558630}
   <System>k__BackingField: {fileID: 437043589}
   <Money>k__BackingField: {fileID: 1647778789}

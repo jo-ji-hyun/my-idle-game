@@ -5,7 +5,7 @@ public class ItemData : ScriptableObject
 {
     public Consts.ItemType Type;  // === 아이템 종류 ===
 
-    // === 추가 능력치 ===
+    // === 기본 능력치 ===
     [Header("Status")]
     public int Hp;
     public int Atk;
@@ -13,8 +13,10 @@ public class ItemData : ScriptableObject
     public int Cri;
 
     [Header("etc")]
-    public int Enhanced;   // === 현재 강화 수치 ===
+    public int Enhanced;  
     public int Price;
+    public int Grade;                           // === 스테이지 클리어시 얻는 아이템 = 0, 뽑기 아이템은 등급 증가 ===
+    public bool IsPossibleToUpgrade = true;     // === 강화가 가능한지 아닌지 ===
 
     [Header("Addressable")] // === 주소값 ===
     public string Icon;    
@@ -30,6 +32,19 @@ public class ItemData : ScriptableObject
             _ => 0,
         };
     }
+
+    // === 등급별 추가 능력치 ===
+    private float GetGradeBonus()
+    {
+        return Grade switch
+        {
+            0 => 1.0f,
+            1 => 1.5f,
+            2 => 2.0f,
+            _ => 1.0f,
+        };
+    }
+
     // === Ui 표기를 위한 다음 강화 수치 ===
     public int NextEnhancedValue()
     {

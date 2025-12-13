@@ -91,15 +91,7 @@ public class SaveManager : Singleton<SaveManager>
                                 Debug.Log("인벤토리 준비완료");
                             }
 
-                            for (int i = 0; i < DataManager.Instance.ItemEquips.Count; i++) 
-                            {
-                                foreach (var loaditem in DataManager.Instance.ItemEquips)
-                                {
-                                    DataManager.Instance.ItemEquips[i].Enhanced = UserData.ItemSaveDatas[i].Enhanced;
-                                }
-                            }
-                            
-                            PlayerEquip.Instance.EquipItemCheck();
+                            PlayerEquip.Instance.InitLoadData(UserData);
 
                             InventoryManager.Instance.LoadItems(UserData.PlayerInventory);
                         }
@@ -186,13 +178,17 @@ public class SaveManager : Singleton<SaveManager>
             IsAutoOn = false,
         };
 
-        foreach (var equip in DataManager.Instance.ItemEquips)
+        PlayerEquip.Instance.InitData();
+
+        foreach (var equip in PlayerEquip.Instance.EquipmentSlot)
         {     
             ItemData currentEquip = equip; 
 
             ItemSaveData newItemSave = new()
             {
+                Type = equip.Type,
                 Enhanced = currentEquip.Enhanced,
+                Grade = currentEquip.Grade,
             };
 
             UserData.ItemSaveDatas.Add(newItemSave);
@@ -229,7 +225,9 @@ public class SaveManager : Singleton<SaveManager>
 
             ItemSaveData newItemSave = new()
             {
+                Type = saveitem.Type,
                 Enhanced = currentEquip.Enhanced, 
+                Grade = currentEquip.Grade,
             };
 
             UserData.ItemSaveDatas[(int)saveitem.Type] = newItemSave;

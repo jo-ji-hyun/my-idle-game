@@ -1,10 +1,12 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnhancementtUi : MonoBehaviour
+public class EnhancementUi : MonoBehaviour
 {
     public Button UiBtn;
+    public Button UiCloseBtn;
 
     [Header("Windows")]
     public GameObject DescriptionPanel;
@@ -18,10 +20,7 @@ public class EnhancementtUi : MonoBehaviour
     public Button RingBtn;
 
     [Header("Sprite")]
-    public Image Helmet;
-    public Image Weapon;
-    public Image Shield;
-    public Image Ring;
+    public List<Image> EnhanceSlotImage;
 
     [HideInInspector]
     public float EnhanceChance;
@@ -29,25 +28,54 @@ public class EnhancementtUi : MonoBehaviour
     private void Start()
     {
         UiBtn.onClick.AddListener(ShowUpgade);
+        UiCloseBtn.onClick.AddListener(CloseWindow);
 
         HelmetBtn.onClick.AddListener(EnhanceHelmet);
         WeaponBtn.onClick.AddListener(EnhanceWeapon);
         ShieldBtn.onClick.AddListener(EnhanceShield);
         RingBtn.onClick.AddListener(EnhanceRing);
-
-        // === 버튼을 다 받았으면 ===
-        DescriptionPanel.SetActive(false);
-
-        Helmet.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_0]");
-        Weapon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_1]");
-        Shield.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_2]");
-        Ring.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_3]");
     }
 
     private void ShowUpgade()
     {
         UiManager.Instance.EnhanceWindow.SetActive(true);
+
+        for (int i = 0; i < PlayerEquip.Instance.EquipmentSlot.Count; i++)
+        {
+            ItemData currentitem = PlayerEquip.Instance.EquipmentSlot[i];
+
+            EnhanceSlotImage[i].sprite = AddressableManager.Instance.GetAssets<Sprite>(currentitem.Icon);
+        }
     }
+
+    public void CloseWindow()
+    {
+        DescriptionPanel.SetActive(false);
+
+        for (int i = 0; i < EnhanceSlotImage.Count; i++)
+        {
+            EnhanceSlotImage[i].sprite = null;
+        }
+
+        UiManager.Instance.EnhanceWindow.SetActive(false);
+    }
+
+    private bool CheckPossibleEnhance(ItemData item)
+    {
+        if (!item.IsPossibleToUpgrade)
+        {
+            DescriptionTxt.text = "강화 불가 아이템";
+
+            DescriptionPanel.SetActive(true);
+
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
 
     private void EnhanceHelmet()
     {
@@ -56,6 +84,11 @@ public class EnhancementtUi : MonoBehaviour
         ItemData item = PlayerEquip.Instance.EquipmentSlot[0];
 
         Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_0]");
+
+        if (!CheckPossibleEnhance(item))
+        {
+            return;
+        }
 
         DescriptionTxt.text = $"강화 전 : 체력 + {item.EnhancedHP(item.Enhanced)} \n강화 후 : 체력 + {item.NextEnhancedValue()}";
 
@@ -72,6 +105,11 @@ public class EnhancementtUi : MonoBehaviour
 
         Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_1]");
 
+        if (!CheckPossibleEnhance(item))
+        {
+            return;
+        }
+
         DescriptionTxt.text = $"강화 전 : 공격력 + {item.EnhancedAttack(item.Enhanced)} \n강화 후 : 공격력 + {item.NextEnhancedValue()}";
 
         PlayerEquip.Instance.CheckEquipNumber = 1;
@@ -86,6 +124,11 @@ public class EnhancementtUi : MonoBehaviour
         ItemData item = PlayerEquip.Instance.EquipmentSlot[2];
 
         Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_2]");
+
+        if (!CheckPossibleEnhance(item))
+        {
+            return;
+        }
 
         DescriptionTxt.text = $"강화 전 : 방어력 + {item.EnhancedDefence(item.Enhanced)} \n강화 후 : 방어력 + {item.NextEnhancedValue()}";
 
@@ -104,6 +147,11 @@ public class EnhancementtUi : MonoBehaviour
         {
             Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_3]");
 
+            if (!CheckPossibleEnhance(item))
+            {
+                return;
+            }
+
             int attackbonus = (int)(SaveManager.Instance.UserData.Atk * 1.2f);
 
             int currentCridamage = item.EnhancedCri(item.Enhanced) / 2;
@@ -115,6 +163,11 @@ public class EnhancementtUi : MonoBehaviour
         else 
         {
             Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status1.png[status1_0]");
+
+            if (!CheckPossibleEnhance(item))
+            {
+                return;
+            }
 
             DescriptionTxt.text = $"강화 전 : 크리티컬 + {item.EnhancedCri(item.Enhanced)} \n강화 후 : 크리티컬 + {item.NextEnhancedValue()}";
         }

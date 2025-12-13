@@ -2,13 +2,11 @@
 
 public class DataManager : Singleton<DataManager> 
 {
-    public ItemData Helmet;
-    public ItemData Weapon;
-    public ItemData Shield;
-    public ItemData Ring;
+    public List<ItemData> Allitems = new();
 
-    public List<ItemData> ItemEquips = new();
     public Dictionary<Consts.ItemType, ItemData> ItemDrops = new();
+
+    public Dictionary<Consts.ItemType, List<ItemData>> AllitemsByType = new();
 
     protected override bool IsDestroy => false;
 
@@ -17,19 +15,34 @@ public class DataManager : Singleton<DataManager>
         CloneItemData();
     }
 
-    public void CloneItemData()
+    private void CloneItemData()
     {
-        ItemEquips.Add(Instantiate(Helmet));
-        ItemEquips.Add(Instantiate(Weapon));
-        ItemEquips.Add(Instantiate(Shield));
-        ItemEquips.Add(Instantiate(Ring));
+        List<ItemData> fielditems = new();
 
+        for (int i = 0; i <= (int)Consts.ItemType.Ring; i++)
+        {
+            fielditems.Add(Instantiate(Allitems[i]));
+        }
 
-        foreach (var item in ItemEquips)
+        foreach (var item in fielditems)
         {
             ItemData itemdata = item;
 
             ItemDrops.Add(item.Type, itemdata);
+        }
+
+        foreach (var items in Allitems)
+        {
+            ItemData itemdata = Instantiate(items);
+
+            Consts.ItemType type = itemdata.Type;
+
+            if (!AllitemsByType.ContainsKey(type))
+            {
+                AllitemsByType.Add(type, new List<ItemData>());
+            }
+
+            AllitemsByType[type].Add(itemdata);
         }
     }
 }
