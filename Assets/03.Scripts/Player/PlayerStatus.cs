@@ -72,8 +72,9 @@ public class PlayerStatus : MonoBehaviour
         {
             UpdatePlayerStatus();
 
-            // === 최종 데미지 계산 ===
-            int finaldamage = Mathf.Max(1, damage - _def);
+            int applydamage = (int)(damage * 1.5f) - _def;
+
+            int finaldamage = Mathf.Max(1, applydamage);
 
             SaveManager.Instance.UserData.CurrentHP -= finaldamage;
 

@@ -23,25 +23,39 @@ public class ItemData : ScriptableObject
     {
         return Type switch
         {
-            Consts.ItemType.Helmet => EnhancedHP(),
-            Consts.ItemType.Weapon => EnhancedAttack(),
-            Consts.ItemType.Shield => EnhancedDefence(),
-            Consts.ItemType.Ring => EnhancedCri(),
+            Consts.ItemType.Helmet => EnhancedHP(Enhanced),
+            Consts.ItemType.Weapon => EnhancedAttack(Enhanced),
+            Consts.ItemType.Shield => EnhancedDefence(Enhanced),
+            Consts.ItemType.Ring => EnhancedCri(Enhanced),
+            _ => 0,
+        };
+    }
+    // === Ui 표기를 위한 다음 강화 수치 ===
+    public int NextEnhancedValue()
+    {
+        int nextEnhanced = Enhanced + 1;
+
+        return Type switch
+        {
+            Consts.ItemType.Helmet => EnhancedHP(nextEnhanced),
+            Consts.ItemType.Weapon => EnhancedAttack(nextEnhanced),
+            Consts.ItemType.Shield => EnhancedDefence(nextEnhanced),
+            Consts.ItemType.Ring => EnhancedCri(nextEnhanced),
             _ => 0,
         };
     }
 
-    public int EnhancedHP()
+    public int EnhancedHP(int enhanced)
     {
         if (this.Type != Consts.ItemType.Helmet)
         {
             return Hp;
         }
 
-        return Hp + Enhanced * 150;
+        return Hp + enhanced * 150;
     }
 
-    public int EnhancedAttack()
+    public int EnhancedAttack(int enhanced)
     {
         if (this.Type != Consts.ItemType.Weapon)
         {
@@ -50,7 +64,7 @@ public class ItemData : ScriptableObject
 
         int atkBonus = 0;
 
-        for (int i = 1; i <= Enhanced; i++)
+        for (int i = 1; i <= enhanced; i++)
         {
             // === 짝수 레벨마다 보너스를 누적 ===
             if (i % 2 == 0)
@@ -59,30 +73,27 @@ public class ItemData : ScriptableObject
             }
         }
 
-        return Atk + atkBonus + Enhanced;
+        return Atk + atkBonus + enhanced;
     }
 
-    public int EnhancedDefence()
+    public int EnhancedDefence(int enhanced)
     {
         if (this.Type != Consts.ItemType.Shield)
         {
             return Def;
         }
 
-        return Def + Enhanced;
+        return Def + enhanced;
     }
 
-    public int EnhancedCri() 
+    public int EnhancedCri(int enhanced) 
     {
         if (this.Type != Consts.ItemType.Ring)
         {
             return Cri;
         }
 
-        int finalCri = Cri + Enhanced;
-
-        // === 최대값 100 ===
-        return Mathf.Min(finalCri, 100);
+        return Cri + enhanced / 2;
     }
 
     public int PriceItem()

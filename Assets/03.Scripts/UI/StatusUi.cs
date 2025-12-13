@@ -39,7 +39,7 @@ public class StatusUi : MonoBehaviour
         MaxHp.text = $"{SaveManager.Instance.UserData.MaxHP}";
         Atk.text = $"{SaveManager.Instance.UserData.Atk}";
         Def.text = $"{SaveManager.Instance.UserData.Def}";
-        Cri.text = $"{SaveManager.Instance.UserData.Cri}";
+        Cri.text = $"{Math.Min(100, SaveManager.Instance.UserData.Cri)}";
         CriDmg.text = $"{(int)(SaveManager.Instance.UserData.Atk * 1.2f) + (SaveManager.Instance.UserData.Cri) / 2}";
 
         OnStatusChanged?.Invoke();

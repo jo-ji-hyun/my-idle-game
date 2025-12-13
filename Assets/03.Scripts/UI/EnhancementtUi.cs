@@ -57,7 +57,7 @@ public class EnhancementtUi : MonoBehaviour
 
         Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_0]");
 
-        DescriptionTxt.text = $"강화 전 : 체력 + {item.EnhancedHP()} \n강화 후 : 체력 + {item.EnhancedHP() + 150}";
+        DescriptionTxt.text = $"강화 전 : 체력 + {item.EnhancedHP(item.Enhanced)} \n강화 후 : 체력 + {item.NextEnhancedValue()}";
 
         PlayerEquip.Instance.CheckEquipNumber = 0;
 
@@ -72,14 +72,7 @@ public class EnhancementtUi : MonoBehaviour
 
         Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_1]");
 
-        if ((item.Enhanced + 1) % 2 == 0)
-        {
-            DescriptionTxt.text = $"강화 전 : 공격력 + {item.EnhancedAttack()} \n강화 후 : 공격력 + {item.EnhancedAttack() + 1} + 3";
-        }
-        else 
-        {
-            DescriptionTxt.text = $"강화 전 : 공격력 + {item.EnhancedAttack()} \n강화 후 : 공격력 + {item.EnhancedAttack() + 1}";
-        }
+        DescriptionTxt.text = $"강화 전 : 공격력 + {item.EnhancedAttack(item.Enhanced)} \n강화 후 : 공격력 + {item.NextEnhancedValue()}";
 
         PlayerEquip.Instance.CheckEquipNumber = 1;
 
@@ -94,7 +87,7 @@ public class EnhancementtUi : MonoBehaviour
 
         Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_2]");
 
-        DescriptionTxt.text = $"강화 전 : 방어력 + {item.EnhancedDefence()} \n강화 후 : 방어력 + {item.EnhancedDefence() + 1}";
+        DescriptionTxt.text = $"강화 전 : 방어력 + {item.EnhancedDefence(item.Enhanced)} \n강화 후 : 방어력 + {item.NextEnhancedValue()}";
 
         PlayerEquip.Instance.CheckEquipNumber = 2;
 
@@ -107,17 +100,23 @@ public class EnhancementtUi : MonoBehaviour
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[3];
 
-        if(item.EnhancedCri() >= 100) 
+        if(item.EnhancedCri(item.Enhanced) >= 100) 
         {
             Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_3]");
 
-            DescriptionTxt.text = $"강화 전 : 크리티컬 데미지 + {(int)(SaveManager.Instance.UserData.Atk * 1.2f) + (SaveManager.Instance.UserData.Cri / 2)} \n강화 후 : 크리티컬 데미지 + {(int)(SaveManager.Instance.UserData.Atk * 1.2f) + ((SaveManager.Instance.UserData.Cri + 1) / 2.0f)}";
+            int attackbonus = (int)(SaveManager.Instance.UserData.Atk * 1.2f);
+
+            int currentCridamage = item.EnhancedCri(item.Enhanced) / 2;
+
+            int nextCridamage = (item.NextEnhancedValue()) / 2;
+
+            DescriptionTxt.text = $"강화 전 : 크리티컬 데미지 + {attackbonus + currentCridamage} \n강화 후 : 크리티컬 데미지 + {attackbonus + nextCridamage}";
         }
         else 
         {
             Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status1.png[status1_0]");
 
-            DescriptionTxt.text = $"강화 전 : 크리티컬 + {item.EnhancedCri()} \n강화 후 : 크리티컬 + {item.EnhancedCri() + 1}";
+            DescriptionTxt.text = $"강화 전 : 크리티컬 + {item.EnhancedCri(item.Enhanced)} \n강화 후 : 크리티컬 + {item.NextEnhancedValue()}";
         }
 
         PlayerEquip.Instance.CheckEquipNumber = 3;
