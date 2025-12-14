@@ -60,9 +60,9 @@ public class StoreUi : MonoBehaviour
     }
 
     // === 상점 아이템 설명 ===
-    public void DescriptionWindow(bool x, string info, int pirce, int num)
+    public void DescriptionWindow(string info, int pirce, int num)
     {
-        DescriptionPanel.SetActive(x);
+        DescriptionPanel.SetActive(false);
 
         ItemDescriptionTxt.text = info;
 
@@ -72,6 +72,8 @@ public class StoreUi : MonoBehaviour
         SelectedItemID = num;
 
         Description_icon.sprite = Changeicon();
+
+        DescriptionPanel.SetActive(true);
     }
 
     private Sprite Changeicon() 

@@ -84,7 +84,7 @@ public class SaveManager : Singleton<SaveManager>
 
                             if (UserData.PlayerInventory == null)
                             {
-                                UserData.PlayerInventory = new List<InventorySaveData>();
+                                UserData.PlayerInventory = new List<ItemSaveData>();
                             }
                             else 
                             {
@@ -170,7 +170,7 @@ public class SaveManager : Singleton<SaveManager>
             Def = 0,
             Cri = 0,
             ItemSaveDatas = new List<ItemSaveData>(),
-            PlayerInventory = new List<InventorySaveData>(),
+            PlayerInventory = new List<ItemSaveData>(),
             BagSizeLevel = 0,
             IsHeal = false,
             HealLevel = 0,

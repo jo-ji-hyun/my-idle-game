@@ -9,7 +9,6 @@ public class Store : MonoBehaviour
     public Button Item_auto_Btn;
     public Button Item_draw_Btn;
 
-    private bool _isClick;
     private string _descriptitem;
     private int _itemprice;
 
@@ -28,58 +27,42 @@ public class Store : MonoBehaviour
 
     private void Bag()
     {
-        _isClick = !_isClick;
-
-        UiManager.Instance.Store.DescriptionPanel.SetActive(!_isClick);
-
         _descriptitem = " 가방의 크기(+10)를 늘려줍니다.";
 
         _itemprice = 100000 + SaveManager.Instance.UserData.BagSizeLevel * 100000;
 
-        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 0);
+        UiManager.Instance.Store.DescriptionWindow(_descriptitem, _itemprice, 0);
     }
 
     private void Heal() 
     {
         if (SaveManager.Instance.UserData.HealLevel == 10) return;
 
-        _isClick = !_isClick;
-
-        UiManager.Instance.Store.DescriptionPanel.SetActive(!_isClick);
-
         _descriptitem = " 스테이지 클리어시 체력을 회복합니다.";
 
         _itemprice = 500000 + SaveManager.Instance.UserData.HealLevel * 100000;
 
-        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 1);
+        UiManager.Instance.Store.DescriptionWindow(_descriptitem, _itemprice, 1);
     }
 
     private void AutoClean() 
     {
         if (SaveManager.Instance.UserData.IsAutoClean == true) return;
 
-        _isClick = !_isClick;
-
-        UiManager.Instance.Store.DescriptionPanel.SetActive(!_isClick);
-
         _descriptitem = " 현재 장착된 장비의 강화수치 보다 낮은 아이템을 자동 판매합니다.";
 
         _itemprice = 1000000;
 
-        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 2);
+        UiManager.Instance.Store.DescriptionWindow(_descriptitem, _itemprice, 2);
     }
 
     private void DrawItem() 
     {
-        _isClick = !_isClick;
-
-        UiManager.Instance.Store.DescriptionPanel.SetActive(!_isClick);
-
         _descriptitem = " 랜덤한 아이템 10종을 획득합니다.";
 
-        _itemprice = 500000 + 26500 * SaveManager.Instance.UserData.Stage;
+        _itemprice = 5000 + 5000 * SaveManager.Instance.UserData.Stage;
 
-        UiManager.Instance.Store.DescriptionWindow(_isClick, _descriptitem, _itemprice, 3);
+        UiManager.Instance.Store.DescriptionWindow(_descriptitem, _itemprice, 3);
     }
 
 }

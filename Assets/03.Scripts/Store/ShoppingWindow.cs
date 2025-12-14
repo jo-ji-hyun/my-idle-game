@@ -44,6 +44,8 @@ public class ShoppingWindow : MonoBehaviour
 
         SaveManager.Instance.AllSave();
 
+        UiManager.Instance.Store.DescriptionPanel.SetActive(false);
+
         SoldOut();
     }
 

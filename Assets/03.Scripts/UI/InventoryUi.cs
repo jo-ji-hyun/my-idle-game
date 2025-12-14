@@ -79,8 +79,8 @@ public class InventoryUi : MonoBehaviour
 
         ItemData equipItem = InventoryManager.Instance.InventoryItems[index];
 
-        // === 2. 강화상태가 똑같거나 더 작으면 장착 무효화 ===
-        if (PlayerEquip.Instance.EquipmentSlot[type].Enhanced >= equipItem.Enhanced)
+        // === 2. 아이템 벨류가 똑같거나 더 작으면 장착 무효화 ===
+        if (PlayerEquip.Instance.EquipmentSlot[type].EnhancedValue() >= equipItem.EnhancedValue())
         {
             SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Error);
             DescriptionWindow(true, "낮은 등급이라 장착 불가", index);

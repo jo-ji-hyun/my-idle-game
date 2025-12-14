@@ -10,7 +10,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     protected override bool IsDestroy => false;
 
-    public void LoadItems(List<InventorySaveData> loadedData)
+    public void LoadItems(List<ItemSaveData> loadedData)
     {
         InventoryItems.Clear();
 
@@ -18,7 +18,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
         foreach (var saveData in loadedData)
         {
-            InventorySaveData inventoryitems = saveData;
+            ItemSaveData inventoryitems = saveData;
 
             ItemData originalItem = itemData[inventoryitems.Type];
 
@@ -30,7 +30,7 @@ public class InventoryManager : Singleton<InventoryManager>
         }
     }
 
-    public void SaveItems(List<InventorySaveData> playerInventory)
+    public void SaveItems(List<ItemSaveData> playerInventory)
     {
         playerInventory.Clear();
 
@@ -38,11 +38,13 @@ public class InventoryManager : Singleton<InventoryManager>
 
         for (var i = 0; i < saveItems.Count; i++)
         {
-            InventorySaveData newData = new()
+            ItemSaveData newData = new()
             {
                 Type = saveItems[i].Type,
 
-                Enhanced = saveItems[i].Enhanced
+                Enhanced = saveItems[i].Enhanced,
+
+                Grade = saveItems[i].Grade,
             };
 
             playerInventory.Add(newData);
@@ -123,7 +125,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
         int pickupGrade = 0;
         
-        if(pickup < 0.2f)
+        if(pickup < 2.5f)
         {
             pickupGrade = 1;
         }

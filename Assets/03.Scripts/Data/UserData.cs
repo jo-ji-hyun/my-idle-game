@@ -18,7 +18,7 @@ public class UserData
     public int Cri;
 
     public List<ItemSaveData> ItemSaveDatas;
-    public List<InventorySaveData> PlayerInventory;
+    public List<ItemSaveData> PlayerInventory;
 
     public int BagSizeLevel;
     public bool IsHeal;
@@ -33,11 +33,4 @@ public class ItemSaveData
     public Consts.ItemType Type;
     public int Enhanced;
     public int Grade;
-}
-
-[Serializable]
-public class InventorySaveData
-{
-    public Consts.ItemType Type;
-    public int Enhanced;
 }

@@ -10,6 +10,7 @@ public class EnhancementUi : MonoBehaviour
 
     [Header("Windows")]
     public GameObject DescriptionPanel;
+    public GameObject WarningPanel;
     public TextMeshProUGUI DescriptionTxt;
     public Image Statusicon;
 
@@ -64,9 +65,7 @@ public class EnhancementUi : MonoBehaviour
     {
         if (!item.IsPossibleToUpgrade)
         {
-            DescriptionTxt.text = "강화 불가 아이템";
-
-            DescriptionPanel.SetActive(true);
+            WarningPanel.SetActive(true);
 
             return false;
         }
@@ -80,6 +79,8 @@ public class EnhancementUi : MonoBehaviour
     private void EnhanceHelmet()
     {
         DescriptionPanel.SetActive(false);
+
+        WarningPanel.SetActive(false);
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[0];
 
@@ -101,6 +102,8 @@ public class EnhancementUi : MonoBehaviour
     {
         DescriptionPanel.SetActive(false);
 
+        WarningPanel.SetActive(false);
+
         ItemData item = PlayerEquip.Instance.EquipmentSlot[1];
 
         Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_1]");
@@ -121,6 +124,8 @@ public class EnhancementUi : MonoBehaviour
     {
         DescriptionPanel.SetActive(false);
 
+        WarningPanel.SetActive(false);
+
         ItemData item = PlayerEquip.Instance.EquipmentSlot[2];
 
         Statusicon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/status.png[status_2]");
@@ -140,6 +145,8 @@ public class EnhancementUi : MonoBehaviour
     private void EnhanceRing()
     {
         DescriptionPanel.SetActive(false);
+
+        WarningPanel.SetActive(false);
 
         ItemData item = PlayerEquip.Instance.EquipmentSlot[3];
 
