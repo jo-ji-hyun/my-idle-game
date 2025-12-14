@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static Consts;
 using Random = UnityEngine.Random;
 
 public class InventoryManager : Singleton<InventoryManager>
@@ -99,12 +100,49 @@ public class InventoryManager : Singleton<InventoryManager>
 
         for (var i = 0; i < 10; i++)
         {
-            items.Add(NewItem());
+            items.Add(Drawitem());
 
             items[i].Enhanced = DrawGetItems();
         }
 
         return items;
+    }
+
+    // === 픽업뽑기 ===
+    private ItemData Drawitem()
+    {
+        Consts.ItemType randomKey = (Consts.ItemType)Random.Range(0, 4);
+
+        float pickup = Random.Range(0f, 100f);
+
+        int pickupGrade = 0;
+        
+        if(pickup < 0.2f)
+        {
+            pickupGrade = 1;
+        }
+
+        ItemData cloneItem = null;
+
+        if (DataManager.Instance.AllitemsByType.TryGetValue(randomKey, out List<ItemData> pickupitems))
+        {
+            for (int i = 0; i < pickupitems.Count; i++)
+            {
+                if (pickupGrade == pickupitems[i].Grade)
+                {
+                    cloneItem = Instantiate(pickupitems[i]);
+
+                    break;
+                }
+            }
+        }
+
+        if (cloneItem == null)
+        {
+            cloneItem = NewItem();
+        }
+
+        return cloneItem;
     }
 
     // === 아이템 제거 로직 ===
