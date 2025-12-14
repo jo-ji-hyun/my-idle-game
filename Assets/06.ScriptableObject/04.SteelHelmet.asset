@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: 04.SteelHelmet
   m_EditorClassIdentifier: 
   Type: 0
-  Hp: 1200
+  Hp: 3500
   Atk: 0
   Def: 0
   Cri: 0
   Enhanced: 0
   Price: 3500
-  Grade: 0
+  Grade: 1
   IsPossibleToUpgrade: 0
   Icon: Assets/00.Externals/Myaddressable/itemSheet1.png[itemSheet1_0]

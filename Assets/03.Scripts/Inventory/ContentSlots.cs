@@ -23,7 +23,10 @@ public class ContentSlots : MonoBehaviour
 
         // === 인벤토리 구독 ===
         InventoryManager.OnInventoryChanged += UpdateInventoryUI;
+
+        UpdateInventoryUI();
     }
+
     private void Start()
     {
         SlotsCreate();

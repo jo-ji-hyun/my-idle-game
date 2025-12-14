@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   Hp: 0
-  Atk: 15
+  Atk: 30
   Def: 0
   Cri: 0
   Enhanced: 0
   Price: 5000
-  Grade: 0
+  Grade: 1
   IsPossibleToUpgrade: 0
   Icon: Assets/00.Externals/Myaddressable/itemSheet1.png[itemSheet1_1]

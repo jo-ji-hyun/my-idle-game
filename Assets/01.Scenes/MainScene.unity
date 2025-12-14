@@ -6257,7 +6257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &607932920
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18272,7 +18272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Inventory>k__BackingField: {fileID: 507644540}
-  <Enhancement>k__BackingField: {fileID: 0}
+  <Enhancement>k__BackingField: {fileID: 1872291866}
   <Store>k__BackingField: {fileID: 1804558630}
   <System>k__BackingField: {fileID: 437043589}
   <Money>k__BackingField: {fileID: 1647778789}

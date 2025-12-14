@@ -22,6 +22,8 @@ public class PlayerEquip : Singleton<PlayerEquip>
     // === 세이브 데이터가 있을 경우 ===
     public void InitLoadData(UserData data)
     {
+        EquipmentSlot.Clear();
+
         foreach (var loaditem in data.ItemSaveDatas)
         {
             Consts.ItemType itemType = loaditem.Type;

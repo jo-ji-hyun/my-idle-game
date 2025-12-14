@@ -16,9 +16,9 @@ MonoBehaviour:
   Hp: 0
   Atk: 0
   Def: 0
-  Cri: 15
+  Cri: 36
   Enhanced: 0
   Price: 6000
-  Grade: 0
+  Grade: 1
   IsPossibleToUpgrade: 0
   Icon: Assets/00.Externals/Myaddressable/itemSheet1.png[itemSheet1_3]
