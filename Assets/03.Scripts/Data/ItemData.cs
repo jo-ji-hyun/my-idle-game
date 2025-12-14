@@ -67,7 +67,11 @@ public class ItemData : ScriptableObject
             return Hp;
         }
 
-        return Hp + enhanced * 150;
+        int basebonus = Consts.EnhanceBonus.Base_Hp_Bonus;
+
+        int finalbonus = (int)(enhanced * basebonus * GetGradeBonus());
+
+        return Hp + finalbonus;
     }
 
     public int EnhancedAttack(int enhanced)
@@ -84,11 +88,13 @@ public class ItemData : ScriptableObject
             // === 짝수 레벨마다 보너스를 누적 ===
             if (i % 2 == 0)
             {
-                atkBonus += 3;
+                atkBonus += Consts.EnhanceBonus.Attack_Bonus;
             }
         }
 
-        return Atk + atkBonus + enhanced;
+        int finalbonus = (int)((atkBonus + enhanced) * GetGradeBonus());
+
+        return Atk + finalbonus;
     }
 
     public int EnhancedDefence(int enhanced)
@@ -98,7 +104,9 @@ public class ItemData : ScriptableObject
             return Def;
         }
 
-        return Def + enhanced;
+        int finalbonus = (int)(enhanced * GetGradeBonus());
+
+        return Def + finalbonus;
     }
 
     public int EnhancedCri(int enhanced) 
@@ -108,11 +116,15 @@ public class ItemData : ScriptableObject
             return Cri;
         }
 
-        return Cri + enhanced / 2;
+        int finalbonus = (int)((enhanced / 2) * GetGradeBonus());
+
+        return Cri + finalbonus;
     }
 
     public int PriceItem()
     {
-        return Price + 500 * Enhanced;
+        int bonusprice = (int)(Consts.EnhanceBonus.Base_Item_Price * Enhanced * GetGradeBonus());
+
+        return Price + bonusprice;
     }
 }

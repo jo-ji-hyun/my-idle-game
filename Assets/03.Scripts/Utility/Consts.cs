@@ -46,4 +46,18 @@ public static class Consts
         public const int Version1_Check = 1;
         public const int Version2_Check = 2;
     }
+
+    public static class EnhanceBonus
+    {
+        public const int Base_Hp_Bonus = 150;
+        public const int Attack_Bonus = 3;
+        public const int Base_Item_Price = 500;
+    }
+
+    public static class DrawItemsEnhance
+    {
+        public const int Grade_Base_Min = 25;
+        public const int Grade_0_Max_Bonus = 15;
+        public const int Grade_1_Max_Bonus = 5;
+    }
 }

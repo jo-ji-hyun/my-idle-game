@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using static Consts;
 using Random = UnityEngine.Random;
 
 public class InventoryManager : Singleton<InventoryManager>
@@ -83,10 +82,15 @@ public class InventoryManager : Singleton<InventoryManager>
     }
 
     // === 뽑기 아이템의 강화수치 조절 ===
-    private int DrawGetItems()
+    private int DrawGetItemsEnhance(int grade)
     {
-        int minenhanced = Math.Max(0, SaveManager.Instance.UserData.Stage - 25);
-        int maxenhanced = SaveManager.Instance.UserData.Stage + 25;
+        int minenhanced = Math.Max(0, SaveManager.Instance.UserData.Stage - Consts.DrawItemsEnhance.Grade_Base_Min);
+        int maxenhanced = SaveManager.Instance.UserData.Stage + Consts.DrawItemsEnhance.Grade_0_Max_Bonus;
+
+        if(grade == 1)
+        {
+            maxenhanced = SaveManager.Instance.UserData.Stage + Consts.DrawItemsEnhance.Grade_1_Max_Bonus;
+        }
 
         int enhanced = Random.Range(minenhanced, maxenhanced);
 
@@ -100,9 +104,11 @@ public class InventoryManager : Singleton<InventoryManager>
 
         for (var i = 0; i < 10; i++)
         {
-            items.Add(Drawitem());
+            ItemData newItem = Drawitem();
 
-            items[i].Enhanced = DrawGetItems();
+            items.Add(newItem);
+
+            items[i].Enhanced = DrawGetItemsEnhance(newItem.Grade);
         }
 
         return items;
