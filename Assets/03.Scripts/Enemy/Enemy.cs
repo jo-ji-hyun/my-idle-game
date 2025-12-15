@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
 
             if (SaveManager.Instance.UserData.Cri > Random.Range(0, 99))
             {
-                finaldamage += (int)(damage * 1.2f) + (SaveManager.Instance.UserData.Cri / 2);
+                finaldamage += (int)(damage * 2.25f) + (SaveManager.Instance.UserData.Cri / 2);
             }
 
             _currentHp -= finaldamage;

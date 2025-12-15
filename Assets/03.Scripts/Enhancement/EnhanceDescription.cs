@@ -11,7 +11,7 @@ public class EnhanceDescription : MonoBehaviour
     {
         EnhanceTxt.text = "";
 
-        int currentEnhanced = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Enhanced;
+        float currentEnhanced = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].Enhanced / 2.0f;
 
         if (currentEnhanced < 100)
         {
@@ -19,7 +19,7 @@ public class EnhanceDescription : MonoBehaviour
         }
         else
         {
-            UiManager.Instance.Enhancement.EnhanceChance = Mathf.Max(0.01f , 1 - (currentEnhanced - 99) * 0.01f);
+            UiManager.Instance.Enhancement.EnhanceChance = 1.0f;
         }
 
         SucessTxt.text = UiManager.Instance.Enhancement.EnhanceChance.ToString();

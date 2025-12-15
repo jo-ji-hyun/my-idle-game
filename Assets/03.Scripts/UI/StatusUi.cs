@@ -41,7 +41,7 @@ public class StatusUi : MonoBehaviour
         float reduceration = (SaveManager.Instance.UserData.Def / (SaveManager.Instance.UserData.Def + Consts.EnhanceBonus.Defense_K)) * 100f;
         Def.text = $"{SaveManager.Instance.UserData.Def}({Mathf.RoundToInt(reduceration)})%";
         Cri.text = $"{Math.Min(100, SaveManager.Instance.UserData.Cri)}";
-        CriDmg.text = $"{(int)(SaveManager.Instance.UserData.Atk * 1.2f) + (SaveManager.Instance.UserData.Cri) / 2}";
+        CriDmg.text = $"{(int)(SaveManager.Instance.UserData.Atk * 2.25f) + (SaveManager.Instance.UserData.Cri) / 2}";
 
         OnStatusChanged?.Invoke();
     }
