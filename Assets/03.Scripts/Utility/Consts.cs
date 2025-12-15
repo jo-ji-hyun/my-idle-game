@@ -51,6 +51,7 @@ public static class Consts
     {
         public const int Base_Hp_Bonus = 150;
         public const int Attack_Bonus = 3;
+        public const float Defense_K = 120f;
         public const int Base_Item_Price = 500;
     }
 
@@ -59,5 +60,13 @@ public static class Consts
         public const int Grade_Base_Min = 25;
         public const int Grade_0_Max_Bonus = 15;
         public const int Grade_1_Max_Bonus = 5;
+    }
+
+    // === 100스테이지 당 적 능력치 강화를 위한 능력치 (Hp, Def, Atk) (EnemyManager, Enemy, PlayerStatus) ===
+    public static class EnemyEnhance
+    {
+        public const int Enemy_Status_Hp_Up = 400;
+        public const int Enemy_Status_Def_Base = 1;
+        public const float Enemy_Status_Atk_Up = 1.5f;
     }
 }

@@ -32,12 +32,19 @@ public class Enemy : MonoBehaviour
     {
         while (GameManager.Instance.IsBattle)
         {
-            int finaldamage = Mathf.Max(1, damage - (int)SaveManager.Instance.UserData.Stage / 2);
+            int enemydef = Consts.EnemyEnhance.Enemy_Status_Def_Base;
+
+            int enemyup = enemydef * (SaveManager.Instance.UserData.Stage / 100);
+
+            int finalenemydef = ((enemydef + enemyup) * (SaveManager.Instance.UserData.Stage / 2));
+
+            int finaldamage = Mathf.Max(1, damage - finalenemydef);
 
             if (SaveManager.Instance.UserData.Cri > Random.Range(0, 99))
             {
                 finaldamage += (int)(damage * 1.2f) + (SaveManager.Instance.UserData.Cri / 2);
             }
+
             _currentHp -= finaldamage;
 
             if (_currentHp <= 0)

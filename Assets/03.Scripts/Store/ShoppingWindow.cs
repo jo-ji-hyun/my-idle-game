@@ -12,11 +12,6 @@ public class ShoppingWindow : MonoBehaviour
     [Header("Button")]
     public Button BuyBtn;
 
-    [Header("Draw")]
-    public Button GoInventoryBtn;
-    public Button CloseBtn;
-    public List<CardSlot> CardSlots = new();
-
     private void Start()
     {
         Closeimage.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Close.png[Close]");
@@ -72,59 +67,19 @@ public class ShoppingWindow : MonoBehaviour
                 UiManager.Instance.Store.Item_auto.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Sold_Out.png[Sold_Out]");
                 break;
             case 3:
-                StartCoroutine(DrawCoroutine());
+                DrawOpen();
                 break;
 
         }
     }
 
-    private IEnumerator DrawCoroutine() 
+    private void DrawOpen() 
     {
         UiManager.Instance.CardWindow.SetActive(true);
-
-        List<ItemData> result = InventoryManager.Instance.Draw10items();
-
-        for (int i = 0; i < result.Count; i++)
-        {
-            ItemData item = result[i];
-
-            CardSlots[i].gameObject.SetActive(true);
-
-            CardSlots[i].SetInfo(item);
-
-            InventoryManager.Instance.InventoryItems.Add(item);
-
-            SoundManager.Instance.SpecialEffectSound(Consts.SpecialItem.CardDraw);
-
-            yield return new WaitForSeconds(0.2f);
-        }
-
-        InventoryManager.Instance.ChangeInventory();
-
-        GoInventoryBtn.gameObject.SetActive(true);
-        CloseBtn.gameObject.SetActive(true);
-
-        GoInventoryBtn.onClick.AddListener(GoToInventory);
-    }
-
-    private void GoToInventory() 
-    {
-        UiManager.Instance.CardWindow.SetActive(false);
-
-        UiManager.Instance.StoreWindow.SetActive(false);
-
-        UiManager.Instance.Inventory.ShowInventory();
     }
 
     private void OnDisable()
     {
-        GoInventoryBtn.onClick?.RemoveAllListeners();
-
-        for (int i = 0; i < CardSlots.Count; i++)
-        {
-            CardSlots[i].gameObject.SetActive(false);
-        }
-
         ShoppingResult.text = null;
     }
 }

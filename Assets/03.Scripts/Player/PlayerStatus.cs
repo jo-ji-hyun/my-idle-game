@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    private int _def;
+    private float _def;
     private int _currentHp;
 
     [Header("UI")]
@@ -24,8 +24,6 @@ public class PlayerStatus : MonoBehaviour
 
         PlayerHpBar();
         PlayerCanvas.SetActive(false);
-
-        UpdatePlayerStatus();
 
         StatusUi.OnStatusChanged += UpdateHpBar;
     }
@@ -52,9 +50,11 @@ public class PlayerStatus : MonoBehaviour
         UpdateHpBar();
     }
 
-    private void UpdatePlayerStatus()
+    private float UpdatePlayerStatus()
     {
-        _def = SaveManager.Instance.UserData.Def;
+        _def = Consts.EnhanceBonus.Defense_K  / (SaveManager.Instance.UserData.Def + Consts.EnhanceBonus.Defense_K);
+
+        return _def;
     }
 
     private void UpdateHpBar()
@@ -72,9 +72,15 @@ public class PlayerStatus : MonoBehaviour
         {
             UpdatePlayerStatus();
 
-            int applydamage = (int)(damage * 1.5f) - _def;
+            int enemyatk = damage;          // === 적의 기본 공격력은 스테이지 ===
 
-            int finaldamage = Mathf.Max(1, applydamage);
+            float enemyup = Consts.EnemyEnhance.Enemy_Status_Atk_Up * (damage / 100);
+
+            int applydamage = (int)(enemyatk * (1.5f + enemyup));
+
+            float damagereducation = applydamage * _def;
+
+            int finaldamage = Mathf.Max(1, (int)damagereducation);
 
             SaveManager.Instance.UserData.CurrentHP -= finaldamage;
 
