@@ -34,6 +34,8 @@ public class Draw_10 : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
 
+        InventoryManager.Instance.SaveItems(SaveManager.Instance.UserData.PlayerInventory);
+
         InventoryManager.Instance.ChangeInventory();
 
         GoInventoryBtn.gameObject.SetActive(true);
