@@ -163,7 +163,7 @@ public class SaveManager : Singleton<SaveManager>
             Stage = 1,
             BossMaxHp = 250,
             BossCurrentHp = 250,
-            Money = 10000,
+            Money = 100000,
             MaxHP = 0,
             CurrentHP = 0,
             Atk = 0,

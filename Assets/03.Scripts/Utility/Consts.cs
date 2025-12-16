@@ -62,9 +62,10 @@ public static class Consts
         public const int Grade_1_Max_Bonus = 5;
     }
 
+    // === 환생 지원금 ===
     public static class PlayerReward
     {
-        public const int Base_Benefit = 1000;        // === 환생 지원금 ===
+        public const int Base_Benefit = 800;        
         public const int Bonus_Stage_Interval = 50;
         public const int Bonus_Benefit = 1500;
     }

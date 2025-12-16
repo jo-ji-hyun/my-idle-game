@@ -60,7 +60,7 @@ public class Store : MonoBehaviour
     {
         _descriptitem = " 랜덤한 아이템 10종을 획득합니다.";
 
-        _itemprice = 15000 + 15000 * SaveManager.Instance.UserData.Stage;
+        _itemprice = 10000 + 15000 * SaveManager.Instance.UserData.Stage;
 
         UiManager.Instance.Store.DescriptionWindow(_descriptitem, _itemprice, 3);
     }
