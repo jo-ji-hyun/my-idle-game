@@ -14,19 +14,26 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         InventoryItems.Clear();
 
-        var itemData = DataManager.Instance.ItemDrops;
-
         foreach (var saveData in loadedData)
         {
             ItemSaveData inventoryitems = saveData;
 
-            ItemData originalItem = itemData[inventoryitems.Type];
+            if (DataManager.Instance.AllitemsByType.TryGetValue(inventoryitems.Type, out List<ItemData> pickupitems))
+            {
+                for (int i = 0; i < pickupitems.Count; i++)
+                {
+                    if (saveData.Grade == pickupitems[i].Grade)
+                    {
+                       ItemData cloneItem = Instantiate(pickupitems[i]);
 
-            ItemData cloneItem = Instantiate(originalItem);
+                        cloneItem.Enhanced = saveData.Enhanced;
 
-            cloneItem.Enhanced = inventoryitems.Enhanced;
+                        InventoryItems.Add(cloneItem);
 
-            InventoryItems.Add(cloneItem);
+                        break;
+                    }
+                }
+            }
         }
     }
 
