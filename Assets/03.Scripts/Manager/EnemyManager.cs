@@ -21,7 +21,7 @@ public class EnemyManager : Singleton<EnemyManager>
     // === 게임 매니저에 스폰 담당 ===
     public void NewEnemySpawn()
     {
-        GameManager.Instance.ChangeMoney(1000 + SaveManager.Instance.UserData.Stage * 1000);
+        GameManager.Instance.ChangeMoney(Consts.PlayerReward.Clear_Base_Reward + (Consts.PlayerReward.Clear_Bonus_Reward * SaveManager.Instance.UserData.Stage) * (1 + SaveManager.Instance.UserData.Stage / Consts.PlayerReward.Bonus_Stage_Interval));
 
         int itemget = 1 + SaveManager.Instance.UserData.Stage / 100;
 

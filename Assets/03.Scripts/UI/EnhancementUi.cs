@@ -159,7 +159,7 @@ public class EnhancementUi : MonoBehaviour
                 return;
             }
 
-            int attackbonus = (int)(SaveManager.Instance.UserData.Atk * 1.2f);
+            int attackbonus = (int)(SaveManager.Instance.UserData.Atk * 2.25f);
 
             int currentCridamage = item.EnhancedCri(item.Enhanced) / 2;
 

@@ -62,12 +62,14 @@ public static class Consts
         public const int Grade_1_Max_Bonus = 5;
     }
 
-    // === 환생 지원금 ===
+    // === 환생 지원금 및 클리어 보상===
     public static class PlayerReward
     {
         public const int Base_Benefit = 800;        
         public const int Bonus_Stage_Interval = 50;
         public const int Bonus_Benefit = 1500;
+        public const int Clear_Base_Reward = 5000;
+        public const int Clear_Bonus_Reward = 3000;
     }
 
     // === 100스테이지 당 적 능력치 강화를 위한 능력치 (Hp, Def, Atk) (EnemyManager, Enemy, PlayerStatus) ===
