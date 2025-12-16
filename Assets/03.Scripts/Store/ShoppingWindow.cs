@@ -53,13 +53,10 @@ public class ShoppingWindow : MonoBehaviour
                 break;
             case 1:
                 SaveManager.Instance.UserData.IsHeal = true;
-                if(SaveManager.Instance.UserData.HealLevel == 10)
+                SaveManager.Instance.UserData.HealLevel++;
+                if (SaveManager.Instance.UserData.HealLevel == 10)
                 {
                     UiManager.Instance.Store.Item_heal.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Sold_Out.png[Sold_Out]");
-                }
-                else
-                {
-                    SaveManager.Instance.UserData.HealLevel++;
                 }
                 break;
             case 2:

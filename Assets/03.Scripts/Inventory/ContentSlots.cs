@@ -16,13 +16,10 @@ public class ContentSlots : MonoBehaviour
 
     private void OnEnable()
     {
-        if(SlotLists.Count > 20)
+        if(SlotLists.Count < 20 + 10 * SaveManager.Instance.UserData.BagSizeLevel)
         {
             CheckSlot();
         }
-
-        // === 인벤토리 구독 ===
-        InventoryManager.OnInventoryChanged += UpdateInventoryUI;
 
         UpdateInventoryUI();
     }
@@ -32,9 +29,12 @@ public class ContentSlots : MonoBehaviour
         SlotsCreate();
 
         CheckSlot();
+
+        // === 인벤토리 구독 ===
+        InventoryManager.OnInventoryChanged += UpdateInventoryUI;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         InventoryManager.OnInventoryChanged -= UpdateInventoryUI;
     }

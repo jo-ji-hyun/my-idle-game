@@ -57,6 +57,9 @@ public class Draw_10 : MonoBehaviour
     {
         GoInventoryBtn.onClick?.RemoveAllListeners();
 
+        GoInventoryBtn.gameObject.SetActive(false);
+        CloseBtn.gameObject.SetActive(false);
+
         for (int i = 0; i < CardSlots.Count; i++)
         {
             CardSlots[i].gameObject.SetActive(false);
