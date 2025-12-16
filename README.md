@@ -1,10 +1,18 @@
 # my-idle-game
-2D 방치형 게임(모바일) | Unity 2022.3.62f2
+2D 방치형 게임(모바일 + Window) | Unity 2022.3.62f2
+
+링크
+
+https://drive.google.com/file/d/1y7vLvYPUFKomxlGEElt4B5q3C2SPPRan/view?usp=drive_link
 
 # 개요
-적을 처치하여 아이템을 얻고 강화하여 더 높은 단계를 노려보자!
+적을 처치하고 "전리품"을 얻어 강화하여 더 높은 단계를 노려보자!
 
-패배헤도 지원금을 통해 더 강해지고 다시 싸운다!
+또한, 상점을 이용하여 "편의기능"을 해금하세요. 기존의 0등급보다 더 높은 등급의 아이템을 획득하여 싸우자!
+
+<img width="336" height="117" alt="신규아이템" src="https://github.com/user-attachments/assets/71a7f10b-c93c-4b91-97ab-b6145ad587b1" />
+
+패배해도 "지원금"을 통해 더 강해지고 다시 도전하세요!
 
 ## 주요 기능
 
@@ -64,6 +72,26 @@
 위쪽의 장비창을 눌러 현재 스테이터스 확인
 
 ![1](https://github.com/user-attachments/assets/087fe4f4-c9fa-4744-b5df-97a618ac6803)
+
+### 새로운 기능 상점 추가!
+
+1. 인벤토리(가방)의 크기 증가
+
+![inventory](https://github.com/user-attachments/assets/9b87b938-217b-4bbf-a6ba-0adacdcd052e)
+
+
+3. 스테이지 클리어시 자동으로 체력회복 (전체 체력 * 회복 레벨 / 10)
+
+![체력회복](https://github.com/user-attachments/assets/063792ca-ab97-4ab2-9a88-6af30f380764)
+
+3. 자동판매 (현재 장착중인 장비와 비교하여 더 낮은 등급의 아이템을 판매합니다.)
+
+![자동판매](https://github.com/user-attachments/assets/c3b01924-a64f-4fdf-98a1-77f41bad0363)
+
+
+4. 10회 랜덤 아이템 뽑기 (기본 0등급 부터 더 강한 등급의 아이템 획득 가능)
+
+![Draw_뽑기](https://github.com/user-attachments/assets/d372e8be-6fca-4eff-bae1-9044f913c2e6)
 
 
 ## 커밋 규칙
