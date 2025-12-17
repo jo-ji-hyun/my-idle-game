@@ -15,6 +15,7 @@ public class MoneyUi : MonoBehaviour
 
     public void UpdateUi()
     {
-        MoneyValue.text = string.Format("{0:N0}", SaveManager.Instance.UserData.Money);
+        string currentMoney = GoldFormat.FormatGold(SaveManager.Instance.UserData.Money);
+        MoneyValue.text = currentMoney;
     }
 }

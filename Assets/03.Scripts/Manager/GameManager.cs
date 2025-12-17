@@ -17,7 +17,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     // === 돈 변동 ===
-    public void ChangeMoney(int amount)
+    public void ChangeMoney(long amount)
     {
         SaveManager.Instance.UserData.Money += amount;
 

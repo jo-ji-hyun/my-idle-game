@@ -14,7 +14,7 @@ public class ItemData : ScriptableObject
 
     [Header("etc")]
     public int Enhanced;  
-    public int Price;
+    public long Price;
     public int Grade;                           // === 스테이지 클리어시 얻는 아이템 = 0, 뽑기 아이템은 등급 증가 ===
     public bool IsPossibleToUpgrade = true;     // === 강화가 가능한지 아닌지 ===
 
@@ -121,7 +121,7 @@ public class ItemData : ScriptableObject
         return Cri + finalbonus;
     }
 
-    public int PriceItem()
+    public long PriceItem()
     {
         int bonusprice = (int)(Consts.EnhanceBonus.Base_Item_Price * Enhanced * GetGradeBonus());
 

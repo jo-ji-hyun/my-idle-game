@@ -8,7 +8,7 @@ public class UserData
     public int Stage;          
     public int BossMaxHp;     
     public int BossCurrentHp;
-    public int Money;          
+    public long Money;          
 
     // === 플레이어 스펙 ===
     public int MaxHP;

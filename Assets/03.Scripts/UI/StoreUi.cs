@@ -19,7 +19,7 @@ public class StoreUi : MonoBehaviour
     public Image Item_draw;
 
     [HideInInspector]
-    public int CurrentItemPrice;
+    public long CurrentItemPrice;
 
     [HideInInspector]
     public int SelectedItemID;
@@ -60,14 +60,13 @@ public class StoreUi : MonoBehaviour
     }
 
     // === 상점 아이템 설명 ===
-    public void DescriptionWindow(string info, int pirce, int num)
+    public void DescriptionWindow(string info, long pirce, int num)
     {
         DescriptionPanel.SetActive(false);
 
         ItemDescriptionTxt.text = info;
 
-        CurrentItemPrice = pirce;
-        ItemPrice.text = $"{pirce:N0}";
+        ItemPrice.text = GoldFormat.FormatGold(pirce);
 
         SelectedItemID = num;
 

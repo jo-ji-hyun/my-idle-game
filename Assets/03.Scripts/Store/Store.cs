@@ -10,7 +10,7 @@ public class Store : MonoBehaviour
     public Button Item_draw_Btn;
 
     private string _descriptitem;
-    private int _itemprice;
+    private long _itemprice;
 
     private void OnEnable()
     {
@@ -60,7 +60,7 @@ public class Store : MonoBehaviour
     {
         _descriptitem = " 랜덤한 아이템 10종을 획득합니다.";
 
-        _itemprice = 10000 + 15000 * SaveManager.Instance.UserData.Stage + (5000 * SaveManager.Instance.UserData.Stage / 50);
+        _itemprice = Consts.DrawItemsPrice.Base_Price + (Consts.DrawItemsPrice.Next_Price * SaveManager.Instance.UserData.Stage) + (Consts.DrawItemsPrice.Inflation_Price * SaveManager.Instance.UserData.Stage * SaveManager.Instance.UserData.Stage / 10);
 
         UiManager.Instance.Store.DescriptionWindow(_descriptitem, _itemprice, 3);
     }

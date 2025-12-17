@@ -23,6 +23,8 @@ public class EnhanceDescription : MonoBehaviour
         }
 
         SucessTxt.text = UiManager.Instance.Enhancement.EnhanceChance.ToString();
-        CostTxt.text = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].PriceItem().ToString("N0");
+
+        long cost = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].PriceItem();
+        CostTxt.text = GoldFormat.FormatGold(cost);
     }
 }
