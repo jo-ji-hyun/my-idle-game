@@ -60,13 +60,15 @@ public class StoreUi : MonoBehaviour
     }
 
     // === 상점 아이템 설명 ===
-    public void DescriptionWindow(string info, long pirce, int num)
+    public void DescriptionWindow(string info, long price, int num)
     {
         DescriptionPanel.SetActive(false);
 
         ItemDescriptionTxt.text = info;
 
-        ItemPrice.text = GoldFormat.FormatGold(pirce);
+        CurrentItemPrice = price;
+
+        ItemPrice.text = GoldFormat.FormatGold(price);
 
         SelectedItemID = num;
 
