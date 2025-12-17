@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 public class GameManager : Singleton<GameManager>
@@ -56,6 +57,8 @@ public class GameManager : Singleton<GameManager>
 
     private void GameExit()
     {
+        SaveManager.Instance.UserData.LastExitTime = DateTime.UtcNow.Ticks;
+
         SaveManager.Instance.AllSave();
 
         Application.Quit();

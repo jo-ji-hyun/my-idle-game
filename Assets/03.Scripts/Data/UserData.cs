@@ -25,6 +25,9 @@ public class UserData
     public int HealLevel;
     public bool IsAutoClean;
     public bool IsAutoOn;
+
+    // === 마지막 접속 시간 ===
+    public long LastExitTime;
 }
 
 [Serializable]

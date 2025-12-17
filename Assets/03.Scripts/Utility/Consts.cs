@@ -32,6 +32,11 @@ public static class Consts
         Ring
     }
 
+    public static class NetWorkConfig
+    {
+        public const string WorldTimeApiUrl = "http://worldtimeapi.org/api/timezone/Asia/Seoul";
+    }
+
     public static class ResourcePath
     {
         public const string SFX_Battle = "Music/SFX/Battle";
@@ -42,7 +47,7 @@ public static class Consts
     // === 추후에 UserData에 새로운 정보를 입력해야한다면 Current버전을 올리고 이전 버전과 체크해야한다 === 
     public static class Version 
     {
-        public const int Current_Version = 1;
+        public const int Current_Version = 2;
         public const int Version1_Check = 1;
         public const int Version2_Check = 2;
     }

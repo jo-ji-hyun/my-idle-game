@@ -4,6 +4,7 @@ using Firebase.Extensions;
 using Newtonsoft.Json;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class SaveManager : Singleton<SaveManager>
 {
@@ -148,6 +149,8 @@ public class SaveManager : Singleton<SaveManager>
 
         if (loaduser.Version != Consts.Version.Current_Version)
         {
+            loaduser.LastExitTime = DateTime.UtcNow.Ticks;
+
             loaduser.Version = Consts.Version.Current_Version;
         }
 
