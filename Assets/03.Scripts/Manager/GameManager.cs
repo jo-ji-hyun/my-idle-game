@@ -57,7 +57,7 @@ public class GameManager : Singleton<GameManager>
 
     private void GameExit()
     {
-        SaveManager.Instance.UserData.LastExitTime = DateTime.UtcNow.Ticks;
+        SaveManager.Instance.UserData.LastExitTime = DateTime.Now.Ticks;
 
         SaveManager.Instance.AllSave();
 

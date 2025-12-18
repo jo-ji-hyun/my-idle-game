@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 [Serializable]
 public class WorldTimeResponse
 {
-    public string DateTime;
+    public string dateTime;
 }
 
 public class TimeKeeper : Singleton<TimeKeeper>
@@ -41,13 +41,13 @@ public class TimeKeeper : Singleton<TimeKeeper>
 
             WorldTimeResponse response = JsonUtility.FromJson<WorldTimeResponse>(jsonText);
 
-            if (DateTime.TryParse(response.DateTime, out DateTime currentServerTime))
+            if (DateTime.TryParse(response.dateTime, out DateTime currentServerTime))
             {
                 CalculateReward(currentServerTime);
             }
             else
             {
-                Debug.LogError("시간 문자열 파싱 실패: " + response.DateTime);
+                Debug.LogError("시간 문자열 파싱 실패: " + response.dateTime);
             }
         }
         else
@@ -72,9 +72,8 @@ public class TimeKeeper : Singleton<TimeKeeper>
             GameManager.Instance.ChangeMoney(reward);
 
             RewardTxt.text = GoldFormat.FormatGold(reward);
+            RewardPanel.SetActive(true);
         }
-
-        RewardPanel.SetActive(true);
 
         SaveManager.Instance.UserData.LastExitTime = currentServerTime.Ticks;
         SaveManager.Instance.AllSave();
@@ -85,7 +84,7 @@ public class TimeKeeper : Singleton<TimeKeeper>
     {
         if (pause)
         {
-            SaveManager.Instance.UserData.LastExitTime = DateTime.UtcNow.Ticks;
+            SaveManager.Instance.UserData.LastExitTime = DateTime.Now.Ticks;
             SaveManager.Instance.AllSave();
         }
     }
