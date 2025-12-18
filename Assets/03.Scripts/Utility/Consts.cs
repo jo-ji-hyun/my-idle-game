@@ -34,7 +34,8 @@ public static class Consts
 
     public static class NetWorkConfig
     {
-        public const string WorldTimeApiUrl = "http://worldtimeapi.org/api/timezone/Asia/Seoul";
+        public const string WorldTimeApiUrl = "https://worldtimeapi.org/api/timezone/Asia/Seoul";
+        public const string GoogleTime = "https://www.google.com";
     }
 
     public static class ResourcePath

@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 [Serializable]
 public class WorldTimeResponse
 {
-    public string dateTime;
+    public string DateTime;
 }
 
 public class TimeKeeper : Singleton<TimeKeeper>
@@ -41,18 +41,35 @@ public class TimeKeeper : Singleton<TimeKeeper>
 
             WorldTimeResponse response = JsonUtility.FromJson<WorldTimeResponse>(jsonText);
 
-            if (DateTime.TryParse(response.dateTime, out DateTime currentServerTime))
+            if (DateTime.TryParse(response.DateTime, out DateTime currentServerTime))
             {
                 CalculateReward(currentServerTime);
             }
             else
             {
-                Debug.LogError("시간 문자열 파싱 실패: " + response.dateTime);
+                Debug.LogError("시간 문자열 파싱 실패: " + response.DateTime);
             }
         }
         else
         {
-            Debug.LogError("WorldTimeAPI 연결 실패: " + webRequest.error);
+            StartCoroutine(GetGoogleTime());
+        }
+    }
+
+    // === 구글을 통한 시간 획득 ===
+    private IEnumerator GetGoogleTime()
+    {
+        using UnityWebRequest webRequest = UnityWebRequest.Head(Consts.NetWorkConfig.GoogleTime);
+        yield return webRequest.SendWebRequest();
+
+        if (webRequest.result == UnityWebRequest.Result.Success)
+        {
+            string dateStr = webRequest.GetResponseHeader("date");
+            if (DateTime.TryParse(dateStr, out DateTime googleTime))
+            {
+                DateTime currentKstTime = googleTime.ToUniversalTime().AddHours(9);
+                CalculateReward(currentKstTime);
+            }
         }
     }
 
