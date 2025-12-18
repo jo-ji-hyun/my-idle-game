@@ -15,10 +15,10 @@ MonoBehaviour:
   Type: 2
   Hp: 0
   Atk: 0
-  Def: 0
+  Def: 26
   Cri: 0
   Enhanced: 0
   Price: 0
-  Grade: 0
+  Grade: 2
   UpgradeType: 2
   Icon: Assets/00.Externals/Myaddressable/itemSheet2.png[itemSheet2_2]

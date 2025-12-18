@@ -8,6 +8,7 @@ public class EnhanceDescription : MonoBehaviour
     public TextMeshProUGUI SucessTxt;
     public Image CostIcon;
     public TextMeshProUGUI CostTxt;
+    public GameObject ResultWindow;
 
     private void OnEnable()
     {
@@ -39,5 +40,7 @@ public class EnhanceDescription : MonoBehaviour
             CostTxt.text = item.RequestStone().ToString("N0");
             CostIcon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Diamond.png[Diamond]");
         }
+
+        ResultWindow.SetActive(true);
     }
 }

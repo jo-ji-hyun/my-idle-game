@@ -26,8 +26,8 @@ public class UserData
     public bool IsAutoClean;
     public bool IsAutoOn;
 
-    // === 마지막 접속 시간 ===
-    public long LastExitTime;
+    public long LastExitTime;      // === 마지막 접속 기록 ===
+    public long EnhanceStone;      // === 강화석 보유 현황 ===
 }
 
 [Serializable]
