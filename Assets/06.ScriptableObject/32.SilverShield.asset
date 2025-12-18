@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d132450e180c7248a175c4e78d6255e, type: 3}
-  m_Name: 04.SteelHelmet
+  m_Name: 32.SilverShield
   m_EditorClassIdentifier: 
-  Type: 0
-  Hp: 3500
+  Type: 2
+  Hp: 0
   Atk: 0
-  Def: 0
+  Def: 350
   Cri: 0
   Enhanced: 0
-  Price: 3500
-  Grade: 1
-  IsPossibleToUpgrade: 0
-  Icon: Assets/00.Externals/Myaddressable/itemSheet1.png[itemSheet1_0]
+  Price: 0
+  Grade: 3
+  UpgradeType: 2
+  Icon: Assets/00.Externals/Myaddressable/itemSheet2.png[itemSheet2_2]

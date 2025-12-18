@@ -81,8 +81,8 @@ public class InvenyoryCleaner : MonoBehaviour
 
             int equipValue = equipitem.EnhancedValue();
 
-            // === 자동판매할 아이템의 강화수치 비교 및 2등급 아이템 자동판매 제외 ===
-            if (item.EnhancedValue() < equipValue && item.Grade != 2)
+            // === 자동판매할 아이템의 강화수치 비교 및 3등급 아이템 자동판매 제외 ===
+            if (item.EnhancedValue() < equipValue && item.Grade != 3)
             {
                 _sellitems.Add(item);
             }

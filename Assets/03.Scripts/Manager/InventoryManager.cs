@@ -136,7 +136,11 @@ public class InventoryManager : Singleton<InventoryManager>
 
         int pickupGrade = 0;
         
-        if(pickup < 0.5f)
+        if(pickup < 0.01f)
+        {
+            pickupGrade = 3;
+        }
+        else if(pickup < 0.5f)
         {
             pickupGrade = 2;
         }
