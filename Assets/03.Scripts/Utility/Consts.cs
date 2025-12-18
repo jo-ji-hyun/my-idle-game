@@ -14,6 +14,7 @@ public static class Consts
         Error,
         Fail,
         NoMoney,
+        NoStone,
         Sell
     }
 

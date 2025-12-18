@@ -84,13 +84,12 @@ public class ResultWindow : MonoBehaviour
 
     private void UpgradeStoneProcess()
     {
-        // === 돈이 부족할 경우 ===
         if (SaveManager.Instance.UserData.EnhanceStone < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].RequestStone())
         {
             EnhanceTxt.color = Color.red;
             EnhanceTxt.text = "강화석 부족";
 
-            SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.NoMoney);
+            SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.NoStone);
             return; 
         }
 
