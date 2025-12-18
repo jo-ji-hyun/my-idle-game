@@ -15,10 +15,10 @@ public class ItemData : ScriptableObject
     [Header("etc")]
     public int Enhanced;  
     public long Price;
-    public int Grade;                           // === 스테이지 클리어시 얻는 아이템 = 0, 뽑기 아이템은 등급 증가 ===
-    public bool IsPossibleToUpgrade = true;     // === 강화가 가능한지 아닌지 ===
+    public int Grade;                                // === 스테이지 클리어시 얻는 아이템 = 0, 뽑기 아이템은 등급 증가 ===
+    public Consts.ItemEnhanceCostType UpgradeType;   // === 강화방식 ===
 
-    [Header("Addressable")] // === 주소값 ===
+    [Header("Addressable")]                          // === 번들 주소값 ===
     public string Icon;    
 
     public int EnhancedValue()
@@ -126,5 +126,10 @@ public class ItemData : ScriptableObject
         int bonusprice = (int)(Consts.EnhanceBonus.Base_Item_Price * Enhanced * GetGradeBonus());
 
         return Price + bonusprice;
+    }
+
+    public long RequestStone()
+    {
+        return Enhanced + 1;
     }
 }

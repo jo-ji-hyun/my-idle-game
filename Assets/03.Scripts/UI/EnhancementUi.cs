@@ -63,7 +63,7 @@ public class EnhancementUi : MonoBehaviour
 
     private bool CheckPossibleEnhance(ItemData item)
     {
-        if (!item.IsPossibleToUpgrade)
+        if (item.UpgradeType == Consts.ItemEnhanceCostType.None)
         {
             WarningPanel.SetActive(true);
 

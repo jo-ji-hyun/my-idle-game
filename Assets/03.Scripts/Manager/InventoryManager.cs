@@ -100,6 +100,10 @@ public class InventoryManager : Singleton<InventoryManager>
         {
             maxenhanced = SaveManager.Instance.UserData.Stage + Consts.DrawItemsEnhance.Grade_1_Max_Bonus;
         }
+        else if (grade == 2)
+        {
+            return 0;
+        }
 
         int enhanced = Random.Range(minenhanced, maxenhanced);
 
@@ -132,7 +136,11 @@ public class InventoryManager : Singleton<InventoryManager>
 
         int pickupGrade = 0;
         
-        if(pickup < 2.5f)
+        if(pickup < 0.5f)
+        {
+            pickupGrade = 2;
+        }
+        else if(pickup < 2.5f)
         {
             pickupGrade = 1;
         }

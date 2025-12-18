@@ -32,6 +32,13 @@ public static class Consts
         Ring
     }
 
+    public enum ItemEnhanceCostType
+    {
+        None,
+        Gold,
+        Stone,
+    }
+
     public static class NetWorkConfig
     {
         public const string WorldTimeApiUrl = "https://worldtimeapi.org/api/timezone/Asia/Seoul";

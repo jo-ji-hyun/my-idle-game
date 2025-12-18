@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d132450e180c7248a175c4e78d6255e, type: 3}
-  m_Name: 01.Claw
+  m_Name: 08.GoldHelmet
   m_EditorClassIdentifier: 
-  Type: 1
-  Hp: 0
-  Atk: 5
+  Type: 0
+  Hp: 5000
+  Atk: 0
   Def: 0
   Cri: 0
   Enhanced: 0
-  Price: 1000
+  Price: 0
   Grade: 0
-  UpgradeType: 1
-  Icon: Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_1]
+  UpgradeType: 2
+  Icon: Assets/00.Externals/Myaddressable/itemSheet2.png[itemSheet2_0]

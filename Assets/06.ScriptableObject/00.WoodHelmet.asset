@@ -20,5 +20,5 @@ MonoBehaviour:
   Enhanced: 0
   Price: 500
   Grade: 0
-  IsPossibleToUpgrade: 1
+  UpgradeType: 1
   Icon: Assets/00.Externals/Myaddressable/itemSheet0.png[itemSheet0_0]
