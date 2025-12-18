@@ -149,7 +149,9 @@ public class SaveManager : Singleton<SaveManager>
 
         if (loaduser.Version != Consts.Version.Current_Version)
         {
-            loaduser.LastExitTime = DateTime.UtcNow.Ticks;
+            loaduser.LastExitTime = DateTime.Now.Ticks;
+
+            loaduser.EnhanceStone = 0;
 
             loaduser.Version = Consts.Version.Current_Version;
         }
@@ -179,6 +181,8 @@ public class SaveManager : Singleton<SaveManager>
             HealLevel = 0,
             IsAutoClean = false,
             IsAutoOn = false,
+            LastExitTime = DateTime.Now.Ticks,
+            EnhanceStone = 0,
         };
 
         PlayerEquip.Instance.InitData();

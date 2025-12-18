@@ -14,13 +14,33 @@ public class ResultWindow : MonoBehaviour
     [Header("Button")]
     public Button UpgradeBtn;
 
+    private void OnEnable()
+    {
+        _item = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber];
+
+        ProcessButton(_item.UpgradeType);
+    }
+
     private void Start()
     {
         Close.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Close.png[Close]");
-        UpgradeBtn.onClick.AddListener(UpgradeProcess);
     }
 
-    private void UpgradeProcess()
+    public void ProcessButton(Consts.ItemEnhanceCostType costType)
+    {
+        UpgradeBtn.onClick?.RemoveAllListeners();
+
+        if(costType == Consts.ItemEnhanceCostType.Gold)
+        {
+            UpgradeBtn.onClick.AddListener(UpgradeGoldProcess);
+        }
+        else
+        {
+            UpgradeBtn.onClick.AddListener(UpgradeStoneProcess);
+        }
+    }
+
+    private void UpgradeGoldProcess()
     {
         // === 돈이 부족할 경우 ===
         if (SaveManager.Instance.UserData.Money < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].PriceItem())
@@ -62,8 +82,39 @@ public class ResultWindow : MonoBehaviour
         }
     }
 
+    private void UpgradeStoneProcess()
+    {
+        // === 돈이 부족할 경우 ===
+        if (SaveManager.Instance.UserData.EnhanceStone < PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].RequestStone())
+        {
+            EnhanceTxt.color = Color.red;
+            EnhanceTxt.text = "강화석 부족";
+
+            SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.NoMoney);
+            return; 
+        }
+
+        SaveManager.Instance.UserData.EnhanceStone -= PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber].RequestStone();
+
+        EnhanceTxt.color = Color.green;
+        EnhanceTxt.text = "강화 성공!";
+
+        _item = PlayerEquip.Instance.EquipmentSlot[PlayerEquip.Instance.CheckEquipNumber];
+
+        _item.Enhanced++;
+
+        PlayerEquip.Instance.UpdateStatus(_item);
+
+        EnhanceWindow.SetActive(false);
+
+        UiManager.Instance.Status.UpdateStatusUi();
+
+        SoundManager.Instance.ItemEffectSound(Consts.InventoryItem.Enhanced);
+    }
+
     private void OnDisable()
     {
+        UpgradeBtn.onClick.RemoveAllListeners();
         EnhanceTxt.text = null;
     }
 }
