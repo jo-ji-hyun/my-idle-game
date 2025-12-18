@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 08.GoldHelmet
   m_EditorClassIdentifier: 
   Type: 0
-  Hp: 5000
+  Hp: 50000
   Atk: 0
   Def: 0
   Cri: 0
