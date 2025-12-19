@@ -96,16 +96,20 @@ public class InventoryManager : Singleton<InventoryManager>
         int minenhanced = Math.Max(0, SaveManager.Instance.UserData.Stage - Consts.DrawItemsEnhance.Grade_Base_Min);
         int maxenhanced = SaveManager.Instance.UserData.Stage + Consts.DrawItemsEnhance.Grade_0_Max_Bonus;
 
-        if(grade == 1)
+        if (grade == 1)
         {
             maxenhanced = SaveManager.Instance.UserData.Stage + Consts.DrawItemsEnhance.Grade_1_Max_Bonus;
         }
         else if (grade == 2)
         {
+            maxenhanced = SaveManager.Instance.UserData.Stage + Consts.DrawItemsEnhance.Grade_2_Max_Bonus;
+        }
+        else if (grade == 3) 
+        {
             return 0;
         }
 
-        int enhanced = Random.Range(minenhanced, maxenhanced);
+            int enhanced = Random.Range(minenhanced, maxenhanced);
 
         return enhanced;
     }

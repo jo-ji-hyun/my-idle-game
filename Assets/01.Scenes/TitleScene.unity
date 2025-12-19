@@ -1038,6 +1038,8 @@ MonoBehaviour:
     HealLevel: 0
     IsAutoClean: 0
     IsAutoOn: 0
+    LastExitTime: 0
+    EnhanceStone: 0
   SystemData:
     BGMVolume: 0
     SFXVolume: 0
@@ -3208,6 +3210,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ee37c456f864724391e66a8c6b142ab, type: 2}
   - {fileID: 11400000, guid: b2b83bf7d71098149b62eb9b03d856e0, type: 2}
   - {fileID: 11400000, guid: 31bc2aa5222b21247b3a88116bca8aca, type: 2}
+  - {fileID: 11400000, guid: ba52962eaf0c5f44aa4422897c69d11a, type: 2}
+  - {fileID: 11400000, guid: c3a41261a55b99344a7c2f7af62fcdb4, type: 2}
+  - {fileID: 11400000, guid: 6c9a9ab86bd7dcf4f8cea3e38126af31, type: 2}
+  - {fileID: 11400000, guid: 1d7f83ae24c3db347a7c9cd5c2acf579, type: 2}
+  - {fileID: 11400000, guid: 5050ad8964a86104babc6dd136e95c97, type: 2}
+  - {fileID: 11400000, guid: 3776a794119faea46b483516ee9fc53e, type: 2}
+  - {fileID: 11400000, guid: c85d83b24c59d624dbf695499b7a7157, type: 2}
+  - {fileID: 11400000, guid: d1397d5b363f95b4fbffefc81b5539e1, type: 2}
 --- !u!4 &1048782003
 Transform:
   m_ObjectHideFlags: 0

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d132450e180c7248a175c4e78d6255e, type: 3}
-  m_Name: 22.
+  m_Name: 20.GoldHelmet
   m_EditorClassIdentifier: 
   Type: 0
-  Hp: 0
+  Hp: 3500
   Atk: 0
-  Def: 0
+  Def: 20
   Cri: 0
   Enhanced: 0
-  Price: 0
+  Price: 3600
   Grade: 2
   UpgradeType: 1
   Icon: 

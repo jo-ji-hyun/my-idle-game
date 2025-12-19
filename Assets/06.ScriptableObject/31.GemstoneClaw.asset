@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   Hp: 0
-  Atk: 800
+  Atk: 80
   Def: 0
   Cri: 0
   Enhanced: 0

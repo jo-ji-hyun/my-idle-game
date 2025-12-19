@@ -74,6 +74,7 @@ public static class Consts
         public const int Grade_Base_Min = 25;
         public const int Grade_0_Max_Bonus = 15;
         public const int Grade_1_Max_Bonus = 5;
+        public const int Grade_2_Max_Bonus = 0;
     }
 
     public static class DrawItemsPrice
