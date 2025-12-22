@@ -24,9 +24,10 @@ public class InventoryManager : Singleton<InventoryManager>
                 {
                     if (saveData.Grade == pickupitems[i].Grade)
                     {
-                       ItemData cloneItem = (pickupitems[i]);
-
-                        cloneItem.Enhanced = saveData.Enhanced;
+                        ItemData cloneItem = new(pickupitems[i])
+                        {
+                            Enhanced = saveData.Enhanced
+                        };
 
                         InventoryItems.Add(cloneItem);
 
@@ -80,7 +81,7 @@ public class InventoryManager : Singleton<InventoryManager>
         // === 복사본 만들기 ===
         ItemData originalItem = DataManager.Instance.ItemDrops[randomKey];
 
-        ItemData cloneItem = (originalItem);
+        ItemData cloneItem = new(originalItem);
 
         return cloneItem;
     }
@@ -109,7 +110,7 @@ public class InventoryManager : Singleton<InventoryManager>
             return 0;
         }
 
-            int enhanced = Random.Range(minenhanced, maxenhanced);
+        int enhanced = Random.Range(minenhanced, maxenhanced);
 
         return enhanced;
     }
@@ -161,17 +162,14 @@ public class InventoryManager : Singleton<InventoryManager>
             {
                 if (pickupGrade == pickupitems[i].Grade)
                 {
-                    cloneItem = (pickupitems[i]);
+                    cloneItem = new ItemData(pickupitems[i]);
 
                     break;
                 }
             }
         }
 
-        if (cloneItem == null)
-        {
-            cloneItem = NewItem();
-        }
+        cloneItem ??= NewItem();
 
         return cloneItem;
     }

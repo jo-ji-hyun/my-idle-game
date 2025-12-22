@@ -13,7 +13,22 @@ public class ItemData
     public long Price;
     public int Grade;                                
     public Consts.ItemEnhanceCostType UpgradeType;   
-    public string Icon;    
+    public string Icon;
+
+    public ItemData(ItemData other)
+    {
+        this.Id = other.Id;
+        this.Type = other.Type;
+        this.Hp = other.Hp;
+        this.Atk = other.Atk;
+        this.Def = other.Def;
+        this.Cri = other.Cri;
+        this.Enhanced = other.Enhanced;
+        this.Price = other.Price;
+        this.Grade = other.Grade;
+        this.UpgradeType = other.UpgradeType;
+        this.Icon = other.Icon;
+    }
 
     public int EnhancedValue()
     {

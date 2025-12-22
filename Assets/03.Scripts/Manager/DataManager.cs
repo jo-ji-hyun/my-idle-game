@@ -2,6 +2,8 @@
 
 public class DataManager : Singleton<DataManager> 
 {
+    public GameData GameItems;
+
     public List<ItemData> Allitems = new();
 
     public Dictionary<Consts.ItemType, ItemData> ItemDrops = new();
@@ -17,11 +19,15 @@ public class DataManager : Singleton<DataManager>
 
     private void CloneItemData()
     {
+        GameData clonedata = Instantiate<GameData>(GameItems);
+
+        Allitems = clonedata.ItemSheet;
+
         List<ItemData> fielditems = new();
 
         for (int i = 0; i <= (int)Consts.ItemType.Ring; i++)
         {
-            fielditems.Add((Allitems[i]));
+            fielditems.Add(GameItems.ItemSheet[i]);
         }
 
         foreach (var item in fielditems)

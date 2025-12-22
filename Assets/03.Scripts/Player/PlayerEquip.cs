@@ -15,7 +15,7 @@ public class PlayerEquip : Singleton<PlayerEquip>
     {
         for (int i = 0; i <= (int)Consts.ItemType.Ring; i++)
         {
-            EquipmentSlot.Add((DataManager.Instance.Allitems[i]));
+            EquipmentSlot.Add(new ItemData(DataManager.Instance.Allitems[i]));
         }
     }
 
@@ -36,10 +36,11 @@ public class PlayerEquip : Singleton<PlayerEquip>
                 {
                     if(loadGrade == clonitems[i].Grade)
                     {
-                        ItemData newdata = (clonitems[i]);
+                        ItemData newdata = new(clonitems[i])
+                        {
+                            Enhanced = loaditem.Enhanced
+                        };
 
-                        newdata.Enhanced = loaditem.Enhanced;
-       
                         EquipmentSlot.Add(newdata);
 
                         break;
