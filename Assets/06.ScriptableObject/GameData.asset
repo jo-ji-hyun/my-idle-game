@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef57c222b51ad54b92dfe77785399f4, type: 3}
+  m_Name: GameData
+  m_EditorClassIdentifier: 
+  ItemSheet:
+  - Id: 101000001
+    Type: 0
+    Hp: 500
+    Atk: 0
+    Def: 0
+    Cri: 0
+    Enhanced: 0
+    Price: 500
+    Grade: 0
+    UpgradeType: 1
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet0_0]
+  - Id: 101000002
+    Type: 1
+    Hp: 0
+    Atk: 5
+    Def: 0
+    Cri: 0
+    Enhanced: 0
+    Price: 1000
+    Grade: 0
+    UpgradeType: 1
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet0_1]
+  - Id: 101000003
+    Type: 2
+    Hp: 0
+    Atk: 0
+    Def: 2
+    Cri: 0
+    Enhanced: 0
+    Price: 800
+    Grade: 0
+    UpgradeType: 1
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet0_2]
+  - Id: 101000004
+    Type: 3
+    Hp: 0
+    Atk: 0
+    Def: 0
+    Cri: 5
+    Enhanced: 0
+    Price: 1200
+    Grade: 0
+    UpgradeType: 1
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet0_3]
+  - Id: 101001001
+    Type: 0
+    Hp: 3500
+    Atk: 0
+    Def: 0
+    Cri: 0
+    Enhanced: 0
+    Price: 3500
+    Grade: 1
+    UpgradeType: 0
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet1_0]
+  - Id: 101001002
+    Type: 1
+    Hp: 0
+    Atk: 30
+    Def: 0
+    Cri: 0
+    Enhanced: 0
+    Price: 5000
+    Grade: 1
+    UpgradeType: 0
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet1_1]
+  - Id: 101001003
+    Type: 2
+    Hp: 0
+    Atk: 0
+    Def: 12
+    Cri: 0
+    Enhanced: 0
+    Price: 4500
+    Grade: 1
+    UpgradeType: 0
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet1_2]
+  - Id: 101001004
+    Type: 3
+    Hp: 0
+    Atk: 0
+    Def: 0
+    Cri: 36
+    Enhanced: 0
+    Price: 6000
+    Grade: 1
+    UpgradeType: 0
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet1_3]
+  - Id: 101002001
+    Type: 0
+    Hp: 3500
+    Atk: 0
+    Def: 8
+    Cri: 0
+    Enhanced: 0
+    Price: 4400
+    Grade: 2
+    UpgradeType: 1
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet2_0]
+  - Id: 101002002
+    Type: 1
+    Hp: 0
+    Atk: 32
+    Def: 0
+    Cri: 10
+    Enhanced: 0
+    Price: 5500
+    Grade: 2
+    UpgradeType: 1
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet2_1]
+  - Id: 101002003
+    Type: 2
+    Hp: 1800
+    Atk: 0
+    Def: 16
+    Cri: 0
+    Enhanced: 0
+    Price: 4800
+    Grade: 2
+    UpgradeType: 1
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet2_2]
+  - Id: 101002004
+    Type: 3
+    Hp: 0
+    Atk: 40
+    Def: 6
+    Cri: 20
+    Enhanced: 0
+    Price: 6500
+    Grade: 2
+    UpgradeType: 1
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet2_3]
+  - Id: 101003001
+    Type: 0
+    Hp: 5000
+    Atk: 0
+    Def: 0
+    Cri: 0
+    Enhanced: 0
+    Price: 10000
+    Grade: 3
+    UpgradeType: 2
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet3_0]
+  - Id: 101003002
+    Type: 1
+    Hp: 0
+    Atk: 80
+    Def: 0
+    Cri: 0
+    Enhanced: 0
+    Price: 15000
+    Grade: 3
+    UpgradeType: 2
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet3_1]
+  - Id: 101003003
+    Type: 2
+    Hp: 0
+    Atk: 0
+    Def: 35
+    Cri: 0
+    Enhanced: 0
+    Price: 12000
+    Grade: 3
+    UpgradeType: 2
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet3_2]
+  - Id: 101003004
+    Type: 3
+    Hp: 0
+    Atk: 0
+    Def: 0
+    Cri: 55
+    Enhanced: 0
+    Price: 18000
+    Grade: 3
+    UpgradeType: 2
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet3_3]

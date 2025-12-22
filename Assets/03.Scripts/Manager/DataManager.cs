@@ -21,7 +21,7 @@ public class DataManager : Singleton<DataManager>
 
         for (int i = 0; i <= (int)Consts.ItemType.Ring; i++)
         {
-            fielditems.Add(Instantiate(Allitems[i]));
+            fielditems.Add((Allitems[i]));
         }
 
         foreach (var item in fielditems)
@@ -33,7 +33,7 @@ public class DataManager : Singleton<DataManager>
 
         foreach (var items in Allitems)
         {
-            ItemData itemdata = Instantiate(items);
+            ItemData itemdata = (items);
 
             Consts.ItemType type = itemdata.Type;
 

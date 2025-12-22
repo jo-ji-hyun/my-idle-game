@@ -1,24 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Item")]
-public class ItemData : ScriptableObject
+[Serializable]
+public class ItemData
 {
-    public Consts.ItemType Type;  // === 아이템 종류 ===
-
-    // === 기본 능력치 ===
-    [Header("Status")]
+    public string Id;
+    public Consts.ItemType Type;
     public int Hp;
     public int Atk;
     public int Def;
     public int Cri;
-
-    [Header("etc")]
     public int Enhanced;  
     public long Price;
-    public int Grade;                                // === 스테이지 클리어시 얻는 아이템 = 0, 뽑기 아이템은 등급 증가 ===
-    public Consts.ItemEnhanceCostType UpgradeType;   // === 강화방식 ===
-
-    [Header("Addressable")]                          // === 번들 주소값 ===
+    public int Grade;                                
+    public Consts.ItemEnhanceCostType UpgradeType;   
     public string Icon;    
 
     public int EnhancedValue()
