@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 8
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
     Price: 3500
     Grade: 1
     UpgradeType: 0
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet1_0]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet1.png[itemSheet1_0]
   - Id: 101001002
     Type: 1
     Hp: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     Price: 5000
     Grade: 1
     UpgradeType: 0
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet1_1]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet1.png[itemSheet1_1]
   - Id: 101001003
     Type: 2
     Hp: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
     Price: 4500
     Grade: 1
     UpgradeType: 0
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet1_2]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet1.png[itemSheet1_2]
   - Id: 101001004
     Type: 3
     Hp: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
     Price: 6000
     Grade: 1
     UpgradeType: 0
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet1_3]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet1.png[itemSheet1_3]
   - Id: 101002001
     Type: 0
     Hp: 3500
@@ -111,7 +111,7 @@ MonoBehaviour:
     Price: 4400
     Grade: 2
     UpgradeType: 1
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet2_0]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet2.png[itemSheet2_0]
   - Id: 101002002
     Type: 1
     Hp: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
     Price: 5500
     Grade: 2
     UpgradeType: 1
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet2_1]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet2.png[itemSheet2_1]
   - Id: 101002003
     Type: 2
     Hp: 1800
@@ -133,7 +133,7 @@ MonoBehaviour:
     Price: 4800
     Grade: 2
     UpgradeType: 1
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet2_2]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet2.png[itemSheet2_2]
   - Id: 101002004
     Type: 3
     Hp: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
     Price: 6500
     Grade: 2
     UpgradeType: 1
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet2_3]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet2.png[itemSheet2_3]
   - Id: 101003001
     Type: 0
     Hp: 5000
@@ -155,7 +155,7 @@ MonoBehaviour:
     Price: 10000
     Grade: 3
     UpgradeType: 2
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet3_0]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet3.png[itemSheet3_0]
   - Id: 101003002
     Type: 1
     Hp: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
     Price: 15000
     Grade: 3
     UpgradeType: 2
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet3_1]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet3.png[itemSheet3_1]
   - Id: 101003003
     Type: 2
     Hp: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
     Price: 12000
     Grade: 3
     UpgradeType: 2
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet3_2]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet3.png[itemSheet3_2]
   - Id: 101003004
     Type: 3
     Hp: 0
@@ -188,4 +188,4 @@ MonoBehaviour:
     Price: 18000
     Grade: 3
     UpgradeType: 2
-    Icon: Assets/00.Externals/Myaddressable/item/itemSheet0.png[itemSheet3_3]
+    Icon: Assets/00.Externals/Myaddressable/item/itemSheet3.png[itemSheet3_3]

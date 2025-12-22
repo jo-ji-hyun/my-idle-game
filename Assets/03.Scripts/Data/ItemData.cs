@@ -15,6 +15,8 @@ public class ItemData
     public Consts.ItemEnhanceCostType UpgradeType;   
     public string Icon;
 
+    public ItemData() { }
+
     public ItemData(ItemData other)
     {
         this.Id = other.Id;
