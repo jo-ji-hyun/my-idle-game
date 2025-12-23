@@ -20452,8 +20452,8 @@ MonoBehaviour:
   <Enhancement>k__BackingField: {fileID: 1872291866}
   <Store>k__BackingField: {fileID: 1804558630}
   <System>k__BackingField: {fileID: 437043589}
-  <Money>k__BackingField: {fileID: 0}
-  <EnhanceStone>k__BackingField: {fileID: 0}
+  <Money>k__BackingField: {fileID: 1647778792}
+  <EnhanceStone>k__BackingField: {fileID: 1267769154}
   <EnemyHP>k__BackingField: {fileID: 500540727}
   <Stage>k__BackingField: {fileID: 1533150326}
   <Status>k__BackingField: {fileID: 140178613}
