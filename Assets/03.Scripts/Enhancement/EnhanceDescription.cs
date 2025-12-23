@@ -37,7 +37,12 @@ public class EnhanceDescription : MonoBehaviour
         }
         else if (item.UpgradeType == Consts.ItemEnhanceCostType.Stone)
         {
-            CostTxt.text = item.RequestStone().ToString("N0");
+            long require = item.RequestStone();
+            long own = SaveManager.Instance.UserData.EnhanceStone;
+
+            CostTxt.text = $"{require:N0} / {own:N0}";
+
+            CostTxt.color = (own < require) ? Color.red : Color.black;
             CostIcon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Diamond.png[Diamond]");
         }
 

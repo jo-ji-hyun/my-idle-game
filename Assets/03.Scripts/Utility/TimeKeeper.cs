@@ -89,11 +89,20 @@ public class TimeKeeper : Singleton<TimeKeeper>
             long reward = (long)(minutes * 500);
             GameManager.Instance.ChangeMoney(reward);
 
-            long stonereward = (long)offlineDuration.TotalHours;
-            SaveManager.Instance.UserData.EnhanceStone += stonereward;
-
             RewardTxt.text = GoldFormat.FormatGold(reward);
-            StoneRewardTxt.text = "강화석+ " + stonereward.ToString("N0");
+
+            long stonereward = (long)(minutes / 60);
+
+            if(stonereward > 0)
+            {
+                SaveManager.Instance.UserData.EnhanceStone += stonereward;
+
+                StoneRewardTxt.text = "강화석+ " + stonereward.ToString("N0");
+            }
+            else
+            {
+                StoneRewardTxt.text = "강화석+ 0";
+            }
 
             RewardPanel.SetActive(true);
         }
