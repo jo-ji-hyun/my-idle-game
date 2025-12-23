@@ -66,6 +66,7 @@ public class ShoppingWindow : MonoBehaviour
                 break;
             case 4:
                 SaveManager.Instance.UserData.EnhanceStone++;
+                UiManager.Instance.EnhanceStone.UpdateUi();
                 break;
         }
     }
