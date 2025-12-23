@@ -15,6 +15,7 @@ public class TimeKeeper : Singleton<TimeKeeper>
     public GameObject RewardPanel;
     public TextMeshProUGUI OfflineTxt;
     public TextMeshProUGUI RewardTxt;
+    public TextMeshProUGUI StoneRewardTxt;
 
     protected override bool IsDestroy => false;
 
@@ -88,7 +89,12 @@ public class TimeKeeper : Singleton<TimeKeeper>
             long reward = (long)(minutes * 500);
             GameManager.Instance.ChangeMoney(reward);
 
+            long stonereward = (long)offlineDuration.TotalHours;
+            SaveManager.Instance.UserData.EnhanceStone += stonereward;
+
             RewardTxt.text = GoldFormat.FormatGold(reward);
+            StoneRewardTxt.text = "강화석+ " + stonereward.ToString("N0");
+
             RewardPanel.SetActive(true);
         }
 
