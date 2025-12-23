@@ -24,7 +24,7 @@ public class EnhanceDescription : MonoBehaviour
         }
         else
         {
-            UiManager.Instance.Enhancement.EnhanceChance = 1.0f;
+            UiManager.Instance.Enhancement.EnhanceChance = 0.05f;
         }
 
         SucessTxt.text = UiManager.Instance.Enhancement.EnhanceChance.ToString();
