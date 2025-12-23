@@ -13861,6 +13861,7 @@ GameObject:
   - component: {fileID: 1267769152}
   - component: {fileID: 1267769151}
   - component: {fileID: 1267769154}
+  - component: {fileID: 1267769155}
   m_Layer: 5
   m_Name: Stone
   m_TagString: Untagged
@@ -14000,6 +14001,19 @@ MonoBehaviour:
   Value: {fileID: 1823195886}
   FundType: 2
   BundleUrl: Assets/00.Externals/Myaddressable/Diamond.png[Diamond]
+--- !u!114 &1267769155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267769149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efbdcd296a44d4e4888a91a84b4d31df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FundType: 2
 --- !u!1 &1282827555
 GameObject:
   m_ObjectHideFlags: 0
@@ -16537,8 +16551,8 @@ GameObject:
   - component: {fileID: 1647778788}
   - component: {fileID: 1647778787}
   - component: {fileID: 1647778791}
-  - component: {fileID: 1647778790}
   - component: {fileID: 1647778792}
+  - component: {fileID: 1647778790}
   m_Layer: 5
   m_Name: Money
   m_TagString: Untagged
@@ -16618,6 +16632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efbdcd296a44d4e4888a91a84b4d31df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FundType: 1
 --- !u!114 &1647778791
 MonoBehaviour:
   m_ObjectHideFlags: 0

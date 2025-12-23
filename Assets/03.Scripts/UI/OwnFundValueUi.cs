@@ -7,7 +7,8 @@ public class OwnFundValueUi : MonoBehaviour
     public Image Icon;
     public TextMeshProUGUI Value;
     public Consts.ItemEnhanceCostType FundType;
-    [SerializeField]private string BundleUrl;
+    [SerializeField]
+    private string BundleUrl;
 
     void Start()
     {
