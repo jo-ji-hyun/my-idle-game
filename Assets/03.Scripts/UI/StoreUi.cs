@@ -17,6 +17,7 @@ public class StoreUi : MonoBehaviour
     public Image Item_heal;
     public Image Item_auto;
     public Image Item_draw;
+    public Image Item_stone;
 
     [HideInInspector]
     public long CurrentItemPrice;
@@ -47,6 +48,8 @@ public class StoreUi : MonoBehaviour
         }
 
         Item_draw.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_3]");
+
+        Item_stone.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Diamond.png[Diamond]");
     }
 
     private void Start()
@@ -94,6 +97,9 @@ public class StoreUi : MonoBehaviour
                 return sprite;
             case 3:
                 sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_3]");
+                return sprite;
+            case 4:
+                sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Diamond.png[Diamond]");
                 return sprite;
             default: 
                 return null;

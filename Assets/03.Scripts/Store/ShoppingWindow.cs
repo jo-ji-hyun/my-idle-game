@@ -64,7 +64,9 @@ public class ShoppingWindow : MonoBehaviour
             case 3:
                 DrawOpen();
                 break;
-
+            case 4:
+                SaveManager.Instance.UserData.EnhanceStone++;
+                break;
         }
     }
 

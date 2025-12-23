@@ -8,6 +8,7 @@ public class Store : MonoBehaviour
     public Button Item_heal_Btn;
     public Button Item_auto_Btn;
     public Button Item_draw_Btn;
+    public Button Item_stone_Btn;
 
     private string _descriptitem;
     private long _itemprice;
@@ -23,6 +24,7 @@ public class Store : MonoBehaviour
         Item_heal_Btn.onClick.AddListener(Heal);
         Item_auto_Btn.onClick.AddListener(AutoClean);
         Item_draw_Btn.onClick.AddListener(DrawItem);
+        Item_stone_Btn.onClick.AddListener(ChangeStone);
     }
 
     private void Bag()
@@ -63,6 +65,15 @@ public class Store : MonoBehaviour
         _itemprice = Consts.DrawItemsPrice.Base_Price + (Consts.DrawItemsPrice.Next_Price * SaveManager.Instance.UserData.Stage) + (Consts.DrawItemsPrice.Inflation_Price * SaveManager.Instance.UserData.Stage * SaveManager.Instance.UserData.Stage / 10);
 
         UiManager.Instance.Store.DescriptionWindow(_descriptitem, _itemprice, 3);
+    }
+
+    private void ChangeStone()
+    {
+        _descriptitem = " 골드를 강화석으로 교환합니다.";
+
+        _itemprice = 1000000;
+
+        UiManager.Instance.Store.DescriptionWindow(_descriptitem, _itemprice, 4);
     }
 
 }
