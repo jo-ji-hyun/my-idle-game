@@ -1,14 +1,14 @@
 ﻿
-public static class GoldFormat
+public static class ValueFormat
 {
     private static readonly string[] Units = { "", "K", "M", "B", "T", "Q" };
 
-    public static string FormatGold(long gold)
+    public static string Format(long value)
     {
-        if(gold <= 0) return "0";
+        if(value <= 0) return "0";
 
         int unitIndex = 0;
-        double doubleValue = gold;
+        double doubleValue = value;
 
         while (doubleValue >= 1000 && unitIndex < Units.Length - 1)
         {

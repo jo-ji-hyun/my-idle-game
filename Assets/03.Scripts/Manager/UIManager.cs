@@ -16,7 +16,10 @@ public class UiManager : Singleton<UiManager>
     public SystemUi System { get; private set; }
 
     [field: SerializeField]
-    public MoneyUi Money { get; private set; }
+    public OwnFundValueUi Money { get; private set; }
+
+    [field: SerializeField]
+    public OwnFundValueUi EnhanceStone { get; private set; }
 
     [field: SerializeField]
     public EnemyHP EnemyHP { get; private set; }

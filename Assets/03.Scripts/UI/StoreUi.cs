@@ -71,7 +71,7 @@ public class StoreUi : MonoBehaviour
 
         CurrentItemPrice = price;
 
-        ItemPrice.text = GoldFormat.FormatGold(price);
+        ItemPrice.text = ValueFormat.Format(price);
 
         SelectedItemID = num;
 

@@ -39,19 +39,19 @@ public class Slot : MonoBehaviour
             switch (item.Type)
             {
                 case Consts.ItemType.Helmet:
-                    _descriptionText = $"체력 + {item.EnhancedHP(item.Enhanced)}, 판매가 {GoldFormat.FormatGold(item.PriceItem())}";
+                    _descriptionText = $"체력 + {item.EnhancedHP(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
                     break;
                 case Consts.ItemType.Weapon:
-                    _descriptionText = $"공격력 + {item.EnhancedAttack(item.Enhanced)}, 판매가 {GoldFormat.FormatGold(item.PriceItem())}";
+                    _descriptionText = $"공격력 + {item.EnhancedAttack(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
                     break;
                 case Consts.ItemType.Shield:
-                    _descriptionText = $"방어력 + {item.EnhancedDefence(item.Enhanced)}, 판매가 {GoldFormat.FormatGold(item.PriceItem())}";
+                    _descriptionText = $"방어력 + {item.EnhancedDefence(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
                     break;
                 case Consts.ItemType.Ring:
-                    _descriptionText = $"크리티컬 + {item.EnhancedCri(item.Enhanced)}, 판매가 {GoldFormat.FormatGold(item.PriceItem())}";
+                    _descriptionText = $"크리티컬 + {item.EnhancedCri(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
                     break;
             }

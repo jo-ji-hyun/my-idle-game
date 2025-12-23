@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
         SaveManager.Instance.UserData.Money += amount;
 
         UiManager.Instance.Money.UpdateUi();
+        UiManager.Instance.EnhanceStone.UpdateUi();
     }
 
     // === 플레이어 사망시 지금 스테이지 재시작 ===

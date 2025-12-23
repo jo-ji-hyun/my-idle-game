@@ -89,7 +89,7 @@ public class TimeKeeper : Singleton<TimeKeeper>
             long reward = (long)(minutes * 500);
             GameManager.Instance.ChangeMoney(reward);
 
-            RewardTxt.text = GoldFormat.FormatGold(reward);
+            RewardTxt.text = ValueFormat.Format(reward);
 
             long stonereward = (long)(minutes / 60);
 
