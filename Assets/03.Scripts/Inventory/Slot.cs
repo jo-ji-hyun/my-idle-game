@@ -36,28 +36,24 @@ public class Slot : MonoBehaviour
         else
         {
             EnhancedStatus.text = $"{item.Enhanced}";
+            EnhancedStatus.color = Consts.ItemGradeColor(item.Grade);
+
+            Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
+            Outline.effectColor = Consts.ItemGradeColor(item.Grade);
 
             switch (item.Type)
             {
                 case Consts.ItemType.Helmet:
                     _descriptionText = $"체력 + {item.EnhancedHP(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
-                    Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
-                    Outline.effectColor = Consts.ItemGradeColor(item.Grade);
                     break;
                 case Consts.ItemType.Weapon:
                     _descriptionText = $"공격력 + {item.EnhancedAttack(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
-                    Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
-                    Outline.effectColor = Consts.ItemGradeColor(item.Grade);
                     break;
                 case Consts.ItemType.Shield:
                     _descriptionText = $"방어력 + {item.EnhancedDefence(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
-                    Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
-                    Outline.effectColor = Consts.ItemGradeColor(item.Grade);
                     break;
                 case Consts.ItemType.Ring:
                     _descriptionText = $"크리티컬 + {item.EnhancedCri(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
-                    Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
-                    Outline.effectColor = Consts.ItemGradeColor(item.Grade);
                     break;
             }
         }

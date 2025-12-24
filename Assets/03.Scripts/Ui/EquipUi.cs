@@ -67,8 +67,15 @@ public class EquipUi : MonoBehaviour
         ChangeEquipicon();
 
         HpTxt.text = PlayerEquip.Instance.EquipmentSlot[(int)Consts.ItemType.Helmet].Enhanced.ToString();
+        HpTxt.color = Consts.ItemGradeColor(PlayerEquip.Instance.EquipmentSlot[0].Grade);
+
         AtkTxt.text = PlayerEquip.Instance.EquipmentSlot[(int)Consts.ItemType.Weapon].Enhanced.ToString();
+        AtkTxt.color = Consts.ItemGradeColor(PlayerEquip.Instance.EquipmentSlot[1].Grade);
+
         DefTxt.text = PlayerEquip.Instance.EquipmentSlot[(int)Consts.ItemType.Shield].Enhanced.ToString();
+        DefTxt.color = Consts.ItemGradeColor(PlayerEquip.Instance.EquipmentSlot[2].Grade);
+
         CriTxt.text = PlayerEquip.Instance.EquipmentSlot[(int)Consts.ItemType.Ring].Enhanced.ToString();
+        CriTxt.color = Consts.ItemGradeColor(PlayerEquip.Instance.EquipmentSlot[3].Grade);
     }
 }
