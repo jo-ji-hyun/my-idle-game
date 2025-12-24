@@ -1,4 +1,5 @@
-﻿
+﻿using UnityEngine;
+
 public static class Consts 
 {
     public enum BattleResult
@@ -100,5 +101,17 @@ public static class Consts
         public const int Enemy_Status_Hp_Up = 400;
         public const int Enemy_Status_Def_Base = 1;
         public const float Enemy_Status_Atk_Up = 1.5f;
+    }
+
+    public static Color ItemGradeColor(int grade)
+    {
+        return grade switch
+        {
+            0 => Color.white,               // === 0등급 (일반) ===
+            1 => new Color(0.2f, 1f, 0.2f), // === 1등급 (연두) ===
+            2 => new Color(0.2f, 0.5f, 1f), // === 2등급 (파랑) ===
+            3 => new Color(0.7f, 0.2f, 1f), // === 3등급 (보라) ===
+            _ => Color.white
+        };
     }
 }

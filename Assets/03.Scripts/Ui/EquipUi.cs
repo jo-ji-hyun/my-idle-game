@@ -9,6 +9,12 @@ public class EquipUi : MonoBehaviour
     public Image Shield_img;
     public Image Ring_img;
 
+    [Header("Out-Line")]
+    public Outline HelmetOutLine;
+    public Outline WeaponOutLine;
+    public Outline ShieldOutLine;
+    public Outline RingOutLine;
+
     [Header("Status")]
     public Button StatusCallBtn;
     public GameObject StatusWindow;
@@ -43,6 +49,16 @@ public class EquipUi : MonoBehaviour
         Weapon_img.sprite = AddressableManager.Instance.GetAssets<Sprite>(PlayerEquip.Instance.EquipmentSlot[1].Icon);
         Shield_img.sprite = AddressableManager.Instance.GetAssets<Sprite>(PlayerEquip.Instance.EquipmentSlot[2].Icon);
         Ring_img.sprite = AddressableManager.Instance.GetAssets<Sprite>(PlayerEquip.Instance.EquipmentSlot[3].Icon);
+
+        ChangeOutLine();
+    }
+
+    private void ChangeOutLine()
+    {
+        HelmetOutLine.effectColor = Consts.ItemGradeColor(PlayerEquip.Instance.EquipmentSlot[0].Grade);
+        WeaponOutLine.effectColor = Consts.ItemGradeColor(PlayerEquip.Instance.EquipmentSlot[1].Grade);
+        ShieldOutLine.effectColor = Consts.ItemGradeColor(PlayerEquip.Instance.EquipmentSlot[2].Grade);
+        RingOutLine.effectColor = Consts.ItemGradeColor(PlayerEquip.Instance.EquipmentSlot[3].Grade);
     }
 
     // === 현재 강화 수치 ===

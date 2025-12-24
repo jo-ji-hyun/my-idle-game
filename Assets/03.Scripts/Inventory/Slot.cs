@@ -8,6 +8,7 @@ public class Slot : MonoBehaviour
 
     [Header("Slot")]
     public Image Icon;                         // === 아이콘 표시 ===
+    public Outline Outline;
     public TextMeshProUGUI EnhancedStatus;     // === 강화 상태 표시 ===
     public Button SlotBtn;
 
@@ -41,22 +42,24 @@ public class Slot : MonoBehaviour
                 case Consts.ItemType.Helmet:
                     _descriptionText = $"체력 + {item.EnhancedHP(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
+                    Outline.effectColor = Consts.ItemGradeColor(item.Grade);
                     break;
                 case Consts.ItemType.Weapon:
                     _descriptionText = $"공격력 + {item.EnhancedAttack(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
+                    Outline.effectColor = Consts.ItemGradeColor(item.Grade);
                     break;
                 case Consts.ItemType.Shield:
                     _descriptionText = $"방어력 + {item.EnhancedDefence(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
+                    Outline.effectColor = Consts.ItemGradeColor(item.Grade);
                     break;
                 case Consts.ItemType.Ring:
                     _descriptionText = $"크리티컬 + {item.EnhancedCri(item.Enhanced)}, 판매가 {ValueFormat.Format(item.PriceItem())}";
                     Icon.sprite = AddressableManager.Instance.GetAssets<Sprite>(item.Icon);
+                    Outline.effectColor = Consts.ItemGradeColor(item.Grade);
                     break;
             }
-
-            
         }
     }
 

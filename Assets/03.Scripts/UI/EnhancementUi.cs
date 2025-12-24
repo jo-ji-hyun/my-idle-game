@@ -23,6 +23,9 @@ public class EnhancementUi : MonoBehaviour
     [Header("Sprite")]
     public List<Image> EnhanceSlotImage;
 
+    [Header("Out-Line")]
+    public List<Outline> EnhanceSlotOutline;
+
     [HideInInspector]
     public float EnhanceChance;
 
@@ -46,6 +49,7 @@ public class EnhancementUi : MonoBehaviour
             ItemData currentitem = PlayerEquip.Instance.EquipmentSlot[i];
 
             EnhanceSlotImage[i].sprite = AddressableManager.Instance.GetAssets<Sprite>(currentitem.Icon);
+            EnhanceSlotOutline[i].effectColor = Consts.ItemGradeColor(currentitem.Grade);
         }
     }
 
