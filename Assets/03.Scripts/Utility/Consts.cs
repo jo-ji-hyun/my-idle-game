@@ -90,6 +90,7 @@ public static class Consts
     {
         public const long Base_Benefit = 800;        
         public const long Bonus_Stage_Interval = 50;
+        public const long Base_Gold_Per_Minute = 500;
         public const long Bonus_Benefit = 1500;
         public const long Clear_Base_Reward = 5000;
         public const long Clear_Bonus_Reward = 3000;

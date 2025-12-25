@@ -86,7 +86,10 @@ public class TimeKeeper : Singleton<TimeKeeper>
         {
             double minutes = Math.Min(1440, offlineDuration.TotalMinutes);
 
-            long reward = (long)(minutes * 500);
+            long bonusreward = SaveManager.Instance.UserData.Stage / Consts.PlayerReward.Bonus_Stage_Interval;
+            long finalgold = Consts.PlayerReward.Base_Gold_Per_Minute + (bonusreward * Consts.PlayerReward.Base_Gold_Per_Minute);
+
+            long reward = (long)(minutes * finalgold);
             GameManager.Instance.ChangeMoney(reward);
 
             RewardTxt.text = ValueFormat.Format(reward);
