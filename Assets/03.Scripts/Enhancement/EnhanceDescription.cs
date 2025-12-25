@@ -43,7 +43,7 @@ public class EnhanceDescription : MonoBehaviour
             CostTxt.text = $"{ValueFormat.Format(require)} / {ValueFormat.Format(own)}";
 
             CostTxt.color = (own < require) ? Color.red : Color.black;
-            CostIcon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Diamond.png[Diamond]");
+            CostIcon.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Diamond.png[Diamond_0]");
         }
 
         ResultWindow.SetActive(true);

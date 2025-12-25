@@ -16628,7 +16628,7 @@ MonoBehaviour:
   Icon: {fileID: 432063518}
   Value: {fileID: 1823195886}
   FundType: 2
-  BundleUrl: Assets/00.Externals/Myaddressable/Diamond.png[Diamond]
+  BundleUrl: Assets/00.Externals/Myaddressable/Diamond.png[Diamond_0]
 --- !u!114 &1267769155
 MonoBehaviour:
   m_ObjectHideFlags: 0

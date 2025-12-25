@@ -49,7 +49,7 @@ public class StoreUi : MonoBehaviour
 
         Item_draw.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_3]");
 
-        Item_stone.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Diamond.png[Diamond]");
+        Item_stone.sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Diamond.png[Diamond_0]");
     }
 
     private void Start()
