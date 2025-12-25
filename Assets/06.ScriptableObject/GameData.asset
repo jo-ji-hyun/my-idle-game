@@ -103,9 +103,9 @@ MonoBehaviour:
     Icon: Assets/00.Externals/Myaddressable/item/itemSheet1.png[itemSheet1_3]
   - Id: 101002001
     Type: 0
-    Hp: 3500
+    Hp: 5000
     Atk: 0
-    Def: 8
+    Def: 0
     Cri: 0
     Enhanced: 0
     Price: 4400
@@ -117,7 +117,7 @@ MonoBehaviour:
     Hp: 0
     Atk: 32
     Def: 0
-    Cri: 10
+    Cri: 0
     Enhanced: 0
     Price: 5500
     Grade: 2
@@ -125,9 +125,9 @@ MonoBehaviour:
     Icon: Assets/00.Externals/Myaddressable/item/itemSheet2.png[itemSheet2_1]
   - Id: 101002003
     Type: 2
-    Hp: 1800
+    Hp: 0
     Atk: 0
-    Def: 16
+    Def: 20
     Cri: 0
     Enhanced: 0
     Price: 4800
@@ -137,9 +137,9 @@ MonoBehaviour:
   - Id: 101002004
     Type: 3
     Hp: 0
-    Atk: 40
-    Def: 6
-    Cri: 20
+    Atk: 0
+    Def: 0
+    Cri: 50
     Enhanced: 0
     Price: 6500
     Grade: 2
@@ -147,7 +147,7 @@ MonoBehaviour:
     Icon: Assets/00.Externals/Myaddressable/item/itemSheet2.png[itemSheet2_3]
   - Id: 101003001
     Type: 0
-    Hp: 5000
+    Hp: 8000
     Atk: 0
     Def: 0
     Cri: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   - Id: 101003002
     Type: 1
     Hp: 0
-    Atk: 80
+    Atk: 100
     Def: 0
     Cri: 0
     Enhanced: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
     Type: 2
     Hp: 0
     Atk: 0
-    Def: 35
+    Def: 45
     Cri: 0
     Enhanced: 0
     Price: 12000
@@ -183,7 +183,7 @@ MonoBehaviour:
     Hp: 0
     Atk: 0
     Def: 0
-    Cri: 55
+    Cri: 80
     Enhanced: 0
     Price: 18000
     Grade: 3
