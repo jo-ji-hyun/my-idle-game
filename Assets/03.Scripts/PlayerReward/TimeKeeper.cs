@@ -122,7 +122,32 @@ public class TimeKeeper : Singleton<TimeKeeper>
     {
         RewardPanel.SetActive(false);
 
-        UiManager.Instance.DailyCheckWindow.SetActive(true);
+        CheckAttendence();
+    }
+
+    private void CheckAttendence()
+    {
+        string today = DateTime.Now.ToString("yyyy-MM-dd");
+        string lastday = SaveManager.Instance.UserData.LastAttendanceDate;
+
+        // === 최초 로그인 일 경우 ===
+        if(today == lastday && SaveManager.Instance.UserData.CumulativeAttendance == 0)
+        {
+            UiManager.Instance.DailyCheckWindow.SetActive(true);
+
+            SaveManager.Instance.UserData.CumulativeAttendance++;
+        }
+
+        if(today != lastday)
+        {
+            SaveManager.Instance.UserData.LastAttendanceDate = today;
+
+            UiManager.Instance.DailyCheckWindow.SetActive(true);
+
+            SaveManager.Instance.UserData.CumulativeAttendance++;
+        }
+
+        SaveManager.Instance.AllSave();
     }
 
     // === 혹시 게임을 강제 종료 할수도있어서 ===
