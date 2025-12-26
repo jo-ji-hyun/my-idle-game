@@ -36,6 +36,7 @@ public class UiManager : Singleton<UiManager>
     public GameObject SystemWindow;
     public GameObject StoreWindow;
     public GameObject CardWindow;
+    public GameObject DailyCheckWindow;
 
     protected override bool IsDestroy => false;
 

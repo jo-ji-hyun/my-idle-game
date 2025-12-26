@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 [Serializable]
 public class WorldTimeResponse
@@ -16,12 +17,15 @@ public class TimeKeeper : Singleton<TimeKeeper>
     public TextMeshProUGUI OfflineTxt;
     public TextMeshProUGUI RewardTxt;
     public TextMeshProUGUI StoneRewardTxt;
+    public Button CloseRewardPanelBtn;
 
     protected override bool IsDestroy => false;
 
     protected override void Awake()
     {
         base.Awake();
+
+        CloseRewardPanelBtn.onClick.AddListener(CloseOffLineReward);
 
         if (SaveManager.Instance.UserData.LastExitTime != 0)
         {
@@ -112,6 +116,13 @@ public class TimeKeeper : Singleton<TimeKeeper>
 
         SaveManager.Instance.UserData.LastExitTime = currentServerTime.Ticks;
         SaveManager.Instance.AllSave();
+    }
+
+    private void CloseOffLineReward()
+    {
+        RewardPanel.SetActive(false);
+
+        UiManager.Instance.DailyCheckWindow.SetActive(true);
     }
 
     // === 혹시 게임을 강제 종료 할수도있어서 ===

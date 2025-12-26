@@ -28,6 +28,9 @@ public class UserData
 
     public long LastExitTime;      // === 마지막 접속 기록 ===
     public long EnhanceStone;      // === 강화석 보유 현황 ===
+
+    public string LastAttendanceDate; // === 마지막 접속 날짜 ===
+    public long CumulativeAttendance; // === 누적 출석 일수 ===
 }
 
 [Serializable]

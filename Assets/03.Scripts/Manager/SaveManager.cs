@@ -147,11 +147,20 @@ public class SaveManager : Singleton<SaveManager>
             loaduser.Version = Consts.Version.Version1_Check;
         }
 
-        if (loaduser.Version != Consts.Version.Current_Version)
+        if (loaduser.Version < Consts.Version.Version2_Check)
         {
             loaduser.LastExitTime = DateTime.Now.Ticks;
 
             loaduser.EnhanceStone = 0;
+
+            loaduser.Version = Consts.Version.Version2_Check;
+        }
+
+        if (loaduser.Version != Consts.Version.Current_Version)
+        {
+            loaduser.LastAttendanceDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+            loaduser.CumulativeAttendance = 0;
 
             loaduser.Version = Consts.Version.Current_Version;
         }
@@ -183,6 +192,8 @@ public class SaveManager : Singleton<SaveManager>
             IsAutoOn = false,
             LastExitTime = DateTime.Now.Ticks,
             EnhanceStone = 0,
+            LastAttendanceDate = DateTime.Now.ToString("yyyy-MM-dd"),
+            CumulativeAttendance = 0,
         };
 
         PlayerEquip.Instance.InitData();
