@@ -11,7 +11,7 @@ public class DaySlot : MonoBehaviour
 
     public void Set(bool today, Image image, long amount)
     {
-        if (today) // === 오늘의 보상일 경우 ===
+        if(today) // === 오늘의 보상일 경우 ===
         {
             TodayRewardSprite.SetActive(true);
         }
