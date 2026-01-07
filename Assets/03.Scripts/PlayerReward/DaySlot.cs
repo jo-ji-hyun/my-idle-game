@@ -9,9 +9,18 @@ public class DaySlot : MonoBehaviour
     public GameObject BeforeRewardSprite;
     public TextMeshProUGUI AmountTxt;
 
-    public void Set(bool today, Image image, long amount)
+    public void Set(Sprite image, long amount)
     {
-        if(today) // === 오늘의 보상일 경우 ===
+        BeforeRewardSprite.SetActive(true);
+
+        Sprite.sprite = image;
+
+        AmountTxt.text = ValueFormat.Format(amount);
+    }
+
+    public void SetHighLight(bool highLight)
+    {
+        if(highLight) // === 오늘의 보상일 경우 ===
         {
             TodayRewardSprite.SetActive(true);
         }
@@ -19,9 +28,5 @@ public class DaySlot : MonoBehaviour
         {
             BeforeRewardSprite.SetActive(true);
         }
-
-        Sprite = image;
-
-        AmountTxt.text = ValueFormat.Format(amount);
     }
 }

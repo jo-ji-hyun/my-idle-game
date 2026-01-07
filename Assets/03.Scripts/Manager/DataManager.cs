@@ -6,6 +6,8 @@ public class DataManager : Singleton<DataManager>
 
     public List<ItemData> Allitems = new();
 
+    public List<DailyData> DailyDatas = new();
+
     public Dictionary<Consts.ItemType, ItemData> ItemDrops = new();
 
     public Dictionary<Consts.ItemType, List<ItemData>> AllitemsByType = new();
@@ -22,6 +24,8 @@ public class DataManager : Singleton<DataManager>
         GameData clonedata = Instantiate<GameData>(GameItems);
 
         Allitems = clonedata.ItemSheet;
+
+        DailyDatas = clonedata.DailyReward;
 
         List<ItemData> fielditems = new();
 

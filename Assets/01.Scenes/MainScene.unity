@@ -14705,7 +14705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1080153010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14833,6 +14833,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TodayRewardSprite: {fileID: 7151530278363312421}
+  TodayRewardAmount: {fileID: 8121582056258242577}
+  TodayData:
+    Id: 
+    Icon: 
+    Amount: 0
 --- !u!1 &1081168865
 GameObject:
   m_ObjectHideFlags: 0
@@ -15715,6 +15720,7 @@ MonoBehaviour:
   - {fileID: 848659259}
   - {fileID: 1750356605}
   CloseBtn: {fileID: 1080153011}
+  CurrentDailyReward: {fileID: 1080153014}
 --- !u!1 &1165617092
 GameObject:
   m_ObjectHideFlags: 0
