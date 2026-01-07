@@ -99,7 +99,7 @@ public class StoreUi : MonoBehaviour
                 sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/store_item.png[store_item_3]");
                 return sprite;
             case 4:
-                sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Diamond.png[Diamond]");
+                sprite = AddressableManager.Instance.GetAssets<Sprite>("Assets/00.Externals/Myaddressable/Diamond.png[Diamond_0]");
                 return sprite;
             default: 
                 return null;
