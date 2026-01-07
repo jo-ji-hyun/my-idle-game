@@ -62,6 +62,12 @@ public static class Consts
         public const int Version2_Check = 2;
     }
 
+    public static class DayCheck
+    {
+        public const int FirstDay = 4;
+        public const int FinalDay = 35;
+    }
+
     public static class EnhanceBonus
     {
         public const int Base_Hp_Bonus = 150;
