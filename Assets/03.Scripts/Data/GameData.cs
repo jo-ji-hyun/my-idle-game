@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameData : ScriptableObject
 {
 	public List<ItemData> ItemSheet;
+	public List<DailyData> DailyReward;
 }

@@ -189,3 +189,97 @@ MonoBehaviour:
     Grade: 3
     UpgradeType: 2
     Icon: Assets/00.Externals/Myaddressable/item/itemSheet3.png[itemSheet3_3]
+  DailyReward:
+  - Id: 201001001
+    Icon: Assets/00.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 10000
+  - Id: 201002001
+    Icon: Assets/01.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 10000
+  - Id: 201003001
+    Icon: Assets/02.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 15000
+  - Id: 201004001
+    Icon: Assets/03.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 20000
+  - Id: 201005001
+    Icon: Assets/04.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 5000
+  - Id: 201006001
+    Icon: Assets/05.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 8000
+  - Id: 201007001
+    Icon: Assets/06.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 9000
+  - Id: 201008001
+    Icon: Assets/07.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 10000
+  - Id: 201009001
+    Icon: Assets/08.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 10000
+  - Id: 201010001
+    Icon: Assets/09.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 15000
+  - Id: 201011001
+    Icon: Assets/10.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 20000
+  - Id: 201012001
+    Icon: Assets/11.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 5000
+  - Id: 201013001
+    Icon: Assets/12.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 8000
+  - Id: 201014001
+    Icon: Assets/13.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 9000
+  - Id: 201015001
+    Icon: Assets/14.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 10000
+  - Id: 201016001
+    Icon: Assets/15.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 10000
+  - Id: 201017001
+    Icon: Assets/16.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 15000
+  - Id: 201018001
+    Icon: Assets/17.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 20000
+  - Id: 201019001
+    Icon: Assets/18.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 5000
+  - Id: 201020001
+    Icon: Assets/19.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 8000
+  - Id: 201021001
+    Icon: Assets/20.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 9000
+  - Id: 201022001
+    Icon: Assets/21.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 10000
+  - Id: 201023001
+    Icon: Assets/22.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 10000
+  - Id: 201024001
+    Icon: Assets/23.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 15000
+  - Id: 201025001
+    Icon: Assets/24.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 20000
+  - Id: 201026001
+    Icon: Assets/25.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 5000
+  - Id: 201027001
+    Icon: Assets/26.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 8000
+  - Id: 201028001
+    Icon: Assets/27.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 9000
+  - Id: 201029001
+    Icon: Assets/28.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 10000
+  - Id: 201030001
+    Icon: Assets/29.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 10000
+  - Id: 201031001
+    Icon: Assets/30.Externals/Myaddressable/G_coin.png[G_coin]
+    Amount: 15000
