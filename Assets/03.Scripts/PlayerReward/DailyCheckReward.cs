@@ -11,7 +11,7 @@ public class DailyCheckReward : MonoBehaviour
 
     [Header("Calendar")]
     public List<DaySlot> DaySlotList;
-    private bool _isDay = false;
+    private bool _isPreDay = true;
 
     [Header("Seal")]
     public Image StampSeal;
@@ -28,7 +28,7 @@ public class DailyCheckReward : MonoBehaviour
         {
             if(i >= Consts.DayCheck.FirstDay && i < Consts.DayCheck.FinalDay)
             {
-                _isDay = true;
+                _isPreDay = false;
 
                 int rewardindex = i - Consts.DayCheck.FirstDay;
 
@@ -40,10 +40,10 @@ public class DailyCheckReward : MonoBehaviour
             }
             else
             {
-                _isDay = false;
+                _isPreDay = true;
             }
 
-            DaySlotList[i].gameObject.SetActive(_isDay);
+            DaySlotList[i].PreSprite.SetActive(_isPreDay);
         }
 
         StartCoroutine(DailyCheck());
@@ -59,7 +59,7 @@ public class DailyCheckReward : MonoBehaviour
         DaySlotList[todayindex].SetHighLight(true);
 
         // === 도장 애니메이션 ===
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
 
         StampSeal.transform.position = DaySlotList[todayindex].transform.position;
         StampSeal.transform.localScale = Vector3.one * 2.0f;
@@ -67,7 +67,7 @@ public class DailyCheckReward : MonoBehaviour
 
         SoundManager.Instance.SpecialEffectSound(Consts.SpecialItem.Stamp);
 
-        float stampTime = 0.1f;
+        float stampTime = 1.5f;
         float elapsed = 0f;
         while (elapsed < stampTime)
         {
