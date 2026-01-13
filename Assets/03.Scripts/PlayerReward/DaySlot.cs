@@ -9,6 +9,9 @@ public class DaySlot : MonoBehaviour
     public GameObject BeforeRewardSprite;
     public TextMeshProUGUI AmountTxt;
 
+    [Header("Date Not Includ")]
+    public GameObject PreSprite;
+
     public void Set(Sprite image, long amount)
     {
         BeforeRewardSprite.SetActive(true);

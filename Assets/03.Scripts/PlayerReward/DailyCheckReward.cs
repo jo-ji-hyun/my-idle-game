@@ -11,7 +11,7 @@ public class DailyCheckReward : MonoBehaviour
 
     [Header("Calendar")]
     public List<DaySlot> DaySlotList;
-    private bool _isDay = false;
+    private bool _isPreDay = true;
 
     [Header("Seal")]
     public Image StampSeal;
@@ -28,7 +28,7 @@ public class DailyCheckReward : MonoBehaviour
         {
             if(i >= Consts.DayCheck.FirstDay && i < Consts.DayCheck.FinalDay)
             {
-                _isDay = true;
+                _isPreDay = false;
 
                 int rewardindex = i - Consts.DayCheck.FirstDay;
 
@@ -40,10 +40,10 @@ public class DailyCheckReward : MonoBehaviour
             }
             else
             {
-                _isDay = false;
+                _isPreDay = true;
             }
 
-            DaySlotList[i].gameObject.SetActive(_isDay);
+            DaySlotList[i].PreSprite.SetActive(_isPreDay);
         }
 
         StartCoroutine(DailyCheck());
