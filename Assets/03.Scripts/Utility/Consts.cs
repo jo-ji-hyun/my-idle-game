@@ -23,7 +23,8 @@ public static class Consts
     {
         CardDraw,
         NotEnoughMoney,
-        SoldOut
+        SoldOut,
+        Stamp
     }
 
     public enum ItemType

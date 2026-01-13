@@ -13,6 +13,9 @@ public class DailyCheckReward : MonoBehaviour
     public List<DaySlot> DaySlotList;
     private bool _isDay = false;
 
+    [Header("Seal")]
+    public Image StampSeal;
+
     [Header("CloseBtn")]
     public Button CloseBtn;
     public CurrentDailyReward CurrentDailyReward;
@@ -50,12 +53,31 @@ public class DailyCheckReward : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
-        // === 출석 애니메이션 ===
-
         int today = DateTime.Now.Day;
         int todayindex = Consts.DayCheck.FirstDay + (today - 1);
 
         DaySlotList[todayindex].SetHighLight(true);
+
+        // === 도장 애니메이션 ===
+        yield return new WaitForSeconds(2.0f);
+
+        StampSeal.transform.position = DaySlotList[todayindex].transform.position;
+        StampSeal.transform.localScale = Vector3.one * 2.0f;
+        StampSeal.gameObject.SetActive(true);
+
+        SoundManager.Instance.SpecialEffectSound(Consts.SpecialItem.Stamp);
+
+        float stampTime = 0.1f;
+        float elapsed = 0f;
+        while (elapsed < stampTime)
+        {
+            elapsed += Time.deltaTime;
+            float scale = Mathf.Lerp(2f, 1f, elapsed / stampTime);
+            StampSeal.transform.localScale = Vector3.one * scale;
+            yield return null;
+        }
+
+        StampSeal.transform.localScale = Vector3.one;
 
         GiveReward(today - 1);
 
