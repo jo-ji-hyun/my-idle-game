@@ -24,9 +24,14 @@ public class DailyCheckReward : MonoBehaviour
     {
         UserAttendenceCalculationTxt.text = SaveManager.Instance.UserData.CumulativeAttendance.ToString();
 
-        for(int i = 0; i < DaySlotList.Count; i++)
+        StartCoroutine(DailyDataSetting());
+    }
+
+    private IEnumerator DailyDataSetting()
+    {
+        for (int i = 0; i < DaySlotList.Count; i++)
         {
-            if(i >= Consts.DayCheck.FirstDay && i < Consts.DayCheck.FinalDay)
+            if (i >= Consts.DayCheck.FirstDay && i < Consts.DayCheck.FinalDay)
             {
                 _isPreDay = false;
 
@@ -43,7 +48,11 @@ public class DailyCheckReward : MonoBehaviour
                 _isPreDay = true;
             }
 
+            DaySlotList[i].gameObject.SetActive(true);
+
             DaySlotList[i].PreSprite.SetActive(_isPreDay);
+
+            yield return null;
         }
 
         StartCoroutine(DailyCheck());
