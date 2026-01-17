@@ -10,18 +10,18 @@ https://drive.google.com/file/d/1y7vLvYPUFKomxlGEElt4B5q3C2SPPRan/view?usp=drive
 
 또한, 상점을 이용하여 "편의기능"을 해금하세요. 기존의 0등급보다 더 높은 등급의 아이템을 획득하여 싸우자!
 
-<img width="336" height="117" alt="신규아이템" src="https://github.com/user-attachments/assets/71a7f10b-c93c-4b91-97ab-b6145ad587b1" />
+<img width="336" height="117" alt="신규아이템" src="https://github.com/user-attachments/assets/71a7f10b-c93c-4b91-97ab-b6145ad587b1"/>
 
 패배해도 "지원금"을 통해 더 강해지고 다시 도전하세요!
 
 ## 주요 기능
 
 ## 📋 목차
-1. [로그인(파이어 베이스)](#-로그인(파이어-베이스))
+1. [로그인(파이어 베이스)](#-로그인파이어-베이스)
 2. [게임 스타트!](#-게임-스타트!)
 3. [인게임](#-인게임)
 4. [상점](#-상점)
-5. [아이템 등급](#-아이템-등급급)
+5. [아이템 등급](#-아이템-등급)
 6. [커밋 규칙](#-커밋-규칙)
 7. [코드 컨벤션](#-코드-컨벤션)
    
