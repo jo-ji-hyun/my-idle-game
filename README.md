@@ -3,7 +3,13 @@
 
 링크
 
+Widow 
+
 https://drive.google.com/file/d/1y7vLvYPUFKomxlGEElt4B5q3C2SPPRan/view?usp=drive_link
+
+Android
+
+https://drive.google.com/file/d/1udMtbBw69GukAMWCE81b4Dq84PyeUHcD/view?usp=drive_link
 
 # 개요
 적을 처치하고 "전리품"을 얻어 강화하여 더 높은 단계를 노려보자!
